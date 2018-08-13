@@ -1,0 +1,20 @@
+[
+	{
+		"Name": "WhiteSpores",
+		"Type": "WhiteSpores",
+		"Sell": {"Chance": 1.0, "Quantity": 1000, "Price": {"Type": "Loam", "Quantity": 10}},
+		"Buy": {"Chance": 1.0, "Quantity": 1000, "Price": {"Type": "Loam", "Quantity": 1}}
+	},
+	{
+		"Name": "RedSpores",
+		"Type": "RedSpores",
+		"Sell": {"Chance": 1.0, "Quantity": 100, "Price": {"Type": "WhiteSpores", "Quantity": 10}},
+		"Buy": {"Chance": 1.0, "Quantity": 100, "Price": {"Type": "WhiteSpores", "Quantity": 1}}
+	},
+	{
+		"Name": "WhiteSpirit",
+		"Type": "WhiteSpirit",
+		"Sell": {"Chance": 0.0, "Quantity": 0.0, "Price": {"Type": "WhiteSpores", "Quantity": 0}},
+		"Buy": {"Chance": 1.0, "Quantity": 100, "Price": {"Type": "WhiteSpores", "Quantity": 1000}}
+	}
+]
