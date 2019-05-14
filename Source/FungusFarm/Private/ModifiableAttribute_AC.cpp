@@ -60,7 +60,7 @@ void UModifiableAttribute_AC::AddModifier(const FAttributeModifier& NewModifier)
 {
 	if (NewModifier.AttributeType == AttributeType) 
 	{
-		Modifiers.AddUnique(NewModifier.Modifier);
+		Modifiers.Add(NewModifier.Modifier);
 		RecalculateValue();
 	}
 }
@@ -78,7 +78,7 @@ void UModifiableAttribute_AC::AddModifiers(const TArray<FAttributeModifier>& New
 	{
 		if (AttrMod.AttributeType == AttributeType)
 		{
-			Modifiers.AddUnique(AttrMod.Modifier);
+			Modifiers.Add(AttrMod.Modifier);
 		}
 	}
 	RecalculateValue();
