@@ -17,6 +17,9 @@ public:
 		FName Name;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TArray<FName> RecipeCategories;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FText DisplayName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
