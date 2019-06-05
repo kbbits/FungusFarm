@@ -16,5 +16,8 @@ public:
 		float PercentChance;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		int DropGroup;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsQuantityRange> GoodsOdds;
 };

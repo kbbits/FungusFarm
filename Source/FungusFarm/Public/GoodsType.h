@@ -24,4 +24,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName GoodsParentType;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float SellValue;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float BuyCost;
 };
