@@ -12,28 +12,53 @@ struct FGameplayGoal : public FTableRowBase
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		FName Name;
+		FName UniqueName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FText DisplayName;
 
+	// Message for user when goal becomes available for completion. (i.e. when "quest" is given to player)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		FText DisplayDescription;
+		FText OnAvailableMessage;
 
+	// Message to show when goal is completed.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		FText CompletedMessage;
+
+	// Should this one be announced when it becomes available? If hidden it will not be announced.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		bool Hidden;
+
+	// Goals that must be completed before this one is available.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> PrerequisiteGoals;
 
+	
+	// Requirements for completing the goal
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		TArray<FGoodsQuantity> TotalHarvestedGoodsToComplete;
+		TArray<FGoodsQuantity> HarvestedGoodsToComplete;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TArray<FGoodsQuantity> SoldGoodsToComplete;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TMap<FName, int32> CraftedRecipesToComplete;
+
+	
+	// Awards for completing the goal
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> UnlockedCraftingRecipes;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> UnlockedCrops;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TArray<FName> UnlockedTools;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TArray<FName> OtherAwards;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsDropChance> GoodsAwarded;
