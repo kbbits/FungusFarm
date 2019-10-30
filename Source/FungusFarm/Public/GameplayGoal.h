@@ -11,6 +11,10 @@ struct FGameplayGoal : public FTableRowBase
 	GENERATED_BODY()
 
 public:
+	bool operator== (FGameplayGoal& other);
+	bool operator== (const FGameplayGoal& other);
+	bool operator== (const FGameplayGoal& other) const;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName UniqueName;
 
@@ -29,6 +33,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		bool Hidden;
 
+	// Should this one be announced when it becomes available? If hidden it will not be announced.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		bool Announced;
+
 	// Goals that must be completed before this one is available.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> PrerequisiteGoals;
@@ -45,6 +53,16 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TMap<FName, int32> CraftedRecipesToComplete;
 
+	// Goal requirements progress
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TMap<FName, float> HarvestedGoodsProgress;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TMap<FName, float> SoldGoodsProgress;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TMap<FName, int32> CraftedRecipesProgress;
 	
 	// Awards for completing the goal
 
@@ -63,3 +81,4 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsDropChance> GoodsAwarded;
 };
+
