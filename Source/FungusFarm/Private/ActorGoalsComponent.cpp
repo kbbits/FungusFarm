@@ -111,6 +111,7 @@ void UActorGoalsComponent::UpdateHarvestedGoodsProgress(const TArray<FGoodsQuant
 {
 	if (HarvestedGoods.Num() == 0) { return; }
 	bool bAnyUpdated = false;
+	TArray<FGameplayGoal> ChangedGoals;
 
 	for (FGameplayGoal& CurGoal : CurrentGoals)
 	{
@@ -135,19 +136,22 @@ void UActorGoalsComponent::UpdateHarvestedGoodsProgress(const TArray<FGoodsQuant
 					//UE_LOG(LogTemp, Warning, TEXT("Goal harvest Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue));
 					CurGoal.HarvestedGoodsProgress.Add(CurGoods.Name, CurrentValue + CurGoods.Quantity);
 					//UE_LOG(LogTemp, Warning, TEXT("Goal harvest Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue + CurGoods.Quantity));
+					ChangedGoals.Add(CurGoal);
 					bAnyUpdated = true;
 				}				
 			}
 		}
 	}
 
-	if (bAnyUpdated) { CheckForCompletedGoals(); }
+	if (ChangedGoals.Num() > 0) { OnProgressChanged.Broadcast(ChangedGoals); }
+	if (bAnyUpdated) { CheckForCompletedGoals(); }	
 }
 
 void UActorGoalsComponent::UpdateSoldGoodsProgress(const TArray<FGoodsQuantity>& SoldGoods)
 {
 	if (SoldGoods.Num() == 0) { return; }
 	bool bAnyUpdated = false;
+	TArray<FGameplayGoal> ChangedGoals;
 
 	for (FGameplayGoal& CurGoal : CurrentGoals)
 	{
@@ -171,12 +175,14 @@ void UActorGoalsComponent::UpdateSoldGoodsProgress(const TArray<FGoodsQuantity>&
 					float CurrentValue = CurGoal.SoldGoodsProgress.FindRef(CurGoods.Name);
 					//UE_LOG(LogTemp, Warning, TEXT("Goal sold Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue + CurGoods.Quantity));
 					CurGoal.SoldGoodsProgress.Add(CurGoods.Name, CurrentValue + CurGoods.Quantity);
+					ChangedGoals.Add(CurGoal);
 					bAnyUpdated = true;
 				}
 			}
 		}
 	}
 
+	if (ChangedGoals.Num() > 0) { OnProgressChanged.Broadcast(ChangedGoals); }
 	if (bAnyUpdated) { CheckForCompletedGoals(); }
 }
 
@@ -184,6 +190,7 @@ void UActorGoalsComponent::UpdateCraftedRecipesProgress(const FName & RecipeName
 {
 	if (RecipeName.IsNone() || NumberCrafted == 0) { return; }
 	bool bAnyUpdated = false;
+	TArray<FGameplayGoal> ChangedGoals;
 
 	for (FGameplayGoal& CurGoal : CurrentGoals)
 	{
@@ -206,11 +213,26 @@ void UActorGoalsComponent::UpdateCraftedRecipesProgress(const FName & RecipeName
 				//UE_LOG(LogTemp, Warning, TEXT("Goal crafted recipe %s current: %d"), *RecipeName.ToString(), CurrentValue);
 				CurGoal.CraftedRecipesProgress.Add(RecipeName, CurrentValue + NumberCrafted); // .Add(RecipeName, CurrentValue + NumberCrafted);
 				//UE_LOG(LogTemp, Warning, TEXT("Goal crafted recipe %s new total: %d"), *RecipeName.ToString(), CurGoal.CraftedRecipesProgress.FindRef(RecipeName));
+				ChangedGoals.Add(CurGoal);
 				bAnyUpdated = true;
 			}
 		}
 	}
 
+	if (ChangedGoals.Num() > 0) { OnProgressChanged.Broadcast(ChangedGoals); }
 	if (bAnyUpdated) { CheckForCompletedGoals(); }
+}
+
+bool UActorGoalsComponent::GetCurrentGoalData(const FName GoalName, FGameplayGoal& GoalData)
+{
+	for (FGameplayGoal& CurGoal : CurrentGoals)
+	{
+		if (CurGoal.UniqueName == GoalName)
+		{
+			GoalData = CurGoal;
+			return true;
+		}
+	}
+	return false;
 }
 

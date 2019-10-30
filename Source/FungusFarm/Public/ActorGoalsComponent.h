@@ -3,10 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Delegates/Delegate.h"
 #include "Components/ActorComponent.h"
 #include "GameplayGoal.h"
 #include "ActorGoalsComponent.generated.h"
 
+// Event dispatcher for when we hit minimum value
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnGoalProgressChanged, const TArray<FGameplayGoal>&, ChangedGoals);
 
 UCLASS(Blueprintable, BlueprintType, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class FUNGUSFARM_API UActorGoalsComponent : public UActorComponent
@@ -22,6 +25,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> CompletedGoals;
+
+	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
+		FOnGoalProgressChanged OnProgressChanged;
 
 protected:
 	// Called when the game starts
@@ -50,5 +56,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		void UpdateCraftedRecipesProgress(const FName& RecipeName, const int NumberCrafted);
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		bool GetCurrentGoalData(const FName GoalName, FGameplayGoal& GoalData);
 		
 };
