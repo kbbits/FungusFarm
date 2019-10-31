@@ -6,6 +6,7 @@
 #include "Delegates/Delegate.h"
 #include "Components/ActorComponent.h"
 #include "GameplayGoal.h"
+#include "GameplayGoalProvider.h"
 #include "ActorGoalsComponent.generated.h"
 
 // Event dispatcher for when we hit minimum value
@@ -19,6 +20,9 @@ class FUNGUSFARM_API UActorGoalsComponent : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UActorGoalsComponent();
+
+	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Gameplay Goals")
+		TScriptInterface<IGameplayGoalProvider> GoalProvider;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGameplayGoal> CurrentGoals;
@@ -35,12 +39,17 @@ protected:
 
 	bool CheckGoalQualifiesComplete(const FGameplayGoal& Goal);
 
+	void InitGoalProvider();
+
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		void CheckForNewGoals();
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		void CreateNewRandomGoal(const int MinTier, const int MaxTier, bool& bSuccess, FGameplayGoal& NewRandomGoal);
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		void CheckForCompletedGoals();

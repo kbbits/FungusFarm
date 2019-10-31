@@ -48,6 +48,19 @@ bool UActorGoalsComponent::CheckGoalQualifiesComplete(const FGameplayGoal & Goal
 	return true;
 }
 
+void UActorGoalsComponent::InitGoalProvider()
+{
+	if (!GoalProvider)
+	{
+		// Use GameMode as default provider
+		AFFGameMode * _GameMode = Cast<AFFGameMode>(GetWorld()->GetAuthGameMode());
+		if (_GameMode)
+		{
+			GoalProvider = _GameMode;
+		}
+	}
+}
+
 
 // Called every frame
 void UActorGoalsComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
@@ -60,21 +73,34 @@ void UActorGoalsComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 // Check goals list for newly available goals.
 void UActorGoalsComponent::CheckForNewGoals()
 {
-	AFFGameMode * GameMode = (AFFGameMode *)GetWorld()->GetAuthGameMode();
-	IGameplayGoalProvider * GoalProvider;
-	if (GameMode) {
-		GoalProvider = Cast<IGameplayGoalProvider>(GameMode);
-		if (GoalProvider) {
-			TArray<FGameplayGoal> NewGoals =  IGameplayGoalProvider::Execute_GetNewGameplayGoals(GameMode, CurrentGoals, CompletedGoals);
-			CurrentGoals.Append(NewGoals);
-			IGameplayGoalListener * OwnerListener = Cast<IGameplayGoalListener>(GetOwner());
-			if (OwnerListener)
-			{
-				IGameplayGoalListener::Execute_OnNewGameplayGoals(GetOwner(), NewGoals);
-			}
-			//UE_LOG(LogTemp, Warning, TEXT("New Goals: %d"), NewGoals.Num());
+	//IGameplayGoalProvider * _GoalProvider = Cast<IGameplayGoalProvider>(GoalProvider.GetObject());
+	InitGoalProvider();
+	if (GoalProvider) {
+		TArray<FGameplayGoal> NewGoals = IGameplayGoalProvider::Execute_GetNewGameplayGoals(GoalProvider.GetObject(), CurrentGoals, CompletedGoals);
+		CurrentGoals.Append(NewGoals);
+		IGameplayGoalListener * OwnerListener = Cast<IGameplayGoalListener>(GetOwner());
+		if (OwnerListener)
+		{
+			IGameplayGoalListener::Execute_OnNewGameplayGoals(GetOwner(), NewGoals);
+		}
+		//UE_LOG(LogTemp, Warning, TEXT("New Goals: %d"), NewGoals.Num());
+	}
+}
+
+void UActorGoalsComponent::CreateNewRandomGoal(const int MinTier, const int MaxTier, bool& bSuccess, FGameplayGoal& NewRandomGoal)
+{
+	InitGoalProvider();
+	if (GoalProvider) {
+		FGameplayGoal NewGoal = IGameplayGoalProvider::Execute_GetNewRandomGameplayGoal(GoalProvider.GetObject(), CurrentGoals, CompletedGoals, MinTier, MaxTier);
+		if (!NewGoal.UniqueName.IsNone())
+		{
+			NewRandomGoal = NewGoal;
+			bSuccess = true;
+			return;
 		}
 	}
+	bSuccess = false;
+	return;
 }
 
 // Check to see if any of our current goals qualify as completed.
