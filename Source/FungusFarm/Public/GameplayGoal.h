@@ -3,6 +3,7 @@
 #include "Engine/DataTable.h"
 #include "GoodsQuantity.h"
 #include "GoodsDropChance.h"
+#include "Guid.h"
 #include "GameplayGoal.generated.h"
 
 USTRUCT(BlueprintType)
@@ -11,9 +12,14 @@ struct FGameplayGoal : public FTableRowBase
 	GENERATED_BODY()
 
 public:
-	bool operator== (FGameplayGoal& other);
-	bool operator== (const FGameplayGoal& other);
 	bool operator== (const FGameplayGoal& other) const;
+	bool operator== (const FGameplayGoal& other);
+	bool operator== (FGameplayGoal& other);
+	
+	bool operator== (const FName& otherName) const;
+	bool operator== (const FName& otherName);
+	bool operator== (FName& otherName);
+	
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName UniqueName;
@@ -33,7 +39,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		bool Hidden;
 
-	// Should this one be announced when it becomes available? If hidden it will not be announced.
+	// Has this goal been announced to the player?
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		bool Announced;
 
@@ -44,12 +50,19 @@ public:
 	
 	// Requirements for completing the goal
 	
+	// Goods harvested from "crops"
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsQuantity> HarvestedGoodsToComplete;
 
+	// Goods sold to the Market
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsQuantity> SoldGoodsToComplete;
 
+	// Goods that must be "given to the goal provider" in order to complete this goal
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TArray<FGoodsQuantity> DonatedGoodsToComplete;
+
+	// Recipes that must be crafted
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TMap<FName, int32> CraftedRecipesToComplete;
 
@@ -61,6 +74,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TMap<FName, float> SoldGoodsProgress;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TMap<FName, float> DonatedGoodsProgress;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TMap<FName, int32> CraftedRecipesProgress;
 	
@@ -80,5 +96,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsDropChance> GoodsAwarded;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		FGuid ProviderGuid;
 };
 

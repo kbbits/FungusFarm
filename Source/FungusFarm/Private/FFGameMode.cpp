@@ -16,3 +16,13 @@ FGameplayGoal AFFGameMode::GetNewRandomGameplayGoal_Implementation(const TArray<
 	// Subclass should implement meaningful logic
 	return FGameplayGoal();
 }
+
+FGuid AFFGameMode::GetGameplayGoalProviderGuid_Implementation()
+{
+	// Lazy init
+	if (!GameplayGoalProviderGuid.IsValid())
+	{
+		GameplayGoalProviderGuid = FGuid::NewGuid();
+	}
+	return GameplayGoalProviderGuid;
+}

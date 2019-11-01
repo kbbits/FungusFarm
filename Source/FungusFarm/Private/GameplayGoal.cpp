@@ -16,3 +16,18 @@ bool FGameplayGoal::operator== (const FGameplayGoal& other) const
 {
 	return (UniqueName == other.UniqueName);
 }
+
+bool FGameplayGoal::operator==(const FName & otherName) const
+{
+	return (UniqueName == otherName);
+}
+
+bool FGameplayGoal::operator==(const FName & otherName)
+{
+	return (UniqueName == otherName);
+}
+
+bool FGameplayGoal::operator==(FName & otherName)
+{
+	return (UniqueName == otherName);
+}

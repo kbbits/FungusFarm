@@ -21,29 +21,41 @@ public:
 	// Sets default values for this component's properties
 	UActorGoalsComponent();
 
-	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Gameplay Goals")
-		TScriptInterface<IGameplayGoalProvider> GoalProvider;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Gameplay Goals")
+		TArray<TScriptInterface<IGameplayGoalProvider>> GoalProviders;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Gameplay Goals")
 		TArray<FGameplayGoal> CurrentGoals;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Gameplay Goals")
 		TArray<FName> CompletedGoals;
 
 	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
 		FOnGoalProgressChanged OnProgressChanged;
 
+	// If true, this component will automatically check for new goals when others are set as complete. (via SetGoalsComplete)
+	// If this is false, other game code must call CheckForNewGoals() as needed.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Gameplay Goals")
+		bool bCheckForNewOnComplete;
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
+	// Determine if this goal meets it's completion requirements.
 	bool CheckGoalQualifiesComplete(const FGameplayGoal& Goal);
 
-	void InitGoalProvider();
+	void InitGoalProviders();
 
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		void AddGoalProvider(const TScriptInterface<IGameplayGoalProvider>& NewProvider);
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		int32 RemoveGoalProvider(const TScriptInterface<IGameplayGoalProvider>& ToRemoveProvider);
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		void CheckForNewGoals();
@@ -55,13 +67,16 @@ public:
 		void CheckForCompletedGoals();
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
-		void SetGoalComplete(const FGameplayGoal& Goal);
+		void SetGoalsComplete(const TArray<FGameplayGoal>& Goals, const bool bCheckForNewGoals);
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		void UpdateHarvestedGoodsProgress(const TArray<FGoodsQuantity>& HarvestedGoods);
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		void UpdateSoldGoodsProgress(const TArray<FGoodsQuantity>& SoldGoods);
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		bool UpdateDonatedGoodsProgress(const TArray<FGoodsQuantity>& DonatedGoods, const FName GoalUniqueName);
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		void UpdateCraftedRecipesProgress(const FName& RecipeName, const int NumberCrafted);

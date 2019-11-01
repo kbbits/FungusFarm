@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
+#include "Guid.h"
 #include "GameplayGoal.h"
 #include "GameplayGoalProvider.generated.h"
 
@@ -30,4 +31,7 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
 		FGameplayGoal GetNewRandomGameplayGoal(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const int MinTier = 0, const int MaxTier = 99);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
+		FGuid GetGameplayGoalProviderGuid();
 };
