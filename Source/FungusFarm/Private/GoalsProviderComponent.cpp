@@ -12,6 +12,11 @@ UGoalsProviderComponent::UGoalsProviderComponent()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	// ...
+	bDisableNewGoals = false;
+	if (!GameplayGoalProviderGuid.IsValid())
+	{
+		GameplayGoalProviderGuid = FGuid::NewGuid();
+	}
 }
 
 // Called when the game starts
@@ -19,7 +24,8 @@ void UGoalsProviderComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	InitGoalCache();	
+	SetComponentTickEnabled(false);
+	InitGoalCache();		
 }
 
 void UGoalsProviderComponent::InitGoalCache()
@@ -33,6 +39,7 @@ void UGoalsProviderComponent::InitGoalCache()
 		{
 			RemainingGoalNamesCached.Add(GoalName);
 		}
+		UE_LOG(LogFFGame, Warning, TEXT("  Found %d goals"), RemainingGoalNamesCached.Num());
 	}
 	else
 	{
@@ -58,15 +65,16 @@ void UGoalsProviderComponent::TickComponent(float DeltaTime, ELevelTick TickType
 TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals)
 {
 	TArray<FGameplayGoal> NewGoals; 
-	const FString ContextString("Goals Provider Component");
-
-	UE_LOG(LogFFGame, Warning, TEXT("%s GetNewGameplayGoals"), *GetNameSafe(this));
-
-	//if (RemainingGoalNamesCached.Num() == 0)
-	//{
-	//	InitGoalCache();
-	//}
 	
+	if (bDisableNewGoals) 
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("%s GetNewGameplayGoals %s New Goals DISABLED"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())));
+		return NewGoals; 
+	}
+	
+	UE_LOG(LogFFGame, Warning, TEXT("%s GetNewGameplayGoals %s"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())) );
+		
+	const FString ContextString("Goals Provider Component");
 	FGameplayGoal* CurGoal = nullptr;
 	bool bAddToNew = true;
 	TSet<FName> ToRemoveFromRemaining;
@@ -82,15 +90,16 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 
 		bAddToNew = true;
 		CurGoal = GoalsData->FindRow<FGameplayGoal>(GoalName, ContextString);
-		// Check each goal' prerequisites
+		// Check each goal's prerequisites
 		if (CurGoal && CurGoal->PrerequisiteGoals.Num() > 0) 
 		{
 			for (FName PrereqName : CurGoal->PrerequisiteGoals)
 			{
-				// If we don't have all pre-reqs, then don't add, and stop checking this goal's pre-reqs
 				if (!CompletedGoals.Contains(PrereqName))
 				{
+					// If we don't have all pre-reqs, then don't add
 					bAddToNew = false;
+					// And stop checking this goal's pre-reqs
 					break;
 				}
 			}
@@ -107,15 +116,18 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 	{
 		RemainingGoalNamesCached.Remove(RemoveName);
 	}
+
+	UE_LOG(LogFFGame, Warning, TEXT("  New Goals: %d"), NewGoals.Num());
 	
 	return NewGoals;
 }
 
-FGameplayGoal UGoalsProviderComponent::GetNewRandomGameplayGoal_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const int MinTier, const int MaxTier)
-{
-	// Subclass should implement meaningful logic
-	return FGameplayGoal();
-}
+
+//FGameplayGoal UGoalsProviderComponent::GetNewRandomGameplayGoal_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const int MinTier, const int MaxTier)
+//{
+//	// Subclass should implement meaningful logic
+//	return FGameplayGoal();
+//}
 
 FGuid UGoalsProviderComponent::GetGameplayGoalProviderGuid_Implementation()
 {
@@ -125,5 +137,10 @@ FGuid UGoalsProviderComponent::GetGameplayGoalProviderGuid_Implementation()
 		GameplayGoalProviderGuid = FGuid::NewGuid();
 	}
 	return GameplayGoalProviderGuid;
+}
+
+FString UGoalsProviderComponent::GetGameplayGoalProviderFriendlyName_Implementation()
+{
+	return FriendlyName;
 }
 

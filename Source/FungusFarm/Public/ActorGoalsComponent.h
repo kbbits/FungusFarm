@@ -58,6 +58,9 @@ public:
 		int32 RemoveGoalProvider(const TScriptInterface<IGameplayGoalProvider>& ToRemoveProvider);
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		const FString GetGoalProviderFriendlyName(const FGameplayGoal& Goal);
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		void CheckForNewGoals();
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")

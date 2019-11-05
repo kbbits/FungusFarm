@@ -23,6 +23,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Gameplay Goals")
 		UActorGoalsComponent* GameplayGoalsManager = nullptr;
 
+protected:
+	virtual void BeginPlay() override;
+
 public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")

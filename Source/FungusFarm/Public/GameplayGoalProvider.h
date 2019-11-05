@@ -25,13 +25,19 @@ class FUNGUSFARM_API IGameplayGoalProvider
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 
 public:
-
+	//bool operator== (const TScriptInterface<IGameplayGoalProvider>& other) const;
+	//bool operator== (const TScriptInterface<IGameplayGoalProvider>& other);
+	//bool operator== (TScriptInterface<IGameplayGoalProvider>& other);
+	
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
 		TArray<FGameplayGoal> GetNewGameplayGoals(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals);
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
-		FGameplayGoal GetNewRandomGameplayGoal(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const int MinTier = 0, const int MaxTier = 99);
+	//UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
+	//	FGameplayGoal GetNewRandomGameplayGoal(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const int MinTier = 0, const int MaxTier = 99);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
 		FGuid GetGameplayGoalProviderGuid();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
+		FString GetGameplayGoalProviderFriendlyName();
 };

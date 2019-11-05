@@ -21,8 +21,7 @@ void UActorGoalsComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
-	
+	SetComponentTickEnabled(false);	
 }
 
 bool UActorGoalsComponent::CheckGoalQualifiesComplete(const FGameplayGoal & Goal)
@@ -84,7 +83,14 @@ void UActorGoalsComponent::AddGoalProvider(const TScriptInterface<IGameplayGoalP
 {
 	if (NewProvider)
 	{
-		GoalProviders.AddUnique(NewProvider);
+		if (GoalProviders.Contains(NewProvider))
+		{
+			GoalProviders.RemoveSingle(NewProvider);
+		}		
+		GoalProviders.Add(NewProvider);
+
+		UE_LOG(LogFFGame, Warning, TEXT("%s New goal provider %s  GUID %s"), *GetNameSafe(this), *GetNameSafe(NewProvider.GetObject()), *IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(NewProvider.GetObject()).ToString());
+		UE_LOG(LogFFGame, Warning, TEXT(" Total providers %d"), GoalProviders.Num());
 	}
 }
 
@@ -98,12 +104,35 @@ int32 UActorGoalsComponent::RemoveGoalProvider(const TScriptInterface<IGameplayG
 	return 0;
 }
 
+const FString UActorGoalsComponent::GetGoalProviderFriendlyName(const FGameplayGoal & Goal)
+{
+	if (Goal.ProviderGuid.IsValid())
+	{
+		for (TScriptInterface<IGameplayGoalProvider> Provider : GoalProviders)
+		{
+			if (IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(Provider.GetObject()) == Goal.ProviderGuid)
+			{
+				return IGameplayGoalProvider::Execute_GetGameplayGoalProviderFriendlyName(Provider.GetObject());
+			}
+		}
+	}
+	else
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("%s Invalid provider GUID"), *GetNameSafe(this));
+		return FString("");
+	}
+	return FString("");
+}
+
 // Check all Goal Providers for newly available goals.
 void UActorGoalsComponent::CheckForNewGoals()
 {
 	//InitGoalProviders();
 	if (GoalProviders.Num() > 0) {
 		TArray<FGameplayGoal> NewGoals;
+
+		UE_LOG(LogFFGame, Warning, TEXT("%s Checking new goals from %d providers"), *GetNameSafe(this), GoalProviders.Num());
+
 		// Get any new goals from all goal providers
 		for (TScriptInterface<IGameplayGoalProvider> Provider : GoalProviders)
 		{ 
@@ -143,14 +172,14 @@ void UActorGoalsComponent::CreateNewRandomGoal(const int MinTier, const int MaxT
 		FGameplayGoal NewGoal;
 		for (TScriptInterface<IGameplayGoalProvider> Provider : GoalProviders)
 		{
-			NewGoal = IGameplayGoalProvider::Execute_GetNewRandomGameplayGoal(Provider.GetObject(), CurrentGoals, CompletedGoals, MinTier, MaxTier);
+			//NewGoal = IGameplayGoalProvider::Execute_GetNewRandomGameplayGoal(Provider.GetObject(), CurrentGoals, CompletedGoals, MinTier, MaxTier);
 			// Return first valid one
-			if (!NewGoal.UniqueName.IsNone())
-			{
-				NewRandomGoal = NewGoal;
-				bSuccess = true;
-				return;
-			}
+			//if (!NewGoal.UniqueName.IsNone())
+			//{
+			//	NewRandomGoal = NewGoal;
+			//	bSuccess = true;
+			//	return;
+			//}
 		}		
 	}
 	bSuccess = false;

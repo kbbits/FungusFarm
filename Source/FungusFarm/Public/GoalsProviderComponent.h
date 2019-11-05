@@ -20,14 +20,22 @@ public:
 	UGoalsProviderComponent();
 
 protected:
-	UPROPERTY(BlueprintGetter = "GetGoalProviderGuid", SaveGame, Category = "Gameplay Goals")
+	UPROPERTY(BlueprintReadOnly, BlueprintGetter = "GetGoalProviderGuid", SaveGame, Category = "Gameplay Goals")
 		FGuid GameplayGoalProviderGuid;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Gameplay Goals")
+	UPROPERTY(EditAnywhere, SaveGame, Category = "Gameplay Goals")
+		FString FriendlyName;
+
+	UPROPERTY(EditAnywhere, Category = "Gameplay Goals")
 		UDataTable* GoalsData;
 
+	// Setting this to true will cause GetNewGameplayGoals to always return an empty list. i.e no new goals.
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Gameplay Goals")
+		bool bDisableNewGoals;
+	
 	// Holds the goal names from the data table that are could still become available. i.e. not completed nor currently active
-	TSet<FName> RemainingGoalNamesCached;
+	UPROPERTY(BlueprintReadonly, Category = "Gameplay Goals")
+		TSet<FName> RemainingGoalNamesCached;
 
 protected:
 	// Called when the game starts
@@ -43,13 +51,17 @@ public:
 		TArray<FGameplayGoal> GetNewGameplayGoals(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals);
 	virtual TArray<FGameplayGoal> GetNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals) override;
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
-		FGameplayGoal GetNewRandomGameplayGoal(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const int MinTier = 0, const int MaxTier = 99);
-	virtual FGameplayGoal GetNewRandomGameplayGoal_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const int MinTier = 0, const int MaxTier = 99) override;
+	//UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
+	//	FGameplayGoal GetNewRandomGameplayGoal(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const int MinTier = 0, const int MaxTier = 99);
+	//virtual FGameplayGoal GetNewRandomGameplayGoal_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const int MinTier = 0, const int MaxTier = 99) override;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
 		FGuid GetGameplayGoalProviderGuid();
 	virtual FGuid GetGameplayGoalProviderGuid_Implementation() override;
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
+		FString GetGameplayGoalProviderFriendlyName();
+	virtual FString GetGameplayGoalProviderFriendlyName_Implementation() override;
 
 	// For access not via interface
 	UFUNCTION(BlueprintGetter, Category = "Gameplay Goals")

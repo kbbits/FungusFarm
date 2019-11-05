@@ -13,33 +13,22 @@
  * 
  */
 UCLASS()
-class FUNGUSFARM_API AFFGameMode : public AGameMode //, public IGameplayGoalProvider
+class FUNGUSFARM_API AFFGameMode : public AGameMode 
 {
 	GENERATED_BODY()
 
 public:
 	AFFGameMode(const FObjectInitializer& ObjectInitializer);
 
-protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Components")
 		UGoalsProviderComponent* GameplayGoalsProvider = nullptr;
 
+protected:
+
+	virtual void BeginPlay() override;
+
 public:
-	/*
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
-		TArray<FGameplayGoal> GetNewGameplayGoals(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals);
-	virtual TArray<FGameplayGoal> GetNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals) override;
-
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
-		FGameplayGoal GetNewRandomGameplayGoal(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const int MinTier = 0, const int MaxTier = 99);
-	virtual FGameplayGoal GetNewRandomGameplayGoal_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const int MinTier = 0, const int MaxTier = 99) override;
-
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
-		FGuid GetGameplayGoalProviderGuid();
-	virtual FGuid GetGameplayGoalProviderGuid_Implementation() override;
-	*/
-
-	// For FFGameMode
-	UFUNCTION(BlueprintGetter, Category = "Gameplay Goals")
-		FORCEINLINE FGuid GetGoalProviderGuid() { return GameplayGoalsProvider ? GameplayGoalsProvider->GetGameplayGoalProviderGuid() : FGuid(); }
+	
+	
+	
 };

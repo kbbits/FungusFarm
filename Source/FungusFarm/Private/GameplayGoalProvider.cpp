@@ -3,9 +3,22 @@
 
 #include "GameplayGoalProvider.h"
 
-//UGameplayGoalProvider::UGameplayGoalProvider(const FObjectInitializer& ObjectInitializer)
-//	:Super(ObjectInitializer)
-//{
-//}
+/*
+bool IGameplayGoalProvider::operator== (const TScriptInterface<IGameplayGoalProvider>& other) const
+{
+	FGuid otherGuid = IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(other.GetObject());
+	return (IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid((UObject*)this) == otherGuid);
+}
 
-// Add default functionality here for any IGameplayGoalProviderInterface functions that are not pure virtual.
+bool IGameplayGoalProvider::operator== (const TScriptInterface<IGameplayGoalProvider>& other)
+{
+	FGuid otherGuid = IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(other.GetObject());
+	return (IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid((UObject*)this) == otherGuid);
+}
+
+bool IGameplayGoalProvider::operator== (TScriptInterface<IGameplayGoalProvider>& other)
+{
+    FGuid otherGuid = IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(other.GetObject());
+	return (IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid((UObject*)this) == otherGuid);
+}
+*/
