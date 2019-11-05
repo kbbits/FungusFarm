@@ -22,6 +22,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Gameplay Goals")
 		UActorGoalsComponent* GameplayGoalsManager = nullptr;
+
 public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")

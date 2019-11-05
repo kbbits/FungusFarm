@@ -56,15 +56,18 @@ bool UActorGoalsComponent::CheckGoalQualifiesComplete(const FGameplayGoal & Goal
 
 void UActorGoalsComponent::InitGoalProviders()
 {
+	UE_LOG(LogFFGame, Warning, TEXT("%s - Called deprecated InitGoalProviders"), *GetNameSafe(this));
+	/*
 	if (GoalProviders.Num() == 0)
 	{
 		// Use GameMode as default provider
 		AFFGameMode * _GameMode = Cast<AFFGameMode>(GetWorld()->GetAuthGameMode());
-		if (_GameMode)
+		if (_GameMode &&)
 		{
 			AddGoalProvider(_GameMode);
 		}
 	}
+	*/
 }
 
 
@@ -98,7 +101,7 @@ int32 UActorGoalsComponent::RemoveGoalProvider(const TScriptInterface<IGameplayG
 // Check all Goal Providers for newly available goals.
 void UActorGoalsComponent::CheckForNewGoals()
 {
-	InitGoalProviders();
+	//InitGoalProviders();
 	if (GoalProviders.Num() > 0) {
 		TArray<FGameplayGoal> NewGoals;
 		// Get any new goals from all goal providers
@@ -134,7 +137,7 @@ void UActorGoalsComponent::CheckForNewGoals()
 // Stops with first provider to provide a valid goal.
 void UActorGoalsComponent::CreateNewRandomGoal(const int MinTier, const int MaxTier, bool& bSuccess, FGameplayGoal& NewRandomGoal)
 {
-	InitGoalProviders();
+	//InitGoalProviders();
 	if (GoalProviders.Num() > 0) 
 	{
 		FGameplayGoal NewGoal;
