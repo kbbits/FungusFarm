@@ -23,12 +23,21 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Components")
 		UGoalsProviderComponent* GameplayGoalsProvider = nullptr;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Components")
+		TArray<UGoalsProviderComponent*> SecondaryGoalProviders;
+
 protected:
 
 	virtual void BeginPlay() override;
 
 public:
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		UGoalsProviderComponent* AddSecondaryGoalProvider(const FName ProviderUniqueName);
 	
-	
-	
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		bool RemoveSecondaryGoalProvider(const FName ProviderUniqueName);
+
+	//UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+	//	void OnGameplayGoalComplete(const FGameplayGoal& CompletedGoal);
 };

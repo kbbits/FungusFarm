@@ -1,31 +1,25 @@
 #pragma once
 
 #include "Engine/DataTable.h"
-#include "GoodsQuantity.h"
+#include "GoodsQuantityRange.h"
 #include "GoodsDropChance.h"
 #include "Guid.h"
-#include "GameplayGoal.generated.h"
+#include "GameplayGoalTemplate.generated.h"
 
 USTRUCT(BlueprintType)
-struct FGameplayGoal : public FTableRowBase
+struct FGameplayGoalTemplate : public FTableRowBase
 {
 	GENERATED_BODY()
 
 public:
-	bool operator== (const FGameplayGoal& other) const;
-	bool operator== (const FGameplayGoal& other);
-	bool operator== (FGameplayGoal& other);
-	
-	bool operator== (const FName& otherName) const;
-	bool operator== (const FName& otherName);
-	bool operator== (FName& otherName);
-	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float WeightedChance;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		FName UniqueName;
+		FName UniqueNameBase;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		FText DisplayName;
+		FText DisplayNameBase;
 
 	// Message for user when goal becomes available for completion. (i.e. when "quest" is given to player)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
@@ -39,54 +33,34 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		bool Hidden;
 
-	// Cann the player abandon/ignore this goal?
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		bool CanAbandon;
 
-	// Can this goal be repeated?  i.e. it can become a new goal even if it is in the CompletedGoals list.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		bool CanRepeat;
-
-	// Has this goal been announced to the player?
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		bool Announced;
 
 	// Goals that must be completed before this one is available.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> PrerequisiteGoals;
-
 	
 	// Requirements for completing the goal
 	
 	// Goods harvested from "crops"
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		TArray<FGoodsQuantity> HarvestedGoodsToComplete;
+		TArray<FGoodsQuantityRange> HarvestedGoodsToComplete;
 
 	// Goods sold to the Market
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		TArray<FGoodsQuantity> SoldGoodsToComplete;
+		TArray<FGoodsQuantityRange> SoldGoodsToComplete;
 
 	// Goods that must be "given to the goal provider" in order to complete this goal
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		TArray<FGoodsQuantity> DonatedGoodsToComplete;
+		TArray<FGoodsQuantityRange> DonatedGoodsToComplete;
 
 	// Recipes that must be crafted
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		TMap<FName, int32> CraftedRecipesToComplete;
-
-	// Goal requirements progress
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		TMap<FName, float> HarvestedGoodsProgress;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		TMap<FName, float> SoldGoodsProgress;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		TMap<FName, float> DonatedGoodsProgress;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		TMap<FName, int32> CraftedRecipesProgress;
+		TMap<FName, FGoodsQuantityRange> CraftedRecipesToComplete;
+		
 	
 	// Awards for completing the goal
 
@@ -104,8 +78,5 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsDropChance> GoodsAwarded;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		FGuid ProviderGuid;
 };
 

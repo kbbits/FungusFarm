@@ -58,6 +58,9 @@ public:
 		int32 RemoveGoalProvider(const TScriptInterface<IGameplayGoalProvider>& ToRemoveProvider);
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		TScriptInterface<IGameplayGoalProvider> GetGoalProvider(const FGameplayGoal& Goal);
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		const FString GetGoalProviderFriendlyName(const FGameplayGoal& Goal);
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
@@ -71,6 +74,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		void SetGoalsComplete(const TArray<FGameplayGoal>& Goals, const bool bCheckForNewGoals);
+
+	UFUNCTION(BlueprintCallable, Category = "GameplayGoals")
+		void AbandonCurrentGoal(const FName& AbandonedGoalName);
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		void UpdateHarvestedGoodsProgress(const TArray<FGoodsQuantity>& HarvestedGoods);
@@ -86,5 +92,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		bool GetCurrentGoalData(const FName GoalName, FGameplayGoal& GoalData);
+
+	UFUNCTION()
+		void OnNewGoalsEnabled_Respond();
 		
 };

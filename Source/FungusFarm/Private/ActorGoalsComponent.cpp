@@ -4,6 +4,7 @@
 #include "ActorGoalsComponent.h"
 #include "FFGameMode.h"
 #include "FFPlayerControllerBase.h"
+#include "GoalsProviderComponent.h"
 
 // Sets default values for this component's properties
 UActorGoalsComponent::UActorGoalsComponent()
@@ -86,8 +87,15 @@ void UActorGoalsComponent::AddGoalProvider(const TScriptInterface<IGameplayGoalP
 		if (GoalProviders.Contains(NewProvider))
 		{
 			GoalProviders.RemoveSingle(NewProvider);
-		}		
+		}
 		GoalProviders.Add(NewProvider);
+
+		// Hook up the delegate listeners
+		UGoalsProviderComponent* GoalComponent = Cast<UGoalsProviderComponent>(NewProvider.GetObject());
+		if (GoalComponent)
+		{
+			GoalComponent->OnNewGoalsEnabled.AddDynamic(this, &UActorGoalsComponent::OnNewGoalsEnabled_Respond);
+		}
 
 		UE_LOG(LogFFGame, Warning, TEXT("%s New goal provider %s  GUID %s"), *GetNameSafe(this), *GetNameSafe(NewProvider.GetObject()), *IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(NewProvider.GetObject()).ToString());
 		UE_LOG(LogFFGame, Warning, TEXT(" Total providers %d"), GoalProviders.Num());
@@ -99,12 +107,21 @@ int32 UActorGoalsComponent::RemoveGoalProvider(const TScriptInterface<IGameplayG
 {
 	if (ToRemoveProvider)
 	{
-		return GoalProviders.Remove(ToRemoveProvider);
+		bool removed = GoalProviders.Remove(ToRemoveProvider);
+		if (removed)
+		{
+			UGoalsProviderComponent* GoalsComponent = Cast<UGoalsProviderComponent>(ToRemoveProvider.GetObject());
+			if (GoalsComponent)
+			{
+				GoalsComponent->OnNewGoalsEnabled.RemoveDynamic(this, &UActorGoalsComponent::OnNewGoalsEnabled_Respond);
+			}			
+		}
+		return removed;
 	}
 	return 0;
 }
 
-const FString UActorGoalsComponent::GetGoalProviderFriendlyName(const FGameplayGoal & Goal)
+TScriptInterface<IGameplayGoalProvider> UActorGoalsComponent::GetGoalProvider(const FGameplayGoal & Goal)
 {
 	if (Goal.ProviderGuid.IsValid())
 	{
@@ -112,13 +129,23 @@ const FString UActorGoalsComponent::GetGoalProviderFriendlyName(const FGameplayG
 		{
 			if (IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(Provider.GetObject()) == Goal.ProviderGuid)
 			{
-				return IGameplayGoalProvider::Execute_GetGameplayGoalProviderFriendlyName(Provider.GetObject());
+				return Provider;
 			}
 		}
 	}
+	return nullptr;
+}
+
+const FString UActorGoalsComponent::GetGoalProviderFriendlyName(const FGameplayGoal & Goal)
+{
+	TScriptInterface<IGameplayGoalProvider> Provider = GetGoalProvider(Goal);
+	if (Provider)
+	{
+		return IGameplayGoalProvider::Execute_GetGameplayGoalProviderFriendlyName(Provider.GetObject());
+	}
 	else
 	{
-		UE_LOG(LogFFGame, Warning, TEXT("%s Invalid provider GUID"), *GetNameSafe(this));
+		UE_LOG(LogFFGame, Warning, TEXT("%s Invalid provider"), *GetNameSafe(this));
 		return FString("");
 	}
 	return FString("");
@@ -136,16 +163,23 @@ void UActorGoalsComponent::CheckForNewGoals()
 		// Get any new goals from all goal providers
 		for (TScriptInterface<IGameplayGoalProvider> Provider : GoalProviders)
 		{ 
-			FGuid ProviderGuid = IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(Provider.GetObject());
-			TArray<FGameplayGoal> TmpGoals = IGameplayGoalProvider::Execute_GetNewGameplayGoals(Provider.GetObject(), CurrentGoals, CompletedGoals);
-			if (TmpGoals.Num() > 0) 
-			{ 
-				// Make sure all goals have correct provider GUID. (don't rely on provider)
-				for (FGameplayGoal& TmpGoal : TmpGoals)
+			if (Provider.GetObject()->IsValidLowLevel())
+			{
+				FGuid ProviderGuid = IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(Provider.GetObject());
+				TArray<FGameplayGoal> TmpGoals = IGameplayGoalProvider::Execute_GetNewGameplayGoals(Provider.GetObject(), CurrentGoals, CompletedGoals);
+				if (TmpGoals.Num() > 0)
 				{
-					TmpGoal.ProviderGuid = ProviderGuid;
+					// Make sure all goals have correct provider GUID. (don't rely on provider)
+					for (FGameplayGoal& TmpGoal : TmpGoals)
+					{
+						TmpGoal.ProviderGuid = ProviderGuid;
+					}
+					NewGoals.Append(TmpGoals);
 				}
-				NewGoals.Append(TmpGoals); 
+			}
+			else
+			{
+				UE_LOG(LogFFGame, Warning, TEXT("Invalid GamplayGoalProvider %s"), *GetNameSafe(Provider.GetObject()));
 			}
 		}
 		if (NewGoals.Num() > 0)
@@ -208,15 +242,38 @@ void UActorGoalsComponent::SetGoalsComplete(const TArray<FGameplayGoal>& Goals, 
 		for (const FGameplayGoal& CurGoal : Goals)
 		{
 			CurrentGoals.RemoveSingle(CurGoal);
-			CompletedGoals.AddUnique(CurGoal.UniqueName);
+			CompletedGoals.Add(CurGoal.UniqueName);
+			// Notify provider via delegate 
+			TScriptInterface<IGameplayGoalProvider> Provider = GetGoalProvider(CurGoal);
+			if (Provider)
+			{
+				IGameplayGoalProvider::Execute_OnGameplayGoalCompleted(Provider.GetObject(), CurGoal);
+			}
+			UE_LOG(LogFFGame, Warning, TEXT("%s goal complete %s"), *GetNameSafe(this), *CurGoal.UniqueName.ToString());
 		}
 		// Notify listener of completed goals
 		IGameplayGoalListener * OwnerListener = Cast<IGameplayGoalListener>(GetOwner());
 		if (OwnerListener) { IGameplayGoalListener::Execute_OnGameplayGoalsCompleted(GetOwner(), Goals); }
 
+
 		if (bCheckForNewGoals) {
 			CheckForNewGoals(); 
 		}
+	}
+}
+
+void UActorGoalsComponent::AbandonCurrentGoal(const FName & AbandonedGoalName)
+{
+	const FGameplayGoal* TmpGoal = CurrentGoals.FindByKey(AbandonedGoalName);
+	if (TmpGoal)
+	{
+		TScriptInterface<IGameplayGoalProvider> Provider = GetGoalProvider(*TmpGoal);
+		if (Provider)
+		{
+			IGameplayGoalProvider::Execute_OnGameplayGoalAbandoned(Provider.GetObject(), *TmpGoal);
+		}
+		CurrentGoals.Remove(*TmpGoal);
+		UE_LOG(LogFFGame, Warning, TEXT("%s Abandoning goal %s"), *GetNameSafe(this), *AbandonedGoalName.ToString())
 	}
 }
 
@@ -396,5 +453,10 @@ bool UActorGoalsComponent::GetCurrentGoalData(const FName GoalName, FGameplayGoa
 		}
 	}
 	return false;
+}
+
+void UActorGoalsComponent::OnNewGoalsEnabled_Respond()
+{
+	CheckForNewGoals();
 }
 
