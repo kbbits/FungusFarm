@@ -97,7 +97,7 @@ void UGoalsProviderComponent::TickComponent(float DeltaTime, ELevelTick TickType
 	}
 }
 
-TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals)
+TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals)
 {
 	TArray<FGameplayGoal> NewGoals; 
 	NewGoals.Empty();
@@ -148,7 +148,7 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 			CurGoal = GoalsData->FindRow<FGameplayGoal>(GoalName, ContextString);
 
 			// Go to the next one if this one is already complete and cannot be repeated.
-			if (!CurGoal->CanRepeat && CompletedGoals.Contains(GoalName))
+			if (!CurGoal->CanRepeat && (CompletedGoals.Contains(GoalName) || AbandonedGoals.Contains(GoalName)))
 			{
 				// Also remove it from our remaining goals cache
 				ToRemoveFromRemaining.Add(GoalName);
@@ -217,6 +217,11 @@ void UGoalsProviderComponent::OnGameplayGoalAbandoned_Implementation(const FGame
 	{
 		if (AbandonedGoal.CanAbandon)
 		{
+			if (!AbandonedGoal.CanRepeat)
+			{
+				// remove it from our remaining goals cache
+				RemainingGoalNamesCached.Remove(AbandonedGoal.UniqueName);
+			}
 			if (CurrentActiveGoals > 0)
 			{
 				--CurrentActiveGoals;
@@ -226,7 +231,6 @@ void UGoalsProviderComponent::OnGameplayGoalAbandoned_Implementation(const FGame
 		{
 			UE_LOG(LogFFGame, Warning, TEXT("%s Attempting Abandon of non-abandonable goal: %s"), *GetNameSafe(this), *AbandonedGoal.UniqueName.ToString())
 		}
-		
 	}
 }
 

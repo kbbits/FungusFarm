@@ -30,6 +30,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Gameplay Goals")
 		TArray<FName> CompletedGoals;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Gameplay Goals")
+		TArray<FName> AbandonedGoals;
+
 	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
 		FOnGoalProgressChanged OnProgressChanged;
 
@@ -42,8 +45,7 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-	// Determine if this goal meets it's completion requirements.
-	bool CheckGoalQualifiesComplete(const FGameplayGoal& Goal);
+	
 
 	void InitGoalProviders();
 
@@ -62,6 +64,10 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		const FString GetGoalProviderFriendlyName(const FGameplayGoal& Goal);
+
+	// Determine if this goal meets it's completion requirements.
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		bool CheckGoalQualifiesComplete(const FGameplayGoal& Goal);
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		void CheckForNewGoals();

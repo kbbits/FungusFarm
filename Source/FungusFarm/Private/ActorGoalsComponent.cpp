@@ -25,34 +25,6 @@ void UActorGoalsComponent::BeginPlay()
 	SetComponentTickEnabled(false);	
 }
 
-bool UActorGoalsComponent::CheckGoalQualifiesComplete(const FGameplayGoal & Goal)
-{
-	// Harvest totals
-	for (const FGoodsQuantity& RequiredGoods : Goal.HarvestedGoodsToComplete) 
-	{
-		if (Goal.HarvestedGoodsProgress.FindRef(RequiredGoods.Name) < RequiredGoods.Quantity) { return false; }
-	}
-
-	// Sold goods
-	for (const FGoodsQuantity& RequiredGoods : Goal.SoldGoodsToComplete)
-	{
-		if (Goal.SoldGoodsProgress.FindRef(RequiredGoods.Name) < RequiredGoods.Quantity) { return false; }
-	}
-
-	// Donated goods
-	for (const FGoodsQuantity& RequiredGoods : Goal.DonatedGoodsToComplete)
-	{
-		if (Goal.DonatedGoodsProgress.FindRef(RequiredGoods.Name) < RequiredGoods.Quantity) { return false; }
-	}
-
-	// Recipes crafted
-	for (auto& RequiredRecipe : Goal.CraftedRecipesToComplete)
-	{
-		if (Goal.CraftedRecipesProgress.FindRef(RequiredRecipe.Key) < RequiredRecipe.Value) { return false; }
-	}
-	
-	return true;
-}
 
 void UActorGoalsComponent::InitGoalProviders()
 {
@@ -79,6 +51,7 @@ void UActorGoalsComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	// ...
 }
 
+
 // Add a new GameplayGoalsProvider 
 void UActorGoalsComponent::AddGoalProvider(const TScriptInterface<IGameplayGoalProvider>& NewProvider)
 {
@@ -102,6 +75,7 @@ void UActorGoalsComponent::AddGoalProvider(const TScriptInterface<IGameplayGoalP
 	}
 }
 
+
 // Remove the given GameplayGoalProvider from this component
 int32 UActorGoalsComponent::RemoveGoalProvider(const TScriptInterface<IGameplayGoalProvider>& ToRemoveProvider)
 {
@@ -121,6 +95,7 @@ int32 UActorGoalsComponent::RemoveGoalProvider(const TScriptInterface<IGameplayG
 	return 0;
 }
 
+
 TScriptInterface<IGameplayGoalProvider> UActorGoalsComponent::GetGoalProvider(const FGameplayGoal & Goal)
 {
 	if (Goal.ProviderGuid.IsValid())
@@ -135,6 +110,7 @@ TScriptInterface<IGameplayGoalProvider> UActorGoalsComponent::GetGoalProvider(co
 	}
 	return nullptr;
 }
+
 
 const FString UActorGoalsComponent::GetGoalProviderFriendlyName(const FGameplayGoal & Goal)
 {
@@ -151,6 +127,37 @@ const FString UActorGoalsComponent::GetGoalProviderFriendlyName(const FGameplayG
 	return FString("");
 }
 
+
+bool UActorGoalsComponent::CheckGoalQualifiesComplete(const FGameplayGoal & Goal)
+{
+	// Harvest totals
+	for (const FGoodsQuantity& RequiredGoods : Goal.HarvestedGoodsToComplete)
+	{
+		if (Goal.HarvestedGoodsProgress.FindRef(RequiredGoods.Name) < RequiredGoods.Quantity) { return false; }
+	}
+
+	// Sold goods
+	for (const FGoodsQuantity& RequiredGoods : Goal.SoldGoodsToComplete)
+	{
+		if (Goal.SoldGoodsProgress.FindRef(RequiredGoods.Name) < RequiredGoods.Quantity) { return false; }
+	}
+
+	// Donated goods
+	for (const FGoodsQuantity& RequiredGoods : Goal.DonatedGoodsToComplete)
+	{
+		if (Goal.DonatedGoodsProgress.FindRef(RequiredGoods.Name) < RequiredGoods.Quantity) { return false; }
+	}
+
+	// Recipes crafted
+	for (auto& RequiredRecipe : Goal.CraftedRecipesToComplete)
+	{
+		if (Goal.CraftedRecipesProgress.FindRef(RequiredRecipe.Key) < RequiredRecipe.Value) { return false; }
+	}
+
+	return true;
+}
+
+
 // Check all Goal Providers for newly available goals.
 void UActorGoalsComponent::CheckForNewGoals()
 {
@@ -166,7 +173,7 @@ void UActorGoalsComponent::CheckForNewGoals()
 			if (Provider.GetObject()->IsValidLowLevel())
 			{
 				FGuid ProviderGuid = IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(Provider.GetObject());
-				TArray<FGameplayGoal> TmpGoals = IGameplayGoalProvider::Execute_GetNewGameplayGoals(Provider.GetObject(), CurrentGoals, CompletedGoals);
+				TArray<FGameplayGoal> TmpGoals = IGameplayGoalProvider::Execute_GetNewGameplayGoals(Provider.GetObject(), CurrentGoals, CompletedGoals, AbandonedGoals);
 				if (TmpGoals.Num() > 0)
 				{
 					// Make sure all goals have correct provider GUID. (don't rely on provider)
@@ -196,6 +203,7 @@ void UActorGoalsComponent::CheckForNewGoals()
 	}
 }
 
+
 // Ask our Goal Providers for a new random goal.
 // Stops with first provider to provide a valid goal.
 void UActorGoalsComponent::CreateNewRandomGoal(const int MinTier, const int MaxTier, bool& bSuccess, FGameplayGoal& NewRandomGoal)
@@ -220,6 +228,7 @@ void UActorGoalsComponent::CreateNewRandomGoal(const int MinTier, const int MaxT
 	return;
 }
 
+
 // Check to see if any of our current goals qualify as completed.
 // Will set them complete if so. (and call resulting events/notifications)
 void UActorGoalsComponent::CheckForCompletedGoals()
@@ -232,6 +241,7 @@ void UActorGoalsComponent::CheckForCompletedGoals()
 
 	SetGoalsComplete(NewlyCompletedGoals, bCheckForNewOnComplete);
 }
+
 
 // Add a goal name to the list of completed goals.
 // if bCheckForNewGoals=true then this will also trigger a "new goals" check after marking goals complete.
@@ -262,6 +272,7 @@ void UActorGoalsComponent::SetGoalsComplete(const TArray<FGameplayGoal>& Goals, 
 	}
 }
 
+
 void UActorGoalsComponent::AbandonCurrentGoal(const FName & AbandonedGoalName)
 {
 	const FGameplayGoal* TmpGoal = CurrentGoals.FindByKey(AbandonedGoalName);
@@ -272,10 +283,19 @@ void UActorGoalsComponent::AbandonCurrentGoal(const FName & AbandonedGoalName)
 		{
 			IGameplayGoalProvider::Execute_OnGameplayGoalAbandoned(Provider.GetObject(), *TmpGoal);
 		}
-		CurrentGoals.Remove(*TmpGoal);
+		CurrentGoals.RemoveSingle(*TmpGoal);
+		AbandonedGoals.Add(AbandonedGoalName);
+		//CurrentGoals.RemoveAt(CurrentGoals.IndexOfByKey(AbandonedGoalName));
+		
+		TmpGoal = nullptr;
+		// Notify listener of abandoned goals
+		IGameplayGoalListener * OwnerListener = Cast<IGameplayGoalListener>(GetOwner());
+		if (OwnerListener) { IGameplayGoalListener::Execute_OnGameplayGoalAbandoned(GetOwner(), AbandonedGoalName); }
+		
 		UE_LOG(LogFFGame, Warning, TEXT("%s Abandoning goal %s"), *GetNameSafe(this), *AbandonedGoalName.ToString())
 	}
 }
+
 
 void UActorGoalsComponent::UpdateHarvestedGoodsProgress(const TArray<FGoodsQuantity>& HarvestedGoods)
 {
@@ -317,6 +337,7 @@ void UActorGoalsComponent::UpdateHarvestedGoodsProgress(const TArray<FGoodsQuant
 	if (bAnyUpdated) { CheckForCompletedGoals(); }	
 }
 
+
 void UActorGoalsComponent::UpdateSoldGoodsProgress(const TArray<FGoodsQuantity>& SoldGoods)
 {
 	if (SoldGoods.Num() == 0) { return; }
@@ -355,6 +376,7 @@ void UActorGoalsComponent::UpdateSoldGoodsProgress(const TArray<FGoodsQuantity>&
 	if (ChangedGoals.Num() > 0) { OnProgressChanged.Broadcast(ChangedGoals); }
 	if (bAnyUpdated) { CheckForCompletedGoals(); }
 }
+
 
 // Update the DonatedGoods progress for the current goal with with given name.
 // Returns false if no current goal has the specified UniqueName.
@@ -442,6 +464,7 @@ void UActorGoalsComponent::UpdateCraftedRecipesProgress(const FName & RecipeName
 	if (bAnyUpdated) { CheckForCompletedGoals(); }
 }
 
+
 bool UActorGoalsComponent::GetCurrentGoalData(const FName GoalName, FGameplayGoal& GoalData)
 {
 	for (FGameplayGoal& CurGoal : CurrentGoals)
@@ -454,6 +477,7 @@ bool UActorGoalsComponent::GetCurrentGoalData(const FName GoalName, FGameplayGoa
 	}
 	return false;
 }
+
 
 void UActorGoalsComponent::OnNewGoalsEnabled_Respond()
 {

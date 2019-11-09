@@ -29,4 +29,7 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
 		void OnGameplayGoalsCompleted(const TArray<FGameplayGoal>& CompletedGoals);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
+		void OnGameplayGoalAbandoned(const FName& AbandonedGoalName);
 };

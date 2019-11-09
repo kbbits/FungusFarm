@@ -35,4 +35,8 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
 		void OnGameplayGoalsCompleted(const TArray<FGameplayGoal>& CompletedGoals);
 	virtual void OnGameplayGoalsCompleted_Implementation(const TArray<FGameplayGoal>& CompletedGoals) override;
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
+		void OnGameplayGoalAbandoned(const FName& AbandonedGoalName);
+	virtual void OnGameplayGoalAbandoned_Implementation(const FName& AbandonedGoalName) override;
 };

@@ -49,7 +49,15 @@ void AFFPlayerControllerBase::OnNewGameplayGoals_Implementation(const TArray<FGa
 	return;
 }
 
-void AFFPlayerControllerBase::OnGameplayGoalsCompleted_Implementation(const TArray<FGameplayGoal>& NewGoals)
+void AFFPlayerControllerBase::OnGameplayGoalsCompleted_Implementation(const TArray<FGameplayGoal>& CompletedGoals)
+{
+	// Subclass provide meaningful implementation
+
+	return;
+}
+
+
+void AFFPlayerControllerBase::OnGameplayGoalAbandoned_Implementation(const FName& AbandonedGoalName)
 {
 	// Subclass provide meaningful implementation
 
