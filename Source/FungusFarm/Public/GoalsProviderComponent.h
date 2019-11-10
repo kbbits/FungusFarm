@@ -38,9 +38,13 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Gameplay Goals")
 		bool bDisableNewGoals;
 
-	// The delay at start or after a goal completion before a new goal is made available. 0.0 = no delay. Default=0.0
+	// The min delay at start or after a goal completion before a new goal is made available. 0.0 = no delay. Default=0.0
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Gameplay Goals")
-		float DelayBetweenNewGoals;
+		float DelayBetweenNewGoalsMin;
+
+	// The max delay at start or after a goal completion before a new goal is made available. 0.0 = no delay. Default=0.0
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Gameplay Goals")
+		float DelayBetweenNewGoalsMax;
 
 	// The maximum number of active goals for this goal provider component. 0 = no maximum. Default = 0
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Gameplay Goals")
@@ -65,9 +69,13 @@ protected:
 
 	void InitGoalCache();
 
+	float GetDelayBetweenNewGoals();
+
 public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	virtual void BeginDestroy() override;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
 		TArray<FGameplayGoal> GetNewGameplayGoals(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals);

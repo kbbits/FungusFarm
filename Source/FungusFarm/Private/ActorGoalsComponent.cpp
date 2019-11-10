@@ -51,6 +51,11 @@ void UActorGoalsComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	// ...
 }
 
+void UActorGoalsComponent::BeginDestroy()
+{
+	Super::BeginDestroy();
+}
+
 
 // Add a new GameplayGoalsProvider 
 void UActorGoalsComponent::AddGoalProvider(const TScriptInterface<IGameplayGoalProvider>& NewProvider)
@@ -70,14 +75,14 @@ void UActorGoalsComponent::AddGoalProvider(const TScriptInterface<IGameplayGoalP
 			GoalComponent->OnNewGoalsEnabled.AddDynamic(this, &UActorGoalsComponent::OnNewGoalsEnabled_Respond);
 		}
 
-		UE_LOG(LogFFGame, Warning, TEXT("%s New goal provider %s  GUID %s"), *GetNameSafe(this), *GetNameSafe(NewProvider.GetObject()), *IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(NewProvider.GetObject()).ToString());
-		UE_LOG(LogFFGame, Warning, TEXT(" Total providers %d"), GoalProviders.Num());
+		UE_LOG(LogFFGame, Verbose, TEXT("%s New goal provider %s  GUID %s"), *GetNameSafe(this), *GetNameSafe(NewProvider.GetObject()), *IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(NewProvider.GetObject()).ToString());
+		UE_LOG(LogFFGame, Verbose, TEXT(" Total providers %d"), GoalProviders.Num());
 	}
 }
 
 
-// Remove the given GameplayGoalProvider from this component
-int32 UActorGoalsComponent::RemoveGoalProvider(const TScriptInterface<IGameplayGoalProvider>& ToRemoveProvider)
+// Remove the given GameplayGoalProvider from our list of providers
+bool UActorGoalsComponent::RemoveGoalProvider(const TScriptInterface<IGameplayGoalProvider>& ToRemoveProvider)
 {
 	if (ToRemoveProvider)
 	{
@@ -87,12 +92,42 @@ int32 UActorGoalsComponent::RemoveGoalProvider(const TScriptInterface<IGameplayG
 			UGoalsProviderComponent* GoalsComponent = Cast<UGoalsProviderComponent>(ToRemoveProvider.GetObject());
 			if (GoalsComponent)
 			{
+				// Remove the delegate(s)
 				GoalsComponent->OnNewGoalsEnabled.RemoveDynamic(this, &UActorGoalsComponent::OnNewGoalsEnabled_Respond);
-			}			
+			}
+			/*
+			// Now find any goals in the current list that were from the provider.
+			TArray<FGameplayGoal*> ToRemoveGoals;
+			for (FGameplayGoal& CurGoal : CurrentGoals)
+			{
+				if (IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(ToRemoveProvider.GetObject()) == CurGoal.ProviderGuid)
+				{
+					ToRemoveGoals.Add(&CurGoal);
+				}
+			}
+			// Remove them from the current list
+			for (FGameplayGoal* CurGoal : ToRemoveGoals)
+			{
+				CurrentGoals.Remove(*CurGoal);
+			}
+			*/
 		}
 		return removed;
 	}
-	return 0;
+	return false;
+}
+
+
+bool UActorGoalsComponent::RemoveGoalProviderByName(const FName & RemoveProviderUniqueName)
+{
+	for (TScriptInterface<IGameplayGoalProvider> Provider : GoalProviders)
+	{
+		if (IGameplayGoalProvider::Execute_GetGameplayGoalProviderUniqueName(Provider.GetObject()) == RemoveProviderUniqueName)
+		{
+			return RemoveGoalProvider(Provider);
+		}
+	}
+	return false;
 }
 
 
@@ -165,7 +200,7 @@ void UActorGoalsComponent::CheckForNewGoals()
 	if (GoalProviders.Num() > 0) {
 		TArray<FGameplayGoal> NewGoals;
 
-		UE_LOG(LogFFGame, Warning, TEXT("%s Checking new goals from %d providers"), *GetNameSafe(this), GoalProviders.Num());
+		UE_LOG(LogFFGame, Verbose, TEXT("%s Checking new goals from %d providers"), *GetNameSafe(this), GoalProviders.Num());
 
 		// Get any new goals from all goal providers
 		for (TScriptInterface<IGameplayGoalProvider> Provider : GoalProviders)
@@ -192,13 +227,12 @@ void UActorGoalsComponent::CheckForNewGoals()
 		if (NewGoals.Num() > 0)
 		{
 			CurrentGoals.Append(NewGoals);
-			// Notify listener
+			// Notify listener of new goals
 			IGameplayGoalListener * OwnerListener = Cast<IGameplayGoalListener>(GetOwner());
 			if (OwnerListener)
 			{
 				IGameplayGoalListener::Execute_OnNewGameplayGoals(GetOwner(), NewGoals);
-			}
-			//UE_LOG(LogTemp, Warning, TEXT("New Goals: %d"), NewGoals.Num());
+			}			
 		}
 	}
 }
@@ -259,13 +293,12 @@ void UActorGoalsComponent::SetGoalsComplete(const TArray<FGameplayGoal>& Goals, 
 			{
 				IGameplayGoalProvider::Execute_OnGameplayGoalCompleted(Provider.GetObject(), CurGoal);
 			}
-			UE_LOG(LogFFGame, Warning, TEXT("%s goal complete %s"), *GetNameSafe(this), *CurGoal.UniqueName.ToString());
+			UE_LOG(LogFFGame, Verbose, TEXT("%s goal complete %s"), *GetNameSafe(this), *CurGoal.UniqueName.ToString());
 		}
 		// Notify listener of completed goals
 		IGameplayGoalListener * OwnerListener = Cast<IGameplayGoalListener>(GetOwner());
 		if (OwnerListener) { IGameplayGoalListener::Execute_OnGameplayGoalsCompleted(GetOwner(), Goals); }
-
-
+		
 		if (bCheckForNewGoals) {
 			CheckForNewGoals(); 
 		}
@@ -285,14 +318,11 @@ void UActorGoalsComponent::AbandonCurrentGoal(const FName & AbandonedGoalName)
 		}
 		CurrentGoals.RemoveSingle(*TmpGoal);
 		AbandonedGoals.Add(AbandonedGoalName);
-		//CurrentGoals.RemoveAt(CurrentGoals.IndexOfByKey(AbandonedGoalName));
-		
-		TmpGoal = nullptr;
 		// Notify listener of abandoned goals
 		IGameplayGoalListener * OwnerListener = Cast<IGameplayGoalListener>(GetOwner());
 		if (OwnerListener) { IGameplayGoalListener::Execute_OnGameplayGoalAbandoned(GetOwner(), AbandonedGoalName); }
 		
-		UE_LOG(LogFFGame, Warning, TEXT("%s Abandoning goal %s"), *GetNameSafe(this), *AbandonedGoalName.ToString())
+		UE_LOG(LogFFGame, Verbose, TEXT("%s Abandoning goal %s"), *GetNameSafe(this), *AbandonedGoalName.ToString())
 	}
 }
 
@@ -323,9 +353,9 @@ void UActorGoalsComponent::UpdateHarvestedGoodsProgress(const TArray<FGoodsQuant
 				if (CurGoal.HarvestedGoodsProgress.Contains(CurGoods.Name))
 				{
 					float CurrentValue = CurGoal.HarvestedGoodsProgress.FindRef(CurGoods.Name);
-					//UE_LOG(LogTemp, Warning, TEXT("Goal harvest Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue));
+					//UE_LOG(LogTemp, Verbose, TEXT("Goal harvest Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue));
 					CurGoal.HarvestedGoodsProgress.Add(CurGoods.Name, CurrentValue + CurGoods.Quantity);
-					//UE_LOG(LogTemp, Warning, TEXT("Goal harvest Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue + CurGoods.Quantity));
+					//UE_LOG(LogTemp, Verbose, TEXT("Goal harvest Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue + CurGoods.Quantity));
 					ChangedGoals.Add(CurGoal);
 					bAnyUpdated = true;
 				}				
@@ -364,7 +394,7 @@ void UActorGoalsComponent::UpdateSoldGoodsProgress(const TArray<FGoodsQuantity>&
 				if (CurGoal.SoldGoodsProgress.Contains(CurGoods.Name))
 				{
 					float CurrentValue = CurGoal.SoldGoodsProgress.FindRef(CurGoods.Name);
-					//UE_LOG(LogTemp, Warning, TEXT("Goal sold Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue + CurGoods.Quantity));
+					//UE_LOG(LogTemp, Verbose, TEXT("Goal sold Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue + CurGoods.Quantity));
 					CurGoal.SoldGoodsProgress.Add(CurGoods.Name, CurrentValue + CurGoods.Quantity);
 					ChangedGoals.Add(CurGoal);
 					bAnyUpdated = true;
@@ -411,7 +441,7 @@ bool UActorGoalsComponent::UpdateDonatedGoodsProgress(const TArray<FGoodsQuantit
 					if (MatchingGoal->DonatedGoodsProgress.Contains(CurGoods.Name))
 					{
 						float CurrentValue = MatchingGoal->DonatedGoodsProgress.FindRef(CurGoods.Name);
-						UE_LOG(LogTemp, Warning, TEXT("Goal Donated Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue + CurGoods.Quantity));
+						UE_LOG(LogTemp, Verbose, TEXT("Goal Donated Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue + CurGoods.Quantity));
 						MatchingGoal->DonatedGoodsProgress.Add(CurGoods.Name, CurrentValue + CurGoods.Quantity);
 						ChangedGoals.Add(*MatchingGoal);
 						bAnyUpdated = true;
@@ -443,7 +473,7 @@ void UActorGoalsComponent::UpdateCraftedRecipesProgress(const FName & RecipeName
 				for (TPair<FName, int32>& CurRecipe : CurGoal.CraftedRecipesToComplete)
 				{
 					CurGoal.CraftedRecipesProgress.Add(CurRecipe.Key, 0);
-					//UE_LOG(LogTemp, Warning, TEXT("Goal crafted recipe init %s total: %d  target: %d"), *CurRecipe.Key.ToString(), 0, CurGoal.CraftedRecipesToComplete.FindRef(CurRecipe.Key));
+					//UE_LOG(LogTemp, Verbose, TEXT("Goal crafted recipe init %s total: %d  target: %d"), *CurRecipe.Key.ToString(), 0, CurGoal.CraftedRecipesToComplete.FindRef(CurRecipe.Key));
 				}
 			}
 
@@ -451,9 +481,9 @@ void UActorGoalsComponent::UpdateCraftedRecipesProgress(const FName & RecipeName
 			if (CurGoal.CraftedRecipesProgress.Contains(RecipeName))
 			{
 				int CurrentValue = CurGoal.CraftedRecipesProgress.FindRef(RecipeName);
-				//UE_LOG(LogTemp, Warning, TEXT("Goal crafted recipe %s current: %d"), *RecipeName.ToString(), CurrentValue);
+				//UE_LOG(LogTemp, Verbose, TEXT("Goal crafted recipe %s current: %d"), *RecipeName.ToString(), CurrentValue);
 				CurGoal.CraftedRecipesProgress.Add(RecipeName, CurrentValue + NumberCrafted); // .Add(RecipeName, CurrentValue + NumberCrafted);
-				//UE_LOG(LogTemp, Warning, TEXT("Goal crafted recipe %s new total: %d"), *RecipeName.ToString(), CurGoal.CraftedRecipesProgress.FindRef(RecipeName));
+				//UE_LOG(LogTemp, Verbose, TEXT("Goal crafted recipe %s new total: %d"), *RecipeName.ToString(), CurGoal.CraftedRecipesProgress.FindRef(RecipeName));
 				ChangedGoals.Add(CurGoal);
 				bAnyUpdated = true;
 			}
@@ -478,7 +508,7 @@ bool UActorGoalsComponent::GetCurrentGoalData(const FName GoalName, FGameplayGoa
 	return false;
 }
 
-
+// Respond to a provider's NewGoalsEnabled event.
 void UActorGoalsComponent::OnNewGoalsEnabled_Respond()
 {
 	CheckForNewGoals();

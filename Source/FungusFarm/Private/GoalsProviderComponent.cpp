@@ -16,6 +16,8 @@ UGoalsProviderComponent::UGoalsProviderComponent()
 	bDisableNewGoals = false;
 	MaximumCurrentGoals = 0.0;
 	CurrentSecondsTillNewGoal = 0.0;
+	DelayBetweenNewGoalsMin = 0.0;
+	DelayBetweenNewGoalsMax = 0.0;
 	if (!GameplayGoalProviderGuid.IsValid())
 	{
 		GameplayGoalProviderGuid = FGuid::NewGuid();
@@ -30,13 +32,17 @@ void UGoalsProviderComponent::BeginPlay()
 	InitGoalCache();
 	if (CurrentSecondsTillNewGoal == 0.0)
 	{
-		CurrentSecondsTillNewGoal = DelayBetweenNewGoals;
+		CurrentSecondsTillNewGoal = GetDelayBetweenNewGoals();
+	}
+	if (CurrentSecondsTillNewGoal > 0.0)
+	{
+		SetComponentTickEnabled(true);
 	}
 }
 
 void UGoalsProviderComponent::InitGoalCache()
 {
-	UE_LOG(LogFFGame, Warning, TEXT("%s InitGoalCache"), *GetNameSafe(this));
+	UE_LOG(LogFFGame, Verbose, TEXT("%s InitGoalCache"), *GetNameSafe(this));
 	if (GoalsData)
 	{
 		TArray<FName> AllNames = GoalsData->GetRowNames();
@@ -45,7 +51,7 @@ void UGoalsProviderComponent::InitGoalCache()
 		{
 			RemainingGoalNamesCached.Add(GoalName);
 		}
-		UE_LOG(LogFFGame, Warning, TEXT("  Found %d goals"), RemainingGoalNamesCached.Num());
+		UE_LOG(LogFFGame, Verbose, TEXT("  Found %d goals"), RemainingGoalNamesCached.Num());
 	}
 	else
 	{
@@ -59,6 +65,16 @@ void UGoalsProviderComponent::InitGoalCache()
 		}
 	}		
 }
+
+
+float UGoalsProviderComponent::GetDelayBetweenNewGoals()
+{
+	if (DelayBetweenNewGoalsMin == DelayBetweenNewGoalsMax) {
+		return DelayBetweenNewGoalsMax;
+	}
+	return FMath::RandRange(DelayBetweenNewGoalsMin, DelayBetweenNewGoalsMax);
+}
+
 
 // Called every frame
 void UGoalsProviderComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
@@ -81,20 +97,28 @@ void UGoalsProviderComponent::TickComponent(float DeltaTime, ELevelTick TickType
 		// If wait time is 0 make sure we allow new goals
 		if (bDisableNewGoals)
 		{
-			UE_LOG(LogFFGame, Warning, TEXT("GoalProviderComponent wait time complete. Enabling new goals."))
+			UE_LOG(LogFFGame, Verbose, TEXT("GoalProviderComponent wait time complete. Enabling new goals."))
 			bDisableNewGoals = false;
-			OnNewGoalsEnabled.Broadcast();			
+			OnNewGoalsEnabled.Broadcast();	
 		}
+		SetComponentTickEnabled(false);
 	}
 	else
 	{
 		// If wait time > 0 make sure we disable new goals
 		if (!bDisableNewGoals)
 		{
-			UE_LOG(LogFFGame, Warning, TEXT("GoalProviderComponent wait time disabling new goals."))
+			UE_LOG(LogFFGame, Verbose, TEXT("GoalProviderComponent wait time disabling new goals."))
 			bDisableNewGoals = true;
 		}
 	}
+}
+
+void UGoalsProviderComponent::BeginDestroy()
+{
+	Super::BeginDestroy();
+
+	RemainingGoalNamesCached.Empty();
 }
 
 TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals)
@@ -104,12 +128,12 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 	
 	if (bDisableNewGoals) 
 	{
-		UE_LOG(LogFFGame, Warning, TEXT("%s GetNewGameplayGoals %s New Goals DISABLED"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())));
+		UE_LOG(LogFFGame, Verbose, TEXT("%s GetNewGameplayGoals %s New Goals DISABLED"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())));
 		return NewGoals; 
 	}
 	if (MaximumCurrentGoals > 0.0 && CurrentActiveGoals >= MaximumCurrentGoals)
 	{
-		UE_LOG(LogFFGame, Warning, TEXT("%s GetNewGameplayGoals %s at maximum current goals %d"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())), CurrentActiveGoals);
+		UE_LOG(LogFFGame, Verbose, TEXT("%s GetNewGameplayGoals %s at maximum current goals %d"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())), CurrentActiveGoals);
 		return NewGoals;
 	}
 	
@@ -134,8 +158,6 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 				
 	for (FName GoalName : RemainingGoalNamesCached)
 	{
-		//UE_LOG(LogFFGame, Warning, TEXT("   Comparing: %s  index: %d  number: %d"), *GoalName.ToString(), GoalName.GetComparisonIndex(), GoalName.GetNumber())
-
 		// Go to next if this one is aready currently active (don't allow repeat here)
 		if (CurrentGoals.Contains(GoalName)) 
 		{ 
@@ -146,37 +168,43 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 		{
 			bAddToNew = true;
 			CurGoal = GoalsData->FindRow<FGameplayGoal>(GoalName, ContextString);
-
-			// Go to the next one if this one is already complete and cannot be repeated.
-			if (!CurGoal->CanRepeat && (CompletedGoals.Contains(GoalName) || AbandonedGoals.Contains(GoalName)))
+			if (CurGoal)
 			{
-				// Also remove it from our remaining goals cache
-				ToRemoveFromRemaining.Add(GoalName);
-				continue;
-			}
-			// Check each goal's prerequisites
-			if (CurGoal && CurGoal->PrerequisiteGoals.Num() > 0)
-			{
-				for (FName PrereqName : CurGoal->PrerequisiteGoals)
+				// Go to the next one if this one is already complete and cannot be repeated.
+				if (!CurGoal->CanRepeat && (CompletedGoals.Contains(GoalName) || AbandonedGoals.Contains(GoalName)))
 				{
-					if (!CompletedGoals.Contains(PrereqName))
+					// Also remove it from our remaining goals cache
+					ToRemoveFromRemaining.Add(GoalName);
+					continue;
+				}
+				// Check each goal's prerequisites
+				if (CurGoal && CurGoal->PrerequisiteGoals.Num() > 0)
+				{
+					for (FName PrereqName : CurGoal->PrerequisiteGoals)
 					{
-						// If we don't have all pre-reqs, then don't add
-						bAddToNew = false;
-						// And stop checking this goal's pre-reqs
-						break;
+						if (!CompletedGoals.Contains(PrereqName))
+						{
+							// If we don't have all pre-reqs, then don't add
+							bAddToNew = false;
+							// And stop checking this goal's pre-reqs
+							break;
+						}
 					}
 				}
+				if (bAddToNew)
+				{
+					NewGoals.AddUnique(*CurGoal);
+					++CurrentActiveGoals;
+				}
 			}
-			if (bAddToNew)
+			else
 			{
-				NewGoals.AddUnique(*CurGoal);
-				++CurrentActiveGoals;
-			}		
+				UE_LOG(LogFFGame, Warning, TEXT("%s GetNewGameplayGoals looking for unknown goal: %s"), *GetNameSafe(this), *GoalName.ToString());
+			}
 		}
 		else
 		{
-			//UE_LOG(LogFFGame, Warning, TEXT("%s goal provider hit maxium active goals: %d"), *GetNameSafe(this), CurrentActiveGoals);
+			//UE_LOG(LogFFGame, Verbose, TEXT("%s goal provider hit maxium active goals: %d"), *GetNameSafe(this), CurrentActiveGoals);
 			break;
 		}
 	}
@@ -187,7 +215,7 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 		RemainingGoalNamesCached.Remove(RemoveName);
 	}
 
-	UE_LOG(LogFFGame, Warning, TEXT("  New Goals: %d"), NewGoals.Num());
+	UE_LOG(LogFFGame, Verbose, TEXT("  New Goals: %d"), NewGoals.Num());
 	
 	return NewGoals;
 }
@@ -206,7 +234,11 @@ void UGoalsProviderComponent::OnGameplayGoalCompleted_Implementation(const FGame
 		{
 			--CurrentActiveGoals;
 		}
-		CurrentSecondsTillNewGoal = DelayBetweenNewGoals;
+		CurrentSecondsTillNewGoal = GetDelayBetweenNewGoals();
+		if (CurrentSecondsTillNewGoal > 0.0)
+		{
+			SetComponentTickEnabled(true);
+		}
 	}
 }
 

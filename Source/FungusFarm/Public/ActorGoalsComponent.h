@@ -52,12 +52,17 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	
+	virtual void BeginDestroy() override;
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		void AddGoalProvider(const TScriptInterface<IGameplayGoalProvider>& NewProvider);
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
-		int32 RemoveGoalProvider(const TScriptInterface<IGameplayGoalProvider>& ToRemoveProvider);
+		bool RemoveGoalProvider(const TScriptInterface<IGameplayGoalProvider>& ToRemoveProvider);
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		bool RemoveGoalProviderByName(const FName& RemoveProviderUniqueName);
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		TScriptInterface<IGameplayGoalProvider> GetGoalProvider(const FGameplayGoal& Goal);
