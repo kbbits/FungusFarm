@@ -69,7 +69,12 @@ protected:
 
 	void InitGoalCache();
 
+	// Get the new value for our "between goals" delay timer
 	float GetDelayBetweenNewGoals();
+
+	// Resets the timer (if needed) between each new goal.
+	// Returns true if the timer was reset > 0.
+	bool ResetTimerBetweenGoals();
 
 public:
 	// Called every frame

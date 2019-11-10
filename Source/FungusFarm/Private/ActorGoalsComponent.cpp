@@ -75,8 +75,8 @@ void UActorGoalsComponent::AddGoalProvider(const TScriptInterface<IGameplayGoalP
 			GoalComponent->OnNewGoalsEnabled.AddDynamic(this, &UActorGoalsComponent::OnNewGoalsEnabled_Respond);
 		}
 
-		UE_LOG(LogFFGame, Verbose, TEXT("%s New goal provider %s  GUID %s"), *GetNameSafe(this), *GetNameSafe(NewProvider.GetObject()), *IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(NewProvider.GetObject()).ToString());
-		UE_LOG(LogFFGame, Verbose, TEXT(" Total providers %d"), GoalProviders.Num());
+		UE_LOG(LogFFGame, Log, TEXT("%s New goal provider %s  GUID %s"), *GetNameSafe(this), *GetNameSafe(NewProvider.GetObject()), *IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(NewProvider.GetObject()).ToString());
+		UE_LOG(LogFFGame, Log, TEXT(" Total providers %d"), GoalProviders.Num());
 	}
 }
 
@@ -156,7 +156,8 @@ const FString UActorGoalsComponent::GetGoalProviderFriendlyName(const FGameplayG
 	}
 	else
 	{
-		UE_LOG(LogFFGame, Warning, TEXT("%s Invalid provider"), *GetNameSafe(this));
+		// It can be normal for the provider to not be found. ex: if the provider was removed since the goal was given.
+		//UE_LOG(LogFFGame, Warning, TEXT("%s GetGoalproviderFriendlyName Invalid provider"), *GetNameSafe(this));
 		return FString("");
 	}
 	return FString("");
@@ -200,7 +201,7 @@ void UActorGoalsComponent::CheckForNewGoals()
 	if (GoalProviders.Num() > 0) {
 		TArray<FGameplayGoal> NewGoals;
 
-		UE_LOG(LogFFGame, Verbose, TEXT("%s Checking new goals from %d providers"), *GetNameSafe(this), GoalProviders.Num());
+		UE_LOG(LogFFGame, Log, TEXT("%s Checking new goals from %d providers"), *GetNameSafe(this), GoalProviders.Num());
 
 		// Get any new goals from all goal providers
 		for (TScriptInterface<IGameplayGoalProvider> Provider : GoalProviders)
@@ -221,7 +222,7 @@ void UActorGoalsComponent::CheckForNewGoals()
 			}
 			else
 			{
-				UE_LOG(LogFFGame, Warning, TEXT("Invalid GamplayGoalProvider %s"), *GetNameSafe(Provider.GetObject()));
+				//UE_LOG(LogFFGame, Warning, TEXT("Invalid GamplayGoalProvider %s"), *GetNameSafe(Provider.GetObject()));
 			}
 		}
 		if (NewGoals.Num() > 0)
@@ -293,7 +294,7 @@ void UActorGoalsComponent::SetGoalsComplete(const TArray<FGameplayGoal>& Goals, 
 			{
 				IGameplayGoalProvider::Execute_OnGameplayGoalCompleted(Provider.GetObject(), CurGoal);
 			}
-			UE_LOG(LogFFGame, Verbose, TEXT("%s goal complete %s"), *GetNameSafe(this), *CurGoal.UniqueName.ToString());
+			UE_LOG(LogFFGame, Log, TEXT("%s goal complete %s"), *GetNameSafe(this), *CurGoal.UniqueName.ToString());
 		}
 		// Notify listener of completed goals
 		IGameplayGoalListener * OwnerListener = Cast<IGameplayGoalListener>(GetOwner());
@@ -322,7 +323,7 @@ void UActorGoalsComponent::AbandonCurrentGoal(const FName & AbandonedGoalName)
 		IGameplayGoalListener * OwnerListener = Cast<IGameplayGoalListener>(GetOwner());
 		if (OwnerListener) { IGameplayGoalListener::Execute_OnGameplayGoalAbandoned(GetOwner(), AbandonedGoalName); }
 		
-		UE_LOG(LogFFGame, Verbose, TEXT("%s Abandoning goal %s"), *GetNameSafe(this), *AbandonedGoalName.ToString())
+		UE_LOG(LogFFGame, Log, TEXT("%s Abandoning goal %s"), *GetNameSafe(this), *AbandonedGoalName.ToString())
 	}
 }
 
@@ -353,9 +354,9 @@ void UActorGoalsComponent::UpdateHarvestedGoodsProgress(const TArray<FGoodsQuant
 				if (CurGoal.HarvestedGoodsProgress.Contains(CurGoods.Name))
 				{
 					float CurrentValue = CurGoal.HarvestedGoodsProgress.FindRef(CurGoods.Name);
-					//UE_LOG(LogTemp, Verbose, TEXT("Goal harvest Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue));
+					//UE_LOG(LogTemp, Log, TEXT("Goal harvest Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue));
 					CurGoal.HarvestedGoodsProgress.Add(CurGoods.Name, CurrentValue + CurGoods.Quantity);
-					//UE_LOG(LogTemp, Verbose, TEXT("Goal harvest Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue + CurGoods.Quantity));
+					//UE_LOG(LogTemp, Log, TEXT("Goal harvest Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue + CurGoods.Quantity));
 					ChangedGoals.Add(CurGoal);
 					bAnyUpdated = true;
 				}				
@@ -394,7 +395,7 @@ void UActorGoalsComponent::UpdateSoldGoodsProgress(const TArray<FGoodsQuantity>&
 				if (CurGoal.SoldGoodsProgress.Contains(CurGoods.Name))
 				{
 					float CurrentValue = CurGoal.SoldGoodsProgress.FindRef(CurGoods.Name);
-					//UE_LOG(LogTemp, Verbose, TEXT("Goal sold Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue + CurGoods.Quantity));
+					//UE_LOG(LogTemp, Log, TEXT("Goal sold Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue + CurGoods.Quantity));
 					CurGoal.SoldGoodsProgress.Add(CurGoods.Name, CurrentValue + CurGoods.Quantity);
 					ChangedGoals.Add(CurGoal);
 					bAnyUpdated = true;
@@ -441,7 +442,7 @@ bool UActorGoalsComponent::UpdateDonatedGoodsProgress(const TArray<FGoodsQuantit
 					if (MatchingGoal->DonatedGoodsProgress.Contains(CurGoods.Name))
 					{
 						float CurrentValue = MatchingGoal->DonatedGoodsProgress.FindRef(CurGoods.Name);
-						UE_LOG(LogTemp, Verbose, TEXT("Goal Donated Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue + CurGoods.Quantity));
+						//UE_LOG(LogFFGame, Log, TEXT("Goal Donated Goods %s total: %d"), *CurGoods.Name.ToString(), int(CurrentValue + CurGoods.Quantity));
 						MatchingGoal->DonatedGoodsProgress.Add(CurGoods.Name, CurrentValue + CurGoods.Quantity);
 						ChangedGoals.Add(*MatchingGoal);
 						bAnyUpdated = true;
@@ -473,7 +474,7 @@ void UActorGoalsComponent::UpdateCraftedRecipesProgress(const FName & RecipeName
 				for (TPair<FName, int32>& CurRecipe : CurGoal.CraftedRecipesToComplete)
 				{
 					CurGoal.CraftedRecipesProgress.Add(CurRecipe.Key, 0);
-					//UE_LOG(LogTemp, Verbose, TEXT("Goal crafted recipe init %s total: %d  target: %d"), *CurRecipe.Key.ToString(), 0, CurGoal.CraftedRecipesToComplete.FindRef(CurRecipe.Key));
+					//UE_LOG(LogTemp, Log, TEXT("Goal crafted recipe init %s total: %d  target: %d"), *CurRecipe.Key.ToString(), 0, CurGoal.CraftedRecipesToComplete.FindRef(CurRecipe.Key));
 				}
 			}
 
@@ -481,9 +482,9 @@ void UActorGoalsComponent::UpdateCraftedRecipesProgress(const FName & RecipeName
 			if (CurGoal.CraftedRecipesProgress.Contains(RecipeName))
 			{
 				int CurrentValue = CurGoal.CraftedRecipesProgress.FindRef(RecipeName);
-				//UE_LOG(LogTemp, Verbose, TEXT("Goal crafted recipe %s current: %d"), *RecipeName.ToString(), CurrentValue);
+				//UE_LOG(LogTemp, Log, TEXT("Goal crafted recipe %s current: %d"), *RecipeName.ToString(), CurrentValue);
 				CurGoal.CraftedRecipesProgress.Add(RecipeName, CurrentValue + NumberCrafted); // .Add(RecipeName, CurrentValue + NumberCrafted);
-				//UE_LOG(LogTemp, Verbose, TEXT("Goal crafted recipe %s new total: %d"), *RecipeName.ToString(), CurGoal.CraftedRecipesProgress.FindRef(RecipeName));
+				//UE_LOG(LogTemp, Log, TEXT("Goal crafted recipe %s new total: %d"), *RecipeName.ToString(), CurGoal.CraftedRecipesProgress.FindRef(RecipeName));
 				ChangedGoals.Add(CurGoal);
 				bAnyUpdated = true;
 			}

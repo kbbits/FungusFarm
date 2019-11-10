@@ -30,19 +30,14 @@ void UGoalsProviderComponent::BeginPlay()
 	Super::BeginPlay();
 
 	InitGoalCache();
-	if (CurrentSecondsTillNewGoal == 0.0)
+	if (CurrentSecondsTillNewGoal <= 0.0)
 	{
-		CurrentSecondsTillNewGoal = GetDelayBetweenNewGoals();
-	}
-	if (CurrentSecondsTillNewGoal > 0.0)
-	{
-		SetComponentTickEnabled(true);
+		ResetTimerBetweenGoals();
 	}
 }
 
 void UGoalsProviderComponent::InitGoalCache()
 {
-	UE_LOG(LogFFGame, Verbose, TEXT("%s InitGoalCache"), *GetNameSafe(this));
 	if (GoalsData)
 	{
 		TArray<FName> AllNames = GoalsData->GetRowNames();
@@ -51,7 +46,7 @@ void UGoalsProviderComponent::InitGoalCache()
 		{
 			RemainingGoalNamesCached.Add(GoalName);
 		}
-		UE_LOG(LogFFGame, Verbose, TEXT("  Found %d goals"), RemainingGoalNamesCached.Num());
+		UE_LOG(LogFFGame, Verbose, TEXT("% init found %d goals"), *GetNameSafe(this), RemainingGoalNamesCached.Num());
 	}
 	else
 	{
@@ -76,6 +71,24 @@ float UGoalsProviderComponent::GetDelayBetweenNewGoals()
 }
 
 
+// Returns true if the time was reset.
+bool UGoalsProviderComponent::ResetTimerBetweenGoals()
+{
+	if (CurrentSecondsTillNewGoal <= 0.0)
+	{
+		CurrentSecondsTillNewGoal = GetDelayBetweenNewGoals();
+	}
+	if (CurrentSecondsTillNewGoal > 0.0)
+	{
+		UE_LOG(LogFFGame, Log, TEXT("%s reset goals timer %f"), *GetNameSafe(this), CurrentSecondsTillNewGoal);
+		bDisableNewGoals = true;
+		SetComponentTickEnabled(true);
+		return true;
+	}
+	return false;
+}
+
+
 // Called every frame
 void UGoalsProviderComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
@@ -86,29 +99,29 @@ void UGoalsProviderComponent::TickComponent(float DeltaTime, ELevelTick TickType
 	if (CurrentSecondsTillNewGoal > 0.0 && DeltaTime > 0.0)
 	{
 		CurrentSecondsTillNewGoal -= DeltaTime;
-		if (CurrentSecondsTillNewGoal < 0)
+		if (CurrentSecondsTillNewGoal < 0.0)
 		{
-			CurrentSecondsTillNewGoal = 0;
+			CurrentSecondsTillNewGoal = 0.0;
 		}
 	}
 	
-	if (CurrentSecondsTillNewGoal == 0)
+	if (CurrentSecondsTillNewGoal <= 0.0)
 	{
-		// If wait time is 0 make sure we allow new goals
+		// If wait time is 0 allow new goals and broadcast notification
 		if (bDisableNewGoals)
 		{
-			UE_LOG(LogFFGame, Verbose, TEXT("GoalProviderComponent wait time complete. Enabling new goals."))
+			SetComponentTickEnabled(false);
+			UE_LOG(LogFFGame, Log, TEXT("GoalProviderComponent wait time complete. Enabling new goals."))
 			bDisableNewGoals = false;
-			OnNewGoalsEnabled.Broadcast();	
-		}
-		SetComponentTickEnabled(false);
+			OnNewGoalsEnabled.Broadcast();				
+		}		
 	}
 	else
 	{
 		// If wait time > 0 make sure we disable new goals
 		if (!bDisableNewGoals)
 		{
-			UE_LOG(LogFFGame, Verbose, TEXT("GoalProviderComponent wait time disabling new goals."))
+			UE_LOG(LogFFGame, Log, TEXT("GoalProviderComponent tick disabling new goals because wait time > 0."))
 			bDisableNewGoals = true;
 		}
 	}
@@ -128,17 +141,17 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 	
 	if (bDisableNewGoals) 
 	{
-		UE_LOG(LogFFGame, Verbose, TEXT("%s GetNewGameplayGoals %s New Goals DISABLED"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())));
+		UE_LOG(LogFFGame, Log, TEXT("%s GetNewGameplayGoals %s New Goals DISABLED"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())));
 		return NewGoals; 
 	}
 	if (MaximumCurrentGoals > 0.0 && CurrentActiveGoals >= MaximumCurrentGoals)
 	{
-		UE_LOG(LogFFGame, Verbose, TEXT("%s GetNewGameplayGoals %s at maximum current goals %d"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())), CurrentActiveGoals);
+		UE_LOG(LogFFGame, Log, TEXT("%s GetNewGameplayGoals %s at maximum current goals %d"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())), CurrentActiveGoals);
 		return NewGoals;
 	}
 	
+	UE_LOG(LogFFGame, Log, TEXT("%s GetNewGameplayGoals %s"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())) );
 	/*
-	UE_LOG(LogFFGame, Warning, TEXT("%s GetNewGameplayGoals %s"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())) );
 	UE_LOG(LogFFGame, Warning, TEXT("  CurrentGoals:"));
 	for (const FGameplayGoal& TmpGoal : CurrentGoals)
 	{
@@ -195,6 +208,8 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 				{
 					NewGoals.AddUnique(*CurGoal);
 					++CurrentActiveGoals;
+					// If we delay between goals, stop looking for more.
+					if (ResetTimerBetweenGoals()) {	break; }
 				}
 			}
 			else
@@ -204,7 +219,7 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 		}
 		else
 		{
-			//UE_LOG(LogFFGame, Verbose, TEXT("%s goal provider hit maxium active goals: %d"), *GetNameSafe(this), CurrentActiveGoals);
+			//UE_LOG(LogFFGame, Log, TEXT("%s goal provider hit maxium active goals: %d"), *GetNameSafe(this), CurrentActiveGoals);
 			break;
 		}
 	}
@@ -215,7 +230,7 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 		RemainingGoalNamesCached.Remove(RemoveName);
 	}
 
-	UE_LOG(LogFFGame, Verbose, TEXT("  New Goals: %d"), NewGoals.Num());
+	UE_LOG(LogFFGame, Log, TEXT("  New Goals: %d"), NewGoals.Num());
 	
 	return NewGoals;
 }
@@ -227,17 +242,16 @@ void UGoalsProviderComponent::OnGameplayGoalCompleted_Implementation(const FGame
 	{
 		if (!CompletedGoal.CanRepeat)
 		{
-			// remove it from our remaining goals cache
+			// Remove it from our remaining goals cache
 			RemainingGoalNamesCached.Remove(CompletedGoal.UniqueName);
 		}
 		if (CurrentActiveGoals > 0)
 		{
 			--CurrentActiveGoals;
 		}
-		CurrentSecondsTillNewGoal = GetDelayBetweenNewGoals();
-		if (CurrentSecondsTillNewGoal > 0.0)
+		if (CurrentActiveGoals < MaximumCurrentGoals)
 		{
-			SetComponentTickEnabled(true);
+			ResetTimerBetweenGoals();
 		}
 	}
 }
@@ -257,6 +271,10 @@ void UGoalsProviderComponent::OnGameplayGoalAbandoned_Implementation(const FGame
 			if (CurrentActiveGoals > 0)
 			{
 				--CurrentActiveGoals;
+			}
+			if (CurrentActiveGoals < MaximumCurrentGoals)
+			{
+				ResetTimerBetweenGoals();
 			}
 		}
 		else

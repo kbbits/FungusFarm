@@ -12,7 +12,7 @@ AFFGameMode::AFFGameMode(const FObjectInitializer& ObjectInitializer)
 	ProviderGoalsTablePrefix = FString("SecondaryGoals");
 
 	GameplayGoalsProvider = ObjectInitializer.CreateDefaultSubobject<UGoalsProviderComponent>(this, TEXT("GoalsProvider"));
-	UE_LOG(LogFFGame, VeryVerbose, TEXT("FFGameMode constructed Goals Provider %s"), (GameplayGoalsProvider == nullptr ? TEXT("INVALID") : TEXT("VALID")));
+	UE_LOG(LogFFGame, Verbose, TEXT("FFGameMode constructed Goals Provider %s"), (GameplayGoalsProvider == nullptr ? TEXT("INVALID") : TEXT("VALID")));
 }
 
 
@@ -52,7 +52,7 @@ UGoalsProviderComponent* AFFGameMode::AddSecondaryGoalProvider(const FName Provi
 	{
 		FString ProviderPropertiesPath("/Game/FungusFarm/Data/" + ProviderPropertiesTableName + "." + ProviderPropertiesTableName);
 		FString GoalsDataPath = ("/Game/FungusFarm/Data/" + ProviderGoalsTablePrefix + "_" + ProviderUniqueName.ToString() + "." + ProviderGoalsTablePrefix + "_" + ProviderUniqueName.ToString());
-		//UE_LOG(LogFFGame, Verbose, TEXT("looking for table: %s"), *GoalsDataPath);
+		//UE_LOG(LogFFGame, Log, TEXT("looking for table: %s"), *GoalsDataPath);
 
 		// Lookup provider properties in data table
 		UObject* PropertiesObj = StaticLoadObject(UDataTable::StaticClass(), this, *ProviderPropertiesPath);
@@ -74,7 +74,7 @@ UGoalsProviderComponent* AFFGameMode::AddSecondaryGoalProvider(const FName Provi
 		{
 			if (ProviderGoalsTable && ProviderGoalsTable->GetRowMap().Num() > 0)
 			{
-				//UE_LOG(LogFFGame, Verbose, TEXT("Secondary goals table struct: %s"),  *ProviderTable->GetRowStructName().ToString());
+				//UE_LOG(LogFFGame, Log, TEXT("Secondary goals table struct: %s"),  *ProviderTable->GetRowStructName().ToString());
 				// Get a TmpGoal record to make sure they are the correct type.
 				FGameplayGoal* TmpGoal = ProviderGoalsTable->FindRow<FGameplayGoal>(ProviderGoalsTable->GetRowNames()[0], FString("GameMode AddSecondaryGoalProvider"));
 				if (TmpGoal)
@@ -89,7 +89,7 @@ UGoalsProviderComponent* AFFGameMode::AddSecondaryGoalProvider(const FName Provi
 					NewProvider->GoalsData = ProviderGoalsTable;
 					AddOwnedComponent(NewProvider);
 					NewProvider->RegisterComponent();
-					UE_LOG(LogFFGame, Verbose, TEXT("New secondary provider component added: %s"), *ProviderUniqueName.ToString());
+					UE_LOG(LogFFGame, Log, TEXT("New secondary provider component added: %s"), *ProviderUniqueName.ToString());
 					// Return the new provider
 					return NewProvider;
 				}
@@ -118,7 +118,7 @@ bool AFFGameMode::RemoveSecondaryGoalProvider(const FName ProviderUniqueName)
 		if (Provider != GameplayGoalsProvider && Provider->GetGameplayGoalProviderUniqueName() == ProviderUniqueName)
 		{
 			Provider->DestroyComponent();
-			UE_LOG(LogFFGame, Verbose, TEXT("%s destroyed secondary provider component: %s"), *GetNameSafe(this), *ProviderUniqueName.ToString());
+			UE_LOG(LogFFGame, Log, TEXT("%s destroyed secondary provider component: %s"), *GetNameSafe(this), *ProviderUniqueName.ToString());
 			return true;
 		}
 	}
