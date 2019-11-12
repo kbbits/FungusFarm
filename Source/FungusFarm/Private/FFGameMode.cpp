@@ -2,6 +2,9 @@
 
 
 #include "FFGameMode.h"
+#include "GameInstanceSubsystem.h"
+#include "SaveManager.h"
+#include "FFSlotInfo.h"
 #include "GameplayGoalProviderTemplate.h"
 
 
@@ -19,14 +22,16 @@ AFFGameMode::AFFGameMode(const FObjectInitializer& ObjectInitializer)
 void AFFGameMode::BeginPlay()
 {
 	Super::BeginPlay();	
+	//UGameInstance* GInstance = GetGameInstance();
+	USaveManager* SaveManager = USaveManager::GetSaveManager(this); //GInstance->GetSubsystem<USaveManager>();
+	SaveManager->SubscribeForEvents(this);
 }
 
 
 UGoalsProviderComponent * AFFGameMode::GetGoalProviderComponentByUniqueName(const FName ProviderUniqueName)
 {
-	TArray<UGoalsProviderComponent*> AllSecondaries;
-	GetComponents(AllSecondaries);
-	for (UGoalsProviderComponent* Provider : AllSecondaries)
+	TArray<UGoalsProviderComponent*> AllProviders = GetAllGoalProviders();
+	for (UGoalsProviderComponent* Provider : AllProviders)
 	{
 		if (Provider->GetGameplayGoalProviderUniqueName() == ProviderUniqueName)
 		{
@@ -46,38 +51,38 @@ UGoalsProviderComponent* AFFGameMode::AddSecondaryGoalProvider(const FName Provi
 		return ExistingProvider;
 	}
 
-	// Create a new component
-	UGoalsProviderComponent* NewProvider = NewObject<UGoalsProviderComponent>(this, ProviderUniqueName);
-	if (NewProvider)
-	{
-		FString ProviderPropertiesPath("/Game/FungusFarm/Data/" + ProviderPropertiesTableName + "." + ProviderPropertiesTableName);
-		FString GoalsDataPath = ("/Game/FungusFarm/Data/" + ProviderGoalsTablePrefix + "_" + ProviderUniqueName.ToString() + "." + ProviderGoalsTablePrefix + "_" + ProviderUniqueName.ToString());
-		//UE_LOG(LogFFGame, Log, TEXT("looking for table: %s"), *GoalsDataPath);
+	FString ProviderPropertiesPath("/Game/FungusFarm/Data/" + ProviderPropertiesTableName + "." + ProviderPropertiesTableName);
+	FString GoalsDataPath = ("/Game/FungusFarm/Data/" + ProviderGoalsTablePrefix + "_" + ProviderUniqueName.ToString() + "." + ProviderGoalsTablePrefix + "_" + ProviderUniqueName.ToString());
+	//UE_LOG(LogFFGame, Log, TEXT("looking for table: %s"), *GoalsDataPath);
 
-		// Lookup provider properties in data table
-		UObject* PropertiesObj = StaticLoadObject(UDataTable::StaticClass(), this, *ProviderPropertiesPath);
-		if (!PropertiesObj)
+	// Lookup provider properties in data table
+	UObject* PropertiesObj = StaticLoadObject(UDataTable::StaticClass(), this, *ProviderPropertiesPath);
+	if (!PropertiesObj)
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("%s AddSecondaryGoalProvider unknown goal provider properties data table: %s"), *GetNameSafe(this), *ProviderPropertiesPath);
+	}
+	// Lookup provider goal data in data table and apply them to component
+	UObject* DataObj = StaticLoadObject(UDataTable::StaticClass(), this, *GoalsDataPath);
+	if (!DataObj)
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("%s AddSecondaryGoalProvider unknown goal data table: %s"), *GetNameSafe(this), *GoalsDataPath);
+	}
+	UDataTable* ProviderPropertiesTable = PropertiesObj ? Cast<UDataTable>(PropertiesObj) : nullptr;
+	UDataTable* ProviderGoalsTable = DataObj ? Cast<UDataTable>(DataObj) : nullptr; 
+	// Find our properties in the table
+	FGameplayGoalProviderTemplate* ProviderProperties = ProviderPropertiesTable->FindRow<FGameplayGoalProviderTemplate>(ProviderUniqueName, FString("GameMode AddSecondaryGoalProvider"));
+	if (ProviderPropertiesTable && ProviderProperties)
+	{
+		if (ProviderGoalsTable && ProviderGoalsTable->GetRowMap().Num() > 0)
 		{
-			UE_LOG(LogFFGame, Warning, TEXT("%s AddSecondaryGoalProvider unknown goal provider properties data table: %s"), *GetNameSafe(this), *ProviderPropertiesPath);
-		}
-		// Lookup provider goal data in data table and apply them to component
-		UObject* DataObj = StaticLoadObject(UDataTable::StaticClass(), this, *GoalsDataPath);
-		if (!DataObj)
-		{
-			UE_LOG(LogFFGame, Warning, TEXT("%s AddSecondaryGoalProvider unknown goal data table: %s"), *GetNameSafe(this), *GoalsDataPath);
-		}
-		UDataTable* ProviderPropertiesTable = PropertiesObj ? Cast<UDataTable>(PropertiesObj) : nullptr;
-		UDataTable* ProviderGoalsTable = DataObj ? Cast<UDataTable>(DataObj) : nullptr; 
-		// Find our properties in the table
-		FGameplayGoalProviderTemplate* ProviderProperties = ProviderPropertiesTable->FindRow<FGameplayGoalProviderTemplate>(ProviderUniqueName, FString("GameMode AddSecondaryGoalProvider"));
-		if (ProviderPropertiesTable && ProviderProperties)
-		{
-			if (ProviderGoalsTable && ProviderGoalsTable->GetRowMap().Num() > 0)
+			//UE_LOG(LogFFGame, Log, TEXT("Secondary goals table struct: %s"),  *ProviderTable->GetRowStructName().ToString());
+			// Get a TmpGoal record to make sure they are the correct type.
+			FGameplayGoal* TmpGoal = ProviderGoalsTable->FindRow<FGameplayGoal>(ProviderGoalsTable->GetRowNames()[0], FString("GameMode AddSecondaryGoalProvider"));
+			if (TmpGoal)
 			{
-				//UE_LOG(LogFFGame, Log, TEXT("Secondary goals table struct: %s"),  *ProviderTable->GetRowStructName().ToString());
-				// Get a TmpGoal record to make sure they are the correct type.
-				FGameplayGoal* TmpGoal = ProviderGoalsTable->FindRow<FGameplayGoal>(ProviderGoalsTable->GetRowNames()[0], FString("GameMode AddSecondaryGoalProvider"));
-				if (TmpGoal)
+				// Create a new component
+				UGoalsProviderComponent* NewProvider = NewObject<UGoalsProviderComponent>(this, ProviderUniqueName);
+				if (NewProvider)
 				{
 					NewProvider->bAutoActivate = true;
 					NewProvider->bDisableNewGoals = true;
@@ -93,17 +98,18 @@ UGoalsProviderComponent* AFFGameMode::AddSecondaryGoalProvider(const FName Provi
 					// Return the new provider
 					return NewProvider;
 				}
-				else
-				{
-					UE_LOG(LogFFGame, Warning, TEXT("%s AddSecondaryGoalProvider goals data table is empty or rows are not FGameplayGoal: %s"), *GetNameSafe(this), *GoalsDataPath);
-				}
+			}
+			else
+			{
+				UE_LOG(LogFFGame, Warning, TEXT("%s AddSecondaryGoalProvider goals data table is empty or rows are not FGameplayGoal: %s"), *GetNameSafe(this), *GoalsDataPath);
 			}
 		}
-		else
-		{
-			UE_LOG(LogFFGame, Warning, TEXT("%s AddSecondaryGoalProvider no row with name %s in provider properties table or rows are not FGameplayGoalProviderTempate"), *GetNameSafe(this), *ProviderUniqueName.ToString());
-		}
 	}
+	else
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("%s AddSecondaryGoalProvider no row with name %s in provider properties table or rows are not FGameplayGoalProviderTempate"), *GetNameSafe(this), *ProviderUniqueName.ToString());
+	}
+	
 	return nullptr;
 }
 
@@ -125,4 +131,72 @@ bool AFFGameMode::RemoveSecondaryGoalProvider(const FName ProviderUniqueName)
 	return false;
 }
 
+TArray<UGoalsProviderComponent*> AFFGameMode::GetAllGoalProviders()
+{
+	TArray<UGoalsProviderComponent*> AllProviderComps;
+	GetComponents<UGoalsProviderComponent>(AllProviderComps);
+	return AllProviderComps;
+}
 
+TArray<UGoalsProviderComponent*> AFFGameMode::GetAllSecondaryGoalProviders()
+{
+	TArray<UGoalsProviderComponent*> AllProviderComps = GetAllGoalProviders();
+	TArray<UGoalsProviderComponent*> SecondaryComps;
+	for (UGoalsProviderComponent* CurComp : AllProviderComps)
+	{
+		if (CurComp != GameplayGoalsProvider)
+		{
+			SecondaryComps.Add(CurComp);
+		}
+	}
+	return SecondaryComps;
+}
+
+void AFFGameMode::OnSaveBegan()
+{	
+	USaveManager* SaveManager = USaveManager::GetSaveManager(this);
+	USlotInfo* BaseSlotInfo = SaveManager->GetCurrentInfo();
+	UE_LOG(LogFFGame, Warning, TEXT("Base info %s"), *FString(BaseSlotInfo == nullptr ? "INVALD" : "VALID"));
+	UFFSlotInfo* SlotInfo = Cast<UFFSlotInfo>(BaseSlotInfo);
+	TArray<UGoalsProviderComponent*> AllSecondaries = GetAllSecondaryGoalProviders();
+
+	UE_LOG(LogFFGame, Log, TEXT("Save Began. Secondary providers %d"), AllSecondaries.Num());
+
+	if (SlotInfo)
+	{
+		SlotInfo->SecondaryGoalProviders.Empty(AllSecondaries.Num());
+		for (UGoalsProviderComponent* GoalComp : AllSecondaries)
+		{
+			SlotInfo->SecondaryGoalProviders.Add(GoalComp->UniqueName);
+			//SecondaryProviderNames.Add(GoalComp->UniqueName);
+		}
+	}
+	else
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("Save Began. Slot id %d was not a valid FFSlotInfo."), SaveSlotId);
+	}
+}
+
+void AFFGameMode::OnLoadBegan()
+{
+	USaveManager* SaveManager = USaveManager::GetSaveManager(this);
+	UFFSlotInfo* SlotInfo = Cast<UFFSlotInfo>(SaveManager->GetSlotInfo(SaveSlotId));
+	//UFFSlotInfo* SlotInfo = Cast<UFFSlotInfo>(SaveManager->GetCurrentInfo());
+	if (SlotInfo)
+	{
+		UE_LOG(LogFFGame, Log, TEXT("Load Began. Creating secondary providers %d"), SlotInfo->SecondaryGoalProviders.Num());
+		for (FName UniqueName : SlotInfo->SecondaryGoalProviders)
+		{
+			AddSecondaryGoalProvider(UniqueName);
+		}
+	}
+	else
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("Load Began. Slot id %d was not a valid FFSlotInfo."), SaveSlotId);
+	}
+}
+
+void AFFGameMode::OnLoadFinished(bool bError)
+{
+	
+}

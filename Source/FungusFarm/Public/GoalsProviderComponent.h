@@ -59,9 +59,11 @@ protected:
 		TSet<FName> RemainingGoalNamesCached;
 
 	// Used to decrement on tick for timing new goal creation. This is reset to DelayBetweenNewGoals on a goal completion.
-	float CurrentSecondsTillNewGoal;
+	UPROPERTY(BlueprintReadOnly, SaveGame, Category = "Gameplay Goals")
+		float CurrentSecondsTillNewGoal;
 
-	int32 CurrentActiveGoals;
+	UPROPERTY(BlueprintReadOnly, SaveGame, Category = "Gameplay Goals")
+		int32 CurrentActiveGoals;
 
 protected:
 	// Called when the game starts

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "SaveExtensionInterface.h"
 #include "GameFramework/GameMode.h"
 #include "GameplayGoal.h"
 #include "GameplayGoalProvider.h"
@@ -13,7 +14,7 @@
  * 
  */
 UCLASS()
-class FUNGUSFARM_API AFFGameMode : public AGameMode 
+class FUNGUSFARM_API AFFGameMode : public AGameMode, public ISaveExtensionInterface
 {
 	GENERATED_BODY()
 
@@ -23,16 +24,20 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Components")
 		UGoalsProviderComponent* GameplayGoalsProvider = nullptr;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Components")
-		TArray<UGoalsProviderComponent*> SecondaryGoalProviders;
+	// For serialization.
+	UPROPERTY(BlueprintReadOnly, SaveGame, Category = "Gameplay Goals")
+		TArray<FName> SecondaryProviderNames;
 
 	// Prefix for provider properties data files.  Will look in /Game/FungusFarm/Data/. Default= "GoalProviderProperties"
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Components")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Gameplay Goals")
 		FString ProviderPropertiesTableName;
 
 	// Prefix for provider goals data files.  Will look in /Game/FungusFarm/Data/. Default= "SecondaryGoals"
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Components")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Gameplay Goals")
 		FString ProviderGoalsTablePrefix;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Save Extension")
+		int32 SaveSlotId;
 
 protected:
 
@@ -48,4 +53,16 @@ public:
 	
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		bool RemoveSecondaryGoalProvider(const FName ProviderUniqueName);
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		TArray<UGoalsProviderComponent*> GetAllGoalProviders();
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		TArray<UGoalsProviderComponent*> GetAllSecondaryGoalProviders();
+
+	virtual void OnSaveBegan() override;
+
+	virtual void OnLoadBegan() override;
+
+	virtual void OnLoadFinished(bool bError) override;
 };
