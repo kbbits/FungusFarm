@@ -11,6 +11,7 @@ AFFPlayerControllerBase::AFFPlayerControllerBase(const FObjectInitializer& Objec
 	GameplayGoalsManager = ObjectInitializer.CreateDefaultSubobject<UActorGoalsComponent>(this, TEXT("GameplayGoalsManager"));
 }
 
+
 void AFFPlayerControllerBase::BeginPlay()
 {
 	Super::BeginPlay();
@@ -42,12 +43,14 @@ void AFFPlayerControllerBase::BeginPlay()
 	}
 }
 
+
 void AFFPlayerControllerBase::OnNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& NewGoals)
 {
 	// Subclass provide meaningful implemetation
 
 	return;
 }
+
 
 void AFFPlayerControllerBase::OnGameplayGoalsCompleted_Implementation(const TArray<FGameplayGoal>& CompletedGoals)
 {

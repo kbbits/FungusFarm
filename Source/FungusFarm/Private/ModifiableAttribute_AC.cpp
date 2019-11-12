@@ -11,8 +11,8 @@ UModifiableAttribute_AC::UModifiableAttribute_AC()
 
 	// Init members
 	AttributeType = EModifiableAttributeType::GrowthRate;
-	BaseValue = 0.0;
-	CurrentValue = 0.0;
+	BaseValue = 0.0f;
+	CurrentValue = 0.0f;
 }
 
 
@@ -33,11 +33,13 @@ void UModifiableAttribute_AC::BeginPlay()
 //
 //}
 
+
 // Get the base value of the attribute.
 float UModifiableAttribute_AC::GetBaseValue()
 {
 	return BaseValue;
 }
+
 
 // Set the base value of the attribute.
 void UModifiableAttribute_AC::SetBaseValue(const float& NewValue)
@@ -46,11 +48,13 @@ void UModifiableAttribute_AC::SetBaseValue(const float& NewValue)
 	RecalculateValue();
 }
 
+
 // Gets the current value of this attribute with all modifiers applied.
 float UModifiableAttribute_AC::GetCurrentValue()
 {
 	return CurrentValue;
 }
+
 
 /*
   Apply an AttributeModifier to this attribute.  
@@ -64,6 +68,7 @@ void UModifiableAttribute_AC::AddModifier(const FAttributeModifier& NewModifier)
 		RecalculateValue();
 	}
 }
+
 
 /*
   Apply an array of AttributeModifier to this attribute.
@@ -84,12 +89,14 @@ void UModifiableAttribute_AC::AddModifiers(const TArray<FAttributeModifier>& New
 	RecalculateValue();
 }
 
+
 // Remove all modifiers from this attribute.
 void UModifiableAttribute_AC::ClearModifiers() 
 {
 	Modifiers.Empty();
 	CurrentValue = BaseValue;
 }
+
 
 // Recalculates the current value of the attribute, including all modifiers.
 // Should not need to call this directly.  It is called by the various add/set functions.

@@ -43,5 +43,8 @@ public:
 		float GrowthTime;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float HarvestExperience;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsQuantity> GrowthInputRequirements;
 };

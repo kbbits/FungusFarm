@@ -42,4 +42,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		float CraftingTime;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float CraftingExperience;
 };

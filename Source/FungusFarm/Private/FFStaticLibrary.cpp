@@ -7,6 +7,7 @@ UFFStaticLibrary::UFFStaticLibrary(const FObjectInitializer& ObjectInitializer) 
 
 }
 
+
 void UFFStaticLibrary::SumModifiers(const TArray<FModifier>& ModsToSum, float& ScalarTotal, float& MultiplierTotal)
 {
 	ScalarTotal = 0;

@@ -2,6 +2,7 @@
 
 
 #include "ActorGoalsComponent.h"
+#include "FFPlayerState.h"
 #include "FFGameMode.h"
 #include "FFPlayerControllerBase.h"
 #include "GoalsProviderComponent.h"
@@ -50,6 +51,7 @@ void UActorGoalsComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 
 	// ...
 }
+
 
 void UActorGoalsComponent::BeginDestroy()
 {
@@ -208,16 +210,27 @@ void UActorGoalsComponent::CheckForNewGoals()
 		{ 
 			if (Provider.GetObject()->IsValidLowLevel())
 			{
-				FGuid ProviderGuid = IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(Provider.GetObject());
-				TArray<FGameplayGoal> TmpGoals = IGameplayGoalProvider::Execute_GetNewGameplayGoals(Provider.GetObject(), CurrentGoals, CompletedGoals, AbandonedGoals);
-				if (TmpGoals.Num() > 0)
+				// TODO: abstract how we determine player level.
+				// Grab current level directly from owner - assuming it is our player controller.
+				AFFPlayerControllerBase* Controller = Cast<AFFPlayerControllerBase>(GetOwner());
+				AFFPlayerState* PlayerState = Controller->GetPlayerState<AFFPlayerState>();
+				if (PlayerState)
 				{
-					// Make sure all goals have correct provider GUID. (don't rely on provider)
-					for (FGameplayGoal& TmpGoal : TmpGoals)
+					FGuid ProviderGuid = IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(Provider.GetObject());
+					TArray<FGameplayGoal> TmpGoals = IGameplayGoalProvider::Execute_GetNewGameplayGoals(Provider.GetObject(), CurrentGoals, CompletedGoals, AbandonedGoals, PlayerState->GetExperienceLevel());
+					if (TmpGoals.Num() > 0)
 					{
-						TmpGoal.ProviderGuid = ProviderGuid;
+						// Make sure all goals have correct provider GUID. (don't rely on provider)
+						for (FGameplayGoal& TmpGoal : TmpGoals)
+						{
+							TmpGoal.ProviderGuid = ProviderGuid;
+						}
+						NewGoals.Append(TmpGoals);
 					}
-					NewGoals.Append(TmpGoals);
+				}
+				else
+				{
+					UE_LOG(LogFFGame, Warning, TEXT("%s CheckForNewGoals could not get Player State"), *GetNameSafe(this));
 				}
 			}
 			else
@@ -384,7 +397,7 @@ void UActorGoalsComponent::UpdateSoldGoodsProgress(const TArray<FGoodsQuantity>&
 			{
 				for (FGoodsQuantity& CurGoods : CurGoal.SoldGoodsToComplete)
 				{
-					CurGoal.SoldGoodsProgress.Add(CurGoods.Name, 0.0);
+					CurGoal.SoldGoodsProgress.Add(CurGoods.Name, 0.0f);
 				}
 			}
 
@@ -431,7 +444,7 @@ bool UActorGoalsComponent::UpdateDonatedGoodsProgress(const TArray<FGoodsQuantit
 				{
 					for (FGoodsQuantity& CurGoods : MatchingGoal->DonatedGoodsToComplete)
 					{
-						MatchingGoal->DonatedGoodsProgress.Add(CurGoods.Name, 0.0);
+						MatchingGoal->DonatedGoodsProgress.Add(CurGoods.Name, 0.0f);
 					}
 				}
 
@@ -508,6 +521,7 @@ bool UActorGoalsComponent::GetCurrentGoalData(const FName GoalName, FGameplayGoa
 	}
 	return false;
 }
+
 
 // Respond to a provider's NewGoalsEnabled event.
 void UActorGoalsComponent::OnNewGoalsEnabled_Respond()

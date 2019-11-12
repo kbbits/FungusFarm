@@ -40,7 +40,7 @@ public:
 	FModifier() 
 	{
 		Type = EModifierType::Multiplier;
-		Value = 0.0;
+		Value = 0.0f;
 	}
 
 	bool operator==(const FModifier& Other) const
@@ -103,8 +103,8 @@ public:
 	FModifiableAttribute()
 	{
 		AttributeType = EModifiableAttributeType::GrowthRate;
-		BaseValue = 0.0;
-		ModifiedValue = 0.0;
+		BaseValue = 0.0f;
+		ModifiedValue = 0.0f;
 	}
 
 	bool operator==(const FModifiableAttribute& Other) const

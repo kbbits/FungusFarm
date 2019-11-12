@@ -14,15 +14,16 @@ UGoalsProviderComponent::UGoalsProviderComponent()
 
 	// ...
 	bDisableNewGoals = false;
-	MaximumCurrentGoals = 0.0;
-	CurrentSecondsTillNewGoal = 0.0;
-	DelayBetweenNewGoalsMin = 0.0;
-	DelayBetweenNewGoalsMax = 0.0;
+	MaximumCurrentGoals = 0.0f;
+	CurrentSecondsTillNewGoal = 0.0f;
+	DelayBetweenNewGoalsMin = 0.0f;
+	DelayBetweenNewGoalsMax = 0.0f;
 	if (!GameplayGoalProviderGuid.IsValid())
 	{
 		GameplayGoalProviderGuid = FGuid::NewGuid();
 	}
 }
+
 
 // Called when the game starts
 void UGoalsProviderComponent::BeginPlay()
@@ -30,11 +31,12 @@ void UGoalsProviderComponent::BeginPlay()
 	Super::BeginPlay();
 
 	InitGoalCache();
-	if (CurrentSecondsTillNewGoal <= 0.0)
+	if (CurrentSecondsTillNewGoal <= 0.0f)
 	{
 		ResetTimerBetweenGoals();
 	}
 }
+
 
 void UGoalsProviderComponent::InitGoalCache()
 {
@@ -74,11 +76,11 @@ float UGoalsProviderComponent::GetDelayBetweenNewGoals()
 // Returns true if the time was reset.
 bool UGoalsProviderComponent::ResetTimerBetweenGoals()
 {
-	if (CurrentSecondsTillNewGoal <= 0.0)
+	if (CurrentSecondsTillNewGoal <= 0.0f)
 	{
 		CurrentSecondsTillNewGoal = GetDelayBetweenNewGoals();
 	}
-	if (CurrentSecondsTillNewGoal > 0.0)
+	if (CurrentSecondsTillNewGoal > 0.0f)
 	{
 		UE_LOG(LogFFGame, Log, TEXT("%s reset goals timer %f"), *GetNameSafe(this), CurrentSecondsTillNewGoal);
 		bDisableNewGoals = true;
@@ -96,16 +98,16 @@ void UGoalsProviderComponent::TickComponent(float DeltaTime, ELevelTick TickType
 
 	// Handle new goal timing
 	// If we have remaining wait time, deduct delta time from remaining.
-	if (CurrentSecondsTillNewGoal > 0.0 && DeltaTime > 0.0)
+	if (CurrentSecondsTillNewGoal > 0.0f && DeltaTime > 0.0f)
 	{
 		CurrentSecondsTillNewGoal -= DeltaTime;
-		if (CurrentSecondsTillNewGoal < 0.0)
+		if (CurrentSecondsTillNewGoal < 0.0f)
 		{
-			CurrentSecondsTillNewGoal = 0.0;
+			CurrentSecondsTillNewGoal = 0.0f;
 		}
 	}
 	
-	if (CurrentSecondsTillNewGoal <= 0.0)
+	if (CurrentSecondsTillNewGoal <= 0.0f)
 	{
 		// If wait time is 0 allow new goals and broadcast notification
 		if (bDisableNewGoals)
@@ -127,6 +129,7 @@ void UGoalsProviderComponent::TickComponent(float DeltaTime, ELevelTick TickType
 	}
 }
 
+
 void UGoalsProviderComponent::BeginDestroy()
 {
 	Super::BeginDestroy();
@@ -134,7 +137,8 @@ void UGoalsProviderComponent::BeginDestroy()
 	RemainingGoalNamesCached.Empty();
 }
 
-TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals)
+
+TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel)
 {
 	TArray<FGameplayGoal> NewGoals; 
 	NewGoals.Empty();
@@ -144,7 +148,7 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 		UE_LOG(LogFFGame, Log, TEXT("%s GetNewGameplayGoals %s New Goals DISABLED"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())));
 		return NewGoals; 
 	}
-	if (MaximumCurrentGoals > 0.0 && CurrentActiveGoals >= MaximumCurrentGoals)
+	if (MaximumCurrentGoals > 0 && CurrentActiveGoals >= MaximumCurrentGoals)
 	{
 		UE_LOG(LogFFGame, Log, TEXT("%s GetNewGameplayGoals %s at maximum current goals %d"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())), CurrentActiveGoals);
 		return NewGoals;
@@ -188,6 +192,11 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 				{
 					// Also remove it from our remaining goals cache
 					ToRemoveFromRemaining.Add(GoalName);
+					continue;
+				}
+				// Go to the next goal if minimum experience level isn't met
+				if (CurGoal->RequiredExperienceLevel > 0 && CurGoal->RequiredExperienceLevel > CurrentExperienceLevel)
+				{
 					continue;
 				}
 				// Check each goal's prerequisites
@@ -235,6 +244,7 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 	return NewGoals;
 }
 
+
 void UGoalsProviderComponent::OnGameplayGoalCompleted_Implementation(const FGameplayGoal & CompletedGoal)
 {
 	// Double-check the provider GUID
@@ -255,6 +265,7 @@ void UGoalsProviderComponent::OnGameplayGoalCompleted_Implementation(const FGame
 		}
 	}
 }
+
 
 void UGoalsProviderComponent::OnGameplayGoalAbandoned_Implementation(const FGameplayGoal & AbandonedGoal)
 {
@@ -284,11 +295,13 @@ void UGoalsProviderComponent::OnGameplayGoalAbandoned_Implementation(const FGame
 	}
 }
 
+
 //FGameplayGoal UGoalsProviderComponent::GetNewRandomGameplayGoal_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const int MinTier, const int MaxTier)
 //{
 //	// Subclass should implement meaningful logic
 //	return FGameplayGoal();
 //}
+
 
 FGuid UGoalsProviderComponent::GetGameplayGoalProviderGuid_Implementation()
 {
@@ -299,6 +312,7 @@ FGuid UGoalsProviderComponent::GetGameplayGoalProviderGuid_Implementation()
 	}
 	return GameplayGoalProviderGuid;
 }
+
 
 FName UGoalsProviderComponent::GetGameplayGoalProviderUniqueName_Implementation()
 {

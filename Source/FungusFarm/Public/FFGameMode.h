@@ -60,6 +60,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		TArray<UGoalsProviderComponent*> GetAllSecondaryGoalProviders();
 
+	UFUNCTION(BlueprintCallable, Category = "Experience and Level")
+		float GetExperienceRequiredForLevel(const int32 Level);
+
 	virtual void OnSaveBegan() override;
 
 	virtual void OnLoadBegan() override;

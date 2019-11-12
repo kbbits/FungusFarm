@@ -54,7 +54,10 @@ public:
 	// Goals that must be completed before this one is available.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> PrerequisiteGoals;
-
+	
+	// Minimum player experience level for goal to become available. Set to 0 to ignore. Default = 0.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		int32 RequiredExperienceLevel;
 	
 	// Requirements for completing the goal
 	
@@ -104,6 +107,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsDropChance> GoodsAwarded;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float ExperienceAwarded;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FGuid ProviderGuid;

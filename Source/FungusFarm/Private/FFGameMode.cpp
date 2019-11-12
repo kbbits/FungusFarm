@@ -5,12 +5,14 @@
 #include "GameInstanceSubsystem.h"
 #include "SaveManager.h"
 #include "FFSlotInfo.h"
+#include "FFPlayerState.h"
 #include "GameplayGoalProviderTemplate.h"
 
 
 AFFGameMode::AFFGameMode(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
+	PlayerStateClass = AFFPlayerState::StaticClass();
 	ProviderPropertiesTableName = FString("GoalProviderProperties");
 	ProviderGoalsTablePrefix = FString("SecondaryGoals");
 
@@ -113,6 +115,7 @@ UGoalsProviderComponent* AFFGameMode::AddSecondaryGoalProvider(const FName Provi
 	return nullptr;
 }
 
+
 // Removes the component from the game mode.
 // Return true if goal provider component was removed.
 bool AFFGameMode::RemoveSecondaryGoalProvider(const FName ProviderUniqueName)
@@ -131,12 +134,14 @@ bool AFFGameMode::RemoveSecondaryGoalProvider(const FName ProviderUniqueName)
 	return false;
 }
 
+
 TArray<UGoalsProviderComponent*> AFFGameMode::GetAllGoalProviders()
 {
 	TArray<UGoalsProviderComponent*> AllProviderComps;
 	GetComponents<UGoalsProviderComponent>(AllProviderComps);
 	return AllProviderComps;
 }
+
 
 TArray<UGoalsProviderComponent*> AFFGameMode::GetAllSecondaryGoalProviders()
 {
@@ -151,6 +156,15 @@ TArray<UGoalsProviderComponent*> AFFGameMode::GetAllSecondaryGoalProviders()
 	}
 	return SecondaryComps;
 }
+
+
+float AFFGameMode::GetExperienceRequiredForLevel(const int32 Level)
+{
+	// TODO: implement a data-based approach for this.  For now just using a set scale.
+	float CurLevel = static_cast<float>(Level);
+	return (FMath::Pow(CurLevel, 1.2f) * 100.0f);
+}
+
 
 void AFFGameMode::OnSaveBegan()
 {	
@@ -177,6 +191,7 @@ void AFFGameMode::OnSaveBegan()
 	}
 }
 
+
 void AFFGameMode::OnLoadBegan()
 {
 	USaveManager* SaveManager = USaveManager::GetSaveManager(this);
@@ -195,6 +210,7 @@ void AFFGameMode::OnLoadBegan()
 		UE_LOG(LogFFGame, Warning, TEXT("Load Began. Slot id %d was not a valid FFSlotInfo."), SaveSlotId);
 	}
 }
+
 
 void AFFGameMode::OnLoadFinished(bool bError)
 {

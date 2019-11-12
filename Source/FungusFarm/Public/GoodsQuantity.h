@@ -20,7 +20,7 @@ public:
 	FGoodsQuantity()
 	{
 		Name = FName();
-		Quantity = 0.0;
+		Quantity = 0.0f;
 	}
 
 	bool operator==(const FGoodsQuantity& Other) const
