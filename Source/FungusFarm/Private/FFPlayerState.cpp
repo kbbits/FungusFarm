@@ -57,7 +57,7 @@ int32 AFFPlayerState::GetExperienceLevel()
 
 void AFFPlayerState::SetExperienceLevel(const int32 NewLevel)
 {
-	float OldLevel = GetExperienceLevel();
+	int32 OldLevel = GetExperienceLevel();
 	PlayerProperties.ExperienceLevel = FMath::Max<int32>(NewLevel, 0);
 	if (OldLevel != GetExperienceLevel())
 	{
@@ -65,8 +65,7 @@ void AFFPlayerState::SetExperienceLevel(const int32 NewLevel)
 	}
 }
 
-
-bool AFFPlayerState::CheckForLevelUp()
+float AFFPlayerState::GetExperienceForNextLevel()
 {
 	UWorld* _World = GetWorld();
 	if (_World)
@@ -74,19 +73,26 @@ bool AFFPlayerState::CheckForLevelUp()
 		AFFGameMode * _GameMode = Cast<AFFGameMode>(_World->GetAuthGameMode());
 		if (_GameMode)
 		{
-			float XpRequired = _GameMode->GetExperienceRequiredForLevel(GetExperienceLevel() + 1);
-			UE_LOG(LogFFGame, Verbose, TEXT("Level %d XP required: %f current: %f"), GetExperienceLevel() + 1, XpRequired, GetExperience());
-			if (GetExperience() >= XpRequired)
-			{
-				SetExperienceLevel(GetExperienceLevel() + 1);
-			    UE_LOG(LogFFGame, Verbose, TEXT("Experience leveled went up to %d"), GetExperienceLevel());
-				return true;
-			}
+			return _GameMode->GetExperienceRequiredForLevel(GetExperienceLevel() + 1);
 		}
 		else
 		{
-			UE_LOG(LogFFGame, Warning, TEXT("%s CheckForLevelUp could not get GameMode."), *GetNameSafe(this));
+			UE_LOG(LogFFGame, Warning, TEXT("%s GetExperienceForNextLevel could not get GameMode."), *GetNameSafe(this));
 		}
+	}
+	return 0.0f;
+}
+
+
+bool AFFPlayerState::CheckForLevelUp()
+{
+	float XpRequired = GetExperienceForNextLevel();
+	UE_LOG(LogFFGame, Log, TEXT("Level %d XP required: %f current: %f"), GetExperienceLevel() + 1, XpRequired, GetExperience());
+	if (GetExperience() >= XpRequired)
+	{
+		SetExperienceLevel(GetExperienceLevel() + 1);
+		UE_LOG(LogFFGame, Log, TEXT("Experience leveled went up to %d"), GetExperienceLevel());
+		return true;
 	}
 	return false;
 }

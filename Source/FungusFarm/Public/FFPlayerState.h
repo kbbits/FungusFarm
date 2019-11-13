@@ -11,7 +11,7 @@
 // Event dispatcher for when experience points has changed
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnExperienceChanged, const float, NewExperience);
 // Event dispatcher notifying experience level has changed
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnExperienceLevelChanged, const float, NewExperienceLevel);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnExperienceLevelChanged, const int32, NewExperienceLevel);
 
 /**
  * 
@@ -53,6 +53,10 @@ public:
 	// Sets experience level to a specific value. Also triggers OnExperienceLevelChanged notifications if new level is different.
 	UFUNCTION(BlueprintCallable, Category = "Experience and Level")
 		void SetExperienceLevel(const int32 NewLevel);
+
+	// Returns the amount of experience required for the player's next level. (current level + 1)
+	UFUNCTION(BlueprintPure, Category = "Experience and Level")
+		float GetExperienceForNextLevel();
 
 protected:
 

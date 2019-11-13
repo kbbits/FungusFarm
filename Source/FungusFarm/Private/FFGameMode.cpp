@@ -161,8 +161,9 @@ TArray<UGoalsProviderComponent*> AFFGameMode::GetAllSecondaryGoalProviders()
 float AFFGameMode::GetExperienceRequiredForLevel(const int32 Level)
 {
 	// TODO: implement a data-based approach for this.  For now just using a set scale.
-	float CurLevel = static_cast<float>(Level);
-	return (FMath::Pow(CurLevel, 1.2f) * 100.0f);
+	float CurLevel = static_cast<float>(Level) - 1;
+	if (CurLevel <= 0) { return 0; }
+	return FMath::TruncToFloat(FMath::Pow(CurLevel, 1.25f) * 50.0f) * 10.0f;
 }
 
 
