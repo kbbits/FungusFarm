@@ -2,6 +2,7 @@
 
 
 #include "GoalsProviderComponent.h"
+#include "GoodsFunctionLibrary.h"
 #include "GameFramework/Actor.h"
 
 // Sets default values for this component's properties
@@ -44,9 +45,26 @@ void UGoalsProviderComponent::InitGoalCache()
 	{
 		TArray<FName> AllNames = GoalsData->GetRowNames();
 		RemainingGoalNamesCached.Empty(AllNames.Num());
+		bool bUseTemplate = GoalsData->GetRowStruct() == FGameplayGoalTemplate::StaticStruct();
+
 		for (FName GoalName : AllNames)
 		{
-			RemainingGoalNamesCached.Add(GoalName);
+			if (bUseTemplate)
+			{
+				FGameplayGoalTemplate* GoalTemplate = GoalsData->FindRow<FGameplayGoalTemplate>(GoalName, "GoalProviderComponent::InitGoalCache");
+				if (GoalTemplate)
+				{
+					RemainingGoalNamesCached.Add(GoalTemplate->UniqueNameBase);
+				}
+			}
+			else
+			{
+				FGameplayGoal* Goal = GoalsData->FindRow<FGameplayGoal>(GoalName, "GoalProviderComponent::InitGoalCache");
+				if (Goal)
+				{
+					RemainingGoalNamesCached.Add(Goal->UniqueName);
+				}
+			}						
 		}
 		UE_LOG(LogFFGame, Verbose, TEXT("% init found %d goals"), *GetNameSafe(this), RemainingGoalNamesCached.Num());
 	}
@@ -88,6 +106,204 @@ bool UGoalsProviderComponent::ResetTimerBetweenGoals()
 		return true;
 	}
 	return false;
+}
+
+
+FGameplayGoal UGoalsProviderComponent::GoalFromTemplate(const FGameplayGoalTemplate& GoalTemplate)
+{
+	FGameplayGoal NewGoal = FGameplayGoal();
+	if (!GoalTemplate.UniqueNameBase.IsNone())
+	{
+		float Scale = FMath::FRand();
+		NewGoal.UniqueName = GoalTemplate.UniqueNameBase;  //.ToString()+"_" + FGuid::NewGuid().ToString()));
+		NewGoal.DisplayName = GoalTemplate.DisplayNameBase;
+		NewGoal.CanAbandon = GoalTemplate.CanAbandon;
+		NewGoal.CanRepeat = GoalTemplate.CanRepeat;
+		NewGoal.Hidden = GoalTemplate.Hidden;
+		NewGoal.OnAvailableMessage = GoalTemplate.OnAvailableMessage;
+		NewGoal.CompletedMessage = GoalTemplate.CompletedMessage;
+		NewGoal.PrerequisiteGoals = GoalTemplate.PrerequisiteGoals;
+		NewGoal.RequiredExperienceLevel = GoalTemplate.RequiredExperienceLevel;
+		NewGoal.HarvestedGoodsToComplete = UGoodsFunctionLibrary::GoodsQuantitiesFromRanges(GoalTemplate.HarvestedGoodsToComplete, Scale);
+		NewGoal.SoldGoodsToComplete = UGoodsFunctionLibrary::GoodsQuantitiesFromRanges(GoalTemplate.SoldGoodsToComplete, Scale);
+		NewGoal.DonatedGoodsToComplete = UGoodsFunctionLibrary::GoodsQuantitiesFromRanges(GoalTemplate.DonatedGoodsToComplete, Scale);
+		NewGoal.CraftedRecipesToComplete = UGoodsFunctionLibrary::NamedQuantitiesToCountMap<FRecipeQuantity>(UGoodsFunctionLibrary::RecipeQuantitiesFromRanges(GoalTemplate.CraftedRecipesToComplete, Scale));
+		NewGoal.UnlockedCraftingRecipes = GoalTemplate.UnlockedCraftingRecipes;
+		NewGoal.UnlockedCrops = GoalTemplate.UnlockedCrops;
+		NewGoal.UnlockedTools = GoalTemplate.UnlockedTools;
+		NewGoal.OtherAwards = GoalTemplate.OtherAwards;
+		NewGoal.GoodsAwarded = GoalTemplate.GoodsAwarded;
+		NewGoal.ExperienceAwarded = FMath::TruncToFloat(GoalTemplate.ExperienceAwardedMinimum + (Scale * (GoalTemplate.ExperienceAwardedMaximum - GoalTemplate.ExperienceAwardedMinimum)));
+		NewGoal.ProviderGuid = GameplayGoalProviderGuid;
+	}
+	return NewGoal;
+}
+
+TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByGoalData(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel)
+{
+	TArray<FGameplayGoal> NewGoals;
+	const FString ContextString("Goals Provider Component");
+	FGameplayGoal* NewGoal = nullptr;
+	bool bAddToNew = true;
+	TSet<FName> ToRemoveFromRemaining;
+
+	// Find all available goal possibilities
+	for (FName GoalName : RemainingGoalNamesCached)
+	{
+		// Go to next if this one is aready currently active (don't allow repeat here)
+		if (CurrentGoals.Contains(GoalName))
+		{
+			continue;
+		}
+
+		bAddToNew = true;
+		
+		if (MaximumCurrentGoals > 0 && CurrentActiveGoals >= MaximumCurrentGoals)
+		{
+			// Stop looking for goals if we are at the maximum
+			break;
+		}
+		NewGoal = GoalsData->FindRow<FGameplayGoal>(GoalName, ContextString);
+		if (NewGoal)
+		{
+			// Go to the next one if this one is already complete and cannot be repeated.
+			if (!NewGoal->CanRepeat && (CompletedGoals.Contains(GoalName) || AbandonedGoals.Contains(GoalName)))
+			{
+				// Also remove it from our remaining goals cache
+				ToRemoveFromRemaining.Add(GoalName);
+				continue;
+			}
+			// Go to the next goal if minimum experience level isn't met
+			if (NewGoal->RequiredExperienceLevel > 0 && NewGoal->RequiredExperienceLevel > CurrentExperienceLevel)
+			{
+				continue;
+			}
+			// Check each goal's prerequisites
+			if (NewGoal->PrerequisiteGoals.Num() > 0)
+			{
+				for (FName PrereqName : NewGoal->PrerequisiteGoals)
+				{
+					if (!CompletedGoals.Contains(PrereqName))
+					{
+						// If we don't have all pre-reqs, then don't add
+						bAddToNew = false;
+						// And stop checking this goal's pre-reqs
+						break;
+					}
+				}
+			}
+			if (bAddToNew)
+			{
+				NewGoals.AddUnique(*NewGoal);
+				++CurrentActiveGoals;
+				// If we delay between goals, stop looking for more.
+				if (ResetTimerBetweenGoals()) { break; }
+			}
+		}
+		else
+		{
+			UE_LOG(LogFFGame, Warning, TEXT("%s GetNewGameplayGoals looking for unknown goal: %s"), *GetNameSafe(this), *GoalName.ToString());
+		}
+	}
+
+	// Remove from our available goals cache
+	for (FName RemoveName : ToRemoveFromRemaining)
+	{
+		RemainingGoalNamesCached.Remove(RemoveName);
+	}
+
+	return NewGoals;
+}
+
+TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByTemplate(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel)
+{
+	bool bAddToNew;
+	TArray<FGameplayGoalTemplate> NewGoalPossibilities;
+	TArray<FGameplayGoal> NewGoals;
+	FGameplayGoalTemplate* GoalTemplate = nullptr;
+	TSet<FName> ToRemoveFromRemaining;
+	float TotalWeightedChance = 0.0f;
+
+	// Find all available goal possibilities
+	for (FName GoalName : RemainingGoalNamesCached)
+	{
+		// Go to next if this one is aready currently active (don't allow repeat here)
+		if (CurrentGoals.Contains(GoalName))
+		{
+			continue;
+		}
+
+		bAddToNew = true;
+		// Get goal from template
+		if (GoalsData->GetRowStruct() == FGameplayGoalTemplate::StaticStruct())
+		{
+			GoalTemplate = GoalsData->FindRow<FGameplayGoalTemplate>(GoalName, "GoalsProviderComponent");
+			if (GoalTemplate)
+			{
+				// Go to the next one if this one is already complete and cannot be repeated.
+				if (!GoalTemplate->CanRepeat && (CompletedGoals.Contains(GoalName) || AbandonedGoals.Contains(GoalName)))
+				{
+					// Also remove it from our remaining goals cache
+					ToRemoveFromRemaining.Add(GoalName);
+					continue;
+				}
+				// Go to the next goal if minimum experience level isn't met
+				if (GoalTemplate->RequiredExperienceLevel > 0 && GoalTemplate->RequiredExperienceLevel > CurrentExperienceLevel)
+				{
+					continue;
+				}
+				// Check each goal's prerequisites
+				if (GoalTemplate && GoalTemplate->PrerequisiteGoals.Num() > 0)
+				{
+					for (FName PrereqName : GoalTemplate->PrerequisiteGoals)
+					{
+						if (!CompletedGoals.Contains(PrereqName))
+						{
+							// If we don't have all pre-reqs, then don't add
+							bAddToNew = false;
+							// And stop checking this goal's pre-reqs
+							break;
+						}
+					}
+				}
+				if (bAddToNew)
+				{
+					NewGoalPossibilities.AddUnique(*GoalTemplate);
+					TotalWeightedChance += GoalTemplate->WeightedChance;
+				}
+			}
+			else
+			{
+				UE_LOG(LogFFGame, Warning, TEXT("%s GetNewGameplayGoals looking for unknown goal: %s"), *GetNameSafe(this), *GoalName.ToString());
+			}
+			UE_LOG(LogFFGame, Warning, TEXT("  Possible options for new goal: %d"), NewGoalPossibilities.Num());
+		}
+	}
+	// Pick from possibilities as long as we have them or stop if we delay between goals
+	while (NewGoalPossibilities.Num() > 0 && (MaximumCurrentGoals == 0 || (CurrentActiveGoals < MaximumCurrentGoals)))
+	{
+		GoalTemplate = UGoodsFunctionLibrary::PickOneFromWeightedList<FGameplayGoalTemplate>(NewGoalPossibilities, TotalWeightedChance);
+		if (GoalTemplate)
+		{
+			NewGoalPossibilities.RemoveSingle(*GoalTemplate);
+			NewGoals.AddUnique(GoalFromTemplate(*GoalTemplate));
+			CurrentActiveGoals++;
+			// If we delay between goals, stop looking for more.
+			if (ResetTimerBetweenGoals()) { break; }
+		}
+		else
+		{
+			break;
+		}
+	}
+
+	// Remove from our available goals cache
+	for (FName RemoveName : ToRemoveFromRemaining)
+	{
+		RemainingGoalNamesCached.Remove(RemoveName);
+	}
+
+	return NewGoals;
 }
 
 
@@ -140,21 +356,27 @@ void UGoalsProviderComponent::BeginDestroy()
 
 TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel)
 {
-	TArray<FGameplayGoal> NewGoals; 
-	NewGoals.Empty();
-	
-	if (bDisableNewGoals) 
+	TArray<FGameplayGoalTemplate> NewGoalPossibilities;
+	TArray<FGameplayGoal> NewGoals;
+	const FString ContextString("Goals Provider Component");
+	FGameplayGoalTemplate* GoalTemplate = nullptr;
+	FGameplayGoal* NewGoal = nullptr;
+	float TotalWeightedChance = 0.0f;
+	bool bAddToNew = true;
+	TSet<FName> ToRemoveFromRemaining;
+
+	if (bDisableNewGoals)
 	{
 		UE_LOG(LogFFGame, Log, TEXT("%s GetNewGameplayGoals %s New Goals DISABLED"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())));
-		return NewGoals; 
+		return NewGoals;
 	}
 	if (MaximumCurrentGoals > 0 && CurrentActiveGoals >= MaximumCurrentGoals)
 	{
 		UE_LOG(LogFFGame, Log, TEXT("%s GetNewGameplayGoals %s at maximum current goals %d"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())), CurrentActiveGoals);
 		return NewGoals;
 	}
-	
-	UE_LOG(LogFFGame, Log, TEXT("%s GetNewGameplayGoals %s"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())) );
+
+	UE_LOG(LogFFGame, Log, TEXT("%s GetNewGameplayGoals %s"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())));
 	/*
 	UE_LOG(LogFFGame, Warning, TEXT("  CurrentGoals:"));
 	for (const FGameplayGoal& TmpGoal : CurrentGoals)
@@ -167,78 +389,16 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 		UE_LOG(LogFFGame, Warning, TEXT("   %s  index: %d  number: %d"), *TmpGoal.ToString(), TmpGoal.GetComparisonIndex(), TmpGoal.GetNumber());
 	}
 	*/
-		
-	const FString ContextString("Goals Provider Component");
-	FGameplayGoal* CurGoal = nullptr;
-	bool bAddToNew = true;
-	TSet<FName> ToRemoveFromRemaining;
-				
-	for (FName GoalName : RemainingGoalNamesCached)
-	{
-		// Go to next if this one is aready currently active (don't allow repeat here)
-		if (CurrentGoals.Contains(GoalName)) 
-		{ 
-			continue; 
-		}
-		// Make sure we don't exceed maxium goals
-		if (MaximumCurrentGoals == 0 || CurrentActiveGoals < MaximumCurrentGoals)
-		{
-			bAddToNew = true;
-			CurGoal = GoalsData->FindRow<FGameplayGoal>(GoalName, ContextString);
-			if (CurGoal)
-			{
-				// Go to the next one if this one is already complete and cannot be repeated.
-				if (!CurGoal->CanRepeat && (CompletedGoals.Contains(GoalName) || AbandonedGoals.Contains(GoalName)))
-				{
-					// Also remove it from our remaining goals cache
-					ToRemoveFromRemaining.Add(GoalName);
-					continue;
-				}
-				// Go to the next goal if minimum experience level isn't met
-				if (CurGoal->RequiredExperienceLevel > 0 && CurGoal->RequiredExperienceLevel > CurrentExperienceLevel)
-				{
-					continue;
-				}
-				// Check each goal's prerequisites
-				if (CurGoal && CurGoal->PrerequisiteGoals.Num() > 0)
-				{
-					for (FName PrereqName : CurGoal->PrerequisiteGoals)
-					{
-						if (!CompletedGoals.Contains(PrereqName))
-						{
-							// If we don't have all pre-reqs, then don't add
-							bAddToNew = false;
-							// And stop checking this goal's pre-reqs
-							break;
-						}
-					}
-				}
-				if (bAddToNew)
-				{
-					NewGoals.AddUnique(*CurGoal);
-					++CurrentActiveGoals;
-					// If we delay between goals, stop looking for more.
-					if (ResetTimerBetweenGoals()) {	break; }
-				}
-			}
-			else
-			{
-				UE_LOG(LogFFGame, Warning, TEXT("%s GetNewGameplayGoals looking for unknown goal: %s"), *GetNameSafe(this), *GoalName.ToString());
-			}
-		}
-		else
-		{
-			//UE_LOG(LogFFGame, Log, TEXT("%s goal provider hit maxium active goals: %d"), *GetNameSafe(this), CurrentActiveGoals);
-			break;
-		}
-	}
 
-	// Remove from our available goals cache
-	for (FName RemoveName : ToRemoveFromRemaining)
+	if (GoalsData->GetRowStruct() == FGameplayGoalTemplate::StaticStruct())
 	{
-		RemainingGoalNamesCached.Remove(RemoveName);
+		NewGoals = NewGoalsByTemplate(CurrentGoals, CompletedGoals, AbandonedGoals, CurrentExperienceLevel);
 	}
-
+	else
+	{
+		NewGoals = NewGoalsByGoalData(CurrentGoals, CompletedGoals, AbandonedGoals, CurrentExperienceLevel);
+	}
+	   	
 	UE_LOG(LogFFGame, Log, TEXT("  New Goals: %d"), NewGoals.Num());
 	
 	return NewGoals;

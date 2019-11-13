@@ -3,6 +3,7 @@
 #include "Engine/DataTable.h"
 #include "GoodsQuantityRange.h"
 #include "GoodsDropChance.h"
+#include "RecipeQuantityRange.h"
 #include "Guid.h"
 #include "GameplayGoalTemplate.generated.h"
 
@@ -12,6 +13,14 @@ struct FGameplayGoalTemplate : public FTableRowBase
 	GENERATED_BODY()
 
 public:
+	bool operator== (const FGameplayGoalTemplate& other) const;
+	bool operator== (const FGameplayGoalTemplate& other);
+	bool operator== (FGameplayGoalTemplate& other);
+
+	bool operator== (const FName& otherName) const;
+	bool operator== (const FName& otherName);
+	bool operator== (FName& otherName);
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		float WeightedChance;
 
@@ -43,6 +52,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> PrerequisiteGoals;
 	
+	// Player level must be >= to this before this goal is available.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float RequiredExperienceLevel;
+	
 	// Requirements for completing the goal
 	
 	// Goods harvested from "crops"
@@ -59,7 +72,7 @@ public:
 
 	// Recipes that must be crafted
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		TMap<FName, FGoodsQuantityRange> CraftedRecipesToComplete;
+		TArray<FRecipeQuantityRange> CraftedRecipesToComplete;
 		
 	
 	// Awards for completing the goal
@@ -78,5 +91,11 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsDropChance> GoodsAwarded;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float ExperienceAwardedMinimum;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float ExperienceAwardedMaximum;
 };
 

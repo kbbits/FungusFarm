@@ -6,6 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "Delegates/Delegate.h"
 #include "GameplayGoal.h"
+#include "GameplayGoalTemplate.h"
 #include "GameplayGoalProvider.h"
 #include "FungusFarm.h"
 #include "GoalsProviderComponent.generated.h"
@@ -77,6 +78,13 @@ protected:
 	// Resets the timer (if needed) between each new goal.
 	// Returns true if the timer was reset > 0.
 	bool ResetTimerBetweenGoals();
+
+	// Create and return a new Gameplay Goal from the given template.
+	FGameplayGoal GoalFromTemplate(const FGameplayGoalTemplate& GoalTemplate);
+
+	TArray<FGameplayGoal> NewGoalsByGoalData(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel);
+
+	TArray<FGameplayGoal> NewGoalsByTemplate(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel);
 
 public:
 	// Called every frame

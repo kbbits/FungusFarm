@@ -14,7 +14,7 @@ AFFGameMode::AFFGameMode(const FObjectInitializer& ObjectInitializer)
 {
 	PlayerStateClass = AFFPlayerState::StaticClass();
 	ProviderPropertiesTableName = FString("GoalProviderProperties");
-	ProviderGoalsTablePrefix = FString("SecondaryGoals");
+	ProviderGoalsTablePrefix = FString("SecondaryGoalsTemplate");
 
 	GameplayGoalsProvider = ObjectInitializer.CreateDefaultSubobject<UGoalsProviderComponent>(this, TEXT("GoalsProvider"));
 	UE_LOG(LogFFGame, Verbose, TEXT("FFGameMode constructed Goals Provider %s"), (GameplayGoalsProvider == nullptr ? TEXT("INVALID") : TEXT("VALID")));
@@ -79,7 +79,7 @@ UGoalsProviderComponent* AFFGameMode::AddSecondaryGoalProvider(const FName Provi
 		{
 			//UE_LOG(LogFFGame, Log, TEXT("Secondary goals table struct: %s"),  *ProviderTable->GetRowStructName().ToString());
 			// Get a TmpGoal record to make sure they are the correct type.
-			FGameplayGoal* TmpGoal = ProviderGoalsTable->FindRow<FGameplayGoal>(ProviderGoalsTable->GetRowNames()[0], FString("GameMode AddSecondaryGoalProvider"));
+			FGameplayGoalTemplate* TmpGoal = ProviderGoalsTable->FindRow<FGameplayGoalTemplate>(ProviderGoalsTable->GetRowNames()[0], FString("GameMode AddSecondaryGoalProvider"));
 			if (TmpGoal)
 			{
 				// Create a new component

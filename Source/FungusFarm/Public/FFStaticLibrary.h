@@ -20,6 +20,6 @@ public:
 	}
 
 	UFUNCTION(BlueprintCallable, Category="ModifiableAttributes")
-	static void SumModifiers(const TArray<FModifier>& ModsToSum, float& ScalarTotal, float& MultiplierTotal);
+		static void SumModifiers(const TArray<FModifier>& ModsToSum, float& ScalarTotal, float& MultiplierTotal);
 
 };

@@ -3,11 +3,11 @@
 #pragma once
 
 #include "Engine/DataTable.h"
-#include "GoodsQuantity.h"
-#include "GoodsQuantityRange.generated.h"
+#include "RecipeQuantity.h"
+#include "RecipeQuantityRange.generated.h"
 
 USTRUCT(BlueprintType)
-struct FGoodsQuantityRange : public FTableRowBase
+struct FRecipeQuantityRange : public FTableRowBase
 {
 	GENERATED_BODY()
 
@@ -23,21 +23,21 @@ public:
 
 public:
 
-	FGoodsQuantityRange()
+	FRecipeQuantityRange()
 	{
 		Name = FName::FName();
 		QuantityMin = 0.0f;
 		QuantityMax = 0.0f;
 	}
 
-	FGoodsQuantityRange(const FName NewName, const float Min, const float Max)
+	FRecipeQuantityRange(const FName NewName, const float Min, const float Max)
 	{
 		Name = NewName;
 		QuantityMin = Min;
 		QuantityMax = Max;
 	}
 
-	bool operator==(const FGoodsQuantityRange& Other) const
+	bool operator==(const FRecipeQuantityRange& Other) const
 	{
 		if (Name != Other.Name) return false;
 		if (QuantityMin != Other.QuantityMin) return false;

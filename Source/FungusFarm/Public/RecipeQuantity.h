@@ -3,10 +3,10 @@
 #pragma once
 
 //#include "Engine/DataTable.h"
-#include "GoodsQuantity.generated.h"
+#include "RecipeQuantity.generated.h"
 
 USTRUCT(BlueprintType)
-struct FGoodsQuantity //: public FTableRowBase
+struct FRecipeQuantity //: public FTableRowBase
 {
 	GENERATED_BODY()
 
@@ -18,19 +18,19 @@ public:
 		float Quantity;
 
 public:
-	FGoodsQuantity()
+	FRecipeQuantity()
 	{
 		Name = FName();
 		Quantity = 0.0f;
 	}
 
-	FGoodsQuantity(const FName& NewName, const float NewQuantity)
+	FRecipeQuantity(const FName& NewName, const float NewQuantity)
 	{
 		Name = NewName;
 		Quantity = NewQuantity;
 	}
 
-	bool operator==(const FGoodsQuantity& Other) const
+	bool operator==(const FRecipeQuantity& Other) const
 	{
 		if (Name != Other.Name) return false;
 		if (Quantity != Other.Quantity) return false;
