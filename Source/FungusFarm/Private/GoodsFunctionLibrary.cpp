@@ -5,15 +5,19 @@
 
 FGoodsQuantity UGoodsFunctionLibrary::GoodsQuantityFromRange(const FGoodsQuantityRange& GoodsRange, const float QuantityScale /* 0.0 - 1.0 */)
 {
+	UE_LOG(LogFFGame, Warning, TEXT("QuantityFromRange for %s"), *GoodsRange.Name.ToString());
 	if (GoodsRange.QuantityMin == GoodsRange.QuantityMax)
 	{
 		return FGoodsQuantity(GoodsRange.Name, GoodsRange.QuantityMax);
 	}
 	if (QuantityScale >= 0.0f)
 	{
+		UE_LOG(LogFFGame, Warning, TEXT("  Quantity scale raw: %f"), QuantityScale);
 		// Range is in min-max range determined by scale
-		float ClampedScale = FMath::Max<float>(QuantityScale, 1.0f);
-		return FGoodsQuantity(GoodsRange.Name, GoodsRange.QuantityMin + (ClampedScale * (GoodsRange.QuantityMax - GoodsRange.QuantityMin)));
+		float ClampedScale = FMath::Min<float>(QuantityScale, 1.0f);
+		float PickedQuantity = FMath::TruncToFloat(GoodsRange.QuantityMin + (ClampedScale * (GoodsRange.QuantityMax - GoodsRange.QuantityMin)));
+		UE_LOG(LogFFGame, Warning, TEXT("  QuantityFromRange clamped scale: %f picked quantity: %f"), ClampedScale, PickedQuantity);
+		return FGoodsQuantity(GoodsRange.Name, PickedQuantity);
 	}
 	else
 	{
@@ -43,7 +47,7 @@ FRecipeQuantity UGoodsFunctionLibrary::RecipeQuantityFromRange(const FRecipeQuan
 	if (QuantityScale >= 0.0f)
 	{
 		// Range is in min-max range determined by scale
-		float ClampedScale = FMath::Max<float>(QuantityScale, 1.0f);
+		float ClampedScale = FMath::Min<float>(QuantityScale, 1.0f);
 		return FRecipeQuantity(RecipeRange.Name, RecipeRange.QuantityMin + (ClampedScale * (RecipeRange.QuantityMax - RecipeRange.QuantityMin)));
 	}
 	else
@@ -61,4 +65,54 @@ TArray<FRecipeQuantity> UGoodsFunctionLibrary::RecipeQuantitiesFromRanges(const 
 		Recipes.Add(RecipeQuantityFromRange(RecipeRange, QuantityScale));
 	}
 	return Recipes;
+}
+
+
+TArray<FGoodsQuantity> UGoodsFunctionLibrary::EvaluateGoodsDrop(const FGoodsDropChance& DropChance, const float QuantityScale /* 0.0 - 1.0 */)
+{
+	TArray<FGoodsQuantity> EvaluatedGoods;
+	float PickChance;
+	PickChance = FMath::FRandRange(0.0f, DropChance.PercentChance);
+	if (PickChance <= DropChance.PercentChance)
+	{
+		for (const FGoodsQuantityRange& QuantityRange : DropChance.GoodsOdds)
+		{
+			FGoodsQuantity Quantity = GoodsQuantityFromRange(QuantityRange, QuantityScale);
+			if (Quantity.Quantity > 0.0f)
+			{
+				EvaluatedGoods.Add(Quantity);
+			}
+		}		
+	}
+	return EvaluatedGoods;
+}
+
+
+TArray<FGoodsQuantity> UGoodsFunctionLibrary::EvaluateGoodsDrops(const TArray<FGoodsDropChance>& DropChances, const float QuantityScale)
+{
+	TArray<FGoodsQuantity> EvaluatedGoods;
+	for (const FGoodsDropChance& DropChance : DropChances)
+	{
+		EvaluatedGoods.Append(EvaluateGoodsDrop(DropChance, QuantityScale));
+	}
+	return EvaluatedGoods;
+}
+
+
+TArray<FGoodsDropChance> UGoodsFunctionLibrary::FlattenToEvaluatedGoods(const TArray<FGoodsDropChance>& DropChances, const float QuantityScale /* 0.0 - 1.0 */)
+{
+	TArray<FGoodsDropChance> Flattened;
+	for (const FGoodsDropChance& DropChance : DropChances)
+	{
+		FGoodsDropChance NewChance;
+		NewChance.DropGroup = DropChance.DropGroup;
+		NewChance.PercentChance = 1.0f;
+		TArray<FGoodsQuantity> GoodsQuantities = EvaluateGoodsDrop(DropChance, QuantityScale);
+		for (FGoodsQuantity GoodsQuantity : GoodsQuantities)
+		{
+			NewChance.GoodsOdds.Add(FGoodsQuantityRange(GoodsQuantity.Name, GoodsQuantity.Quantity, GoodsQuantity.Quantity));
+		}
+		Flattened.Add(NewChance);
+	}
+	return Flattened;
 }

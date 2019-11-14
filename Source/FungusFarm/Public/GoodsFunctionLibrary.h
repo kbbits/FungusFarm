@@ -8,6 +8,8 @@
 #include "GoodsQuantityRange.h"
 #include "RecipeQuantity.h"
 #include "RecipeQuantityRange.h"
+#include "GoodsDropChance.h"
+#include "FungusFarm.h"
 #include "GoodsFunctionLibrary.generated.h"
 
 /**
@@ -39,6 +41,17 @@ public:
 	// If optional QuantityScale is provided, each quantity will be mapped from min to max according to the scale instead of determining randomly.
 	UFUNCTION(BlueprintCallable, Category = "Goods")
 		static TArray<FRecipeQuantity> RecipeQuantitiesFromRanges(const TArray<FRecipeQuantityRange>& RecipeRanges, const float QuantityScale = -1.0f /* 0.0 - 1.0 */);
+
+	// Evaluates the GoodsDrop based on random chance.  Quantities evaluated are random in min-max range unless QuantityScale is 0.0 - 1.0.
+	UFUNCTION(BlueprintCallable, Category = "Goods")
+		static TArray<FGoodsQuantity> EvaluateGoodsDrop(const FGoodsDropChance& DropChance, const float QuantityScale = -1.0f /* 0.0 - 1.0 */);
+
+	UFUNCTION(BlueprintCallable, Category = "Goods")
+		static TArray<FGoodsQuantity> EvaluateGoodsDrops(const TArray<FGoodsDropChance>& DropChances, const float QuantityScale = -1.0f /* 0.0 - 1.0 */);
+
+	// Will take all ranges of goods and set the min=max to a picked value so the DropChance now has a fixed range of goods.
+	UFUNCTION(BlueprintCallable, Category = "Goods")
+		static TArray<FGoodsDropChance> FlattenToEvaluatedGoods(const TArray<FGoodsDropChance>& DropChances, const float QuantityScale = -1.0f /* 0.0 - 1.0 */);
 		
 	template<class T>
 	static FORCEINLINE TMap<FName, T> NamedItemsToMap(TArray<T> NamedItems)
@@ -51,6 +64,7 @@ public:
 		return NamedItemMap;
 	}
 
+	//
 	template<class T>
 	static FORCEINLINE TMap<FName, int32> NamedQuantitiesToCountMap(TArray<T> NamedItems)
 	{

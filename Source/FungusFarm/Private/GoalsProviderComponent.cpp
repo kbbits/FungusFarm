@@ -132,7 +132,7 @@ FGameplayGoal UGoalsProviderComponent::GoalFromTemplate(const FGameplayGoalTempl
 		NewGoal.UnlockedCrops = GoalTemplate.UnlockedCrops;
 		NewGoal.UnlockedTools = GoalTemplate.UnlockedTools;
 		NewGoal.OtherAwards = GoalTemplate.OtherAwards;
-		NewGoal.GoodsAwarded = GoalTemplate.GoodsAwarded;
+		NewGoal.GoodsAwarded = UGoodsFunctionLibrary::FlattenToEvaluatedGoods(GoalTemplate.GoodsAwarded);
 		NewGoal.ExperienceAwarded = FMath::TruncToFloat(GoalTemplate.ExperienceAwardedMinimum + (Scale * (GoalTemplate.ExperienceAwardedMaximum - GoalTemplate.ExperienceAwardedMinimum)));
 		NewGoal.ProviderGuid = GameplayGoalProviderGuid;
 	}
@@ -238,7 +238,7 @@ TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByTemplate(const TArray<F
 		if (GoalsData->GetRowStruct() == FGameplayGoalTemplate::StaticStruct())
 		{
 			GoalTemplate = GoalsData->FindRow<FGameplayGoalTemplate>(GoalName, "GoalsProviderComponent");
-			if (GoalTemplate)
+			if (GoalTemplate && !GoalTemplate->UniqueNameBase.IsNone())
 			{
 				// Go to the next one if this one is already complete and cannot be repeated.
 				if (!GoalTemplate->CanRepeat && (CompletedGoals.Contains(GoalName) || AbandonedGoals.Contains(GoalName)))
@@ -285,8 +285,9 @@ TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByTemplate(const TArray<F
 		GoalTemplate = UGoodsFunctionLibrary::PickOneFromWeightedList<FGameplayGoalTemplate>(NewGoalPossibilities, TotalWeightedChance);
 		if (GoalTemplate)
 		{
+			FGameplayGoal NewGoal = GoalFromTemplate(*GoalTemplate);
+			NewGoals.AddUnique(NewGoal);
 			NewGoalPossibilities.RemoveSingle(*GoalTemplate);
-			NewGoals.AddUnique(GoalFromTemplate(*GoalTemplate));
 			CurrentActiveGoals++;
 			// If we delay between goals, stop looking for more.
 			if (ResetTimerBetweenGoals()) { break; }
