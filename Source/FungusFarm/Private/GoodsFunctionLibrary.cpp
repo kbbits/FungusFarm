@@ -6,10 +6,12 @@
 FGoodsQuantity UGoodsFunctionLibrary::GoodsQuantityFromRange(const FGoodsQuantityRange& GoodsRange, const float QuantityScale /* 0.0 - 1.0 */)
 {
 	UE_LOG(LogFFGame, Warning, TEXT("QuantityFromRange for %s"), *GoodsRange.Name.ToString());
+	// Check if min == max
 	if (GoodsRange.QuantityMin == GoodsRange.QuantityMax)
 	{
 		return FGoodsQuantity(GoodsRange.Name, GoodsRange.QuantityMax);
 	}
+	// If QuantityScale is >= 0.0, then we determine the quantity by selecting a value that is QuantityScale % between min and max values.
 	if (QuantityScale >= 0.0f)
 	{
 		UE_LOG(LogFFGame, Warning, TEXT("  Quantity scale raw: %f"), QuantityScale);
@@ -71,9 +73,16 @@ TArray<FRecipeQuantity> UGoodsFunctionLibrary::RecipeQuantitiesFromRanges(const 
 TArray<FGoodsQuantity> UGoodsFunctionLibrary::EvaluateGoodsDrop(const FGoodsDropChance& DropChance, const float QuantityScale /* 0.0 - 1.0 */)
 {
 	TArray<FGoodsQuantity> EvaluatedGoods;
+	float PercentChance = DropChance.PercentChance;
 	float PickChance;
-	PickChance = FMath::FRandRange(0.0f, DropChance.PercentChance);
-	if (PickChance <= DropChance.PercentChance)
+	if (PercentChance <= 0.0f)
+	{
+		return EvaluatedGoods;
+	}
+	if (PercentChance > 1.0f) { PercentChance = 1.0f; }
+	
+	PickChance = FMath::FRand(); // 0.0 - 1.0
+	if (PickChance <= PercentChance)
 	{
 		for (const FGoodsQuantityRange& QuantityRange : DropChance.GoodsOdds)
 		{

@@ -115,6 +115,10 @@ FGameplayGoal UGoalsProviderComponent::GoalFromTemplate(const FGameplayGoalTempl
 	if (!GoalTemplate.UniqueNameBase.IsNone())
 	{
 		float Scale = FMath::FRand();
+		if (Scale < 0.001f)
+		{
+			Scale = 0.001f;
+		}
 		NewGoal.UniqueName = GoalTemplate.UniqueNameBase;  //.ToString()+"_" + FGuid::NewGuid().ToString()));
 		NewGoal.DisplayName = GoalTemplate.DisplayNameBase;
 		NewGoal.CanAbandon = GoalTemplate.CanAbandon;
@@ -132,12 +136,13 @@ FGameplayGoal UGoalsProviderComponent::GoalFromTemplate(const FGameplayGoalTempl
 		NewGoal.UnlockedCrops = GoalTemplate.UnlockedCrops;
 		NewGoal.UnlockedTools = GoalTemplate.UnlockedTools;
 		NewGoal.OtherAwards = GoalTemplate.OtherAwards;
-		NewGoal.GoodsAwarded = UGoodsFunctionLibrary::FlattenToEvaluatedGoods(GoalTemplate.GoodsAwarded);
+		NewGoal.GoodsAwarded = UGoodsFunctionLibrary::FlattenToEvaluatedGoods(GoalTemplate.GoodsAwarded, Scale);
 		NewGoal.ExperienceAwarded = FMath::TruncToFloat(GoalTemplate.ExperienceAwardedMinimum + (Scale * (GoalTemplate.ExperienceAwardedMaximum - GoalTemplate.ExperienceAwardedMinimum)));
 		NewGoal.ProviderGuid = GameplayGoalProviderGuid;
 	}
 	return NewGoal;
 }
+
 
 TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByGoalData(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel)
 {
@@ -214,6 +219,7 @@ TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByGoalData(const TArray<F
 
 	return NewGoals;
 }
+ 
 
 TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByTemplate(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel)
 {
@@ -280,7 +286,7 @@ TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByTemplate(const TArray<F
 		}
 	}
 	// Pick from possibilities as long as we have them or stop if we delay between goals
-	while (NewGoalPossibilities.Num() > 0 && (MaximumCurrentGoals == 0 || (CurrentActiveGoals < MaximumCurrentGoals)))
+	while (NewGoalPossibilities.Num() > 0 && (MaximumCurrentGoals <= 0 || (CurrentActiveGoals < MaximumCurrentGoals)))
 	{
 		GoalTemplate = UGoodsFunctionLibrary::PickOneFromWeightedList<FGameplayGoalTemplate>(NewGoalPossibilities, TotalWeightedChance);
 		if (GoalTemplate)
@@ -376,7 +382,6 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 		UE_LOG(LogFFGame, Log, TEXT("%s GetNewGameplayGoals %s at maximum current goals %d"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())), CurrentActiveGoals);
 		return NewGoals;
 	}
-
 	UE_LOG(LogFFGame, Log, TEXT("%s GetNewGameplayGoals %s"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())));
 	/*
 	UE_LOG(LogFFGame, Warning, TEXT("  CurrentGoals:"));
@@ -391,13 +396,19 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 	}
 	*/
 
+	// Get goals based on our GoalsData type - either a GoalTemplate or a Goal.
 	if (GoalsData->GetRowStruct() == FGameplayGoalTemplate::StaticStruct())
 	{
 		NewGoals = NewGoalsByTemplate(CurrentGoals, CompletedGoals, AbandonedGoals, CurrentExperienceLevel);
 	}
-	else
+	else if (GoalsData->GetRowStruct() == FGameplayGoal::StaticStruct())
 	{
 		NewGoals = NewGoalsByGoalData(CurrentGoals, CompletedGoals, AbandonedGoals, CurrentExperienceLevel);
+	}
+	else
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("%s GetNewGameplayGoal - Unknown structure in goals data file."), *GetNameSafe(this));
+		return NewGoals;
 	}
 	   	
 	UE_LOG(LogFFGame, Log, TEXT("  New Goals: %d"), NewGoals.Num());
