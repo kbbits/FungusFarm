@@ -22,7 +22,9 @@ enum class EModifiableAttributeType : uint8
 	HarvestBonusChance	UMETA(DisplayName = "Harvest Bonus Chance"),
 	HarvestBonusAmount	UMETA(DisplayName = "Harvest Bonus Amount"),
 	AllowAutoHarvest	UMETA(DisplayName = "Allow Auto-Harvest"),
-	AllowAutoReplant	UMETA(DisplayName = "Allow Auto-Replant")
+	AllowAutoReplant	UMETA(DisplayName = "Allow Auto-Replant"),
+	Temperature			UMETA(DisplayName = "Temperature"),
+	Moisture			UMETA(DisplayName = "Moisture")
 };
 
 USTRUCT(BlueprintType)
@@ -60,20 +62,26 @@ struct FAttributeModifier
 	GENERATED_BODY()
 
 public:
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+	//	EModifiableAttributeType AttributeType;
+
+	// Identifying code for the typ of attribute being modified.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		EModifiableAttributeType AttributeType;
+		FName AttributeCode;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FModifier Modifier;
 
 	FAttributeModifier()
 	{
-		AttributeType = EModifiableAttributeType::GrowthRate;
+		//AttributeType = EModifiableAttributeType::GrowthRate;
+		AttributeCode = FName("GrowthRate");
 	}
 
 	bool operator==(const FAttributeModifier& Other) const
 	{
-		if (AttributeType != Other.AttributeType) return false;
+		//if (AttributeType != Other.AttributeType) return false;
+		if (AttributeCode != Other.AttributeCode) return false;
 		if (!(Modifier == Other.Modifier)) return false;
 		return true;
 	}
@@ -88,8 +96,12 @@ struct FModifiableAttribute
 	GENERATED_BODY()
 
 public:
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+	//	EModifiableAttributeType AttributeType;
+
+	// Identifying code for the type of attribute.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		EModifiableAttributeType AttributeType;
+		FName AttributeCode;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		float BaseValue;
@@ -102,14 +114,16 @@ public:
 
 	FModifiableAttribute()
 	{
-		AttributeType = EModifiableAttributeType::GrowthRate;
+		//AttributeType = EModifiableAttributeType::GrowthRate;
+		AttributeCode = FName();
 		BaseValue = 0.0f;
 		ModifiedValue = 0.0f;
 	}
 
 	bool operator==(const FModifiableAttribute& Other) const
 	{
-		if (AttributeType != Other.AttributeType) return false;
+		//if (AttributeType != Other.AttributeType) return false;
+		if (AttributeCode != Other.AttributeCode) return false;
 		if (BaseValue != Other.BaseValue) return false;
 		if (ModifiedValue != Other.ModifiedValue) return false;
 		return true;

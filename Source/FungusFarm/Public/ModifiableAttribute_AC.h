@@ -16,19 +16,24 @@ class FUNGUSFARM_API UModifiableAttribute_AC : public UActorComponent
 
 public:
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		EModifiableAttributeType AttributeType;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+	//	EModifiableAttributeType AttributeType;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+	// Identifying code for the type of attribute.
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, SaveGame)
+		FName AttributeCode;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, SaveGame)
+		float BaseValue;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame)
 		TArray<FModifier> Modifiers;
 		
 	// Sets default values for this component's properties
 	UModifiableAttribute_AC();
 	
 protected:
-	UPROPERTY(SaveGame)
-	float BaseValue;
-
+	
 	UPROPERTY(SaveGame)
 	float CurrentValue;
 

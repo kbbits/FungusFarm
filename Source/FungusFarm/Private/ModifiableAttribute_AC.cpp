@@ -10,7 +10,8 @@ UModifiableAttribute_AC::UModifiableAttribute_AC()
 	PrimaryComponentTick.bCanEverTick = false;
 
 	// Init members
-	AttributeType = EModifiableAttributeType::GrowthRate;
+	//AttributeType = EModifiableAttributeType::GrowthRate;
+	AttributeCode = FName();
 	BaseValue = 0.0f;
 	CurrentValue = 0.0f;
 }
@@ -62,7 +63,7 @@ float UModifiableAttribute_AC::GetCurrentValue()
 */
 void UModifiableAttribute_AC::AddModifier(const FAttributeModifier& NewModifier) 
 {
-	if (NewModifier.AttributeType == AttributeType) 
+	if (NewModifier.AttributeCode == AttributeCode) //(NewModifier.AttributeType == AttributeType) 
 	{
 		Modifiers.Add(NewModifier.Modifier);
 		RecalculateValue();
@@ -81,7 +82,7 @@ void UModifiableAttribute_AC::AddModifiers(const TArray<FAttributeModifier>& New
 
 	for (FAttributeModifier AttrMod : NewModifiers)
 	{
-		if (AttrMod.AttributeType == AttributeType)
+		if (AttrMod.AttributeCode == AttributeCode) //(AttrMod.AttributeType == AttributeType)
 		{
 			Modifiers.Add(AttrMod.Modifier);
 		}
@@ -106,6 +107,6 @@ void UModifiableAttribute_AC::RecalculateValue()
 	float MultiplierTotal = 0;
 
 	UFFStaticLibrary::SumModifiers(Modifiers, ScalarTotal, MultiplierTotal);
-	CurrentValue = (BaseValue * (1.0 + MultiplierTotal)) + ScalarTotal;
+	CurrentValue = (BaseValue * (1.0f + MultiplierTotal)) + ScalarTotal;
 }
 

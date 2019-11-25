@@ -14,4 +14,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		float BaseGrowthRate;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float BaseTemperature;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float BaseMoisture;
 };
