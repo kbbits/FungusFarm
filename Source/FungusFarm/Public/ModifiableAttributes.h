@@ -14,6 +14,7 @@ enum class EModifierType : uint8
 /* 
 	Different types of available attributes.  If we need more attribute types, add them here.
 */
+/*
 UENUM(BlueprintType)
 enum class EModifiableAttributeType : uint8
 {
@@ -26,6 +27,7 @@ enum class EModifiableAttributeType : uint8
 	Temperature			UMETA(DisplayName = "Temperature"),
 	Moisture			UMETA(DisplayName = "Moisture")
 };
+*/
 
 USTRUCT(BlueprintType)
 struct FModifier 
@@ -65,7 +67,7 @@ public:
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 	//	EModifiableAttributeType AttributeType;
 
-	// Identifying code for the typ of attribute being modified.
+	// Identifying code for the type of attribute being modified.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName AttributeCode;
 

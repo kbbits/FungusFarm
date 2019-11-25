@@ -20,4 +20,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		float BaseMoisture;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float BaseMineralCapacity;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float BaseProteinCapacity;
 };

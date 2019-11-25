@@ -30,4 +30,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		float BuyCost;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TArray<FName> GoodsCategories;
 };

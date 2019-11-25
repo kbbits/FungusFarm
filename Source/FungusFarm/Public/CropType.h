@@ -66,6 +66,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		float MoistureToleraceRange;
 
+	// The minimum MineralCapacity for this crop to grow
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float RequiredMineralCapacity;
+
+	// The minimum ProteinCapacity for this crop to grow
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		float RequiredProteinCapacity;
+
 	// Experience awarded to player for harvesting this crop type
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		float HarvestExperience;
