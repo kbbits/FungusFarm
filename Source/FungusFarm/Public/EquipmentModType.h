@@ -39,7 +39,7 @@ struct FEquipmentModType : public FTableRowBase
 	GENERATED_BODY()
 
 public:
-	// The unique name of this equipment mod (same as equipment name for this mod - equipment mods are also equipment)
+	// The unique name of this equipment mod (usually the same as equipment name for this mod - equipment mods are also equipment)
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame)
 		FName Name;
 
@@ -74,7 +74,7 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame)
 		EEquipmentModEvent ActivationEvent;
 
-	// The modifiers this mod equipment applies when active. (replaces ModEquipmentModifiersData)
+	// The modifiers this mod equipment applies when active.
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame)
 		TArray<FAttributeModifier> Modifiers;
 
