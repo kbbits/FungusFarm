@@ -84,14 +84,33 @@ float AFFPlayerState::GetExperienceForNextLevel()
 }
 
 
+void AFFPlayerState::SetNavIndexForLevel(FName LevelName, int32 Index)
+{
+	if (LevelName.IsValid())
+	{
+		PlayerProperties.LastAnchorIndexForLevel.Add(LevelName, Index);
+	}
+}
+
+
+int32 AFFPlayerState::GetNavIndexForLevel(FName LevelName)
+{
+	if (LevelName.IsValid() && PlayerProperties.LastAnchorIndexForLevel.Contains(LevelName))
+	{
+		return PlayerProperties.LastAnchorIndexForLevel.FindRef(LevelName);
+	}
+	return 0;
+}
+
+
 bool AFFPlayerState::CheckForLevelUp()
 {
 	float XpRequired = GetExperienceForNextLevel();
-	UE_LOG(LogFFGame, Log, TEXT("Level %d XP required: %f current: %f"), GetExperienceLevel() + 1, XpRequired, GetExperience());
+	UE_LOG(LogFFGame, Log, TEXT("Level %d XP required: %f Current: %f"), GetExperienceLevel() + 1, XpRequired, GetExperience());
 	if (GetExperience() >= XpRequired)
 	{
 		SetExperienceLevel(GetExperienceLevel() + 1);
-		UE_LOG(LogFFGame, Log, TEXT("Experience leveled went up to %d"), GetExperienceLevel());
+		UE_LOG(LogFFGame, Log, TEXT("Experience level went up to %d"), GetExperienceLevel());
 		return true;
 	}
 	return false;

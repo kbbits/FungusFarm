@@ -5,7 +5,7 @@
 
 FGoodsQuantity UGoodsFunctionLibrary::GoodsQuantityFromRange(const FGoodsQuantityRange& GoodsRange, const float QuantityScale /* 0.0 - 1.0 */)
 {
-	UE_LOG(LogFFGame, Warning, TEXT("QuantityFromRange for %s"), *GoodsRange.Name.ToString());
+	//UE_LOG(LogFFGame, Warning, TEXT("QuantityFromRange for %s"), *GoodsRange.Name.ToString());
 	// Check if min == max
 	if (GoodsRange.QuantityMin == GoodsRange.QuantityMax)
 	{
@@ -14,11 +14,11 @@ FGoodsQuantity UGoodsFunctionLibrary::GoodsQuantityFromRange(const FGoodsQuantit
 	// If QuantityScale is >= 0.0, then we determine the quantity by selecting a value that is QuantityScale % between min and max values.
 	if (QuantityScale >= 0.0f)
 	{
-		UE_LOG(LogFFGame, Warning, TEXT("  Quantity scale raw: %f"), QuantityScale);
+		//UE_LOG(LogFFGame, Warning, TEXT("  Quantity scale raw: %f"), QuantityScale);
 		// Range is in min-max range determined by scale
 		float ClampedScale = FMath::Min<float>(QuantityScale, 1.0f);
 		float PickedQuantity = FMath::TruncToFloat(GoodsRange.QuantityMin + (ClampedScale * (GoodsRange.QuantityMax - GoodsRange.QuantityMin)));
-		UE_LOG(LogFFGame, Warning, TEXT("  QuantityFromRange clamped scale: %f picked quantity: %f"), ClampedScale, PickedQuantity);
+		//UE_LOG(LogFFGame, Warning, TEXT("  QuantityFromRange clamped scale: %f picked quantity: %f"), ClampedScale, PickedQuantity);
 		return FGoodsQuantity(GoodsRange.Name, PickedQuantity);
 	}
 	else

@@ -44,6 +44,8 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+	UFUNCTION(BlueprintCallable, Category = "Save Extension")
+		UFFSlotInfo* GetFFSaveSlotInfo();
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		UGoalsProviderComponent* GetGoalProviderComponentByUniqueName(const FName ProviderUniqueName);

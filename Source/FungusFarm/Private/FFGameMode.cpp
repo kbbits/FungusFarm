@@ -30,6 +30,27 @@ void AFFGameMode::BeginPlay()
 }
 
 
+UFFSlotInfo * AFFGameMode::GetFFSaveSlotInfo()
+{
+	USaveManager* SaveManager = USaveManager::GetSaveManager(this);
+	if (SaveManager)
+	{
+		USlotInfo* BaseSlotInfo = SaveManager->GetCurrentInfo();
+		if (BaseSlotInfo) { UE_LOG(LogFFGame, Warning, TEXT("GetFFSaveSlotInfo found base slot info")); }
+		UFFSlotInfo* SlotInfo = Cast<UFFSlotInfo>(BaseSlotInfo);
+		if (SlotInfo)
+		{
+			UE_LOG(LogFFGame, Warning, TEXT("  GetFFSaveSlotInfo found FFSlotInfo"));
+		}
+		else
+		{
+			UE_LOG(LogFFGame, Warning, TEXT("  GetFFSaveSlotInfo NOT an FFSlotInfo."));
+		}
+		return SlotInfo;
+	}
+	return nullptr;
+}
+
 UGoalsProviderComponent * AFFGameMode::GetGoalProviderComponentByUniqueName(const FName ProviderUniqueName)
 {
 	TArray<UGoalsProviderComponent*> AllProviders = GetAllGoalProviders();
@@ -163,22 +184,24 @@ float AFFGameMode::GetExperienceRequiredForLevel(const int32 Level)
 	// TODO: implement a data-based approach for this.  For now just using a set scale.
 	float CurLevel = static_cast<float>(Level) - 1;
 	if (CurLevel <= 0) { return 0; }
-	return FMath::TruncToFloat(FMath::Pow(CurLevel, 1.25f) * 50.0f) * 10.0f;
+	// https://www.desmos.com/calculator/luj0qz9dn6
+	return FMath::TruncToFloat(FMath::Pow((CurLevel + FMath::FloorToInt(Level / 10.0f)), 1.75f) * 55.0f) * 10.0f;
 }
 
 
 void AFFGameMode::OnSaveBegan()
 {	
-	USaveManager* SaveManager = USaveManager::GetSaveManager(this);
-	USlotInfo* BaseSlotInfo = SaveManager->GetCurrentInfo();
-	UE_LOG(LogFFGame, Warning, TEXT("Base info %s"), *FString(BaseSlotInfo == nullptr ? "INVALD" : "VALID"));
-	UFFSlotInfo* SlotInfo = Cast<UFFSlotInfo>(BaseSlotInfo);
 	TArray<UGoalsProviderComponent*> AllSecondaries = GetAllSecondaryGoalProviders();
+	USaveManager* SaveManager = USaveManager::GetSaveManager(this);
 
-	UE_LOG(LogFFGame, Log, TEXT("Save Began. Secondary providers %d"), AllSecondaries.Num());
+	UE_LOG(LogFFGame, Log, TEXT("FFGameMode Save Began. Secondary providers %d"), AllSecondaries.Num());
+
+	USlotInfo* BaseSlotInfo = SaveManager->GetCurrentInfo();
+	UFFSlotInfo* SlotInfo = Cast<UFFSlotInfo>(BaseSlotInfo);
 
 	if (SlotInfo)
 	{
+		UE_LOG(LogFFGame, Log, TEXT("  FFGameMode: SlotInfo ID %d found. Saving FF data."), SlotInfo->Id);
 		SlotInfo->SecondaryGoalProviders.Empty(AllSecondaries.Num());
 		for (UGoalsProviderComponent* GoalComp : AllSecondaries)
 		{
@@ -188,7 +211,7 @@ void AFFGameMode::OnSaveBegan()
 	}
 	else
 	{
-		UE_LOG(LogFFGame, Warning, TEXT("Save Began. Slot id %d was not a valid FFSlotInfo."), SaveSlotId);
+		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode Save Began. Slot id %d was not a valid FFSlotInfo."), SaveSlotId);
 	}
 }
 

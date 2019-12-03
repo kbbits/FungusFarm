@@ -58,6 +58,14 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Experience and Level")
 		float GetExperienceForNextLevel();
 
+	// Sets the index for the last used navigation target associated with the given level.
+	UFUNCTION(BlueprintCallable, Category = "FFPlayerState")
+		void SetNavIndexForLevel(FName LevelName, int32 Index);
+
+	// Gets the index for the last used navigation target associated with the given level.
+	UFUNCTION(BlueprintPure, Category = "FFPlayerState")
+		int32 GetNavIndexForLevel(FName LevelName);
+
 protected:
 
 	// Checks next level XP requirements and increments experience level by one if requirement is met.

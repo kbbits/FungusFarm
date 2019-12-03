@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PlayerStateProperties.h"
 #include "SlotInfo.h"
 #include "FFSlotInfo.generated.h"
 
@@ -15,8 +16,13 @@ class FUNGUSFARM_API UFFSlotInfo : public USlotInfo
 	GENERATED_BODY()
 
 public:
+	UFFSlotInfo() : Super()
+	{}
 
-	UPROPERTY(BlueprintReadOnly, Category = SlotInfo)
+	UPROPERTY(BlueprintReadWrite, Category = "SlotInfo")
+	FPlayerStateProperties PlayerProperties;
+
+	UPROPERTY(BlueprintReadOnly, Category = "SlotInfo")
 	TArray<FName> SecondaryGoalProviders;
 	
 };
