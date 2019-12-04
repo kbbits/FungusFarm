@@ -4,7 +4,6 @@
 #include "FFGameMode.h"
 #include "GameInstanceSubsystem.h"
 #include "SaveManager.h"
-#include "FFSlotInfo.h"
 #include "FFPlayerState.h"
 #include "GameplayGoalProviderTemplate.h"
 
@@ -27,28 +26,6 @@ void AFFGameMode::BeginPlay()
 	//UGameInstance* GInstance = GetGameInstance();
 	USaveManager* SaveManager = USaveManager::GetSaveManager(this); //GInstance->GetSubsystem<USaveManager>();
 	SaveManager->SubscribeForEvents(this);
-}
-
-
-UFFSlotInfo * AFFGameMode::GetFFSaveSlotInfo()
-{
-	USaveManager* SaveManager = USaveManager::GetSaveManager(this);
-	if (SaveManager)
-	{
-		USlotInfo* BaseSlotInfo = SaveManager->GetCurrentInfo();
-		if (BaseSlotInfo) { UE_LOG(LogFFGame, Warning, TEXT("GetFFSaveSlotInfo found base slot info")); }
-		UFFSlotInfo* SlotInfo = Cast<UFFSlotInfo>(BaseSlotInfo);
-		if (SlotInfo)
-		{
-			UE_LOG(LogFFGame, Warning, TEXT("  GetFFSaveSlotInfo found FFSlotInfo"));
-		}
-		else
-		{
-			UE_LOG(LogFFGame, Warning, TEXT("  GetFFSaveSlotInfo NOT an FFSlotInfo."));
-		}
-		return SlotInfo;
-	}
-	return nullptr;
 }
 
 UGoalsProviderComponent * AFFGameMode::GetGoalProviderComponentByUniqueName(const FName ProviderUniqueName)
@@ -189,13 +166,162 @@ float AFFGameMode::GetExperienceRequiredForLevel(const int32 Level)
 }
 
 
+bool AFFGameMode::SaveGameProfile(const FString ProfileName)
+{
+	UE_LOG(LogFFGame, Log, TEXT("FFGameMode SaveGameProfile: slot id %d"), SaveSlotId);
+	if (SaveSlotId < 0) 
+	{ 
+		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode SaveGameProfile: slot id cannot be < 0."));
+		return false; 
+	}
+	//check(GetWorld());
+	//check(GetGameInstance());
+	FString ValidatedProfileName = FString(ProfileName);
+	AFFPlayerState * PState = GetWorld()->GetFirstPlayerController()->GetPlayerState<AFFPlayerState>();
+	TArray<UGoalsProviderComponent*> AllSecondaries = GetAllSecondaryGoalProviders();
+	
+	// First save the profile data
+	if (!CurrentSaveProfile || !CurrentSaveProfile->IsValidLowLevel())
+	{
+		UE_LOG(LogFFGame, Log, TEXT("    Creating new save profile"));
+		CurrentSaveProfile = NewObject<USaveProfile>(this, USaveProfile::StaticClass());
+		if (ValidatedProfileName.Len() == 0)
+		{
+			ValidatedProfileName = FString::Printf(TEXT("Profile %d"), SaveSlotId);
+		}
+	}
+	if (CurrentSaveProfile)
+	{
+		if (ValidatedProfileName.Len() > 0) 
+		{ 
+			CurrentSaveProfile->ProfileName = ProfileName; 
+		}
+		CurrentSaveProfile->SaveSlotId = SaveSlotId;
+		CurrentSaveProfile->PlayerProperties = PState->PlayerProperties;
+		CurrentSaveProfile->SecondaryGoalProviders.Empty(AllSecondaries.Num());
+		for (UGoalsProviderComponent* GoalComp : AllSecondaries)
+		{
+			CurrentSaveProfile->SecondaryGoalProviders.Add(GoalComp->UniqueName);
+		}
+		if (!UGameplayStatics::SaveGameToSlot(CurrentSaveProfile, GetSaveProfileFilename(SaveSlotId), 0))
+		{
+			UE_LOG(LogFFGame, Warning, TEXT("FFGameMode SaveGameProfile: Error saving profile data."));
+			return false;
+		}
+	}
+	else
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode SaveGameProfile: current save profile is null."));
+		return false;
+	}
+	
+	UE_LOG(LogFFGame, Log, TEXT("FFGameMode SaveGameProfile: saved profile data."));
+	
+	// Call plugin to save rest of data
+	UGameInstance* GInstance = GetGameInstance();
+	USaveManager* SaveManager = GInstance->GetSubsystem<USaveManager>();
+	if (!SaveManager) 
+	{ 
+		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode SaveGameProfile: NO Save Manager")); 
+		return false;
+	}
+	if (!SaveManager->SaveSlot(SaveSlotId, true, true, FScreenshotSize(640, 360)))
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode SaveGameProfile: Error saving actor data."));
+		return false;
+	}
+
+	UE_LOG(LogFFGame, Log, TEXT("Profile %s saved."), *CurrentSaveProfile->ProfileName);
+	
+	return true;
+}
+
+
+bool AFFGameMode::LoadGameProfile()
+{
+	check(GetWorld());
+	check(GetGameInstance());
+	AFFPlayerState * PState = GetWorld()->GetFirstPlayerController()->GetPlayerState<AFFPlayerState>();
+	
+	// Load profile data	
+	if (!UGameplayStatics::DoesSaveGameExist(GetSaveProfileFilename(SaveSlotId), 0))
+	{
+		return false;
+	}
+	CurrentSaveProfile = Cast<USaveProfile>(UGameplayStatics::LoadGameFromSlot(GetSaveProfileFilename(SaveSlotId), 0));
+	if (!CurrentSaveProfile)
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode LoadGameProfile: Error loading profile data."));
+		return false;
+	}
+	PState->PlayerProperties = CurrentSaveProfile->PlayerProperties;
+	for (FName UniqueName : CurrentSaveProfile->SecondaryGoalProviders)
+	{	
+		// Add the goal providers so they exist when plugin loads their data.
+		AddSecondaryGoalProvider(UniqueName);
+	}
+
+	// Load actors, etc. with plugin
+	UGameInstance* GInstance = GetGameInstance();
+	USaveManager* SaveManager = GInstance->GetSubsystem<USaveManager>();
+	if (!SaveManager)
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode LoadGameProfile: NO Save Manager"));
+		return false;
+	}
+	if (!SaveManager->LoadSlot(SaveSlotId))
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode LoadGameProfile: Error loading actor data."));
+		return false;
+	}
+
+	UE_LOG(LogFFGame, Log, TEXT("Profile %s loaded."), *CurrentSaveProfile->ProfileName);
+
+	return true;
+}
+
+
+USaveProfile * AFFGameMode::GetGameProfile(const int32 SlotId, bool& bExists)
+{
+	USaveProfile * Profile = nullptr;
+	// Load profile data	
+	if (UGameplayStatics::DoesSaveGameExist(GetSaveProfileFilename(SlotId), 0))
+	{
+		USaveGame * SaveGame = UGameplayStatics::LoadGameFromSlot(GetSaveProfileFilename(SlotId), 0);
+		if (!SaveGame) 
+		{ 
+			UE_LOG(LogFFGame, Warning, TEXT("FFGameMode GetGameProfile: Error loading game slot data.")); 
+			bExists = false;
+			return nullptr;
+		}
+		Profile = Cast<USaveProfile>(SaveGame);
+		if (!Profile)
+		{
+			UE_LOG(LogFFGame, Warning, TEXT("FFGameMode GetGameProfile: Error loading profile data."));
+			bExists = false;
+			return nullptr;
+		}
+	}
+	else
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode GetGameProfile: data for profile %s does not exist."), *GetSaveProfileFilename(SlotId));
+		bExists = false;
+		return nullptr;
+	}
+	bExists = true;
+	return Profile;
+}
+
+
 void AFFGameMode::OnSaveBegan()
 {	
+	/*
 	TArray<UGoalsProviderComponent*> AllSecondaries = GetAllSecondaryGoalProviders();
 	USaveManager* SaveManager = USaveManager::GetSaveManager(this);
 
 	UE_LOG(LogFFGame, Log, TEXT("FFGameMode Save Began. Secondary providers %d"), AllSecondaries.Num());
-
+	if (!SaveManager) { UE_LOG(LogFFGame, Log, TEXT("FFGameMode: NO Save Manager")); }
+	
 	USlotInfo* BaseSlotInfo = SaveManager->GetCurrentInfo();
 	UFFSlotInfo* SlotInfo = Cast<UFFSlotInfo>(BaseSlotInfo);
 
@@ -213,11 +339,13 @@ void AFFGameMode::OnSaveBegan()
 	{
 		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode Save Began. Slot id %d was not a valid FFSlotInfo."), SaveSlotId);
 	}
+	*/
 }
 
 
 void AFFGameMode::OnLoadBegan()
 {
+	/*
 	USaveManager* SaveManager = USaveManager::GetSaveManager(this);
 	UFFSlotInfo* SlotInfo = Cast<UFFSlotInfo>(SaveManager->GetSlotInfo(SaveSlotId));
 	//UFFSlotInfo* SlotInfo = Cast<UFFSlotInfo>(SaveManager->GetCurrentInfo());
@@ -233,10 +361,17 @@ void AFFGameMode::OnLoadBegan()
 	{
 		UE_LOG(LogFFGame, Warning, TEXT("Load Began. Slot id %d was not a valid FFSlotInfo."), SaveSlotId);
 	}
+	*/
 }
 
 
 void AFFGameMode::OnLoadFinished(bool bError)
 {
 	
+}
+
+
+FString AFFGameMode::GetSaveProfileFilename(const int32 SlotId)
+{
+	return FString::Printf(TEXT("%d_profile"), SlotId);
 }

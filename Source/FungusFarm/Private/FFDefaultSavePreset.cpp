@@ -2,9 +2,13 @@
 
 
 #include "FFDefaultSavePreset.h"
-#include "FFSlotInfo.h"
+
 
 UFFDefaultSavePreset::UFFDefaultSavePreset() : Super()
 {
-	SlotInfoTemplate = UFFSlotInfo::StaticClass();
+	bSaveOnExit = false;
+	bAutoLoad = false;
+	MultithreadedSerialization = ESaveASyncMode::OnlySync;
+	FrameSplittedSerialization = ESaveASyncMode::OnlySync;
+	MultithreadedFiles = ESaveASyncMode::OnlySync;
 }

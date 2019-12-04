@@ -30,8 +30,7 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
 		FOnExperienceLevelChanged OnExperienceLevelChanged;
 
-protected:
-	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, SaveGame, Category = "FFPlayerState")
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "FFPlayerState")
 		FPlayerStateProperties PlayerProperties;	
 
 public:

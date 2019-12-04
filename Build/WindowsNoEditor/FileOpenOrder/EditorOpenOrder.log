@@ -1822,132 +1822,132 @@
 "../../../Engine/Content/EngineFonts/Faces/RobotoTiny.uasset" 1822
 "E:/dev/unreal/FungusFarm 4.22/Intermediate/AssetRegistryCache/311563bb.bin" 1823
 "E:/dev/unreal/FungusFarm 4.22/Intermediate/AssetRegistryCache/c90e3f55.bin" 1824
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FFDefaultSavePreset_BP.uasset" 1825
-"../../../Engine/Content/EditorResources/SequenceRecorder/Countdown.uasset" 1826
-"../../../Engine/Content/EditorResources/SequenceRecorder/RecordingIndicator.uasset" 1827
-"../../../Engine/Content/BasicShapes/Cube.uasset" 1828
-"../../../Engine/Content/BasicShapes/Sphere.uasset" 1829
-"../../../Engine/Content/BasicShapes/Cylinder.uasset" 1830
-"../../../Engine/Content/BasicShapes/Cone.uasset" 1831
-"../../../Engine/Content/BasicShapes/Plane.uasset" 1832
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_WhiteMaterial.uasset" 1833
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_ChromaKey.uasset" 1834
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat4Components.uasset" 1835
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat2.uasset" 1836
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat3.uasset" 1837
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_ChromaKey_Lit.uasset" 1838
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_OpaqueColoredMaterial.uasset" 1839
-"../../Plugins/Runtime/Oculus/OculusVR/Content/OculusMR_RenderTarget.uasset" 1840
-"E:/dev/unreal/FungusFarm 4.22/Intermediate/AssetRegistryCache/5b8a58d9.bin" 1841
-"../../../Engine/Config/HTML5/HTML5Engine.ini" 1842
-"../../../Engine/Content/MobileResources/HUD/LeftVirtualJoystickOnly.uasset" 1843
-"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Background.uasset" 1844
-"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Thumb.uasset" 1845
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FFNormalGameMode_BP.uasset" 1846
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FFGameMode_BP.uasset" 1847
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_GameState.uasset" 1848
-"../../../Engine/Content/EditorBlueprintResources/StandardMacros.uasset" 1849
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crafting/FF_ActorCrafter_Component.uasset" 1850
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crafting/FF_CraftQueueSlot.uasset" 1851
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/CropTypes.uasset" 1852
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crafting/FF_CraftingState.uasset" 1853
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Inventory/FF_GoodsInventory_Component.uasset" 1854
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_GeneralFunctions.uasset" 1855
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_PlayerController_BP.uasset" 1856
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/CropPlots/CropPlotBase_BP.uasset" 1857
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/CropBase_BP.uasset" 1858
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/PlaceableEquipment_Base.uasset" 1859
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/Equipment_Base.uasset" 1860
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/FF_TranslucentUnlitSpriteMaterial.uasset" 1861
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/EquipmentMods/ModSlot_CAC_BP.uasset" 1862
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/EquipmentMods/ModEquipment_Base.uasset" 1863
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/IPlaceableEquipment.uasset" 1864
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/IPlaceableEquipmentTarget.uasset" 1865
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_GameInputModes.uasset" 1866
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ModifiableAttributes/ModifiableAttributes.uasset" 1867
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/CropGrowState.uasset" 1868
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/WhiteButton_02_Sprite.uasset" 1869
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/FF_MaskedLitSpriteMaterial.uasset" 1870
-"../../Plugins/2D/Paper2D/Content/DefaultLitSpriteMaterial.uasset" 1871
-"../../Plugins/2D/Paper2D/Content/PlaceholderTextures/FlatNormalMap.uasset" 1872
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/WhiteButton_02.uasset" 1873
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/Widgets/GrowthProgressWidget.uasset" 1874
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/SprinkleParticle.uasset" 1875
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Spore_01.uasset" 1876
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Spore_01_sm.uasset" 1877
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/DefaultTextMaterialUnlitOpaque.uasset" 1878
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ModifiableAttributes/ModSlot.uasset" 1879
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/FF_TextureLitMasked_Mat.uasset" 1880
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_Confirmation_Menu.uasset" 1881
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Navigation/AnchorTarget_BP.uasset" 1882
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_PlayerCameraPawn.uasset" 1883
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/CropPlots/CropPlotTarget.uasset" 1884
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/PlaceableEquipmentTarget_BP.uasset" 1885
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/MushroomMound_01_Sprite.uasset" 1886
-"../../Plugins/2D/Paper2D/Content/TranslucentUnlitSpriteMaterial.uasset" 1887
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/MushroomMound_01.uasset" 1888
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/FarmManagerBase_BP.uasset" 1889
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/CaveRocks_Purple_02_Sprite.uasset" 1890
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/CaveRocks_Purple_02.uasset" 1891
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ModifiableAttributes/IHasModSlots.uasset" 1892
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_PlatformGameInstance.uasset" 1893
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Goals/GameplayGoal_BP.uasset" 1894
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Tools/ToolBase_BP.uasset" 1895
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/FF_FalloffLightFunctionMaterial_Inst.uasset" 1896
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/FF_FalloffLightFunctionMaterial.uasset" 1897
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Tools/ImageCursor_Widget.uasset" 1898
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ResourceNodes/ResourceNodeBase.uasset" 1899
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Tools/FingerTool_BP.uasset" 1900
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/finger.uasset" 1901
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/finger_down.uasset" 1902
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/loam2_x256_Sprite.uasset" 1903
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/loam2_x256.uasset" 1904
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/CropPlot/FF_CropPlotMgmt_Menu.uasset" 1905
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/CropPlot/FF_CropSelect_Widget.uasset" 1906
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_CropTypeWidget.uasset" 1907
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GoodsDropChanceListItemWidget.uasset" 1908
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GoodsQuantityRangeItem_Widget.uasset" 1909
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_EquipmentMod_Widget.uasset" 1910
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_ModifierDetail_Widget.uasset" 1911
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/ItemCards/FF_GoodsItemCard_Widget.uasset" 1912
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/ItemCards/FF_ItemCard_Base_Widget.uasset" 1913
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/lock.uasset" 1914
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GameStartMenu.uasset" 1915
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/SaveLoad/FF_SavedGameSlot_Widget.uasset" 1916
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_MainPlayerMgmt_Menu.uasset" 1917
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Crafting/FF_CraftInventory_Panel.uasset" 1918
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Crafting/FF_CraftRecipeSelect_Panel.uasset" 1919
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/ItemCards/FF_CraftRecipeItemCard_Widget.uasset" 1920
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Inventory/FF_Inventory_Widget.uasset" 1921
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/ItemCards/FF_InventoryItemCard_Wdiget.uasset" 1922
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Crafting/FF_CraftRecipeInfo_Panel.uasset" 1923
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GoodsInventoryListItem_Widget.uasset" 1924
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Inventory/FF_InventoryPanel.uasset" 1925
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GoodsItemDetail_Widget.uasset" 1926
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Skills/FF_Skills_Panel.uasset" 1927
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Skills/FF_SkillUnlockInfo_Panel.uasset" 1928
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_OptionsMenu.uasset" 1929
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_SaveGame.uasset" 1930
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GameplayGoalAchieved_Widget.uasset" 1931
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GameplayGoalAwardsCollection_Widget.uasset" 1932
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GameplayGoalMgmt_Widget.uasset" 1933
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GoalProgressDetailCollection_Widget.uasset" 1934
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GoalProgressDetailItem_Widget.uasset" 1935
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/GoalProgressDetailType.uasset" 1936
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/HomeMenu/FF_MainHome_Menu.uasset" 1937
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_Market_Menu.uasset" 1938
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_MarketBuy_Panel.uasset" 1939
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_MarketInventory.uasset" 1940
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_MarketSell_Panel.uasset" 1941
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_PlayerHUD.uasset" 1942
-"../../../Engine/Content/VREditor/Sounds/UI/Flashlight_Switch.uasset" 1943
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Gear.uasset" 1944
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/GoldPiece_01x256.uasset" 1945
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Lab-Crate_01_512.uasset" 1946
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Lab-MortarAndPestle_01.uasset" 1947
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Crafting/FF_CrafterStatus_Widget.uasset" 1948
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Crafting/FF_CraftQueueItem_Widget.uasset" 1949
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Crafting/FF_CurrentCraftQueueItem_Widget.uasset" 1950
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_GameState.uasset" 1825
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_PlayerController_BP.uasset" 1826
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GameStartMenu.uasset" 1827
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GoodsQuantityRangeItem_Widget.uasset" 1828
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Crafting/FF_CraftQueueItem_Widget.uasset" 1829
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Crafting/FF_CurrentCraftQueueItem_Widget.uasset" 1830
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/CropPlot/FF_CropPlotMgmt_Menu.uasset" 1831
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/ItemCards/FF_CraftRecipeItemCard_Widget.uasset" 1832
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/ItemCards/FF_GoodsItemCard_Widget.uasset" 1833
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Forest_01_map.umap" 1834
+"../../../Engine/Content/EditorResources/SequenceRecorder/Countdown.uasset" 1835
+"../../../Engine/Content/EditorResources/SequenceRecorder/RecordingIndicator.uasset" 1836
+"../../../Engine/Content/BasicShapes/Cube.uasset" 1837
+"../../../Engine/Content/BasicShapes/Sphere.uasset" 1838
+"../../../Engine/Content/BasicShapes/Cylinder.uasset" 1839
+"../../../Engine/Content/BasicShapes/Cone.uasset" 1840
+"../../../Engine/Content/BasicShapes/Plane.uasset" 1841
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_WhiteMaterial.uasset" 1842
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_ChromaKey.uasset" 1843
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat4Components.uasset" 1844
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat2.uasset" 1845
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat3.uasset" 1846
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_ChromaKey_Lit.uasset" 1847
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_OpaqueColoredMaterial.uasset" 1848
+"../../Plugins/Runtime/Oculus/OculusVR/Content/OculusMR_RenderTarget.uasset" 1849
+"E:/dev/unreal/FungusFarm 4.22/Intermediate/AssetRegistryCache/5b8a58d9.bin" 1850
+"../../../Engine/Config/HTML5/HTML5Engine.ini" 1851
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FFDefaultSavePreset_BP.uasset" 1852
+"../../../Engine/Content/MobileResources/HUD/LeftVirtualJoystickOnly.uasset" 1853
+"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Background.uasset" 1854
+"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Thumb.uasset" 1855
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FFNormalGameMode_BP.uasset" 1856
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FFGameMode_BP.uasset" 1857
+"../../../Engine/Content/EditorBlueprintResources/StandardMacros.uasset" 1858
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crafting/FF_ActorCrafter_Component.uasset" 1859
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crafting/FF_CraftQueueSlot.uasset" 1860
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/CropTypes.uasset" 1861
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crafting/FF_CraftingState.uasset" 1862
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Inventory/FF_GoodsInventory_Component.uasset" 1863
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_GeneralFunctions.uasset" 1864
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/CropPlots/CropPlotBase_BP.uasset" 1865
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/CropBase_BP.uasset" 1866
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/PlaceableEquipment_Base.uasset" 1867
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/Equipment_Base.uasset" 1868
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/FF_TranslucentUnlitSpriteMaterial.uasset" 1869
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/EquipmentMods/ModSlot_CAC_BP.uasset" 1870
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/EquipmentMods/ModEquipment_Base.uasset" 1871
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/IPlaceableEquipment.uasset" 1872
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/IPlaceableEquipmentTarget.uasset" 1873
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_GameInputModes.uasset" 1874
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ModifiableAttributes/ModifiableAttributes.uasset" 1875
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/CropGrowState.uasset" 1876
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/WhiteButton_02_Sprite.uasset" 1877
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/FF_MaskedLitSpriteMaterial.uasset" 1878
+"../../Plugins/2D/Paper2D/Content/DefaultLitSpriteMaterial.uasset" 1879
+"../../Plugins/2D/Paper2D/Content/PlaceholderTextures/FlatNormalMap.uasset" 1880
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/WhiteButton_02.uasset" 1881
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/Widgets/GrowthProgressWidget.uasset" 1882
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/SprinkleParticle.uasset" 1883
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Spore_01.uasset" 1884
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Spore_01_sm.uasset" 1885
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/DefaultTextMaterialUnlitOpaque.uasset" 1886
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ModifiableAttributes/ModSlot.uasset" 1887
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/FF_TextureLitMasked_Mat.uasset" 1888
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_Confirmation_Menu.uasset" 1889
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Navigation/AnchorTarget_BP.uasset" 1890
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_PlayerCameraPawn.uasset" 1891
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/CropPlots/CropPlotTarget.uasset" 1892
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/PlaceableEquipmentTarget_BP.uasset" 1893
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/MushroomMound_01_Sprite.uasset" 1894
+"../../Plugins/2D/Paper2D/Content/TranslucentUnlitSpriteMaterial.uasset" 1895
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/MushroomMound_01.uasset" 1896
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/FarmManagerBase_BP.uasset" 1897
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/CaveRocks_Purple_02_Sprite.uasset" 1898
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/CaveRocks_Purple_02.uasset" 1899
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ModifiableAttributes/IHasModSlots.uasset" 1900
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_PlatformGameInstance.uasset" 1901
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Goals/GameplayGoal_BP.uasset" 1902
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Tools/ToolBase_BP.uasset" 1903
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/FF_FalloffLightFunctionMaterial_Inst.uasset" 1904
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/FF_FalloffLightFunctionMaterial.uasset" 1905
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Tools/ImageCursor_Widget.uasset" 1906
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ResourceNodes/ResourceNodeBase.uasset" 1907
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Tools/FingerTool_BP.uasset" 1908
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/finger.uasset" 1909
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/finger_down.uasset" 1910
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/loam2_x256_Sprite.uasset" 1911
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/loam2_x256.uasset" 1912
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/CropPlot/FF_CropSelect_Widget.uasset" 1913
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_CropTypeWidget.uasset" 1914
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GoodsDropChanceListItemWidget.uasset" 1915
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_EquipmentMod_Widget.uasset" 1916
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_ModifierDetail_Widget.uasset" 1917
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/ItemCards/FF_ItemCard_Base_Widget.uasset" 1918
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/lock.uasset" 1919
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/SaveLoad/FF_SavedGameSlot_Widget.uasset" 1920
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_MainPlayerMgmt_Menu.uasset" 1921
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Crafting/FF_CraftInventory_Panel.uasset" 1922
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Crafting/FF_CraftRecipeSelect_Panel.uasset" 1923
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Inventory/FF_Inventory_Widget.uasset" 1924
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/ItemCards/FF_InventoryItemCard_Wdiget.uasset" 1925
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Crafting/FF_CraftRecipeInfo_Panel.uasset" 1926
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GoodsInventoryListItem_Widget.uasset" 1927
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Inventory/FF_InventoryPanel.uasset" 1928
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GoodsItemDetail_Widget.uasset" 1929
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Skills/FF_Skills_Panel.uasset" 1930
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Skills/FF_SkillUnlockInfo_Panel.uasset" 1931
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_OptionsMenu.uasset" 1932
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GameplayGoalAchieved_Widget.uasset" 1933
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GameplayGoalAwardsCollection_Widget.uasset" 1934
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GameplayGoalMgmt_Widget.uasset" 1935
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GoalProgressDetailCollection_Widget.uasset" 1936
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GoalProgressDetailItem_Widget.uasset" 1937
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/GoalProgressDetailType.uasset" 1938
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/HomeMenu/FF_MainHome_Menu.uasset" 1939
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_Market_Menu.uasset" 1940
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_MarketBuy_Panel.uasset" 1941
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_MarketInventory.uasset" 1942
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_MarketSell_Panel.uasset" 1943
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_PlayerHUD.uasset" 1944
+"../../../Engine/Content/VREditor/Sounds/UI/Flashlight_Switch.uasset" 1945
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Gear.uasset" 1946
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/GoldPiece_01x256.uasset" 1947
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Lab-Crate_01_512.uasset" 1948
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Lab-MortarAndPestle_01.uasset" 1949
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Crafting/FF_CrafterStatus_Widget.uasset" 1950
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_CurrentGoals_Widget.uasset" 1951
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/UMG_Border_MI.uasset" 1952
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/UMG_Border_M.uasset" 1953
@@ -2020,16 +2020,16 @@
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/0/4/AUDIO_0005_0000_OGG_0002_4C43CA8D44D2C486662CBAABAAF358F5.udd" 2020
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/1/3/AUDIO_0005_0000_OGG_0002_209B33AF43D2BC17472484A6F0538E6B.udd" 2021
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/2/3/AUDIO_0005_0000_OGG_0002_4D975B0E4F5E2D09AD0F52AB1BDA6D99.udd" 2022
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/9/7/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_C97865CA409968240EBDD881C2EF53D8__1_1_0_0_2_13315_0.udd" 2023
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/5/1/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_3896831743DA23C10FFB229B6824EDDC__1_1_0_0_2_13315_0.udd" 2024
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/9/6/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_515967D34FF9B52DF88B98854DCAF4C9__1_1_0_0_2_13315_0.udd" 2025
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/0/6/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_E6713A7B44362CB7A7A9359553758EB1__1_1_0_0_2_13315_0.udd" 2026
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/3/1/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_8FB47CD948B86C5C6CEC03A2376ACB9D__1_1_0_0_2_13315_0.udd" 2027
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/9/6/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_515967D34FF9B52DF88B98854DCAF4C9__1_1_0_0_2_13315_0.udd" 2023
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/0/6/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_E6713A7B44362CB7A7A9359553758EB1__1_1_0_0_2_13315_0.udd" 2024
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/3/1/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_8FB47CD948B86C5C6CEC03A2376ACB9D__1_1_0_0_2_13315_0.udd" 2025
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/9/7/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_C97865CA409968240EBDD881C2EF53D8__1_1_0_0_2_13315_0.udd" 2026
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/5/1/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_3896831743DA23C10FFB229B6824EDDC__1_1_0_0_2_13315_0.udd" 2027
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/0/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_468EFCE8464BFB812BFC50B4352E05E__394E61CFF356BFB5130A313BB1B6DDFEA9A18259.udd" 2028
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/0/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_468EFCE8464BFB812BFC50B4352E05E__42007141079B046055C874148D8A9675F79D529A.udd" 2029
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/4/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C7DDB07D4F5464AF5E925292A513E2C__A974B1FA5405DE73CBDAACAF5EC3AC440AD5703A.udd" 2030
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/5/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C7DDB07D4F5464AF5E925292A513E2C__9275A2ED61B5C71191BB10DB61324AFD2E31A375.udd" 2031
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/5/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C7DDB07D4F5464AF5E925292A513E2C__427872B96A08D25C8AD5E04547FE16604475FB01.udd" 2032
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/5/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C7DDB07D4F5464AF5E925292A513E2C__427872B96A08D25C8AD5E04547FE16604475FB01.udd" 2031
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/5/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C7DDB07D4F5464AF5E925292A513E2C__9275A2ED61B5C71191BB10DB61324AFD2E31A375.udd" 2032
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/0/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_76EAE1C24624F64B2E2D8D9618F9BFB__643439644AAEBEEABB2EDC34EB434D99B54BAFE3.udd" 2033
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/8/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_76EAE1C24624F64B2E2D8D9618F9BFB__5846EC7E88A726B3B089F90062CE7D4B2190FA25.udd" 2034
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/1/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_F8B8A7C842AB772CB531DC9B46E75C2__8F915535C2330142D59BB1765DEB86157FCCD170.udd" 2035
@@ -2042,194 +2042,194 @@
 "../../../Engine/Content/BasicShapes/BasicShapeMaterial.uasset" 2042
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Lab_01_map.umap" 2043
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Lab_01_map_BuiltData.uasset" 2044
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Forest_01_map.umap" 2045
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Forest_01_map_BuiltData.uasset" 2046
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/CaveRocks_Purple_01_Sprite.uasset" 2047
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/CaveRocks_Purple_01.uasset" 2048
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/CaveRocks_Purple_Pillar_01_Sprite.uasset" 2049
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/CaveRocks_Purple_Pillar_01.uasset" 2050
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/1/9/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_97D5C369481B7CF9ED1C35933450D30C__1_0_0_0_2_13315_0.udd" 2051
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/3/9/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_21D0303D42A812EDB83BA6B5157B1CE6__1_0_0_0_2_13315_0.udd" 2052
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/1/4/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_397D68C94693C389FCC3219228A03A3D__1_0_0_0_2_13315_0.udd" 2053
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/8/4/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_84E9A2324580A9683196E09274B15ADD__1_0_0_0_2_13315_0.udd" 2054
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/4/9/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_24F7150945A9DF2B54DB96B91D86CC22__1_0_0_0_2_13315_0.udd" 2055
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/7/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_0DE3AA2546E18AFD7BB61BBCFD1C5B7__0137A8C3EE710C5B375D3B78340546E9104C5DC9.udd" 2056
-"../../../Engine/Content/EditorResources/EmptyActor.uasset" 2057
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/7/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_94EDDEF74F3FB23C6911EF9B5AEC65E__49CAECD98AF7C2434062582E1AE0930B1B2FBDEC.udd" 2058
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/1/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_ED60577D46D7A47FFFE967942BD12__AB006FFD510BCB447BDC7E1E5834EA5688A4E007.udd" 2059
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/3/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_A30883C34FD2D45A1F6B99A6C069D75B__02A581B838CCC7D3A968A769707384F918D802FA.udd" 2060
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/1/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_ED60577D46D7A47FFFE967942BD12__FFAAA51FD88C7E9D34ECBE4A7F240C1D1A560AB4.udd" 2061
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Forest_01_map_BuiltData.uasset" 2045
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/CaveRocks_Purple_01_Sprite.uasset" 2046
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/CaveRocks_Purple_01.uasset" 2047
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/CaveRocks_Purple_Pillar_01_Sprite.uasset" 2048
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/CaveRocks_Purple_Pillar_01.uasset" 2049
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/1/9/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_97D5C369481B7CF9ED1C35933450D30C__1_0_0_0_2_13315_0.udd" 2050
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/3/9/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_21D0303D42A812EDB83BA6B5157B1CE6__1_0_0_0_2_13315_0.udd" 2051
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/1/4/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_397D68C94693C389FCC3219228A03A3D__1_0_0_0_2_13315_0.udd" 2052
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/8/4/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_84E9A2324580A9683196E09274B15ADD__1_0_0_0_2_13315_0.udd" 2053
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/4/9/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_24F7150945A9DF2B54DB96B91D86CC22__1_0_0_0_2_13315_0.udd" 2054
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/7/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_0DE3AA2546E18AFD7BB61BBCFD1C5B7__0137A8C3EE710C5B375D3B78340546E9104C5DC9.udd" 2055
+"../../../Engine/Content/EditorResources/EmptyActor.uasset" 2056
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/7/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_94EDDEF74F3FB23C6911EF9B5AEC65E__49CAECD98AF7C2434062582E1AE0930B1B2FBDEC.udd" 2057
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/1/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_ED60577D46D7A47FFFE967942BD12__AB006FFD510BCB447BDC7E1E5834EA5688A4E007.udd" 2058
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/3/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_A30883C34FD2D45A1F6B99A6C069D75B__02A581B838CCC7D3A968A769707384F918D802FA.udd" 2059
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/1/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_ED60577D46D7A47FFFE967942BD12__FFAAA51FD88C7E9D34ECBE4A7F240C1D1A560AB4.udd" 2060
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/1/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_EE22971641A2D2184332E8AB9BDEBBC6_0__FA3421584E2A78299665FD36C8CEBB3959947F33.udd" 2061
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/1/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_A30883C34FD2D45A1F6B99A6C069D75B__C170B941FE53495501BE94AEB353CF2ED6FB5D7A.udd" 2062
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/1/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_EE22971641A2D2184332E8AB9BDEBBC6_0__FA3421584E2A78299665FD36C8CEBB3959947F33.udd" 2063
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/2/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_C0B8E509405117C231DFE1A9DA307__B5CF9700CE955037338F6456F515EA685ED51849.udd" 2064
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/7/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_A51CE1944F6D4C05633C5EB1418B62C7__37222EF69CB1F1088D59A64DA38CFD57B631C830.udd" 2065
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/2/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_C0B8E509405117C231DFE1A9DA307__B5CF9700CE955037338F6456F515EA685ED51849.udd" 2063
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/7/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_A51CE1944F6D4C05633C5EB1418B62C7__37222EF69CB1F1088D59A64DA38CFD57B631C830.udd" 2064
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/8/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_C0B8E509405117C231DFE1A9DA307__2FED8B0EDB3108672ABB271DA7F651CFAE47ADA0.udd" 2065
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/7/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_AB0692FE4750B43CB297A98410585BF4_0__09337C04D8787687F63B4CBC82BB1D461225BC10.udd" 2066
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/8/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_C0B8E509405117C231DFE1A9DA307__2FED8B0EDB3108672ABB271DA7F651CFAE47ADA0.udd" 2067
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/0/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_A51CE1944F6D4C05633C5EB1418B62C7__DFE1D24D0117899FA1E756781E8AA2C5EBEC4965.udd" 2068
-"../../../Engine/Content/EditorResources/LightIcons/S_LightError.uasset" 2069
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/6/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_64025D8541DFDDB2FABAE998C4905__F9FFBC38EBC3B960C46AD1E29A11DD89E26DDBBB.udd" 2070
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/0/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_98B7B10E4A46D8AA90753EA6B0E0D8FD__5D385BEA1FEFE922922D67EF100A6DDA22624313.udd" 2071
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/0/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_A51CE1944F6D4C05633C5EB1418B62C7__DFE1D24D0117899FA1E756781E8AA2C5EBEC4965.udd" 2067
+"../../../Engine/Content/EditorResources/LightIcons/S_LightError.uasset" 2068
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/6/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_64025D8541DFDDB2FABAE998C4905__F9FFBC38EBC3B960C46AD1E29A11DD89E26DDBBB.udd" 2069
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/0/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_98B7B10E4A46D8AA90753EA6B0E0D8FD__5D385BEA1FEFE922922D67EF100A6DDA22624313.udd" 2070
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/7/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_D599AA714857691E8833FEA278109443_0__FCB395CC7702DE87C660604346F6D1F76F0138B4.udd" 2071
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/1/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_64025D8541DFDDB2FABAE998C4905__B2502E7A97AB59E8DF8C0D07EB6A3FFB6035AAD4.udd" 2072
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/7/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_D599AA714857691E8833FEA278109443_0__FCB395CC7702DE87C660604346F6D1F76F0138B4.udd" 2073
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/3/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_98B7B10E4A46D8AA90753EA6B0E0D8FD__36A7AE8F8501C5E91CC9D5EE49604ADBC9E1F600.udd" 2074
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/3/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_98B7B10E4A46D8AA90753EA6B0E0D8FD__36A7AE8F8501C5E91CC9D5EE49604ADBC9E1F600.udd" 2073
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/5/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_D599AA714857691E8833FEA278109443_0__26BD0E4E984622858881332E84C432228D8EBCDF.udd" 2074
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/6/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_D599AA714857691E8833FEA278109443_0__D4061A12FE083F60C838B383D3FD56FF1DD353B2.udd" 2075
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/5/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_D599AA714857691E8833FEA278109443_0__26BD0E4E984622858881332E84C432228D8EBCDF.udd" 2076
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/5/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6ADE61D94ABE2E0A0EB4D2926F261D0__D68AF68D266BE57BD71BEF829880FE7730F54EC5.udd" 2077
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/3/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___98F0D046CCBE67E7A3842687810062698BE7F049.udd" 2078
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/4/5/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___0751140CC446EB0776F0C20A62B3212E7F10CCC5.udd" 2079
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/0/7/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___1A84EC1569A323F4FC49C3A53D4C777349C7A9A8.udd" 2080
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/4/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___5E83B0551D05094DE81952B88ECF869C085F8420.udd" 2081
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/7/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_5C112B3B4C56D9D59C8BD09E04B2CAC__2047949A20F6284BC7A93ABA85C07A9A17D1D74E.udd" 2082
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/2/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_10745FD5497BF2EB375FB0A94C9DCF6__B5028593C32A0B095ACEBE3410B03B534C4417F1.udd" 2083
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/0/7/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___AA35124C713A26968BF62913E615198A3D6FF610.udd" 2084
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/4/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___01D15765FDAFD4671A6B1CDCC1DCEB4AAC096FD5.udd" 2085
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/7/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_8D1D6AA44EF85647589B7F936E8E492__656AACE1CC6B652E2B4CB7456E4500B7A06CF4D9.udd" 2086
-"../../../Engine/Content/EditorMaterials/PreviewShadowIndicatorMaterial.uasset" 2087
-"../../../Engine/Content/EditorMaterials/PreviewShadowIndicator.uasset" 2088
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FFSavePreset.uasset" 2089
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/8/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_70D299584C35C9EB7AD137BE11FB3AC__6F17EAC127B99C36F6929C8CF9F13B739915E166.udd" 2090
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/7/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_74125CA74A5353614932C7B0E1D6751__500E7F7047B18C973047AAF4469F744FC4EDE9F3.udd" 2091
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/5/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6ADE61D94ABE2E0A0EB4D2926F261D0__D68AF68D266BE57BD71BEF829880FE7730F54EC5.udd" 2076
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/3/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___98F0D046CCBE67E7A3842687810062698BE7F049.udd" 2077
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/4/5/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___0751140CC446EB0776F0C20A62B3212E7F10CCC5.udd" 2078
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/0/7/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___1A84EC1569A323F4FC49C3A53D4C777349C7A9A8.udd" 2079
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/4/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___5E83B0551D05094DE81952B88ECF869C085F8420.udd" 2080
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/7/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_5C112B3B4C56D9D59C8BD09E04B2CAC__2047949A20F6284BC7A93ABA85C07A9A17D1D74E.udd" 2081
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/2/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_10745FD5497BF2EB375FB0A94C9DCF6__B5028593C32A0B095ACEBE3410B03B534C4417F1.udd" 2082
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/0/7/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___AA35124C713A26968BF62913E615198A3D6FF610.udd" 2083
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/4/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___01D15765FDAFD4671A6B1CDCC1DCEB4AAC096FD5.udd" 2084
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/7/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_8D1D6AA44EF85647589B7F936E8E492__656AACE1CC6B652E2B4CB7456E4500B7A06CF4D9.udd" 2085
+"../../../Engine/Content/EditorMaterials/PreviewShadowIndicatorMaterial.uasset" 2086
+"../../../Engine/Content/EditorMaterials/PreviewShadowIndicator.uasset" 2087
+"../../../Engine/Content/EngineDebugMaterials/ClothMaterial_WF.uasset" 2088
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/8/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_70D299584C35C9EB7AD137BE11FB3AC__6F17EAC127B99C36F6929C8CF9F13B739915E166.udd" 2089
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/7/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_74125CA74A5353614932C7B0E1D6751__500E7F7047B18C973047AAF4469F744FC4EDE9F3.udd" 2090
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/9/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_74125CA74A5353614932C7B0E1D6751__27F26677EB704A5FCFA3A7E098300D67EE58ED42.udd" 2091
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/0/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_74125CA74A5353614932C7B0E1D6751__93E3E97EB4434D0AA4E90BC2507B87595FDF8A6B.udd" 2092
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/3/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_0B3A97DC49C640FEEC32F4B834906C7__BEEFC4E467AB56AD33C83E89B515B74D2D9BABD4.udd" 2093
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/5/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_0B3A97DC49C640FEEC32F4B834906C7__5DDD2B402FCA3C6BAEE959629009A45C13E42010.udd" 2094
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/1/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_0B3A97DC49C640FEEC32F4B834906C7__18BFE8265401193FCB9827571427343D5408B93B.udd" 2095
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/2/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_2442584947E5EEC4CD3A3580E348867__3A87604DE071DF55B7CF900418591D0940510562.udd" 2096
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/1/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_0B3A97DC49C640FEEC32F4B834906C7__0F509BFCEFF014BEDD54FD252DA6B39A52BE385C.udd" 2097
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/9/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_74125CA74A5353614932C7B0E1D6751__27F26677EB704A5FCFA3A7E098300D67EE58ED42.udd" 2098
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/4/7/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___01945964B93261D2418031817034AFC46D5E4344.udd" 2099
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/2/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___FF87BC20BBD35C818BE98F7E123C7A1C1B347A48.udd" 2100
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/0/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_5EBDE77C4F96EEB09EE413A3EFB1BD6__2B4E2DDF95999CB6D0A80209261785DD27D64791.udd" 2101
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/1/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_1647C2764571E12BDAD03FBCBF015E8__D5C24C27213118342BA8773337F4C5AC35C49DA7.udd" 2102
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/1/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_0B3A97DC49C640FEEC32F4B834906C7__0F509BFCEFF014BEDD54FD252DA6B39A52BE385C.udd" 2096
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/2/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_2442584947E5EEC4CD3A3580E348867__3A87604DE071DF55B7CF900418591D0940510562.udd" 2097
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/4/7/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___01945964B93261D2418031817034AFC46D5E4344.udd" 2098
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/2/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___FF87BC20BBD35C818BE98F7E123C7A1C1B347A48.udd" 2099
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/0/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_5EBDE77C4F96EEB09EE413A3EFB1BD6__2B4E2DDF95999CB6D0A80209261785DD27D64791.udd" 2100
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/1/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_1647C2764571E12BDAD03FBCBF015E8__D5C24C27213118342BA8773337F4C5AC35C49DA7.udd" 2101
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/4/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_1647C2764571E12BDAD03FBCBF015E8__9A3A814FA8692852973CB09D25B2EE6CEA477F79.udd" 2102
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/1/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_1647C2764571E12BDAD03FBCBF015E8__81CDDEDD685034CFFB8F71DEB634AE7340873B1B.udd" 2103
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/4/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_1647C2764571E12BDAD03FBCBF015E8__9A3A814FA8692852973CB09D25B2EE6CEA477F79.udd" 2104
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/7/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___65075D4F454289FCBE611E6D0B92C4AA0126FAAA.udd" 2105
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/1/9/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___9AB97D0C05B7C7882917B9A364AB615F7567B1E1.udd" 2106
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/1/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_E929A34A4761A927B11F83B330DC67C__F4C94CE2A6347C82839C22F18C615DFCE3726414.udd" 2107
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/6/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_464B30CE4FB269FE14279E8A627175D__3A57C91B5D55BBEE103D2029DC2E6D454D4FBBA4.udd" 2108
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/7/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___65075D4F454289FCBE611E6D0B92C4AA0126FAAA.udd" 2104
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/1/9/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___9AB97D0C05B7C7882917B9A364AB615F7567B1E1.udd" 2105
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/1/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_E929A34A4761A927B11F83B330DC67C__F4C94CE2A6347C82839C22F18C615DFCE3726414.udd" 2106
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/6/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_464B30CE4FB269FE14279E8A627175D__3A57C91B5D55BBEE103D2029DC2E6D454D4FBBA4.udd" 2107
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/0/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_464B30CE4FB269FE14279E8A627175D__E85CBE2E779094BCE1C1F16AF46575A70D1050FD.udd" 2108
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/3/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_464B30CE4FB269FE14279E8A627175D__9DA84702F6E9E1A951732A13BF5475799C0AC6D9.udd" 2109
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/0/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_464B30CE4FB269FE14279E8A627175D__E85CBE2E779094BCE1C1F16AF46575A70D1050FD.udd" 2110
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/9/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_464B30CE4FB269FE14279E8A627175D__C00ED69BA2334FF8FAD8D9323FEBB29D80B8ACD9.udd" 2111
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/3/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C7E971B8470F505EA4C12DB57A5A282__48E4EEEB01F4E96848C9FE401A6EA24D83232F8F.udd" 2112
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/9/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_464B30CE4FB269FE14279E8A627175D__C00ED69BA2334FF8FAD8D9323FEBB29D80B8ACD9.udd" 2110
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/3/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C7E971B8470F505EA4C12DB57A5A282__48E4EEEB01F4E96848C9FE401A6EA24D83232F8F.udd" 2111
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/5/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C7E971B8470F505EA4C12DB57A5A282__0CE37AF3EFEE432042F24A799A48141F0793CE3E.udd" 2112
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/7/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C7E971B8470F505EA4C12DB57A5A282__055E3D4939C09349A0C33FB2646C6F9BF9F14AA9.udd" 2113
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/3/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C7E971B8470F505EA4C12DB57A5A282__49B15936866B464B4E405A73B1E434C21478F2BE.udd" 2114
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/5/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C7E971B8470F505EA4C12DB57A5A282__0CE37AF3EFEE432042F24A799A48141F0793CE3E.udd" 2115
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/0/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_89F5F6EB4B3C027137ABF898CF21147__12719B399FD1DFB3F22E68EF8B51B748BC06086D.udd" 2116
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/0/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_89F5F6EB4B3C027137ABF898CF21147__CE34B490730E0A7091A855A496589AC412EC9AB5.udd" 2117
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/1/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_89F5F6EB4B3C027137ABF898CF21147__D71E8176EA432EB26E0E68FE9FF5E281D058960E.udd" 2118
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/6/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_89F5F6EB4B3C027137ABF898CF21147__782CC116769E77C53DE6185DB773EB4161E65D18.udd" 2119
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/3/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_63FD116949D930902FF281BBF6A50B6__418B63DD78ED101DAE956BEEB358DDE04899BF86.udd" 2120
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/6/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_63FD116949D930902FF281BBF6A50B6__7D495003ACD2341289E37B1F160F94175EE9A8C4.udd" 2121
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/8/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_63FD116949D930902FF281BBF6A50B6__FB81C317B6A8BC36F39C64D2EA1EFF1D8B695AD6.udd" 2122
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/2/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_63FD116949D930902FF281BBF6A50B6__CF19718B78DAD07FF5DB80F936ED8799309648D3.udd" 2123
-"../../../Engine/Content/EngineDebugMaterials/ClothMaterial.uasset" 2124
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/0/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_89F5F6EB4B3C027137ABF898CF21147__12719B399FD1DFB3F22E68EF8B51B748BC06086D.udd" 2115
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/1/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_89F5F6EB4B3C027137ABF898CF21147__D71E8176EA432EB26E0E68FE9FF5E281D058960E.udd" 2116
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/6/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_89F5F6EB4B3C027137ABF898CF21147__782CC116769E77C53DE6185DB773EB4161E65D18.udd" 2117
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/0/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_89F5F6EB4B3C027137ABF898CF21147__CE34B490730E0A7091A855A496589AC412EC9AB5.udd" 2118
+"../../../Engine/Content/EngineDebugMaterials/BoneWeightMaterial.uasset" 2119
+"../../../Engine/Content/EngineDebugMaterials/HeatmapGradient.uasset" 2120
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/3/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_63FD116949D930902FF281BBF6A50B6__418B63DD78ED101DAE956BEEB358DDE04899BF86.udd" 2121
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/2/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_63FD116949D930902FF281BBF6A50B6__CF19718B78DAD07FF5DB80F936ED8799309648D3.udd" 2122
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/6/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_63FD116949D930902FF281BBF6A50B6__7D495003ACD2341289E37B1F160F94175EE9A8C4.udd" 2123
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/8/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_63FD116949D930902FF281BBF6A50B6__FB81C317B6A8BC36F39C64D2EA1EFF1D8B695AD6.udd" 2124
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/6/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6AF6E98B4AAC07C8416029BCAACD6BE__1E17DF27642CDDDFED736C4CDC09858389F6D6BB.udd" 2125
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/0/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6AF6E98B4AAC07C8416029BCAACD6BE__491EADCDDA67FE075314FEB50215A6660BDF84F2.udd" 2126
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/6/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6AF6E98B4AAC07C8416029BCAACD6BE__1FBA9628EF9CB765562A2CA3B26528D1BD4582E8.udd" 2127
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/5/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6AF6E98B4AAC07C8416029BCAACD6BE__1517286C27FACEF74A69CE5C6E7465B76731FFAB.udd" 2128
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/5/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6AF6E98B4AAC07C8416029BCAACD6BE__1517286C27FACEF74A69CE5C6E7465B76731FFAB.udd" 2127
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/6/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6AF6E98B4AAC07C8416029BCAACD6BE__1FBA9628EF9CB765562A2CA3B26528D1BD4582E8.udd" 2128
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/0/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_239689894EF256F8020F29B3C2C5564__ED79FD675C11C479C9DEF6991D974A4A4905934B.udd" 2129
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/6/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_239689894EF256F8020F29B3C2C5564__86D477ACE000888207D70A1F1EAD8B67130D574D.udd" 2130
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/9/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_239689894EF256F8020F29B3C2C5564__52F288CEF7D8FF4DE26C0515EC5CD59D7B1B5941.udd" 2131
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/1/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_239689894EF256F8020F29B3C2C5564__105E3E82A23769A18A8CF00CAE87490DBD98BA8F.udd" 2132
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/9/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_239689894EF256F8020F29B3C2C5564__52F288CEF7D8FF4DE26C0515EC5CD59D7B1B5941.udd" 2130
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/1/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_239689894EF256F8020F29B3C2C5564__105E3E82A23769A18A8CF00CAE87490DBD98BA8F.udd" 2131
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/6/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_239689894EF256F8020F29B3C2C5564__86D477ACE000888207D70A1F1EAD8B67130D574D.udd" 2132
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/5/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_5183B5FB465EEE1E2FE0879E04A8362__2E93FD3E9BFD6E8CA3559B3CA70787C00C8F86C4.udd" 2133
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/9/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_5183B5FB465EEE1E2FE0879E04A8362__CF88C2AAA9F773B78F5AABEBF46A6397EF1B0690.udd" 2134
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/2/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_5183B5FB465EEE1E2FE0879E04A8362__30D1FBF5139D66B7AD44EF884CED42461D0EBC00.udd" 2134
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/1/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_5183B5FB465EEE1E2FE0879E04A8362__42EC59E07FC909279CC78C7727BE7F48E78BA882.udd" 2135
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/2/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_5183B5FB465EEE1E2FE0879E04A8362__30D1FBF5139D66B7AD44EF884CED42461D0EBC00.udd" 2136
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/9/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_5183B5FB465EEE1E2FE0879E04A8362__CF88C2AAA9F773B78F5AABEBF46A6397EF1B0690.udd" 2136
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/2/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_2B2DF1164D3FFA214010058E1D449DF__D2DB3815BED0A721EF3B6C45305C2E45739BB848.udd" 2137
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/5/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_9D7B42D04B56EE75A42601A24283523__216A9DFCC5BEE413313FB736058D98300904E24D.udd" 2138
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/6/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_9D7B42D04B56EE75A42601A24283523__E9B42EF88CF1342B794614317C6B82D8646FD51A.udd" 2139
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/5/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_9D7B42D04B56EE75A42601A24283523__3DB9A2E7EB8DBBB48370A93B13C382A9A2109676.udd" 2140
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/9/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_9D7B42D04B56EE75A42601A24283523__EF75CCF60A63C5023555F79E48B8CC0718BBD74D.udd" 2139
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/6/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_9D7B42D04B56EE75A42601A24283523__E9B42EF88CF1342B794614317C6B82D8646FD51A.udd" 2140
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/7/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_9D7B42D04B56EE75A42601A24283523__DD9EEEED5347CD66218FAF973FEEAEC363BC56DC.udd" 2141
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/9/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_9D7B42D04B56EE75A42601A24283523__EF75CCF60A63C5023555F79E48B8CC0718BBD74D.udd" 2142
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/5/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_9D7B42D04B56EE75A42601A24283523__3DB9A2E7EB8DBBB48370A93B13C382A9A2109676.udd" 2142
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/9/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_AAC724FC4A4C40F1F333909B3C77CAA__80F5DCBC48B2C321D758098BD637786B9E4142F4.udd" 2143
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/SoulPearl_512.uasset" 2144
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/9/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_01C897B9449601B9830D4E8972C1618__0AC7CE4322FB1EE2A9DFC5E018E80FB9E39D8780.udd" 2145
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/8/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_01C897B9449601B9830D4E8972C1618__AFECEA8601C59CBE9874DC656E3F62D0C4406405.udd" 2146
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/0/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_01C897B9449601B9830D4E8972C1618__3E682A2BAAF0289D2989DC90DF6B1ABC75FAFF1B.udd" 2147
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/0/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_01C897B9449601B9830D4E8972C1618__3E682A2BAAF0289D2989DC90DF6B1ABC75FAFF1B.udd" 2146
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/8/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_01C897B9449601B9830D4E8972C1618__AFECEA8601C59CBE9874DC656E3F62D0C4406405.udd" 2147
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/7/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_01C897B9449601B9830D4E8972C1618__6B28FECE585C4290E2E5B1194C8E9B4661CBDA6A.udd" 2148
-"../../../Engine/Content/EngineDebugMaterials/GeomMaterial.uasset" 2149
-"../../../Engine/Content/EditorResources/BSPVertex.uasset" 2150
-"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickOutter.uasset" 2151
-"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickInner.uasset" 2152
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionStick.uasset" 2153
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad3.uasset" 2154
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad2.uasset" 2155
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad.uasset" 2156
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButtonFire.uasset" 2157
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton3.uasset" 2158
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_on.uasset" 2159
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_off.uasset" 2160
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_on.uasset" 2161
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_off.uasset" 2162
-"../../../Engine/Content/MobileResources/HUD/DefaultVirtualJoysticks.uasset" 2163
-"../../../Engine/Content/MobileResources/HUD/AnalogHat.uasset" 2164
-"../../../Engine/Content/MobileResources/T_MobileMenu2.uasset" 2165
-"../../../Engine/Content/MobileResources/T_MobileControls_texture.uasset" 2166
-"../../../Engine/Content/Maps/Entry.umap" 2167
-"../../../Engine/Content/Maps/Entry_BuiltData.uasset" 2168
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Home_01_map.umap" 2169
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Home_01_map_BuiltData.uasset" 2170
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/4/4/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_AF09F4B54BAC4C2F80DAD79524543D25__1_0_0_0_2_13315_0.udd" 2171
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/2/8/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_2AA26D084AA174DD1B110E97A48D3952__1_0_0_0_2_13315_0.udd" 2172
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/0/9/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_983784AC4FFFEB174C625FA71DACFE55__1_0_0_0_2_13315_0.udd" 2173
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/3/2/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_FB9A850444F377BC567C1F850B8D0F36__1_0_0_0_2_13315_0.udd" 2174
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/9/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_7324DFD147384BA9648ECFB46346B__838F6B0BD27DB48BFD437344BD4FA67F0EE98D20.udd" 2175
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/5/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_92E78B1B4DE509C766E64CA49967A593__89A08171ED6090EF78ED927737878904DFB7F033.udd" 2176
+"../../../Engine/Content/EditorResources/BSPVertex.uasset" 2149
+"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickOutter.uasset" 2150
+"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickInner.uasset" 2151
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionStick.uasset" 2152
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad3.uasset" 2153
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad2.uasset" 2154
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad.uasset" 2155
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButtonFire.uasset" 2156
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton3.uasset" 2157
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_on.uasset" 2158
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_off.uasset" 2159
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_on.uasset" 2160
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_off.uasset" 2161
+"../../../Engine/Content/MobileResources/HUD/DefaultVirtualJoysticks.uasset" 2162
+"../../../Engine/Content/MobileResources/HUD/AnalogHat.uasset" 2163
+"../../../Engine/Content/MobileResources/T_MobileMenu2.uasset" 2164
+"../../../Engine/Content/MobileResources/T_MobileControls_texture.uasset" 2165
+"../../../Engine/Content/Maps/Entry.umap" 2166
+"../../../Engine/Content/Maps/Entry_BuiltData.uasset" 2167
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Home_01_map.umap" 2168
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Home_01_map_BuiltData.uasset" 2169
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/4/4/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_AF09F4B54BAC4C2F80DAD79524543D25__1_0_0_0_2_13315_0.udd" 2170
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/2/8/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_2AA26D084AA174DD1B110E97A48D3952__1_0_0_0_2_13315_0.udd" 2171
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/0/9/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_983784AC4FFFEB174C625FA71DACFE55__1_0_0_0_2_13315_0.udd" 2172
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/3/2/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_FB9A850444F377BC567C1F850B8D0F36__1_0_0_0_2_13315_0.udd" 2173
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/9/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_7324DFD147384BA9648ECFB46346B__838F6B0BD27DB48BFD437344BD4FA67F0EE98D20.udd" 2174
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/5/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_92E78B1B4DE509C766E64CA49967A593__89A08171ED6090EF78ED927737878904DFB7F033.udd" 2175
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/4/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_0455CA4346AEE8E0AF458D8A1240A37A_0__9CD044F389B04AB252A7ADD989854DF4E9ACFBE1.udd" 2176
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/9/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_7324DFD147384BA9648ECFB46346B__A57568FF1E6ABB9DCB0A27DF966C3DD8A031D21F.udd" 2177
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/4/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_0455CA4346AEE8E0AF458D8A1240A37A_0__9CD044F389B04AB252A7ADD989854DF4E9ACFBE1.udd" 2178
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/3/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_92E78B1B4DE509C766E64CA49967A593__4EDCEF740FDDEEE71968C1356CFD09254BE7A919.udd" 2179
-"../../../Engine/Content/EngineMaterials/EditorBrushMaterial.uasset" 2180
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Cave_01_map.umap" 2181
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Maps/2DSideScrollerExampleMap.umap" 2182
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Blueprints/2DSideScrollerCharacter.uasset" 2183
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/IdleAnimation.uasset" 2184
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle1.uasset" 2185
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DCharacter_IdleAnimAtlas.uasset" 2186
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle2.uasset" 2187
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle3.uasset" 2188
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle4.uasset" 2189
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle5.uasset" 2190
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle6.uasset" 2191
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle7.uasset" 2192
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle8.uasset" 2193
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/RunningAnimation.uasset" 2194
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_1.uasset" 2195
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DCharacter_RunAnimAtlas.uasset" 2196
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_10.uasset" 2197
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_11.uasset" 2198
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_12.uasset" 2199
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_13.uasset" 2200
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_14.uasset" 2201
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_15.uasset" 2202
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_16.uasset" 2203
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_2.uasset" 2204
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_3.uasset" 2205
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_4.uasset" 2206
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_5.uasset" 2207
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_6.uasset" 2208
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_7.uasset" 2209
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_8.uasset" 2210
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_9.uasset" 2211
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Blueprints/2DSideScrollerGameMode.uasset" 2212
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Maps/2DSideScrollerExampleMap_BuiltData.uasset" 2213
-"../../../Engine/Content/MapTemplates/Bokeh_5Sides.uasset" 2214
-"../../../Engine/Content/MapTemplates/T_ScreenDirt02_w.uasset" 2215
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/Background_Sprite.uasset" 2216
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DBackground.uasset" 2217
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/Ledge.uasset" 2218
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DBackgroundBlockAtlas.uasset" 2219
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_Quests001.uasset" 2220
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoalsTemplate_Quests001_old.uasset" 2221
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoalsTemplate_Quests001.uasset" 2222
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/GoalProviderProperties.uasset" 2223
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/FarmManagerModsData.uasset" 2224
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/CropTestData.uasset" 2225
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Toolbar/FF_EquipmentToolbarButton.uasset" 2226
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FF_SlotData_Farm.uasset" 2227
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FF_SlotData.uasset" 2228
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FF_SaveInfo_Farm.uasset" 2229
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FF_SaveInfo.uasset" 2230
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FFSlotInfo_BP.uasset" 2231
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FFSavePreset_Farm.uasset" 2232
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/3/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_92E78B1B4DE509C766E64CA49967A593__4EDCEF740FDDEEE71968C1356CFD09254BE7A919.udd" 2178
+"../../../Engine/Content/EngineMaterials/EditorBrushMaterial.uasset" 2179
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Cave_01_map.umap" 2180
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Maps/2DSideScrollerExampleMap.umap" 2181
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Blueprints/2DSideScrollerCharacter.uasset" 2182
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/IdleAnimation.uasset" 2183
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle1.uasset" 2184
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DCharacter_IdleAnimAtlas.uasset" 2185
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle2.uasset" 2186
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle3.uasset" 2187
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle4.uasset" 2188
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle5.uasset" 2189
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle6.uasset" 2190
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle7.uasset" 2191
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle8.uasset" 2192
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/RunningAnimation.uasset" 2193
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_1.uasset" 2194
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DCharacter_RunAnimAtlas.uasset" 2195
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_10.uasset" 2196
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_11.uasset" 2197
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_12.uasset" 2198
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_13.uasset" 2199
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_14.uasset" 2200
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_15.uasset" 2201
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_16.uasset" 2202
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_2.uasset" 2203
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_3.uasset" 2204
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_4.uasset" 2205
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_5.uasset" 2206
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_6.uasset" 2207
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_7.uasset" 2208
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_8.uasset" 2209
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_9.uasset" 2210
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Blueprints/2DSideScrollerGameMode.uasset" 2211
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Maps/2DSideScrollerExampleMap_BuiltData.uasset" 2212
+"../../../Engine/Content/MapTemplates/Bokeh_5Sides.uasset" 2213
+"../../../Engine/Content/MapTemplates/T_ScreenDirt02_w.uasset" 2214
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/Background_Sprite.uasset" 2215
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DBackground.uasset" 2216
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/Ledge.uasset" 2217
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DBackgroundBlockAtlas.uasset" 2218
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_Quests001.uasset" 2219
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoalsTemplate_Quests001_old.uasset" 2220
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoalsTemplate_Quests001.uasset" 2221
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/GoalProviderProperties.uasset" 2222
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/FarmManagerModsData.uasset" 2223
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/CropTestData.uasset" 2224
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Toolbar/FF_EquipmentToolbarButton.uasset" 2225
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FF_SlotData_Farm.uasset" 2226
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FF_SlotData.uasset" 2227
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FF_SaveInfo_Farm.uasset" 2228
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FF_SaveInfo.uasset" 2229
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FFSlotInfo_BP.uasset" 2230
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FFSavePreset_Farm.uasset" 2231
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FFSavePreset.uasset" 2232
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ModifiableAttributes/Modifier_Types.uasset" 2233
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ModifiableAttributes/Modifier_Struct.uasset" 2234
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ModifiableAttributes/ModifiableAttribute_Struct.uasset" 2235
@@ -2250,8 +2250,8 @@
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/VioletCort01_cap_x256.uasset" 2250
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/6/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_3580C83D456CEC984C4CE6A30E32B88__E4B6B384E917D645FA5436BA55CB6CED44171689.udd" 2251
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/5/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_3580C83D456CEC984C4CE6A30E32B88__D8B50901DC1CAD8E78AB848D7483A036E8FE4795.udd" 2252
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/white_button_01.uasset" 2253
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/9/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_3580C83D456CEC984C4CE6A30E32B88__6F0B4DF95E6F7AC9028DDCC83B87A062A33B26E9.udd" 2254
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/9/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_3580C83D456CEC984C4CE6A30E32B88__6F0B4DF95E6F7AC9028DDCC83B87A062A33B26E9.udd" 2253
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/white_button_01.uasset" 2254
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/0/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_F6329B0F49BBB6266698D0BBEC642B6__8B713D1C38D4CB57571D152B79ECB598F44C8ED4.udd" 2255
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/whitebutton_cap.uasset" 2256
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/0/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_AB46F50C48C2606666F0A2B028733AF__BDAA873979C73B4BD939E745315DC676F2551F82.udd" 2257
@@ -2259,110 +2259,110 @@
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/2/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C8318D8949B66EB561D199805891733__1D27F9A564F1B45B4A7747D03FF1C004CCBD69AA.udd" 2259
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/3/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C8318D8949B66EB561D199805891733__59EB603EB4F2241BC1B7899B9A1FA2DBE796C4E8.udd" 2260
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/4/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C8318D8949B66EB561D199805891733__FA1881AA1B5AF558C147E260F0EA21B9251F2441.udd" 2261
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/PlotBooster_GrowthRate02.uasset" 2262
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/7/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_2F204B014AA198B81DD0CFA95956833__FE7AA11609B3904F378E2B110514CC3A93D66680.udd" 2263
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/6/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_2F204B014AA198B81DD0CFA95956833__45B503EAC0A2CBCF5C4858B2B5CE8525A75F3038.udd" 2264
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/3/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_2F204B014AA198B81DD0CFA95956833__186304DD0B4F9AB332B19554071989AE13FB3A6A.udd" 2265
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/spore_red.uasset" 2266
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/0/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_E13E4B624B9F4397A1985AA504C73C9__92DF10BD0D816C1DBC20416318F0E5C0A74A706A.udd" 2267
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/spore_blue.uasset" 2268
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/6/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_DE1049F14972E32731A267BC9F28BD5__391A784293B34790CE1BD68F2A5379F2D43E3800.udd" 2269
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Bottle01_Pink.uasset" 2270
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/6/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_A38D431F4B33518A83AF5490BF4ABC0__F6BD0F9AAF5021D50CC98EF7C508E721FA0A391A.udd" 2271
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/3/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_A38D431F4B33518A83AF5490BF4ABC0__60725606E0AE22EDBEA7F3042E3414EDCC29C8D9.udd" 2272
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/9/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_A38D431F4B33518A83AF5490BF4ABC0__08CC09B40FB22C5A773DAFDC5663E50FD4A0CD9D.udd" 2273
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/3/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_A38D431F4B33518A83AF5490BF4ABC0__3E17DDF215F4E9FAABF5E4F239F0D3265800B687.udd" 2274
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/PlotBooster_GrowthRate03.uasset" 2275
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/6/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_836EC76A4DA29A0D4E1155B31171B2B__EED57A551BC9F9E41FB475BC5BC1086240E58A0D.udd" 2276
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/4/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_836EC76A4DA29A0D4E1155B31171B2B__E97A49BE4CA66A6843D25C12068A45D835A24FBA.udd" 2277
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/9/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_836EC76A4DA29A0D4E1155B31171B2B__38FE156514F7401FFF36D5C5DAF60152201941C2.udd" 2278
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/PlotBooster_GrowthRate01.uasset" 2279
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/7/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C1B9B0AF4E9C6866C8E5F0AD3D15BF1__987085368BCC3D12AA62B828933F64B57BDA2C7C.udd" 2280
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/DeathCapCap02_x256.uasset" 2281
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/0/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6C68D3F543C28E830D945AABAF0F7CF__B6E064B56540C040FA370181A7E42A86C9495437.udd" 2282
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/3/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6C68D3F543C28E830D945AABAF0F7CF__9286BA0FF98854FFC23901EC5780AAEE2C7D4E89.udd" 2283
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/6/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6C68D3F543C28E830D945AABAF0F7CF__B9772E9C36E8571E626780401D42287A6891E2AC.udd" 2284
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/spore_red.uasset" 2262
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/0/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_E13E4B624B9F4397A1985AA504C73C9__92DF10BD0D816C1DBC20416318F0E5C0A74A706A.udd" 2263
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/spore_blue.uasset" 2264
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/6/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_DE1049F14972E32731A267BC9F28BD5__391A784293B34790CE1BD68F2A5379F2D43E3800.udd" 2265
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Bottle01_Pink.uasset" 2266
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/6/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_A38D431F4B33518A83AF5490BF4ABC0__F6BD0F9AAF5021D50CC98EF7C508E721FA0A391A.udd" 2267
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/9/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_A38D431F4B33518A83AF5490BF4ABC0__08CC09B40FB22C5A773DAFDC5663E50FD4A0CD9D.udd" 2268
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/3/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_A38D431F4B33518A83AF5490BF4ABC0__60725606E0AE22EDBEA7F3042E3414EDCC29C8D9.udd" 2269
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/3/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_A38D431F4B33518A83AF5490BF4ABC0__3E17DDF215F4E9FAABF5E4F239F0D3265800B687.udd" 2270
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/PlotBooster_GrowthRate03.uasset" 2271
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/6/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_836EC76A4DA29A0D4E1155B31171B2B__EED57A551BC9F9E41FB475BC5BC1086240E58A0D.udd" 2272
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/9/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_836EC76A4DA29A0D4E1155B31171B2B__38FE156514F7401FFF36D5C5DAF60152201941C2.udd" 2273
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/4/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_836EC76A4DA29A0D4E1155B31171B2B__E97A49BE4CA66A6843D25C12068A45D835A24FBA.udd" 2274
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Spore_Conversion_RedToWhite.uasset" 2275
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/4/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_59DF15D643DBB16AE45F4788574D4F5__3C0E0DBC6CC02730077BF59795AB77D3822D85F4.udd" 2276
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/PlotBooster_GrowthRate01.uasset" 2277
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/7/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_C1B9B0AF4E9C6866C8E5F0AD3D15BF1__987085368BCC3D12AA62B828933F64B57BDA2C7C.udd" 2278
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/PlotBooster_AutoHarvest_x256.uasset" 2279
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/9/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_7508956F467BCEF9D8573BA415D5734__5BFE1537B3A848A87C4FA183CCE639C24D6699E4.udd" 2280
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/1/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_7508956F467BCEF9D8573BA415D5734__96508F7B7B47D0DCA7406E4167003BBCF754EC9A.udd" 2281
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/4/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_7508956F467BCEF9D8573BA415D5734__D3BB6847C8E0E6A8505B2C991FE315CCD8CB2089.udd" 2282
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/loam.uasset" 2283
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/2/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_1313AE8E445F9EB7E734FDBB554F765__1BAAB2F50005B86C8E843A82C64845D428647368.udd" 2284
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/PlotBooster_AutoReplant_x256.uasset" 2285
 "C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/2/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6FE73E474E3365458D44E7A1A5F9A8E__41E99EF6058D52C069313F080A1CA611E7E3D90B.udd" 2286
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/3/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6FE73E474E3365458D44E7A1A5F9A8E__2435067DCEE236CC8834FE77A2C975B9E59699B7.udd" 2287
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/5/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6FE73E474E3365458D44E7A1A5F9A8E__39913E0B99D9729170A01ADCFD309D4C70723002.udd" 2288
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/PlotBooster_AutoHarvest_x256.uasset" 2289
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/9/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_7508956F467BCEF9D8573BA415D5734__5BFE1537B3A848A87C4FA183CCE639C24D6699E4.udd" 2290
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/4/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_7508956F467BCEF9D8573BA415D5734__D3BB6847C8E0E6A8505B2C991FE315CCD8CB2089.udd" 2291
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/1/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_7508956F467BCEF9D8573BA415D5734__96508F7B7B47D0DCA7406E4167003BBCF754EC9A.udd" 2292
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/blue_mycena_cap02_x256.uasset" 2293
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/3/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_D164E41542181B07C3670FA69F2A8EA__581DCFE235826E8C7AAA105190CAA0614BA2D8EC.udd" 2294
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/0/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_D164E41542181B07C3670FA69F2A8EA__A289F3AE5B60717EB239AB1EDAB1C4F0C2F98114.udd" 2295
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/1/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_D164E41542181B07C3670FA69F2A8EA__ED29B8333D8728AD49FDE0A25244DD5BFC849FEA.udd" 2296
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/loam.uasset" 2297
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/2/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_1313AE8E445F9EB7E734FDBB554F765__1BAAB2F50005B86C8E843A82C64845D428647368.udd" 2298
-"../../../Engine/Content/EngineDebugMaterials/BoneWeightMaterial.uasset" 2299
-"../../../Engine/Content/EngineDebugMaterials/HeatmapGradient.uasset" 2300
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Hexagram_512.uasset" 2301
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/7/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_B61DFBBB4E59F5EB456EB0860794605__3EDD167C131EC246EBC144FEF4B8D6C005960716.udd" 2302
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/1/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_B61DFBBB4E59F5EB456EB0860794605__8255A179DA7AC66E48901C85C2065F9F58B6962A.udd" 2303
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/2/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_B61DFBBB4E59F5EB456EB0860794605__2DE220093569904F00357D19DB6E59BDE5387B31.udd" 2304
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/9/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_B61DFBBB4E59F5EB456EB0860794605__D742DF96F6247894C41BA2DB37DB681BF65D4E50.udd" 2305
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/forest_floor_background.uasset" 2306
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/2/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_51249A7F4EC13A0E92F5D89E560D181__E716BA6D7BB9120BA9D71CE1CC748A60414B885C.udd" 2307
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/FF_NewPaperFlipbook.uasset" 2308
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/YellowFlyAgaricCap_x256.uasset" 2309
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/1/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_739DD70340CCD1D945639099798A723__F0A0A5AF036DE18A26A3AA6E74829145571B4284.udd" 2310
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/1/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_739DD70340CCD1D945639099798A723__95A6DFAC7F3AAD3FD32586CDA5C7B117E09193A9.udd" 2311
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Bottle03_Greywater.uasset" 2312
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/6/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_739DD70340CCD1D945639099798A723__5C4FAC2F8F5464E8ABAFD409B7C2FFD44118C9D5.udd" 2313
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/3/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_E29D0D3E467039FA379B56AC099CD3C__D0CDA93CFBC199DD6BD24B1D1A39D0C719506FED.udd" 2314
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/7/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_E29D0D3E467039FA379B56AC099CD3C__E2AC7B6DE01D4B900023A1CA0FE55777760C5771.udd" 2315
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/2/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_E29D0D3E467039FA379B56AC099CD3C__68A009AA9B69A42BE5DD8D65626501E885DB8E94.udd" 2316
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/4/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_E29D0D3E467039FA379B56AC099CD3C__1A745F893127C7F4D4B5267E330ABA1CF18FBE99.udd" 2317
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Spore_Conversion_RedToWhite.uasset" 2318
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/4/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_59DF15D643DBB16AE45F4788574D4F5__3C0E0DBC6CC02730077BF59795AB77D3822D85F4.udd" 2319
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/amanita_cap02_x256.uasset" 2320
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/0/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_8ACBA93643F8C43924D31183A04B22A__34C9E35A5453D9F3E50E38A056F44FAE1E9F7B06.udd" 2321
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/9/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_8ACBA93643F8C43924D31183A04B22A__4374C7FA5057EE27B886135F1628130C580696EA.udd" 2322
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/0/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_8ACBA93643F8C43924D31183A04B22A__6CD7C28517E5EC10B8158C48712D8F3E15D2EA2E.udd" 2323
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/blue_mycena_cap.uasset" 2324
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/0/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_588A879C4D293F662D5962A9F151CE5__8C4078224483F70EEAE902A2A3351BF83F6A43AC.udd" 2325
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/blue_mycena.uasset" 2326
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/6/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_298A750843033B0380960388E0E8B5D__E2124C69AEE2206DCD0E2310517E0B94DECC5772.udd" 2327
-"../../../Engine/Content/EngineDebugMaterials/ClothMaterial_WF.uasset" 2328
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/amanita_cap.uasset" 2329
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/4/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_9151F04F4473A6024AB7FB841B975E7__EFB2B5418936D56F3E9DF59E07EBE177F4C5B050.udd" 2330
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/amanita_01.uasset" 2331
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/2/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_27AE51F140BB6CBE94CD6383B9B3AC2__BDAB92D3768BB5D8202874A97CACF0905565D704.udd" 2332
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/white_button_01_Sprite.uasset" 2333
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/4/6/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_2E4731ED4DD7BBC267677B9945A710C8__1_1_0_0_2_13315_0.udd" 2334
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/Spirit_01_Sprite.uasset" 2335
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/loam_Sprite.uasset" 2336
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/forest_floor_background_Sprite.uasset" 2337
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/blue_mycena_Sprite.uasset" 2338
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/9/8/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_4F270C1A47C962F71A94DFBA83D13792__1_1_0_0_2_13315_0.udd" 2339
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/amanita_01_Sprite.uasset" 2340
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/8/9/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_6EDE1C384C624F2C93DB50BD21BEF2A3__1_1_0_0_2_13315_0.udd" 2341
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Particles/SporesBasic1.uasset" 2342
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/SporeParticleWhite_Inst.uasset" 2343
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/DefaultSporeParticle.uasset" 2344
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/4/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___47205374111E0D4184F9DF0FCD6886658532B414.udd" 2345
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/9/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___07A6871CAC4E945E15E8703074A9E8024D826540.udd" 2346
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/Widget3DPassThrough_Opaque.uasset" 2347
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/Widget3DPassThrough.uasset" 2348
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/0/7/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___85C3485FBED312F896C49AEE54E96257910338D9.udd" 2349
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/3/6/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___F16BB75741B14525A6CC446AB9F7090A502F3C6A.udd" 2350
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/Widget3DPassThrough_Masked_OneSided_NoEmis.uasset" 2351
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/6/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___651A8C4150B4EF0997E2C6A5A30DE4A3DE1ED421.udd" 2352
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/3/0/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___727B200F330520021EC5E09E583761A5BAA903B8.udd" 2353
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/SporeParticleRed_Inst.uasset" 2354
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/MaskedUnlitSpriteMaterial.uasset" 2355
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/FF_TextureLitTrasnsparent_Mat.uasset" 2356
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/4/9/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___1162CBE8193028304CB9FF2B9D8281E08F754C76.udd" 2357
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/4/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___F0D04AAE0C204D3553F02D1BFF8F86C897321F10.udd" 2358
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/2DSideScrollerOverview.uasset" 2359
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Textures/2DBackgroundTile.uasset" 2360
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/0/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_D1E814BA40821C40AD8995ADAEF38__D721371768CAC56DCEEEC6DC002042773075B49D.udd" 2361
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/PrototypingSprite.uasset" 2362
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Materials/PrototypingSpriteMaterial.uasset" 2363
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/6/5/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___25236785DCC33F957D4C8B21AA6FB40B0C200B9F.udd" 2364
-"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/7/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___4FE5507BB06F46BCA0152D5CFA3C16271AF58CF0.udd" 2365
-"../../../Engine/Content/EngineDebugMaterials/DebugEditorMaterial.uasset" 2366
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ModifiableAttributes/ModifierEffectInfo_Struct.uasset" 2367
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/LevelState_Struct.uasset" 2368
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/5/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6FE73E474E3365458D44E7A1A5F9A8E__39913E0B99D9729170A01ADCFD309D4C70723002.udd" 2287
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/3/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6FE73E474E3365458D44E7A1A5F9A8E__2435067DCEE236CC8834FE77A2C975B9E59699B7.udd" 2288
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/DeathCapCap02_x256.uasset" 2289
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/0/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6C68D3F543C28E830D945AABAF0F7CF__B6E064B56540C040FA370181A7E42A86C9495437.udd" 2290
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/6/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6C68D3F543C28E830D945AABAF0F7CF__B9772E9C36E8571E626780401D42287A6891E2AC.udd" 2291
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/3/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6C68D3F543C28E830D945AABAF0F7CF__9286BA0FF98854FFC23901EC5780AAEE2C7D4E89.udd" 2292
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Hexagram_512.uasset" 2293
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/7/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_B61DFBBB4E59F5EB456EB0860794605__3EDD167C131EC246EBC144FEF4B8D6C005960716.udd" 2294
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/1/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_B61DFBBB4E59F5EB456EB0860794605__8255A179DA7AC66E48901C85C2065F9F58B6962A.udd" 2295
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/9/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_B61DFBBB4E59F5EB456EB0860794605__D742DF96F6247894C41BA2DB37DB681BF65D4E50.udd" 2296
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/2/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_B61DFBBB4E59F5EB456EB0860794605__2DE220093569904F00357D19DB6E59BDE5387B31.udd" 2297
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/forest_floor_background.uasset" 2298
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/2/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_51249A7F4EC13A0E92F5D89E560D181__E716BA6D7BB9120BA9D71CE1CC748A60414B885C.udd" 2299
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/FF_NewPaperFlipbook.uasset" 2300
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/YellowFlyAgaricCap_x256.uasset" 2301
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/1/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_739DD70340CCD1D945639099798A723__F0A0A5AF036DE18A26A3AA6E74829145571B4284.udd" 2302
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/1/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_739DD70340CCD1D945639099798A723__95A6DFAC7F3AAD3FD32586CDA5C7B117E09193A9.udd" 2303
+"../../../Engine/Content/EngineDebugMaterials/GeomMaterial.uasset" 2304
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/6/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_739DD70340CCD1D945639099798A723__5C4FAC2F8F5464E8ABAFD409B7C2FFD44118C9D5.udd" 2305
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/blue_mycena_cap02_x256.uasset" 2306
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/3/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_D164E41542181B07C3670FA69F2A8EA__581DCFE235826E8C7AAA105190CAA0614BA2D8EC.udd" 2307
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/0/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_D164E41542181B07C3670FA69F2A8EA__A289F3AE5B60717EB239AB1EDAB1C4F0C2F98114.udd" 2308
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/1/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_D164E41542181B07C3670FA69F2A8EA__ED29B8333D8728AD49FDE0A25244DD5BFC849FEA.udd" 2309
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Bottle03_Greywater.uasset" 2310
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/3/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_E29D0D3E467039FA379B56AC099CD3C__D0CDA93CFBC199DD6BD24B1D1A39D0C719506FED.udd" 2311
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/2/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_E29D0D3E467039FA379B56AC099CD3C__68A009AA9B69A42BE5DD8D65626501E885DB8E94.udd" 2312
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/7/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_E29D0D3E467039FA379B56AC099CD3C__E2AC7B6DE01D4B900023A1CA0FE55777760C5771.udd" 2313
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/4/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_E29D0D3E467039FA379B56AC099CD3C__1A745F893127C7F4D4B5267E330ABA1CF18FBE99.udd" 2314
+"../../../Engine/Content/EngineDebugMaterials/ClothMaterial.uasset" 2315
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/amanita_cap02_x256.uasset" 2316
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/0/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_8ACBA93643F8C43924D31183A04B22A__34C9E35A5453D9F3E50E38A056F44FAE1E9F7B06.udd" 2317
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/9/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_8ACBA93643F8C43924D31183A04B22A__4374C7FA5057EE27B886135F1628130C580696EA.udd" 2318
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/0/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_8ACBA93643F8C43924D31183A04B22A__6CD7C28517E5EC10B8158C48712D8F3E15D2EA2E.udd" 2319
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/blue_mycena_cap.uasset" 2320
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/0/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_588A879C4D293F662D5962A9F151CE5__8C4078224483F70EEAE902A2A3351BF83F6A43AC.udd" 2321
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/blue_mycena.uasset" 2322
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/6/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_298A750843033B0380960388E0E8B5D__E2124C69AEE2206DCD0E2310517E0B94DECC5772.udd" 2323
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/PlotBooster_GrowthRate02.uasset" 2324
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/7/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_2F204B014AA198B81DD0CFA95956833__FE7AA11609B3904F378E2B110514CC3A93D66680.udd" 2325
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/6/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_2F204B014AA198B81DD0CFA95956833__45B503EAC0A2CBCF5C4858B2B5CE8525A75F3038.udd" 2326
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/3/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_2F204B014AA198B81DD0CFA95956833__186304DD0B4F9AB332B19554071989AE13FB3A6A.udd" 2327
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/amanita_cap.uasset" 2328
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/4/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_9151F04F4473A6024AB7FB841B975E7__EFB2B5418936D56F3E9DF59E07EBE177F4C5B050.udd" 2329
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/amanita_01.uasset" 2330
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/2/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_27AE51F140BB6CBE94CD6383B9B3AC2__BDAB92D3768BB5D8202874A97CACF0905565D704.udd" 2331
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/white_button_01_Sprite.uasset" 2332
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/4/6/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_2E4731ED4DD7BBC267677B9945A710C8__1_1_0_0_2_13315_0.udd" 2333
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/Spirit_01_Sprite.uasset" 2334
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/loam_Sprite.uasset" 2335
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/forest_floor_background_Sprite.uasset" 2336
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/blue_mycena_Sprite.uasset" 2337
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/9/8/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_4F270C1A47C962F71A94DFBA83D13792__1_1_0_0_2_13315_0.udd" 2338
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/amanita_01_Sprite.uasset" 2339
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/8/9/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_6EDE1C384C624F2C93DB50BD21BEF2A3__1_1_0_0_2_13315_0.udd" 2340
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Particles/SporesBasic1.uasset" 2341
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/SporeParticleWhite_Inst.uasset" 2342
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/DefaultSporeParticle.uasset" 2343
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/4/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___47205374111E0D4184F9DF0FCD6886658532B414.udd" 2344
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/9/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___07A6871CAC4E945E15E8703074A9E8024D826540.udd" 2345
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/Widget3DPassThrough_Opaque.uasset" 2346
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/Widget3DPassThrough.uasset" 2347
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/0/7/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___85C3485FBED312F896C49AEE54E96257910338D9.udd" 2348
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/3/6/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___F16BB75741B14525A6CC446AB9F7090A502F3C6A.udd" 2349
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/Widget3DPassThrough_Masked_OneSided_NoEmis.uasset" 2350
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/6/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___651A8C4150B4EF0997E2C6A5A30DE4A3DE1ED421.udd" 2351
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/3/0/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___727B200F330520021EC5E09E583761A5BAA903B8.udd" 2352
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/SporeParticleRed_Inst.uasset" 2353
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/MaskedUnlitSpriteMaterial.uasset" 2354
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/FF_TextureLitTrasnsparent_Mat.uasset" 2355
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/4/9/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___1162CBE8193028304CB9FF2B9D8281E08F754C76.udd" 2356
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/4/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___F0D04AAE0C204D3553F02D1BFF8F86C897321F10.udd" 2357
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/2DSideScrollerOverview.uasset" 2358
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Textures/2DBackgroundTile.uasset" 2359
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/0/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_D1E814BA40821C40AD8995ADAEF38__D721371768CAC56DCEEEC6DC002042773075B49D.udd" 2360
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/PrototypingSprite.uasset" 2361
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Materials/PrototypingSpriteMaterial.uasset" 2362
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/6/5/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___25236785DCC33F957D4C8B21AA6FB40B0C200B9F.udd" 2363
+"C:/Users/kb/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/7/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___4FE5507BB06F46BCA0152D5CFA3C16271AF58CF0.udd" 2364
+"../../../Engine/Content/EngineDebugMaterials/DebugEditorMaterial.uasset" 2365
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ModifiableAttributes/ModifierEffectInfo_Struct.uasset" 2366
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/LevelState_Struct.uasset" 2367
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_SaveGame.uasset" 2368
