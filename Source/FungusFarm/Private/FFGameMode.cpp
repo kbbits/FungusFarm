@@ -174,8 +174,6 @@ bool AFFGameMode::SaveGameProfile(const FString ProfileName)
 		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode SaveGameProfile: slot id cannot be < 0."));
 		return false; 
 	}
-	//check(GetWorld());
-	//check(GetGameInstance());
 	FString ValidatedProfileName = FString(ProfileName);
 	AFFPlayerState * PState = GetWorld()->GetFirstPlayerController()->GetPlayerState<AFFPlayerState>();
 	TArray<UGoalsProviderComponent*> AllSecondaries = GetAllSecondaryGoalProviders();
