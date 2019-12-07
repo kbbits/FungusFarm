@@ -42,9 +42,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		bool Hidden;
 
+	// Can this goal be abandoned by the user?
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		bool CanAbandon;
 
+	// Can this goal template be repeated? If true, this goal template will remain available for selection after completion.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		bool CanRepeat;
 

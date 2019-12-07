@@ -13,36 +13,50 @@ struct FCraftingRecipe : public FTableRowBase
 	GENERATED_BODY()
 
 public:
+	// Unique name for this recipe
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName Name;
 
+	// Category information for this recipe. Indicates what equipment can craft this.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> RecipeCategories;
 
+	// User friendly name
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FText DisplayName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TAssetPtr<UTexture2D> Thumbnail;
 
+	// Additional requirements (not consumed) in order for the recipe to be crafted.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		TArray<FName> RequiredRecipes;
+		TArray<FName> RecipeRequirements;
 
+	// Unused
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsQuantity> UnlockCosts;
 
+	// Goods required to craft one of instance of this recipe
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsQuantity> CraftingInputs;
 
+	// Goods produced by this recipe.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsDropChance> CraftingResults;
 
+	// Additional goods (hidden on GUI) also produced by this recipe.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TArray<FGoodsDropChance> BonusCraftingResults;
+
+	// The tier of this recipe. Unused
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		int32 Tier;
 
+	// Seconds required to craft this recipe at normal (100%) crafting speed.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		float CraftingTime;
 
+	// Experience awarded to player for crafting this recipe.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		float CraftingExperience;
 };

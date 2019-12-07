@@ -254,7 +254,7 @@ TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByTemplate(const TArray<F
 					continue;
 				}
 				// Go to the next goal if minimum experience level isn't met
-				if (GoalTemplate->RequiredExperienceLevel > 0 && GoalTemplate->RequiredExperienceLevel > CurrentExperienceLevel)
+				if (GoalTemplate->RequiredExperienceLevel > 0.0f && GoalTemplate->RequiredExperienceLevel > CurrentExperienceLevel)
 				{
 					continue;
 				}
@@ -294,6 +294,7 @@ TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByTemplate(const TArray<F
 			FGameplayGoal NewGoal = GoalFromTemplate(*GoalTemplate);
 			NewGoals.AddUnique(NewGoal);
 			NewGoalPossibilities.RemoveSingle(*GoalTemplate);
+			TotalWeightedChance -= GoalTemplate->WeightedChance;
 			CurrentActiveGoals++;
 			// If we delay between goals, stop looking for more.
 			if (ResetTimerBetweenGoals()) { break; }
@@ -377,7 +378,7 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 		UE_LOG(LogFFGame, Log, TEXT("%s GetNewGameplayGoals %s New Goals DISABLED"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())));
 		return NewGoals;
 	}
-	if (MaximumCurrentGoals > 0 && CurrentActiveGoals >= MaximumCurrentGoals)
+	if (MaximumCurrentGoals > 0.0f && CurrentActiveGoals >= MaximumCurrentGoals)
 	{
 		UE_LOG(LogFFGame, Log, TEXT("%s GetNewGameplayGoals %s at maximum current goals %d"), *GetNameSafe(this), (GetOwner() == nullptr ? TEXT("Unattached") : *GetNameSafe(GetOwner())), CurrentActiveGoals);
 		return NewGoals;
@@ -431,7 +432,7 @@ void UGoalsProviderComponent::OnGameplayGoalCompleted_Implementation(const FGame
 		{
 			--CurrentActiveGoals;
 		}
-		if (CurrentActiveGoals < MaximumCurrentGoals)
+		if (MaximumCurrentGoals <= 0.0f || CurrentActiveGoals < MaximumCurrentGoals)
 		{
 			ResetTimerBetweenGoals();
 		}
@@ -455,7 +456,7 @@ void UGoalsProviderComponent::OnGameplayGoalAbandoned_Implementation(const FGame
 			{
 				--CurrentActiveGoals;
 			}
-			if (CurrentActiveGoals < MaximumCurrentGoals)
+			if (MaximumCurrentGoals <= 0.0f || CurrentActiveGoals < MaximumCurrentGoals)
 			{
 				ResetTimerBetweenGoals();
 			}
@@ -497,3 +498,7 @@ FString UGoalsProviderComponent::GetGameplayGoalProviderFriendlyName_Implementat
 	return FriendlyName;
 }
 
+TAssetPtr<UTexture2D> UGoalsProviderComponent::GetGameplayGoalProviderImage_Implementation()
+{
+	return ProviderImage;
+}

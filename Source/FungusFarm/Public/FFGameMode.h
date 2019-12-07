@@ -52,6 +52,9 @@ public:
 		UGoalsProviderComponent* GetGoalProviderComponentByUniqueName(const FName ProviderUniqueName);
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		UGoalsProviderComponent* GetGoalProviderForActiveGoal(const FGameplayGoal Goal);
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		UGoalsProviderComponent* AddSecondaryGoalProvider(const FName ProviderUniqueName);
 	
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")

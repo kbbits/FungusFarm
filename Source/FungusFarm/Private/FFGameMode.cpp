@@ -42,6 +42,25 @@ UGoalsProviderComponent * AFFGameMode::GetGoalProviderComponentByUniqueName(cons
 }
 
 
+UGoalsProviderComponent * AFFGameMode::GetGoalProviderForActiveGoal(const FGameplayGoal Goal)
+{
+	if (!Goal.ProviderGuid.IsValid())
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode GetGoalProviderForGoal cannot find provider for invalid goal GUID."));
+		return nullptr;
+	}
+	TArray<UGoalsProviderComponent*> AllProviders =  GetAllGoalProviders();
+	for (UGoalsProviderComponent* Provider : AllProviders)
+	{
+		if (Provider->GetGoalProviderGuid() == Goal.ProviderGuid)
+		{
+			return Provider;
+		}
+	}
+	return nullptr;
+}
+
+
 UGoalsProviderComponent* AFFGameMode::AddSecondaryGoalProvider(const FName ProviderUniqueName)
 {
 	// If we already have this provider, just return the existing one.
@@ -76,32 +95,23 @@ UGoalsProviderComponent* AFFGameMode::AddSecondaryGoalProvider(const FName Provi
 		if (ProviderGoalsTable && ProviderGoalsTable->GetRowMap().Num() > 0)
 		{
 			//UE_LOG(LogFFGame, Log, TEXT("Secondary goals table struct: %s"),  *ProviderTable->GetRowStructName().ToString());
-			// Get a TmpGoal record to make sure they are the correct type.
-			FGameplayGoalTemplate* TmpGoal = ProviderGoalsTable->FindRow<FGameplayGoalTemplate>(ProviderGoalsTable->GetRowNames()[0], FString("GameMode AddSecondaryGoalProvider"));
-			if (TmpGoal)
+			// Create a new component
+			UGoalsProviderComponent* NewProvider = NewObject<UGoalsProviderComponent>(this, ProviderUniqueName);
+			if (NewProvider)
 			{
-				// Create a new component
-				UGoalsProviderComponent* NewProvider = NewObject<UGoalsProviderComponent>(this, ProviderUniqueName);
-				if (NewProvider)
-				{
-					NewProvider->bAutoActivate = true;
-					NewProvider->bDisableNewGoals = true;
-					NewProvider->DelayBetweenNewGoalsMin = ProviderProperties->DelayBetweenNewGoalsMinimum;
-					NewProvider->DelayBetweenNewGoalsMax = ProviderProperties->DelayBetweenNewGoalsMaximum;
-					NewProvider->MaximumCurrentGoals = ProviderProperties->MaximumCurrentGoals;
-					NewProvider->UniqueName = ProviderUniqueName;
-					NewProvider->FriendlyName = ProviderProperties->FriendlyName.ToString();
-					NewProvider->GoalsData = ProviderGoalsTable;
-					AddOwnedComponent(NewProvider);
-					NewProvider->RegisterComponent();
-					UE_LOG(LogFFGame, Log, TEXT("New secondary provider component added: %s"), *ProviderUniqueName.ToString());
-					// Return the new provider
-					return NewProvider;
-				}
-			}
-			else
-			{
-				UE_LOG(LogFFGame, Warning, TEXT("%s AddSecondaryGoalProvider goals data table is empty or rows are not FGameplayGoal: %s"), *GetNameSafe(this), *GoalsDataPath);
+				NewProvider->bAutoActivate = true;
+				NewProvider->bDisableNewGoals = true;
+				NewProvider->DelayBetweenNewGoalsMin = ProviderProperties->DelayBetweenNewGoalsMinimum;
+				NewProvider->DelayBetweenNewGoalsMax = ProviderProperties->DelayBetweenNewGoalsMaximum;
+				NewProvider->MaximumCurrentGoals = ProviderProperties->MaximumCurrentGoals;
+				NewProvider->UniqueName = ProviderUniqueName;
+				NewProvider->FriendlyName = ProviderProperties->FriendlyName.ToString();
+				NewProvider->GoalsData = ProviderGoalsTable;
+				AddOwnedComponent(NewProvider);
+				NewProvider->RegisterComponent();
+				UE_LOG(LogFFGame, Log, TEXT("New secondary provider component added: %s"), *ProviderUniqueName.ToString());
+				// Return the new provider
+				return NewProvider;
 			}
 		}
 	}

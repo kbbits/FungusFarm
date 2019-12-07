@@ -16,9 +16,13 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName Name;
 
-	// User-friendly name
+	// User friendly name.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FText DisplayName;
+
+	// User friendly description.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		FText Description;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TSoftObjectPtr<UTexture2D> Thumbnail;

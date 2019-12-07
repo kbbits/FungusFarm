@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
+#include "Engine/Texture2D.h"
 #include "Guid.h"
 #include "GameplayGoal.h"
 #include "GameplayGoalProvider.generated.h"
@@ -49,4 +50,7 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
 		FString GetGameplayGoalProviderFriendlyName();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
+		TAssetPtr<UTexture2D> GetGameplayGoalProviderImage();
 };

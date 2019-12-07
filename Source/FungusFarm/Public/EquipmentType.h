@@ -17,11 +17,16 @@ public:
 		FText DisplayName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		FText Description;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TSoftObjectPtr<UTexture2D> Thumbnail;
 
+	// The actor class associated with this equipment.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TSubclassOf<AActor> ActorClass;
 
+	// Used by the actor class of this equipment.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName SubtypeName;
 

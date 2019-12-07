@@ -9,6 +9,7 @@ struct FCropPlotInfo : public FTableRowBase
 	GENERATED_BODY()
 
 public:
+	// Unique name of this Crop plot type
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName Name;
 
