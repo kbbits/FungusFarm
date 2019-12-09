@@ -13,10 +13,12 @@ AFFGameMode::AFFGameMode(const FObjectInitializer& ObjectInitializer)
 {
 	PlayerStateClass = AFFPlayerState::StaticClass();
 	ProviderPropertiesTableName = FString("GoalProviderProperties");
-	ProviderGoalsTablePrefix = FString("SecondaryGoalsTemplate");
+	ProviderGoalsTablePrefix = FString("SecondaryGoals");
 
 	GameplayGoalsProvider = ObjectInitializer.CreateDefaultSubobject<UGoalsProviderComponent>(this, TEXT("GoalsProvider"));
-	UE_LOG(LogFFGame, Verbose, TEXT("FFGameMode constructed Goals Provider %s"), (GameplayGoalsProvider == nullptr ? TEXT("INVALID") : TEXT("VALID")));
+	AddOwnedComponent(GameplayGoalsProvider);
+	GameplayGoalsProvider->RegisterComponent();
+	//UE_LOG(LogFFGame, Verbose, TEXT("FFGameMode constructed Goals Provider %s"), (GameplayGoalsProvider == nullptr ? TEXT("INVALID") : TEXT("VALID")));
 }
 
 
@@ -106,6 +108,7 @@ UGoalsProviderComponent* AFFGameMode::AddSecondaryGoalProvider(const FName Provi
 				NewProvider->MaximumCurrentGoals = ProviderProperties->MaximumCurrentGoals;
 				NewProvider->UniqueName = ProviderUniqueName;
 				NewProvider->FriendlyName = ProviderProperties->FriendlyName.ToString();
+				NewProvider->ProviderImage = ProviderProperties->ProviderImage;
 				NewProvider->GoalsData = ProviderGoalsTable;
 				AddOwnedComponent(NewProvider);
 				NewProvider->RegisterComponent();
