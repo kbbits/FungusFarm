@@ -290,6 +290,19 @@ void UActorGoalsComponent::CheckForCompletedGoals()
 	SetGoalsComplete(NewlyCompletedGoals, bCheckForNewOnComplete);
 }
 
+void UActorGoalsComponent::SetGoalAnnounced(const FName & GoalName)
+{
+	FGameplayGoal* TmpGoal = CurrentGoals.FindByKey(GoalName);
+	if (TmpGoal)
+	{
+		TmpGoal->Announced = true;
+	}
+	else
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("%s SetGoalAnnounced could not find goal: %s"), *GetNameSafe(this), *GoalName.ToString());
+	}
+}
+
 
 // Add a goal name to the list of completed goals.
 // if bCheckForNewGoals=true then this will also trigger a "new goals" check after marking goals complete.

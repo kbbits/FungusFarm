@@ -17,8 +17,8 @@ AFFGameMode::AFFGameMode(const FObjectInitializer& ObjectInitializer)
 
 	GameplayGoalsProvider = ObjectInitializer.CreateDefaultSubobject<UGoalsProviderComponent>(this, TEXT("GoalsProvider"));
 	AddOwnedComponent(GameplayGoalsProvider);
-	GameplayGoalsProvider->RegisterComponent();
-	//UE_LOG(LogFFGame, Verbose, TEXT("FFGameMode constructed Goals Provider %s"), (GameplayGoalsProvider == nullptr ? TEXT("INVALID") : TEXT("VALID")));
+	//GameplayGoalsProvider->RegisterComponent();
+	UE_LOG(LogFFGame, Verbose, TEXT("FFGameMode constructed Goals Provider %s"), (GameplayGoalsProvider == nullptr ? TEXT("INVALID") : TEXT("VALID")));
 }
 
 
@@ -175,7 +175,7 @@ float AFFGameMode::GetExperienceRequiredForLevel(const int32 Level)
 	float CurLevel = static_cast<float>(Level) - 1;
 	if (CurLevel <= 0) { return 0; }
 	// https://www.desmos.com/calculator/luj0qz9dn6
-	return FMath::TruncToFloat(FMath::Pow((CurLevel + FMath::FloorToInt(Level / 10.0f)), 1.75f) * 55.0f) * 10.0f;
+	return FMath::TruncToFloat(FMath::Pow((CurLevel + FMath::FloorToInt(Level / 5.0f)), 2.0f) * 65.0f) * 10.0f;
 }
 
 
@@ -226,7 +226,7 @@ bool AFFGameMode::SaveGameProfile(const FString ProfileName)
 		return false;
 	}
 	
-	UE_LOG(LogFFGame, Log, TEXT("FFGameMode SaveGameProfile: saved profile data."));
+	//UE_LOG(LogFFGame, Log, TEXT("FFGameMode SaveGameProfile: saved profile data."));
 	
 	// Call plugin to save rest of data
 	UGameInstance* GInstance = GetGameInstance();
@@ -242,7 +242,7 @@ bool AFFGameMode::SaveGameProfile(const FString ProfileName)
 		return false;
 	}
 
-	UE_LOG(LogFFGame, Log, TEXT("Profile %s saved."), *CurrentSaveProfile->ProfileName);
+	//UE_LOG(LogFFGame, Log, TEXT("Profile %s saved."), *CurrentSaveProfile->ProfileName);
 	
 	return true;
 }

@@ -82,6 +82,9 @@ public:
 		void CheckForCompletedGoals();
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		void SetGoalAnnounced(const FName& GoalName);
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		void SetGoalsComplete(const TArray<FGameplayGoal>& Goals, const bool bCheckForNewGoals);
 
 	UFUNCTION(BlueprintCallable, Category = "GameplayGoals")
