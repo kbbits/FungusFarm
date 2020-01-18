@@ -7,6 +7,7 @@
 #include "GameplayGoal.h"
 #include "GameplayGoalListener.h"
 #include "ActorGoalsComponent.h"
+#include "NameArray.h"
 #include "FFPlayerControllerBase.generated.h"
 
 /**
