@@ -2,6 +2,7 @@
 
 
 #include "ActorGoalsComponent.h"
+#include "NameCountInt.h"
 #include "FFPlayerState.h"
 #include "FFGameMode.h"
 #include "FFPlayerControllerBase.h"
@@ -217,7 +218,7 @@ void UActorGoalsComponent::CheckForNewGoals()
 				if (PlayerState)
 				{
 					FGuid ProviderGuid = IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(Provider.GetObject());
-					TArray<FGameplayGoal> TmpGoals = IGameplayGoalProvider::Execute_GetNewGameplayGoals(Provider.GetObject(), CurrentGoals, CompletedGoals, AbandonedGoals, PlayerState->GetExperienceLevel());
+					TArray<FGameplayGoal> TmpGoals = IGameplayGoalProvider::Execute_GetNewGameplayGoals(Provider.GetObject(), CurrentGoals, GetCompletedGoalsCountArray(), AbandonedGoals, PlayerState->UnlockedRecipes, PlayerState->GetExperienceLevel());
 					if (TmpGoals.Num() > 0)
 					{
 						// Make sure all goals have correct provider GUID. (don't rely on provider)
@@ -292,7 +293,7 @@ void UActorGoalsComponent::CheckForCompletedGoals()
 
 void UActorGoalsComponent::SetGoalAnnounced(const FName & GoalName)
 {
-	FGameplayGoal* TmpGoal = CurrentGoals.FindByKey(GoalName);
+	FGameplayGoal * TmpGoal = CurrentGoals.FindByKey(GoalName);
 	if (TmpGoal)
 	{
 		TmpGoal->Announced = true;
@@ -310,10 +311,22 @@ void UActorGoalsComponent::SetGoalsComplete(const TArray<FGameplayGoal>& Goals, 
 {
 	if (Goals.Num() > 0)
 	{
+		FNameCountInt* GoalCount = nullptr;
+		int32 CurCount = 0;
 		for (const FGameplayGoal& CurGoal : Goals)
 		{
 			CurrentGoals.RemoveSingle(CurGoal);
-			CompletedGoals.Add(CurGoal.UniqueName);
+			/*GoalCount = CompletedGoals.FindByKey(CurGoal.UniqueName);
+			if (GoalCount)
+			{
+				GoalCount->Count++;
+			}
+			else
+			{
+				CompletedGoals.Add(FNameCountInt(CurGoal.UniqueName, 1));
+			}
+			*/
+			CompletedGoals.Add(CurGoal.UniqueName, CompletedGoals.FindOrAdd(CurGoal.UniqueName) + 1);
 			// Notify provider via delegate 
 			TScriptInterface<IGameplayGoalProvider> Provider = GetGoalProvider(CurGoal);
 			if (Provider)
@@ -533,6 +546,17 @@ bool UActorGoalsComponent::GetCurrentGoalData(const FName GoalName, FGameplayGoa
 		}
 	}
 	return false;
+}
+
+TArray<FNameCountInt> UActorGoalsComponent::GetCompletedGoalsCountArray()
+{
+	TArray<FNameCountInt> GoalCounts;
+	GoalCounts.Reserve(CompletedGoals.Num());
+	for (TMap<FName, int32>::TConstIterator CompletedGoalsIter = CompletedGoals.CreateConstIterator(); CompletedGoalsIter; ++CompletedGoalsIter)
+	{
+		GoalCounts.Add(FNameCountInt(CompletedGoalsIter.Key(), CompletedGoalsIter.Value()));
+	}
+	return GoalCounts;
 }
 
 

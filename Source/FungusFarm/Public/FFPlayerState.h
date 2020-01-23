@@ -33,6 +33,9 @@ public:
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "FFPlayerState")
 		FPlayerStateProperties PlayerProperties;	
 
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, SaveGame, Category = "FFPlayerState")
+		TArray<FName> UnlockedRecipes;
+
 public:
 
 	UFUNCTION(BlueprintPure, Category = "Experience and Level")
@@ -64,6 +67,15 @@ public:
 	// Gets the index for the last used navigation target associated with the given level.
 	UFUNCTION(BlueprintPure, Category = "FFPlayerState")
 		int32 GetNavIndexForLevel(FName LevelName);
+
+	UFUNCTION(BlueprintPure, Category = "FFPlayerState")
+		bool IsRecipeUnlocked(FName RecipeName);
+
+	UFUNCTION(BlueprintPure, Category = "FFPlayerState")
+		bool AreRecipesUnlocked(TArray<FName> RecipeNames);
+
+	UFUNCTION(BlueprintCallable, Category = "FFPlayerState")
+		void UnlockRecipe(FName RecipeName);
 
 protected:
 

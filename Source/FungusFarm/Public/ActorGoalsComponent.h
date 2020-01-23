@@ -7,6 +7,7 @@
 #include "Components/ActorComponent.h"
 #include "GameplayGoal.h"
 #include "GameplayGoalProvider.h"
+#include "NameCountInt.h"
 #include "ActorGoalsComponent.generated.h"
 
 // Event dispatcher for when we hit minimum value
@@ -28,7 +29,10 @@ public:
 		TArray<FGameplayGoal> CurrentGoals;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Gameplay Goals")
-		TArray<FName> CompletedGoals;
+		TArray<FName> CompletedGoalsOld;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Gameplay Goals")
+		TMap<FName, int32> CompletedGoals;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Gameplay Goals")
 		TArray<FName> AbandonedGoals;
@@ -104,6 +108,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		bool GetCurrentGoalData(const FName GoalName, FGameplayGoal& GoalData);
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		TArray<FNameCountInt> GetCompletedGoalsCountArray();
 
 	UFUNCTION()
 		void OnNewGoalsEnabled_Respond();

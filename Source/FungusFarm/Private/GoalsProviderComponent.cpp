@@ -144,7 +144,7 @@ FGameplayGoal UGoalsProviderComponent::GoalFromTemplate(const FGameplayGoalTempl
 }
 
 
-TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByGoalData(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel)
+TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByGoalData(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FNameCountInt>& CompletedGoals, const TArray<FName>& AbandonedGoals, const TArray<FName>& UnlockedRecipes, const float CurrentExperienceLevel)
 {
 	TArray<FGameplayGoal> NewGoals;
 	const FString ContextString("Goals Provider Component");
@@ -171,26 +171,44 @@ TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByGoalData(const TArray<F
 		NewGoal = GoalsData->FindRow<FGameplayGoal>(GoalName, ContextString);
 		if (NewGoal)
 		{
-			// Go to the next one if this one is already complete and cannot be repeated.
-			if (!NewGoal->CanRepeat && (CompletedGoals.Contains(GoalName) || AbandonedGoals.Contains(GoalName)))
+			const FNameCountInt* CompletedCountStruct = CompletedGoals.FindByKey(GoalName);
+			if (CompletedCountStruct)
 			{
-				// Also remove it from our remaining goals cache
-				ToRemoveFromRemaining.Add(GoalName);
-				continue;
+				// Go to the next one if this one is already completed max times and cannot be repeated.
+				if (NewGoal->MaxRepeats != -1 && CompletedCountStruct->Count > (NewGoal->MaxRepeats - 1))
+				{
+					// Also remove it from our remaining goals cache
+					ToRemoveFromRemaining.Add(GoalName);
+					continue;
+				}
 			}
 			// Go to the next goal if minimum experience level isn't met
 			if (NewGoal->RequiredExperienceLevel > 0 && NewGoal->RequiredExperienceLevel > CurrentExperienceLevel)
 			{
 				continue;
 			}
-			// Check each goal's prerequisites
+			// Check each goal prerequisite
 			if (NewGoal->PrerequisiteGoals.Num() > 0)
 			{
 				for (FName PrereqName : NewGoal->PrerequisiteGoals)
 				{
 					if (!CompletedGoals.Contains(PrereqName))
 					{
-						// If we don't have all pre-reqs, then don't add
+						// If we don't have all pre-reqs, then don't add to new
+						bAddToNew = false;
+						// And stop checking this goal's pre-reqs
+						break;
+					}
+				}
+			}
+			// Check each goal prerequisite recipes
+			if (NewGoal->PrerequisiteRecipes.Num() > 0)
+			{
+				for (FName PrereqName : NewGoal->PrerequisiteRecipes)
+				{
+					if (!UnlockedRecipes.Contains(PrereqName))
+					{
+						// If we don't have all pre-reqs, then don't add to new
 						bAddToNew = false;
 						// And stop checking this goal's pre-reqs
 						break;
@@ -221,7 +239,7 @@ TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByGoalData(const TArray<F
 }
  
 
-TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByTemplate(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel)
+TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByTemplate(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FNameCountInt>& CompletedGoals, const TArray<FName>& AbandonedGoals, const TArray<FName>& UnlockedRecipes, const float CurrentExperienceLevel)
 {
 	bool bAddToNew;
 	TArray<FGameplayGoalTemplate> NewGoalPossibilities;
@@ -266,6 +284,20 @@ TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByTemplate(const TArray<F
 						if (!CompletedGoals.Contains(PrereqName))
 						{
 							// If we don't have all pre-reqs, then don't add
+							bAddToNew = false;
+							// And stop checking this goal's pre-reqs
+							break;
+						}
+					}
+				}
+				// Check each goal prerequisite recipes
+				if (GoalTemplate->PrerequisiteRecipes.Num() > 0)
+				{
+					for (FName PrereqName : GoalTemplate->PrerequisiteRecipes)
+					{
+						if (!UnlockedRecipes.Contains(PrereqName))
+						{
+							// If we don't have all pre-reqs, then don't add to new
 							bAddToNew = false;
 							// And stop checking this goal's pre-reqs
 							break;
@@ -362,7 +394,7 @@ void UGoalsProviderComponent::BeginDestroy()
 }
 
 
-TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel)
+TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FNameCountInt>& CompletedGoals, const TArray<FName>& AbandonedGoals, const TArray<FName>& UnlockedRecipes, const float CurrentExperienceLevel)
 {
 	TArray<FGameplayGoalTemplate> NewGoalPossibilities;
 	TArray<FGameplayGoal> NewGoals;
@@ -391,20 +423,20 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 		UE_LOG(LogFFGame, Warning, TEXT("   %s"), *TmpGoal.UniqueName.ToString());
 	}
 	UE_LOG(LogFFGame, Warning, TEXT("  CompletedGoals:"));
-	for (const FName& TmpGoal : CompletedGoals)
+	for (const FNameCountInt& TmpGoal : CompletedGoals)
 	{
-		UE_LOG(LogFFGame, Warning, TEXT("   %s  index: %d  number: %d"), *TmpGoal.ToString(), TmpGoal.GetComparisonIndex(), TmpGoal.GetNumber());
+		UE_LOG(LogFFGame, Warning, TEXT("   %s  index: %d  number: %d"), *TmpGoal.Name.ToString(), TmpGoal.GetComparisonIndex(), TmpGoal.GetNumber());
 	}
 	*/
 
 	// Get goals based on our GoalsData type - either a GoalTemplate or a Goal.
 	if (GoalsData->GetRowStruct() == FGameplayGoalTemplate::StaticStruct())
 	{
-		NewGoals = NewGoalsByTemplate(CurrentGoals, CompletedGoals, AbandonedGoals, CurrentExperienceLevel);
+		NewGoals = NewGoalsByTemplate(CurrentGoals, CompletedGoals, AbandonedGoals, UnlockedRecipes, CurrentExperienceLevel);
 	}
 	else if (GoalsData->GetRowStruct() == FGameplayGoal::StaticStruct())
 	{
-		NewGoals = NewGoalsByGoalData(CurrentGoals, CompletedGoals, AbandonedGoals, CurrentExperienceLevel);
+		NewGoals = NewGoalsByGoalData(CurrentGoals, CompletedGoals, AbandonedGoals, UnlockedRecipes, CurrentExperienceLevel);
 	}
 	else
 	{

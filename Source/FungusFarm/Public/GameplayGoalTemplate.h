@@ -46,13 +46,18 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		bool CanAbandon;
 
-	// Can this goal template be repeated? If true, this goal template will remain available for selection after completion.
+	// If <= 1, then the goal can only be completed once and will not become active again. If > 1, this is the maximum number of times 
+	// the goal can be completed after which it will not longer become available. If = -1, it can repeat infinitely as long as goal provider exists.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		bool CanRepeat;
+		int32 MaxRepeats;
 
 	// Goals that must be completed before this one is available.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> PrerequisiteGoals;
+
+	// Recipes that must be unlocked before this goal becomes available.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TArray<FName> PrerequisiteRecipes;
 	
 	// Player level must be >= to this before this goal is available.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)

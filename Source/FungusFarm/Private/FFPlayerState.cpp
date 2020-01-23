@@ -102,6 +102,25 @@ int32 AFFPlayerState::GetNavIndexForLevel(FName LevelName)
 	return 0;
 }
 
+bool AFFPlayerState::IsRecipeUnlocked(FName RecipeName)
+{
+	return UnlockedRecipes.Contains(RecipeName);
+}
+
+bool AFFPlayerState::AreRecipesUnlocked(TArray<FName> RecipeNames)
+{
+	for (FName CurName : RecipeNames)
+	{
+		if (!IsRecipeUnlocked(CurName)) return false;
+	}
+	return true;
+}
+
+void AFFPlayerState::UnlockRecipe(FName RecipeName)
+{
+	UnlockedRecipes.AddUnique(RecipeName);
+}
+
 
 bool AFFPlayerState::CheckForLevelUp()
 {

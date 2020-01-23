@@ -43,17 +43,26 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		bool CanAbandon;
 
-	// Can this goal be repeated?  i.e. it can become a new goal even if it is in the CompletedGoals list.
+	// If <= 1, then the goal can only be completed once and will not become active again. If > 1, this is the maximum number of times 
+	// the goal can be completed after which it will not longer become available. If = -1, it can repeat infinitely as long as goal provider exists.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		bool CanRepeat;
+		int32 MaxRepeats;
 
 	// Has this goal been announced to the player?
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		bool Announced;
 
+	// Force the goal to be announced when available (if not hidden).
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		bool ForceAnnounce;
+
 	// Goals that must be completed before this one is available.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> PrerequisiteGoals;
+
+	// Recipes that must be unlocked before this goal becomes available.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TArray<FName> PrerequisiteRecipes;
 	
 	// Minimum player experience level for goal to become available. Set to 0 to ignore. Default = 0.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)

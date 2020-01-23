@@ -7,6 +7,7 @@
 #include "Engine/Texture2D.h"
 #include "Guid.h"
 #include "GameplayGoal.h"
+#include "NameCountInt.h"
 #include "GameplayGoalProvider.generated.h"
 
 // This class does not need to be modified.
@@ -31,7 +32,7 @@ public:
 	//bool operator== (TScriptInterface<IGameplayGoalProvider>& other);
 	
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
-		TArray<FGameplayGoal> GetNewGameplayGoals(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel);
+		TArray<FGameplayGoal> GetNewGameplayGoals(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FNameCountInt>& CompletedGoals, const TArray<FName>& AbandonedGoals, const TArray<FName>& UnlockedRecipes, const float CurrentExperienceLevel);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
 		void OnGameplayGoalCompleted(const FGameplayGoal& CompletedGoal);

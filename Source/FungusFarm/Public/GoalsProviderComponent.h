@@ -6,9 +6,11 @@
 #include "Components/ActorComponent.h"
 #include "Delegates/Delegate.h"
 #include "Engine/Texture2D.h"
+#include "FFPlayerState.h"
 #include "GameplayGoal.h"
 #include "GameplayGoalTemplate.h"
 #include "GameplayGoalProvider.h"
+#include "NameCountInt.h"
 #include "FungusFarm.h"
 #include "GoalsProviderComponent.generated.h"
 
@@ -92,9 +94,9 @@ protected:
 	// Create and return a new Gameplay Goal from the given template.
 	FGameplayGoal GoalFromTemplate(const FGameplayGoalTemplate& GoalTemplate);
 
-	TArray<FGameplayGoal> NewGoalsByGoalData(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel);
+	TArray<FGameplayGoal> NewGoalsByGoalData(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FNameCountInt>& CompletedGoals, const TArray<FName>& AbandonedGoals, const TArray<FName>& UnlockedRecipes, const float CurrentExperienceLevel);
 
-	TArray<FGameplayGoal> NewGoalsByTemplate(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel);
+	TArray<FGameplayGoal> NewGoalsByTemplate(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FNameCountInt>& CompletedGoals, const TArray<FName>& AbandonedGoals, const TArray<FName>& UnlockedRecipes, const float CurrentExperienceLevel);
 
 public:
 	// Called every frame
@@ -103,8 +105,8 @@ public:
 	virtual void BeginDestroy() override;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
-		TArray<FGameplayGoal> GetNewGameplayGoals(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel);
-	virtual TArray<FGameplayGoal> GetNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FName>& CompletedGoals, const TArray<FName>& AbandonedGoals, const float CurrentExperienceLevel) override;
+		TArray<FGameplayGoal> GetNewGameplayGoals(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FNameCountInt>& CompletedGoals, const TArray<FName>& AbandonedGoals, const TArray<FName>& UnlockedRecipes, const float CurrentExperienceLevel);
+	virtual TArray<FGameplayGoal> GetNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FNameCountInt>& CompletedGoals, const TArray<FName>& AbandonedGoals, const TArray<FName>& UnlockedRecipes, const float CurrentExperienceLevel) override;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
 		void OnGameplayGoalCompleted(const FGameplayGoal& CompletedGoal);
