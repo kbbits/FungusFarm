@@ -35,7 +35,7 @@ public:
 		TArray<FGameplayGoal> GetNewGameplayGoals(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FNameCountInt>& CompletedGoals, const TArray<FName>& AbandonedGoals, const TArray<FName>& UnlockedRecipes, const float CurrentExperienceLevel);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
-		void OnGameplayGoalCompleted(const FGameplayGoal& CompletedGoal);
+		void OnGameplayGoalCompleted(const FGameplayGoal& CompletedGoal, const int32 CurrentGoalCompletions);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
 		void OnGameplayGoalAbandoned(const FGameplayGoal& CompletedGoal);

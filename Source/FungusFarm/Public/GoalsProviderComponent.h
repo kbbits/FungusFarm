@@ -109,8 +109,8 @@ public:
 	virtual TArray<FGameplayGoal> GetNewGameplayGoals_Implementation(const TArray<FGameplayGoal>& CurrentGoals, const TArray<FNameCountInt>& CompletedGoals, const TArray<FName>& AbandonedGoals, const TArray<FName>& UnlockedRecipes, const float CurrentExperienceLevel) override;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
-		void OnGameplayGoalCompleted(const FGameplayGoal& CompletedGoal);
-	virtual void OnGameplayGoalCompleted_Implementation(const FGameplayGoal& CompletedGoal) override;
+		void OnGameplayGoalCompleted(const FGameplayGoal& CompletedGoal, const int32 CurrentGoalCompletions);
+	virtual void OnGameplayGoalCompleted_Implementation(const FGameplayGoal& CompletedGoal, const int32 CurrentGoalCompletions) override;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
 		void OnGameplayGoalAbandoned(const FGameplayGoal& AbandonedGoal);

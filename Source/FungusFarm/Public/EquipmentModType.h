@@ -47,7 +47,7 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame)
 		bool bDestroyOnRemove;
 
-	// The describes when and for how long this mod is effective.
+	// Describes when and for how long this mod is effective.
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame)
 		EEquipmentModDuration DurationType;
 

@@ -122,11 +122,12 @@ FGameplayGoal UGoalsProviderComponent::GoalFromTemplate(const FGameplayGoalTempl
 		NewGoal.UniqueName = GoalTemplate.UniqueNameBase;  //.ToString()+"_" + FGuid::NewGuid().ToString()));
 		NewGoal.DisplayName = GoalTemplate.DisplayNameBase;
 		NewGoal.CanAbandon = GoalTemplate.CanAbandon;
-		NewGoal.CanRepeat = GoalTemplate.CanRepeat;
+		NewGoal.MaxRepeats = GoalTemplate.MaxRepeats;
 		NewGoal.Hidden = GoalTemplate.Hidden;
 		NewGoal.OnAvailableMessage = GoalTemplate.OnAvailableMessage;
 		NewGoal.CompletedMessage = GoalTemplate.CompletedMessage;
 		NewGoal.PrerequisiteGoals = GoalTemplate.PrerequisiteGoals;
+		NewGoal.PrerequisiteRecipes = GoalTemplate.PrerequisiteRecipes;
 		NewGoal.RequiredExperienceLevel = GoalTemplate.RequiredExperienceLevel;
 		NewGoal.HarvestedGoodsToComplete = UGoodsFunctionLibrary::GoodsQuantitiesFromRanges(GoalTemplate.HarvestedGoodsToComplete, Scale);
 		NewGoal.SoldGoodsToComplete = UGoodsFunctionLibrary::GoodsQuantitiesFromRanges(GoalTemplate.SoldGoodsToComplete, Scale);
@@ -247,6 +248,7 @@ TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByTemplate(const TArray<F
 	FGameplayGoalTemplate* GoalTemplate = nullptr;
 	TSet<FName> ToRemoveFromRemaining;
 	float TotalWeightedChance = 0.0f;
+	const FNameCountInt* CompletedCountStruct = nullptr;
 
 	// Find all available goal possibilities
 	for (FName GoalName : RemainingGoalNamesCached)
@@ -265,11 +267,16 @@ TArray<FGameplayGoal> UGoalsProviderComponent::NewGoalsByTemplate(const TArray<F
 			if (GoalTemplate && !GoalTemplate->UniqueNameBase.IsNone())
 			{
 				// Go to the next one if this one is already complete and cannot be repeated.
-				if (!GoalTemplate->CanRepeat && (CompletedGoals.Contains(GoalName) || AbandonedGoals.Contains(GoalName)))
+				CompletedCountStruct = CompletedGoals.FindByKey(GoalName);
+				if (CompletedCountStruct)
 				{
-					// Also remove it from our remaining goals cache
-					ToRemoveFromRemaining.Add(GoalName);
-					continue;
+					// Go to the next one if this one is already completed max times and cannot be repeated.
+					if (GoalTemplate->MaxRepeats != -1 && CompletedCountStruct->Count > (GoalTemplate->MaxRepeats - 1))
+					{
+						// Also remove it from our remaining goals cache
+						ToRemoveFromRemaining.Add(GoalName);
+						continue;
+					}
 				}
 				// Go to the next goal if minimum experience level isn't met
 				if (GoalTemplate->RequiredExperienceLevel > 0.0f && GoalTemplate->RequiredExperienceLevel > CurrentExperienceLevel)
@@ -450,12 +457,12 @@ TArray<FGameplayGoal> UGoalsProviderComponent::GetNewGameplayGoals_Implementatio
 }
 
 
-void UGoalsProviderComponent::OnGameplayGoalCompleted_Implementation(const FGameplayGoal & CompletedGoal)
+void UGoalsProviderComponent::OnGameplayGoalCompleted_Implementation(const FGameplayGoal & CompletedGoal, const int32 CurrentGoalCompletions)
 {
 	// Double-check the provider GUID
 	if (CompletedGoal.ProviderGuid == GameplayGoalProviderGuid)
 	{
-		if (!CompletedGoal.CanRepeat)
+		if (CompletedGoal.MaxRepeats != -1 && CompletedGoal.MaxRepeats >= CurrentGoalCompletions)
 		{
 			// Remove it from our remaining goals cache
 			RemainingGoalNamesCached.Remove(CompletedGoal.UniqueName);
@@ -479,11 +486,13 @@ void UGoalsProviderComponent::OnGameplayGoalAbandoned_Implementation(const FGame
 	{
 		if (AbandonedGoal.CanAbandon)
 		{
-			if (!AbandonedGoal.CanRepeat)
+			/*
+			if (AbandonedGoal.MaxRepeats == 0 || AbandonedGoal.MaxRepeats == 1)
 			{
 				// remove it from our remaining goals cache
 				RemainingGoalNamesCached.Remove(AbandonedGoal.UniqueName);
 			}
+			*/
 			if (CurrentActiveGoals > 0)
 			{
 				--CurrentActiveGoals;

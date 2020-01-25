@@ -24,7 +24,7 @@ FGoodsQuantity UGoodsFunctionLibrary::GoodsQuantityFromRange(const FGoodsQuantit
 	else
 	{
 		// Quantity is picked randomly in min-max range
-		return FGoodsQuantity(GoodsRange.Name, FMath::FRandRange(GoodsRange.QuantityMin, GoodsRange.QuantityMax));
+		return FGoodsQuantity(GoodsRange.Name, FMath::TruncToFloat(FMath::FRandRange(GoodsRange.QuantityMin, GoodsRange.QuantityMax)));
 	}	
 }
 
@@ -50,7 +50,7 @@ FRecipeQuantity UGoodsFunctionLibrary::RecipeQuantityFromRange(const FRecipeQuan
 	{
 		// Range is in min-max range determined by scale
 		float ClampedScale = FMath::Min<float>(QuantityScale, 1.0f);
-		return FRecipeQuantity(RecipeRange.Name, RecipeRange.QuantityMin + (ClampedScale * (RecipeRange.QuantityMax - RecipeRange.QuantityMin)));
+		return FRecipeQuantity(RecipeRange.Name, FMath::TruncToInt(RecipeRange.QuantityMin + (ClampedScale * (RecipeRange.QuantityMax - RecipeRange.QuantityMin))));
 	}
 	else
 	{

@@ -212,7 +212,7 @@ void UActorGoalsComponent::CheckForNewGoals()
 			if (Provider.GetObject()->IsValidLowLevel())
 			{
 				// TODO: abstract how we determine player level.
-				// Grab current level directly from owner - assuming it is our player controller.
+				// Grab current level directly from owner - we assume it is our player controller.
 				AFFPlayerControllerBase* Controller = Cast<AFFPlayerControllerBase>(GetOwner());
 				AFFPlayerState* PlayerState = Controller->GetPlayerState<AFFPlayerState>();
 				if (PlayerState)
@@ -253,6 +253,7 @@ void UActorGoalsComponent::CheckForNewGoals()
 }
 
 
+// UNUSED - Remove
 // Ask our Goal Providers for a new random goal.
 // Stops with first provider to provide a valid goal.
 void UActorGoalsComponent::CreateNewRandomGoal(const int MinTier, const int MaxTier, bool& bSuccess, FGameplayGoal& NewRandomGoal)
@@ -316,22 +317,13 @@ void UActorGoalsComponent::SetGoalsComplete(const TArray<FGameplayGoal>& Goals, 
 		for (const FGameplayGoal& CurGoal : Goals)
 		{
 			CurrentGoals.RemoveSingle(CurGoal);
-			/*GoalCount = CompletedGoals.FindByKey(CurGoal.UniqueName);
-			if (GoalCount)
-			{
-				GoalCount->Count++;
-			}
-			else
-			{
-				CompletedGoals.Add(FNameCountInt(CurGoal.UniqueName, 1));
-			}
-			*/
-			CompletedGoals.Add(CurGoal.UniqueName, CompletedGoals.FindOrAdd(CurGoal.UniqueName) + 1);
+			CurCount = CompletedGoals.FindOrAdd(CurGoal.UniqueName) + 1;
+			CompletedGoals.Add(CurGoal.UniqueName, CurCount);
 			// Notify provider via delegate 
 			TScriptInterface<IGameplayGoalProvider> Provider = GetGoalProvider(CurGoal);
 			if (Provider)
 			{
-				IGameplayGoalProvider::Execute_OnGameplayGoalCompleted(Provider.GetObject(), CurGoal);
+				IGameplayGoalProvider::Execute_OnGameplayGoalCompleted(Provider.GetObject(), CurGoal, CurCount);
 			}
 			UE_LOG(LogFFGame, Log, TEXT("%s goal complete %s"), *GetNameSafe(this), *CurGoal.UniqueName.ToString());
 		}

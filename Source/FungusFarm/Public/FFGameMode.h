@@ -90,6 +90,7 @@ public:
 		USaveProfile * GetGameProfile(const int32 SlotId, bool& bExists);
 
 	// SaveExtension plugin notifcations
+
 	// SaveExtension plugin Save Began
 	virtual void OnSaveBegan() override;
 	// SaveExtension plugin Load Began

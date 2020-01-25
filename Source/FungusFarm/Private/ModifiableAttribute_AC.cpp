@@ -90,6 +90,22 @@ void UModifiableAttribute_AC::AddModifiers(const TArray<FAttributeModifier>& New
 	RecalculateValue();
 }
 
+void UModifiableAttribute_AC::RemoveModifier(const FAttributeModifier & NewModifier, bool & Successful)
+{
+	if (NewModifier.AttributeCode == AttributeCode) //(NewModifier.AttributeType == AttributeType) 
+	{
+		if (Modifiers.RemoveSingle(NewModifier.Modifier) == 0) 
+		{
+			Successful = false;
+		}
+		else
+		{
+			Successful = true;
+			RecalculateValue();
+		}
+	}
+}
+
 
 // Remove all modifiers from this attribute.
 void UModifiableAttribute_AC::ClearModifiers() 

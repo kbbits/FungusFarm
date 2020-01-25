@@ -20,10 +20,10 @@ public:
 	//	EModifiableAttributeType AttributeType;
 
 	// Identifying code for the type of attribute.
-	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, SaveGame)
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, SaveGame)
 		FName AttributeCode;
 
-	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, SaveGame)
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, SaveGame)
 		float BaseValue;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame)
@@ -58,6 +58,9 @@ public:
 	
 	UFUNCTION(BlueprintCallable, Category = "ModifiableAttributes")
 	void AddModifiers(const TArray<FAttributeModifier>& NewModifiers);
+
+	UFUNCTION(BlueprintCallable, Category = "ModifiableAttributes")
+	void RemoveModifier(const FAttributeModifier& NewModifier, bool& Successful);
 
 	UFUNCTION(BlueprintCallable, Category = "ModifiableAttributes")
 	void ClearModifiers();

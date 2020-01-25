@@ -47,7 +47,7 @@ public:
 		bool CanAbandon;
 
 	// If <= 1, then the goal can only be completed once and will not become active again. If > 1, this is the maximum number of times 
-	// the goal can be completed after which it will not longer become available. If = -1, it can repeat infinitely as long as goal provider exists.
+	// the goal can be completed after which it will no longer become available. If = -1, it can repeat infinitely as long as goal provider exists.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		int32 MaxRepeats;
 
@@ -65,7 +65,7 @@ public:
 	
 	// Requirements for completing the goal
 	
-	// Goods harvested from "crops"
+	// Goods harvested from "crops". This does not include spore "sprinkles".
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsQuantityRange> HarvestedGoodsToComplete;
 
