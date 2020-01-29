@@ -17,7 +17,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName Name;
 
-	// Category information for this recipe. Indicates what equipment can craft this.
+	// Category information for this recipe. 
+	// Indicates what equipment can craft this.
+	// Also allows additional specifiers:
+	//    ScaleInputValue:<InputGoodsName>:<float>  -- The value for the indicated goods name should be scaled by the given value when calculating auto-values (gold value and xp).
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> RecipeCategories;
 
@@ -28,13 +31,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TAssetPtr<UTexture2D> Thumbnail;
 
-	// Additional requirements (not consumed) in order for the recipe to be crafted.
+	// Currently unused. Additional requirements (not consumed) in order for the recipe to be crafted.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> RecipeRequirements;
-
-	// Unused
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		TArray<FGoodsQuantity> UnlockCosts;
 
 	// Goods required to craft one of instance of this recipe
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
@@ -48,7 +47,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsDropChance> BonusCraftingResults;
 
-	// The tier of this recipe. Unused
+	// The tier of this recipe.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		int32 Tier;
 
@@ -58,5 +57,5 @@ public:
 
 	// Experience awarded to player for crafting this recipe.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		float CraftingExperience;
+		float OverrideCraftingExperience;
 };

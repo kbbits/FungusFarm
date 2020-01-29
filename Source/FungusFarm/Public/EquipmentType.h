@@ -10,6 +10,7 @@ struct FEquipmentType : public FTableRowBase
 	GENERATED_BODY()
 
 public:
+	// Unique name (code) for this equipment
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName Name;
 
@@ -29,5 +30,9 @@ public:
 	// Used by the actor class of this equipment.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName SubtypeName;
+
+	// Recipes must have all of these in their RecipeCategories in order to be crafted in this eqiupment. Only relevant to crafting equipment.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TArray<FName> RequiredRecipeCategories;
 
 };

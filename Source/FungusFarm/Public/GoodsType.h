@@ -10,6 +10,7 @@ struct FGoodsType : public FTableRowBase
 	GENERATED_BODY()
 
 public:
+	// Unique name (code) for this goods type.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName Name;
 
@@ -19,18 +20,25 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TAssetPtr<UTexture2D> Thumbnail;
 
+	// If this goods type represents equipment, this is its equipment name.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName EquipmentName;
-
+	
+	// Currently unused. May be used to group similar goods.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName GoodsParentType;
 
+	// If this value is present it will be used during auto-value calculation instead of calculating it.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		float SellValue;
+		float OverrideSellValue;
 
+	// If this value is present it will be used during auto-value calculation instead of calculating it.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		float BuyCost;
+		float OverrideBuyCost;
 
+	// Category of goods. Ex: Resource, Cap, Spores, Equipment, EquipmentMod, etc.
+	// Also allows other specifiers:
+	//    ValueIgnoreProducedFrom:<InputGoodsName> -- Ignore the given input goods (do not recurse it) when calculating auto-valuess. Prevents infinite loops with circular recipes.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> GoodsCategories;
 };
