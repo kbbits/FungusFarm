@@ -31,8 +31,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName SubtypeName;
 
-	// Recipes must have all of these in their RecipeCategories in order to be crafted in this eqiupment. Only relevant to crafting equipment.
+	// Recipes must have at least one of these in their RecipeCategories in order to be crafted in this eqiupment. Only relevant to crafting equipment.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		TArray<FName> RequiredRecipeCategories;
+		TArray<FName> AllowedRecipeCategories;
 
 };

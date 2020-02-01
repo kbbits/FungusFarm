@@ -55,7 +55,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		float CraftingTime;
 
-	// Experience awarded to player for crafting this recipe.
+	// Experience awarded to player for crafting this recipe. Tier 1 recipes need a value here. Others will be auto-calculated unless there is a value here.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		float OverrideCraftingExperience;
 };

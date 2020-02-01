@@ -38,7 +38,7 @@ public:
 
 	// Category of goods. Ex: Resource, Cap, Spores, Equipment, EquipmentMod, etc.
 	// Also allows other specifiers:
-	//    ValueIgnoreProducedFrom:<InputGoodsName> -- Ignore the given input goods (do not recurse it) when calculating auto-valuess. Prevents infinite loops with circular recipes.
+	//    ValueIgnoreProducedFrom:<InputGoodsName> -- Ignore the given input goods (do not recurse it) when calculating auto-values. Prevents infinite loops with circular recipes.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> GoodsCategories;
 };
