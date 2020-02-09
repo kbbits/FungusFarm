@@ -323,6 +323,23 @@ USaveProfile * AFFGameMode::GetGameProfile(const int32 SlotId, bool& bExists)
 	return Profile;
 }
 
+bool AFFGameMode::DeleteGameProfile(const int32 SlotId)
+{
+	bool bSuccess = false;
+	// Load profile data	
+	if (UGameplayStatics::DoesSaveGameExist(GetSaveProfileFilename(SlotId), 0))
+	{
+		bSuccess = UGameplayStatics::DeleteGameInSlot(GetSaveProfileFilename(SlotId), 0);
+		UGameInstance* GInstance = GetGameInstance();
+		USaveManager* SaveManager = GInstance->GetSubsystem<USaveManager>();
+		if (SaveManager && bSuccess)
+		{
+			bSuccess = SaveManager->DeleteSlot(SlotId);
+		}
+	}
+	return bSuccess;
+}
+
 
 void AFFGameMode::OnSaveBegan()
 {	

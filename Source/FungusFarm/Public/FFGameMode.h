@@ -89,6 +89,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Save Profile")
 		USaveProfile * GetGameProfile(const int32 SlotId, bool& bExists);
 
+	// Deletes the saved game profile and save data for the given slot ID.
+	UFUNCTION(BlueprintCallable, Category = "Save Profile")
+		bool DeleteGameProfile(const int32 SlotId);
+
 	// SaveExtension plugin notifcations
 
 	// SaveExtension plugin Save Began
