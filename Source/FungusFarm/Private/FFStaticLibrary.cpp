@@ -29,3 +29,15 @@ void UFFStaticLibrary::SumModifiers(const TArray<FModifier>& ModsToSum, float& S
 		}
 	}
 }
+
+void UFFStaticLibrary::CompareStrings(const FString first, const FString second, int32 & relation, bool CaseSensitive)
+{
+	if (CaseSensitive) 
+	{
+		relation = first.Compare(second, ESearchCase::CaseSensitive);
+	}
+	else
+	{
+		relation = first.Compare(second, ESearchCase::IgnoreCase);
+	}
+}

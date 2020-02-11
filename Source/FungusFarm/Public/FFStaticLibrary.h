@@ -22,4 +22,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category="ModifiableAttributes")
 		static void SumModifiers(const TArray<FModifier>& ModsToSum, float& ScalarTotal, float& MultiplierTotal);
 
+	// Compare two strings.
+	// Returns 0 if they are equal, negative if first precedes second, positive if second precedes first.
+	UFUNCTION(BlueprintCallable, Category = "String")
+		static void CompareStrings(const FString first, const FString second, int32& relation, const bool CaseSensitive = false);
+
 };
