@@ -30,6 +30,26 @@ void AFFGameMode::BeginPlay()
 	SaveManager->SubscribeForEvents(this);
 }
 
+UDataTable * AFFGameMode::GetGoalProviderData(const FName ProviderUniqueName)
+{
+	FString GoalsDataPath = ("/Game/FungusFarm/Data/" + ProviderGoalsTablePrefix + "_" + ProviderUniqueName.ToString() + "." + ProviderGoalsTablePrefix + "_" + ProviderUniqueName.ToString());
+	//UE_LOG(LogFFGame, Log, TEXT("looking for table: %s"), *GoalsDataPath);
+
+	// Lookup provider goal data in data table and apply them to component
+	UObject* DataObj = StaticLoadObject(UDataTable::StaticClass(), this, *GoalsDataPath);
+	if (!DataObj)
+	{
+		UE_LOG(LogFFGame, Warning, TEXT("%s GetGoalProviderData unknown goal data table: %s"), *GetNameSafe(this), *GoalsDataPath);
+	}
+	return DataObj ? Cast<UDataTable>(DataObj) : nullptr;
+}
+
+FGameplayGoal AFFGameMode::GetGoalData(const FName ProviderUniqueName, const FName GoalName)
+{
+	UDataTable * GoalsData = GetGoalProviderData(ProviderUniqueName);
+	return *GoalsData->FindRow<FGameplayGoal>(GoalName, TEXT("GetGoalData"), false);
+}
+
 UGoalsProviderComponent * AFFGameMode::GetGoalProviderComponentByUniqueName(const FName ProviderUniqueName)
 {
 	TArray<UGoalsProviderComponent*> AllProviders = GetAllGoalProviders();
@@ -72,24 +92,15 @@ UGoalsProviderComponent* AFFGameMode::AddSecondaryGoalProvider(const FName Provi
 		return ExistingProvider;
 	}
 
-	FString ProviderPropertiesPath("/Game/FungusFarm/Data/" + ProviderPropertiesTableName + "." + ProviderPropertiesTableName);
-	FString GoalsDataPath = ("/Game/FungusFarm/Data/" + ProviderGoalsTablePrefix + "_" + ProviderUniqueName.ToString() + "." + ProviderGoalsTablePrefix + "_" + ProviderUniqueName.ToString());
-	//UE_LOG(LogFFGame, Log, TEXT("looking for table: %s"), *GoalsDataPath);
-
 	// Lookup provider properties in data table
+	FString ProviderPropertiesPath("/Game/FungusFarm/Data/" + ProviderPropertiesTableName + "." + ProviderPropertiesTableName);
 	UObject* PropertiesObj = StaticLoadObject(UDataTable::StaticClass(), this, *ProviderPropertiesPath);
 	if (!PropertiesObj)
 	{
 		UE_LOG(LogFFGame, Warning, TEXT("%s AddSecondaryGoalProvider unknown goal provider properties data table: %s"), *GetNameSafe(this), *ProviderPropertiesPath);
 	}
-	// Lookup provider goal data in data table and apply them to component
-	UObject* DataObj = StaticLoadObject(UDataTable::StaticClass(), this, *GoalsDataPath);
-	if (!DataObj)
-	{
-		UE_LOG(LogFFGame, Warning, TEXT("%s AddSecondaryGoalProvider unknown goal data table: %s"), *GetNameSafe(this), *GoalsDataPath);
-	}
 	UDataTable* ProviderPropertiesTable = PropertiesObj ? Cast<UDataTable>(PropertiesObj) : nullptr;
-	UDataTable* ProviderGoalsTable = DataObj ? Cast<UDataTable>(DataObj) : nullptr; 
+	UDataTable* ProviderGoalsTable = GetGoalProviderData(ProviderUniqueName);
 	// Find our properties in the table
 	FGameplayGoalProviderTemplate* ProviderProperties = ProviderPropertiesTable->FindRow<FGameplayGoalProviderTemplate>(ProviderUniqueName, FString("GameMode AddSecondaryGoalProvider"));
 	if (ProviderPropertiesTable && ProviderProperties)

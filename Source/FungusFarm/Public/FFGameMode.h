@@ -47,6 +47,12 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		UDataTable* GetGoalProviderData(const FName ProviderUniqueName);
+
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		FGameplayGoal GetGoalData(const FName ProviderUniqueName, const FName GoalName);
 	
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		UGoalsProviderComponent* GetGoalProviderComponentByUniqueName(const FName ProviderUniqueName);

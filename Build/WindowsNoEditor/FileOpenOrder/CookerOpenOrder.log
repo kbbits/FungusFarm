@@ -194,96 +194,96 @@
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/LabEquipment/LabEquipmentBase_BP.uasset" 193
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Tools/ToolBase_BP.uasset" 194
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/SaveLoad/FF_SavedGameSlot_Widget.uasset" 195
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GameStartMenu.uasset" 196
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/ItemCards/FF_CropTypeCard_Widget.uasset" 197
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GameplayGoalAwardsCollection_Widget.uasset" 198
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/GoalProgressDetailType.uasset" 199
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GoalProgressDetailItem_Widget.uasset" 200
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GoalProgressDetailCollection_Widget.uasset" 201
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GameplayGoalAchieved_Widget.uasset" 202
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/SprinkleParticle.uasset" 203
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Goods/WhiteButtonCap_02_x256.uasset" 204
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_InventoryMonitorItem.uasset" 205
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_InventoryMonitorHud.uasset" 206
-"../../../Engine/Content/VREditor/Sounds/UI/Flashlight_Switch.uasset" 207
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/GoldPiece_01x256.uasset" 208
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Lab-Crate_01_512.uasset" 209
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Crafting/RecipeNavigation_Widget.uasset" 210
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/UMG_Border_M.uasset" 211
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/UMG_Border_MI.uasset" 212
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/CollapsableDisplayState.uasset" 213
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GoalProgress_Widget.uasset" 214
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_CurrentGoals_Widget.uasset" 215
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crafting/FF_CraftingState.uasset" 216
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/CropGrowState.uasset" 217
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_NavAnchorTargetStatus_Widget.uasset" 218
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_NavTargetCollection_Widget.uasset" 219
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_PlayerLevelHud_Widget.uasset" 220
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_PlayerXpHud_Widget.uasset" 221
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/CropPlot_01.uasset" 222
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Toolbar/FF_ToolToolbarButton.uasset" 223
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Toolbar/FF_MainToolbar.uasset" 224
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/VerticalMessageWidget/FF_VerticalMessageItemItem.uasset" 225
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/VerticalMessageWidget/FF_VerticalMessage_Widget.uasset" 226
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_PlayerHUD.uasset" 227
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/SprinkleParticle_Inst.uasset" 228
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Particles/SporesBasic.uasset" 229
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_GameInputModes.uasset" 230
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ModifiableAttributes/ModifiableAttribute_AC_BP.uasset" 231
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/finger.uasset" 232
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/finger_down.uasset" 233
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Tools/FingerTool_BP.uasset" 234
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Goods/loam2_512.uasset" 235
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/loam2_x256_Sprite.uasset" 236
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ResourceNodes/ResourceNodeBase.uasset" 237
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Tools/ImageCursor_Widget.uasset" 238
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_CropTypeWidget.uasset" 239
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/CropPlot/FF_CropSelect_Widget.uasset" 240
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_ModifierDetail_Widget.uasset" 241
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_EquipmentMod_Widget.uasset" 242
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/CropPlot/FF_CropPlotMgmt_Menu.uasset" 243
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GameLoading_Menu.uasset" 244
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GoodsItemDetail_Widget.uasset" 245
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Inventory/FF_PlayerInventoryPanel.uasset" 246
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Skills/FF_SkillUnlockInfo_Panel.uasset" 247
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Skills/FF_Skills_Panel.uasset" 248
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_MainPlayerMgmt_Menu.uasset" 249
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_OptionsMenu.uasset" 250
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GameplayGoalMgmt_Widget.uasset" 251
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/HomeMenu/FF_MainHome_Menu.uasset" 252
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_MarketInventory.uasset" 253
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_MarketBuy_Panel.uasset" 254
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_MarketSell_Panel.uasset" 255
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_Market_Menu.uasset" 256
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_PlayerController_BP.uasset" 257
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_GeneralFunctions.uasset" 258
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crafting/FF_ActorCrafter_Component.uasset" 259
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Amanita_02_x512.uasset" 260
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/Amanita_02_x512_Sprite.uasset" 261
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/amanita_01_BP.uasset" 262
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/BlueMycena02_x512.uasset" 263
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/BlueMycena02_x512_Sprite.uasset" 264
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/BlueMycena_01_BP.uasset" 265
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/WhiteButton_02_x512.uasset" 266
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/WhiteButton_02_x512_Sprite.uasset" 267
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/WhiteButton_01_BP.uasset" 268
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_PlatformGameInstance.uasset" 269
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Goals/GameplayGoal_BP.uasset" 270
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/CraftingRecipeData.uasset" 271
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/DeathCap02_x512.uasset" 272
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/DeathCap02_x512_Sprite.uasset" 273
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/Deathcap_01_BP.uasset" 274
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Entoloma_x512.uasset" 275
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/Entoloma_x512_Sprite.uasset" 276
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/Entoloma_01_BP.uasset" 277
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/VioletCort01_x512.uasset" 278
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/VioletCort01_x512_Sprite.uasset" 279
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/VioletCort_01_BP.uasset" 280
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/YellowFlyAgaric_x512.uasset" 281
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/YellowFlyAgaric_x512_Sprite.uasset" 282
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/YellowFlyAgaric_01_BP.uasset" 283
-"../../../Engine/Content/EngineResources/Bad.uasset" 284
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Locale/FF_Strings.uasset" 285
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Locale/FF_Strings.uasset" 196
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GameStartMenu.uasset" 197
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/ItemCards/FF_CropTypeCard_Widget.uasset" 198
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GameplayGoalAwardsCollection_Widget.uasset" 199
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/GoalProgressDetailType.uasset" 200
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GoalProgressDetailItem_Widget.uasset" 201
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GoalProgressDetailCollection_Widget.uasset" 202
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GameplayGoalAchieved_Widget.uasset" 203
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/SprinkleParticle.uasset" 204
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Goods/WhiteButtonCap_02_x256.uasset" 205
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_InventoryMonitorItem.uasset" 206
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_InventoryMonitorHud.uasset" 207
+"../../../Engine/Content/VREditor/Sounds/UI/Flashlight_Switch.uasset" 208
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/GoldPiece_01x256.uasset" 209
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Lab-Crate_01_512.uasset" 210
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Crafting/RecipeNavigation_Widget.uasset" 211
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/UMG_Border_M.uasset" 212
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/UMG_Border_MI.uasset" 213
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/CollapsableDisplayState.uasset" 214
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GoalProgress_Widget.uasset" 215
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_CurrentGoals_Widget.uasset" 216
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crafting/FF_CraftingState.uasset" 217
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/CropGrowState.uasset" 218
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_NavAnchorTargetStatus_Widget.uasset" 219
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_NavTargetCollection_Widget.uasset" 220
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_PlayerLevelHud_Widget.uasset" 221
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_PlayerXpHud_Widget.uasset" 222
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/CropPlot_01.uasset" 223
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Toolbar/FF_ToolToolbarButton.uasset" 224
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Toolbar/FF_MainToolbar.uasset" 225
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/VerticalMessageWidget/FF_VerticalMessageItemItem.uasset" 226
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/VerticalMessageWidget/FF_VerticalMessage_Widget.uasset" 227
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_PlayerHUD.uasset" 228
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Materials/SprinkleParticle_Inst.uasset" 229
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Particles/SporesBasic.uasset" 230
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_GameInputModes.uasset" 231
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ModifiableAttributes/ModifiableAttribute_AC_BP.uasset" 232
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/finger.uasset" 233
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/finger_down.uasset" 234
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Tools/FingerTool_BP.uasset" 235
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Goods/loam2_512.uasset" 236
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/loam2_x256_Sprite.uasset" 237
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ResourceNodes/ResourceNodeBase.uasset" 238
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Tools/ImageCursor_Widget.uasset" 239
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_CropTypeWidget.uasset" 240
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/CropPlot/FF_CropSelect_Widget.uasset" 241
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_ModifierDetail_Widget.uasset" 242
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_EquipmentMod_Widget.uasset" 243
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/CropPlot/FF_CropPlotMgmt_Menu.uasset" 244
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GameLoading_Menu.uasset" 245
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_GoodsItemDetail_Widget.uasset" 246
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Inventory/FF_PlayerInventoryPanel.uasset" 247
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Skills/FF_SkillUnlockInfo_Panel.uasset" 248
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Skills/FF_Skills_Panel.uasset" 249
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_MainPlayerMgmt_Menu.uasset" 250
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/FF_OptionsMenu.uasset" 251
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/GameplayGoals/FF_GameplayGoalMgmt_Widget.uasset" 252
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/HomeMenu/FF_MainHome_Menu.uasset" 253
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_MarketInventory.uasset" 254
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_MarketBuy_Panel.uasset" 255
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_MarketSell_Panel.uasset" 256
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Market/FF_Market_Menu.uasset" 257
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_PlayerController_BP.uasset" 258
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_GeneralFunctions.uasset" 259
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crafting/FF_ActorCrafter_Component.uasset" 260
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Amanita_02_x512.uasset" 261
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/Amanita_02_x512_Sprite.uasset" 262
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/amanita_01_BP.uasset" 263
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/BlueMycena02_x512.uasset" 264
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/BlueMycena02_x512_Sprite.uasset" 265
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/BlueMycena_01_BP.uasset" 266
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/WhiteButton_02_x512.uasset" 267
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/WhiteButton_02_x512_Sprite.uasset" 268
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/WhiteButton_01_BP.uasset" 269
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FF_PlatformGameInstance.uasset" 270
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Goals/GameplayGoal_BP.uasset" 271
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/CraftingRecipeData.uasset" 272
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/DeathCap02_x512.uasset" 273
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/DeathCap02_x512_Sprite.uasset" 274
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/Deathcap_01_BP.uasset" 275
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Entoloma_x512.uasset" 276
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/Entoloma_x512_Sprite.uasset" 277
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/Entoloma_01_BP.uasset" 278
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/VioletCort01_x512.uasset" 279
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/VioletCort01_x512_Sprite.uasset" 280
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/VioletCort_01_BP.uasset" 281
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/YellowFlyAgaric_x512.uasset" 282
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/YellowFlyAgaric_x512_Sprite.uasset" 283
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Crops/YellowFlyAgaric_01_BP.uasset" 284
+"../../../Engine/Content/EngineResources/Bad.uasset" 285
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/CropData.uasset" 286
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/CropPlotsData.uasset" 287
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/Equipment/EquipmentMods/CropPlotModEquipment.uasset" 288
@@ -352,230 +352,231 @@
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/SaveLoad/FFSavePreset_Farm.uasset" 351
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/ItemCards/FF_InventoryItemCard_Widget_UNUSED.uasset" 352
 "E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/ItemCards/FF_Invpanel.uasset" 353
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Toolbar/FF_EquipmentToolbarButton.uasset" 354
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/CropTestData.uasset" 355
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/FarmManagerModsData.uasset" 356
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/GoalProviderProperties.uasset" 357
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_BlueTribe001.uasset" 358
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_BlueTribe_SpiritTrader01.uasset" 359
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_BlueTribe_SpiritTraderEnd.uasset" 360
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_EndgameMain.uasset" 361
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_Quests001.uasset" 362
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_RedTribe001.uasset" 363
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_RedTribe_SpiritTrader01.uasset" 364
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_RedTribe_SpiritTraderEnd.uasset" 365
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_WhiteTribe001.uasset" 366
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_WhiteTribe_SpiritTrader01.uasset" 367
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_WhiteTribe_SpiritTraderEnd.uasset" 368
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_YellowTribe001.uasset" 369
-"../../../Engine/Content/Animation/DefaultAnimCurveCompressionSettings.uasset" 370
-"../../../Engine/Content/ArtTools/RenderToTexture/Meshes/S_1_Unit_Plane.uasset" 371
-"../../../Engine/Content/EngineMaterials/DefaultMaterial.uasset" 372
-"../../../Engine/Content/BasicShapes/Cone.uasset" 373
-"../../../Engine/Content/BasicShapes/Sphere.uasset" 374
-"../../../Engine/Content/EditorLandscapeResources/DataLayer.uasset" 375
-"../../../Engine/Content/EditorMaterials/GizmoMaterial.uasset" 376
-"../../../Engine/Content/EditorMaterials/MAT_Groups_Toggle.uasset" 377
-"../../../Engine/Content/EditorMaterials/MAT_Groups_Visibility.uasset" 378
-"../../../Engine/Content/EditorMaterials/PreviewShadowIndicator.uasset" 379
-"../../../Engine/Content/EditorMaterials/PreviewShadowIndicatorMaterial.uasset" 380
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_ColorTrack.uasset" 381
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Anim.uasset" 382
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_AudioMaster.uasset" 383
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Director.uasset" 384
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Event.uasset" 385
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Fade.uasset" 386
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Float.uasset" 387
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Move.uasset" 388
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Slomo.uasset" 389
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Sound.uasset" 390
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Vector.uasset" 391
-"../../../Engine/Content/EditorMaterials/ParticleSystems/PSysThumbnail_NoImage.uasset" 392
-"../../../Engine/Content/EditorMaterials/ParticleSystems/PSysThumbnail_OOD.uasset" 393
-"../../../Engine/Content/EditorMaterials/Camera/CineMat.uasset" 394
-"../../../Engine/Content/EditorMaterials/Camera/MI_CineMat_Rig.uasset" 395
-"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Arm.uasset" 396
-"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Base.uasset" 397
-"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Body.uasset" 398
-"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Mount.uasset" 399
-"../../../Engine/Content/EditorMeshes/Camera/SM_RailRig_Mount.uasset" 400
-"../../../Engine/Content/EditorMeshes/Camera/SM_RailRig_Track.uasset" 401
-"../../../Engine/Content/EditorResources/BSPVertex.uasset" 402
-"../../../Engine/Content/EditorResources/EmptyActor.uasset" 403
-"../../../Engine/Content/EditorResources/S_Actor.uasset" 404
-"../../../Engine/Content/EditorResources/S_Note.uasset" 405
-"../../../Engine/Content/EditorResources/S_Trigger.uasset" 406
-"../../../Engine/Content/EditorResources/LightIcons/S_LightError.uasset" 407
-"../../../Engine/Content/EditorResources/SequenceRecorder/Countdown.uasset" 408
-"../../../Engine/Content/EditorResources/SequenceRecorder/RecordingIndicator.uasset" 409
-"../../../Engine/Content/EditorSounds/Notifications/CompileFailed.uasset" 410
-"../../../Engine/Content/EditorSounds/Notifications/CompileFailed_Cue.uasset" 411
-"../../../Engine/Content/EditorSounds/Notifications/CompileSuccess.uasset" 412
-"../../../Engine/Content/EditorSounds/Notifications/CompileStart_Cue.uasset" 413
-"../../../Engine/Content/EditorSounds/Notifications/CompileSuccess_Cue.uasset" 414
-"../../../Engine/Content/EngineDamageTypes/DmgTypeBP_Environmental.uasset" 415
-"../../../Engine/Content/EngineDebugMaterials/HeatmapGradient.uasset" 416
-"../../../Engine/Content/EngineDebugMaterials/BoneWeightMaterial.uasset" 417
-"../../../Engine/Content/EngineDebugMaterials/ClothMaterial.uasset" 418
-"../../../Engine/Content/EngineDebugMaterials/ClothMaterial_WF.uasset" 419
-"../../../Engine/Content/EngineDebugMaterials/DebugEditorMaterial.uasset" 420
-"../../../Engine/Content/EngineDebugMaterials/DebugMeshMaterial.uasset" 421
-"../../../Engine/Content/EngineDebugMaterials/GeomMaterial.uasset" 422
-"../../../Engine/Content/EngineDebugMaterials/M_SimpleTranslucent.uasset" 423
-"../../../Engine/Content/EngineFonts/Faces/RobotoBold.uasset" 424
-"../../../Engine/Content/EngineFonts/Faces/RobotoBoldItalic.uasset" 425
-"../../../Engine/Content/EngineFonts/Faces/RobotoItalic.uasset" 426
-"../../../Engine/Content/EngineFonts/Faces/RobotoLight.uasset" 427
-"../../../Engine/Content/EngineFonts/Faces/RobotoRegular.uasset" 428
-"../../../Engine/Content/EngineFonts/Roboto.uasset" 429
-"../../../Engine/Content/EngineFonts/Faces/RobotoTiny.uasset" 430
-"../../../Engine/Content/EngineFonts/RobotoTiny.uasset" 431
-"../../../Engine/Content/EngineMaterials/BaseFlattenDiffuseMap.uasset" 432
-"../../../Engine/Content/EngineMaterials/BaseFlattenEmissiveMap.uasset" 433
-"../../../Engine/Content/EngineMaterials/BaseFlattenGrayscaleMap.uasset" 434
-"../../../Engine/Content/EngineMaterials/BaseFlattenNormalMap.uasset" 435
-"../../../Engine/Content/EngineMaterials/BaseFlattenMaterial.uasset" 436
-"../../../Engine/Content/EngineMaterials/DefaultBloomKernel.uasset" 437
-"../../../Engine/Content/EngineMaterials/DefaultBokeh.uasset" 438
-"../../../Engine/Content/EngineMaterials/DefaultDiffuse.uasset" 439
-"../../../Engine/Content/EngineMaterials/DefaultDeferredDecalMaterial.uasset" 440
-"../../../Engine/Content/EngineMaterials/DefaultLightFunctionMaterial.uasset" 441
-"../../../Engine/Content/EngineMaterials/DefaultPhysicalMaterial.uasset" 442
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.uasset" 443
-"../../../Engine/Content/EngineMaterials/DefaultPostProcessMaterial.uasset" 444
-"../../../Engine/Content/EngineMaterials/DefaultTextMaterialOpaque.uasset" 445
-"../../../Engine/Content/EngineMaterials/DefaultWhiteGrid.uasset" 446
-"../../../Engine/Content/EngineMaterials/EditorBrushMaterial.uasset" 447
-"../../../Engine/Content/EngineMaterials/Good64x64TilingNoiseHighFreq.uasset" 448
-"../../../Engine/Content/EngineMaterials/MiniFont.uasset" 449
-"../../../Engine/Content/EngineMaterials/InvalidLightmapSettings.uasset" 450
-"../../../Engine/Content/EngineMaterials/M_InvalidLightmapSettings.uasset" 451
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/CameraOffset.uasset" 452
-"../../../Engine/Content/EngineMaterials/PhAT_JointLimitMaterial.uasset" 453
-"../../../Engine/Content/EngineMaterials/PreintegratedSkinBRDF.uasset" 454
-"../../../Engine/Content/EngineMaterials/RemoveSurfaceMaterial.uasset" 455
-"../../../Engine/Content/EngineMaterials/WeightMapPlaceholderTexture.uasset" 456
-"../../../Engine/Content/EngineMaterials/Widget3DPassThrough.uasset" 457
-"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Masked.uasset" 458
-"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Opaque.uasset" 459
-"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Masked_OneSided.uasset" 460
-"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Opaque_OneSided.uasset" 461
-"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Translucent.uasset" 462
-"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Translucent_OneSided.uasset" 463
-"../../../Engine/Content/EngineMeshes/Cylinder.uasset" 464
-"../../../Engine/Content/EngineMeshes/Sphere.uasset" 465
-"../../../Engine/Content/EngineResources/Black.uasset" 466
-"../../../Engine/Content/EngineResources/DefaultTexture.uasset" 467
-"../../../Engine/Content/EngineResources/DefaultTextureCube.uasset" 468
-"../../../Engine/Content/EngineResources/DefaultVolumeTexture2D.uasset" 469
-"../../../Engine/Content/EngineResources/DefaultVolumeTexture.uasset" 470
-"../../../Engine/Content/EngineResources/GradientTexture0.uasset" 471
-"../../../Engine/Content/EngineSounds/Master.uasset" 472
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec.uasset" 473
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness.uasset" 474
-"../../../Engine/Content/Maps/Templates/Thumbnails/Default.uasset" 475
-"../../../Engine/Content/Maps/Templates/Thumbnails/VR-Basic.uasset" 476
-"../../../Engine/Content/MobileResources/T_MobileControls_texture.uasset" 477
-"../../../Engine/Content/MobileResources/T_MobileMenu2.uasset" 478
-"../../../Engine/Content/MobileResources/HUD/AnalogHat.uasset" 479
-"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Background.uasset" 480
-"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Thumb.uasset" 481
-"../../../Engine/Content/MobileResources/HUD/DefaultVirtualJoysticks.uasset" 482
-"../../../Engine/Content/MobileResources/HUD/LeftVirtualJoystickOnly.uasset" 483
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_off.uasset" 484
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_on.uasset" 485
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_off.uasset" 486
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_on.uasset" 487
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton3.uasset" 488
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButtonFire.uasset" 489
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad.uasset" 490
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad2.uasset" 491
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad3.uasset" 492
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionStick.uasset" 493
-"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickInner.uasset" 494
-"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickOutter.uasset" 495
-"../../../Engine/Content/Tutorial/ContentIntroCurve.uasset" 496
-"../../../Engine/Content/Tutorial/Basics/LevelEditorAttract.uasset" 497
-"../../../Engine/Content/Tutorial/Basics/TutorialAssets/icon_tab_Levels_40x.uasset" 498
-"../../../Engine/Content/Tutorial/Basics/LevelEditorOverview.uasset" 499
-"../../../Engine/Content/VREditor/LaserPointer/VR_LaserPower_01.uasset" 500
-"../../../Engine/Content/VREditor/TransformGizmo/TransformGizmoMaterial.uasset" 501
-"../../../Engine/Content/VREditor/TransformGizmo/TranslucentTransformGizmoMaterial.uasset" 502
-"../../../Engine/Content/VREditor/TransformGizmo/BoundingBoxCorner.uasset" 503
-"../../../Engine/Content/VREditor/TransformGizmo/BoundingBoxEdge.uasset" 504
-"../../../Engine/Content/VREditor/TransformGizmo/PlaneTranslationHandle.uasset" 505
-"../../../Engine/Content/VREditor/TransformGizmo/Main.uasset" 506
-"../../../Engine/Content/VREditor/TransformGizmo/Xray.uasset" 507
-"../../../Engine/Content/VREditor/TransformGizmo/SM_Sequencer_Key.uasset" 508
-"../../../Engine/Content/VREditor/TransformGizmo/SM_Sequencer_Node.uasset" 509
-"../../Plugins/2D/Paper2D/Content/DummySprite.uasset" 510
-"../../Plugins/2D/Paper2D/Content/DefaultPaperTerrainMaterial.uasset" 511
-"../../Plugins/2D/Paper2D/Content/MaskedUnlitSpriteMaterial.uasset" 512
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DCharacter_IdleAnimAtlas.uasset" 513
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle1.uasset" 514
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle2.uasset" 515
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle3.uasset" 516
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle4.uasset" 517
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle5.uasset" 518
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle6.uasset" 519
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle7.uasset" 520
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle8.uasset" 521
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/IdleAnimation.uasset" 522
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DCharacter_RunAnimAtlas.uasset" 523
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_1.uasset" 524
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_10.uasset" 525
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_11.uasset" 526
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_12.uasset" 527
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_13.uasset" 528
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_14.uasset" 529
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_15.uasset" 530
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_16.uasset" 531
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_2.uasset" 532
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_3.uasset" 533
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_4.uasset" 534
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_5.uasset" 535
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_6.uasset" 536
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_7.uasset" 537
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_8.uasset" 538
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_9.uasset" 539
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/RunningAnimation.uasset" 540
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Blueprints/2DSideScrollerCharacter.uasset" 541
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Blueprints/2DSideScrollerGameMode.uasset" 542
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Maps/2DSideScrollerExampleMap_BuiltData.uasset" 543
-"../../../Engine/Content/MapTemplates/Bokeh_5Sides.uasset" 544
-"../../../Engine/Content/MapTemplates/T_ScreenDirt02_w.uasset" 545
-"../../Plugins/2D/Paper2D/Content/OpaqueUnlitSpriteMaterial.uasset" 546
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DBackground.uasset" 547
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/Background_Sprite.uasset" 548
-"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DBackgroundBlockAtlas.uasset" 549
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/Ledge.uasset" 550
-"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Maps/2DSideScrollerExampleMap.umap" 551
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Cave_01_map.umap" 552
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/GameplayGoalsData_Standard.uasset" 553
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FFNormalGameMode_BP.uasset" 554
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ResourceNodes/LoamResourceNode.uasset" 555
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/CaveWater_512.uasset" 556
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/CaveWater_512_Sprite.uasset" 557
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ResourceNodes/WaterResourceNode.uasset" 558
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Forest_01_map_BuiltData.uasset" 559
-"../../../Engine/Content/BasicShapes/BasicShapeMaterial.uasset" 560
-"../../../Engine/Content/BasicShapes/Cube.uasset" 561
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/CaveRocks_Purple_01.uasset" 562
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/CaveRocks_Purple_01_Sprite.uasset" 563
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/CaveRocks_Purple_Pillar_01.uasset" 564
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/CaveRocks_Purple_Pillar_01_Sprite.uasset" 565
-"../../Plugins/2D/Paper2D/Content/TranslucentUnlitSpriteMaterial.uasset" 566
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Spiderweb01_256.uasset" 567
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/Spiderweb01_256_Sprite.uasset" 568
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Spiderweb01Broken_256.uasset" 569
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/Spiderweb01Broken_256_Sprite.uasset" 570
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Forest_01_map.umap" 571
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/GameWorld_Persist_BuiltData.uasset" 572
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/GameWorld_Persist.umap" 573
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Home_01_map_BuiltData.uasset" 574
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Home_01_map.umap" 575
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Lab_01_map_BuiltData.uasset" 576
-"../../../Engine/Content/BasicShapes/Cylinder.uasset" 577
-"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Lab_01_map.umap" 578
-"../../../Engine/Content/Maps/Entry_BuiltData.uasset" 579
-"../../../Engine/Content/Maps/Entry.umap" 580
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/PlayerHUD/FF_InventoryMonitorHudHorizontal.uasset" 354
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/UI/Toolbar/FF_EquipmentToolbarButton.uasset" 355
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/CropTestData.uasset" 356
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/FarmManagerModsData.uasset" 357
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/GoalProviderProperties.uasset" 358
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_BlueTribe001.uasset" 359
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_BlueTribe_SpiritTrader01.uasset" 360
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_BlueTribe_SpiritTraderEnd.uasset" 361
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_EndgameMain.uasset" 362
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_Quests001.uasset" 363
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_RedTribe001.uasset" 364
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_RedTribe_SpiritTrader01.uasset" 365
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_RedTribe_SpiritTraderEnd.uasset" 366
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_WhiteTribe001.uasset" 367
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_WhiteTribe_SpiritTrader01.uasset" 368
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_WhiteTribe_SpiritTraderEnd.uasset" 369
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/SecondaryGoals_YellowTribe001.uasset" 370
+"../../../Engine/Content/Animation/DefaultAnimCurveCompressionSettings.uasset" 371
+"../../../Engine/Content/ArtTools/RenderToTexture/Meshes/S_1_Unit_Plane.uasset" 372
+"../../../Engine/Content/EngineMaterials/DefaultMaterial.uasset" 373
+"../../../Engine/Content/BasicShapes/Cone.uasset" 374
+"../../../Engine/Content/BasicShapes/Sphere.uasset" 375
+"../../../Engine/Content/EditorLandscapeResources/DataLayer.uasset" 376
+"../../../Engine/Content/EditorMaterials/GizmoMaterial.uasset" 377
+"../../../Engine/Content/EditorMaterials/MAT_Groups_Toggle.uasset" 378
+"../../../Engine/Content/EditorMaterials/MAT_Groups_Visibility.uasset" 379
+"../../../Engine/Content/EditorMaterials/PreviewShadowIndicator.uasset" 380
+"../../../Engine/Content/EditorMaterials/PreviewShadowIndicatorMaterial.uasset" 381
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_ColorTrack.uasset" 382
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Anim.uasset" 383
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_AudioMaster.uasset" 384
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Director.uasset" 385
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Event.uasset" 386
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Fade.uasset" 387
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Float.uasset" 388
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Move.uasset" 389
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Slomo.uasset" 390
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Sound.uasset" 391
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Vector.uasset" 392
+"../../../Engine/Content/EditorMaterials/ParticleSystems/PSysThumbnail_NoImage.uasset" 393
+"../../../Engine/Content/EditorMaterials/ParticleSystems/PSysThumbnail_OOD.uasset" 394
+"../../../Engine/Content/EditorMaterials/Camera/CineMat.uasset" 395
+"../../../Engine/Content/EditorMaterials/Camera/MI_CineMat_Rig.uasset" 396
+"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Arm.uasset" 397
+"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Base.uasset" 398
+"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Body.uasset" 399
+"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Mount.uasset" 400
+"../../../Engine/Content/EditorMeshes/Camera/SM_RailRig_Mount.uasset" 401
+"../../../Engine/Content/EditorMeshes/Camera/SM_RailRig_Track.uasset" 402
+"../../../Engine/Content/EditorResources/BSPVertex.uasset" 403
+"../../../Engine/Content/EditorResources/EmptyActor.uasset" 404
+"../../../Engine/Content/EditorResources/S_Actor.uasset" 405
+"../../../Engine/Content/EditorResources/S_Note.uasset" 406
+"../../../Engine/Content/EditorResources/S_Trigger.uasset" 407
+"../../../Engine/Content/EditorResources/LightIcons/S_LightError.uasset" 408
+"../../../Engine/Content/EditorResources/SequenceRecorder/Countdown.uasset" 409
+"../../../Engine/Content/EditorResources/SequenceRecorder/RecordingIndicator.uasset" 410
+"../../../Engine/Content/EditorSounds/Notifications/CompileFailed.uasset" 411
+"../../../Engine/Content/EditorSounds/Notifications/CompileFailed_Cue.uasset" 412
+"../../../Engine/Content/EditorSounds/Notifications/CompileSuccess.uasset" 413
+"../../../Engine/Content/EditorSounds/Notifications/CompileStart_Cue.uasset" 414
+"../../../Engine/Content/EditorSounds/Notifications/CompileSuccess_Cue.uasset" 415
+"../../../Engine/Content/EngineDamageTypes/DmgTypeBP_Environmental.uasset" 416
+"../../../Engine/Content/EngineDebugMaterials/HeatmapGradient.uasset" 417
+"../../../Engine/Content/EngineDebugMaterials/BoneWeightMaterial.uasset" 418
+"../../../Engine/Content/EngineDebugMaterials/ClothMaterial.uasset" 419
+"../../../Engine/Content/EngineDebugMaterials/ClothMaterial_WF.uasset" 420
+"../../../Engine/Content/EngineDebugMaterials/DebugEditorMaterial.uasset" 421
+"../../../Engine/Content/EngineDebugMaterials/DebugMeshMaterial.uasset" 422
+"../../../Engine/Content/EngineDebugMaterials/GeomMaterial.uasset" 423
+"../../../Engine/Content/EngineDebugMaterials/M_SimpleTranslucent.uasset" 424
+"../../../Engine/Content/EngineFonts/Faces/RobotoBold.uasset" 425
+"../../../Engine/Content/EngineFonts/Faces/RobotoBoldItalic.uasset" 426
+"../../../Engine/Content/EngineFonts/Faces/RobotoItalic.uasset" 427
+"../../../Engine/Content/EngineFonts/Faces/RobotoLight.uasset" 428
+"../../../Engine/Content/EngineFonts/Faces/RobotoRegular.uasset" 429
+"../../../Engine/Content/EngineFonts/Roboto.uasset" 430
+"../../../Engine/Content/EngineFonts/Faces/RobotoTiny.uasset" 431
+"../../../Engine/Content/EngineFonts/RobotoTiny.uasset" 432
+"../../../Engine/Content/EngineMaterials/BaseFlattenDiffuseMap.uasset" 433
+"../../../Engine/Content/EngineMaterials/BaseFlattenEmissiveMap.uasset" 434
+"../../../Engine/Content/EngineMaterials/BaseFlattenGrayscaleMap.uasset" 435
+"../../../Engine/Content/EngineMaterials/BaseFlattenNormalMap.uasset" 436
+"../../../Engine/Content/EngineMaterials/BaseFlattenMaterial.uasset" 437
+"../../../Engine/Content/EngineMaterials/DefaultBloomKernel.uasset" 438
+"../../../Engine/Content/EngineMaterials/DefaultBokeh.uasset" 439
+"../../../Engine/Content/EngineMaterials/DefaultDiffuse.uasset" 440
+"../../../Engine/Content/EngineMaterials/DefaultDeferredDecalMaterial.uasset" 441
+"../../../Engine/Content/EngineMaterials/DefaultLightFunctionMaterial.uasset" 442
+"../../../Engine/Content/EngineMaterials/DefaultPhysicalMaterial.uasset" 443
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.uasset" 444
+"../../../Engine/Content/EngineMaterials/DefaultPostProcessMaterial.uasset" 445
+"../../../Engine/Content/EngineMaterials/DefaultTextMaterialOpaque.uasset" 446
+"../../../Engine/Content/EngineMaterials/DefaultWhiteGrid.uasset" 447
+"../../../Engine/Content/EngineMaterials/EditorBrushMaterial.uasset" 448
+"../../../Engine/Content/EngineMaterials/Good64x64TilingNoiseHighFreq.uasset" 449
+"../../../Engine/Content/EngineMaterials/MiniFont.uasset" 450
+"../../../Engine/Content/EngineMaterials/InvalidLightmapSettings.uasset" 451
+"../../../Engine/Content/EngineMaterials/M_InvalidLightmapSettings.uasset" 452
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/CameraOffset.uasset" 453
+"../../../Engine/Content/EngineMaterials/PhAT_JointLimitMaterial.uasset" 454
+"../../../Engine/Content/EngineMaterials/PreintegratedSkinBRDF.uasset" 455
+"../../../Engine/Content/EngineMaterials/RemoveSurfaceMaterial.uasset" 456
+"../../../Engine/Content/EngineMaterials/WeightMapPlaceholderTexture.uasset" 457
+"../../../Engine/Content/EngineMaterials/Widget3DPassThrough.uasset" 458
+"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Masked.uasset" 459
+"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Opaque.uasset" 460
+"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Masked_OneSided.uasset" 461
+"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Opaque_OneSided.uasset" 462
+"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Translucent.uasset" 463
+"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Translucent_OneSided.uasset" 464
+"../../../Engine/Content/EngineMeshes/Cylinder.uasset" 465
+"../../../Engine/Content/EngineMeshes/Sphere.uasset" 466
+"../../../Engine/Content/EngineResources/Black.uasset" 467
+"../../../Engine/Content/EngineResources/DefaultTexture.uasset" 468
+"../../../Engine/Content/EngineResources/DefaultTextureCube.uasset" 469
+"../../../Engine/Content/EngineResources/DefaultVolumeTexture2D.uasset" 470
+"../../../Engine/Content/EngineResources/DefaultVolumeTexture.uasset" 471
+"../../../Engine/Content/EngineResources/GradientTexture0.uasset" 472
+"../../../Engine/Content/EngineSounds/Master.uasset" 473
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec.uasset" 474
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness.uasset" 475
+"../../../Engine/Content/Maps/Templates/Thumbnails/Default.uasset" 476
+"../../../Engine/Content/Maps/Templates/Thumbnails/VR-Basic.uasset" 477
+"../../../Engine/Content/MobileResources/T_MobileControls_texture.uasset" 478
+"../../../Engine/Content/MobileResources/T_MobileMenu2.uasset" 479
+"../../../Engine/Content/MobileResources/HUD/AnalogHat.uasset" 480
+"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Background.uasset" 481
+"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Thumb.uasset" 482
+"../../../Engine/Content/MobileResources/HUD/DefaultVirtualJoysticks.uasset" 483
+"../../../Engine/Content/MobileResources/HUD/LeftVirtualJoystickOnly.uasset" 484
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_off.uasset" 485
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_on.uasset" 486
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_off.uasset" 487
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_on.uasset" 488
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton3.uasset" 489
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButtonFire.uasset" 490
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad.uasset" 491
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad2.uasset" 492
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad3.uasset" 493
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionStick.uasset" 494
+"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickInner.uasset" 495
+"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickOutter.uasset" 496
+"../../../Engine/Content/Tutorial/ContentIntroCurve.uasset" 497
+"../../../Engine/Content/Tutorial/Basics/LevelEditorAttract.uasset" 498
+"../../../Engine/Content/Tutorial/Basics/TutorialAssets/icon_tab_Levels_40x.uasset" 499
+"../../../Engine/Content/Tutorial/Basics/LevelEditorOverview.uasset" 500
+"../../../Engine/Content/VREditor/LaserPointer/VR_LaserPower_01.uasset" 501
+"../../../Engine/Content/VREditor/TransformGizmo/TransformGizmoMaterial.uasset" 502
+"../../../Engine/Content/VREditor/TransformGizmo/TranslucentTransformGizmoMaterial.uasset" 503
+"../../../Engine/Content/VREditor/TransformGizmo/BoundingBoxCorner.uasset" 504
+"../../../Engine/Content/VREditor/TransformGizmo/BoundingBoxEdge.uasset" 505
+"../../../Engine/Content/VREditor/TransformGizmo/PlaneTranslationHandle.uasset" 506
+"../../../Engine/Content/VREditor/TransformGizmo/Main.uasset" 507
+"../../../Engine/Content/VREditor/TransformGizmo/Xray.uasset" 508
+"../../../Engine/Content/VREditor/TransformGizmo/SM_Sequencer_Key.uasset" 509
+"../../../Engine/Content/VREditor/TransformGizmo/SM_Sequencer_Node.uasset" 510
+"../../Plugins/2D/Paper2D/Content/DummySprite.uasset" 511
+"../../Plugins/2D/Paper2D/Content/DefaultPaperTerrainMaterial.uasset" 512
+"../../Plugins/2D/Paper2D/Content/MaskedUnlitSpriteMaterial.uasset" 513
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DCharacter_IdleAnimAtlas.uasset" 514
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle1.uasset" 515
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle2.uasset" 516
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle3.uasset" 517
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle4.uasset" 518
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle5.uasset" 519
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle6.uasset" 520
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle7.uasset" 521
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/IdleFrames/IdleCycle8.uasset" 522
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/IdleAnimation.uasset" 523
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DCharacter_RunAnimAtlas.uasset" 524
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_1.uasset" 525
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_10.uasset" 526
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_11.uasset" 527
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_12.uasset" 528
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_13.uasset" 529
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_14.uasset" 530
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_15.uasset" 531
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_16.uasset" 532
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_2.uasset" 533
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_3.uasset" 534
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_4.uasset" 535
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_5.uasset" 536
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_6.uasset" 537
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_7.uasset" 538
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_8.uasset" 539
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Sprites/RunFrames/RunCycle_9.uasset" 540
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/RunningAnimation.uasset" 541
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Blueprints/2DSideScrollerCharacter.uasset" 542
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Blueprints/2DSideScrollerGameMode.uasset" 543
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Maps/2DSideScrollerExampleMap_BuiltData.uasset" 544
+"../../../Engine/Content/MapTemplates/Bokeh_5Sides.uasset" 545
+"../../../Engine/Content/MapTemplates/T_ScreenDirt02_w.uasset" 546
+"../../Plugins/2D/Paper2D/Content/OpaqueUnlitSpriteMaterial.uasset" 547
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DBackground.uasset" 548
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/Background_Sprite.uasset" 549
+"E:/dev/unreal/FungusFarm 4.22/Content/2dSideScroller/Textures/2DBackgroundBlockAtlas.uasset" 550
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScroller/Sprites/Ledge.uasset" 551
+"E:/dev/unreal/FungusFarm 4.22/Content/2DSideScrollerBP/Maps/2DSideScrollerExampleMap.umap" 552
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Cave_01_map.umap" 553
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Data/GameplayGoalsData_Standard.uasset" 554
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/FFNormalGameMode_BP.uasset" 555
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ResourceNodes/LoamResourceNode.uasset" 556
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/CaveWater_512.uasset" 557
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/CaveWater_512_Sprite.uasset" 558
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Blueprints/ResourceNodes/WaterResourceNode.uasset" 559
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Forest_01_map_BuiltData.uasset" 560
+"../../../Engine/Content/BasicShapes/BasicShapeMaterial.uasset" 561
+"../../../Engine/Content/BasicShapes/Cube.uasset" 562
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/CaveRocks_Purple_01.uasset" 563
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/CaveRocks_Purple_01_Sprite.uasset" 564
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/CaveRocks_Purple_Pillar_01.uasset" 565
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/CaveRocks_Purple_Pillar_01_Sprite.uasset" 566
+"../../Plugins/2D/Paper2D/Content/TranslucentUnlitSpriteMaterial.uasset" 567
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Spiderweb01_256.uasset" 568
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/Spiderweb01_256_Sprite.uasset" 569
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Textures/Spiderweb01Broken_256.uasset" 570
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Assets/Sprites/Spiderweb01Broken_256_Sprite.uasset" 571
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Forest_01_map.umap" 572
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/GameWorld_Persist_BuiltData.uasset" 573
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/GameWorld_Persist.umap" 574
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Home_01_map_BuiltData.uasset" 575
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Home_01_map.umap" 576
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Lab_01_map_BuiltData.uasset" 577
+"../../../Engine/Content/BasicShapes/Cylinder.uasset" 578
+"E:/dev/unreal/FungusFarm 4.22/Content/FungusFarm/Maps/Lab_01_map.umap" 579
+"../../../Engine/Content/Maps/Entry_BuiltData.uasset" 580
+"../../../Engine/Content/Maps/Entry.umap" 581

@@ -98,22 +98,23 @@ bool UActorGoalsComponent::RemoveGoalProvider(const TScriptInterface<IGameplayGo
 				// Remove the delegate(s)
 				GoalsComponent->OnNewGoalsEnabled.RemoveDynamic(this, &UActorGoalsComponent::OnNewGoalsEnabled_Respond);
 			}
-			/*
+			
 			// Now find any goals in the current list that were from the provider.
 			TArray<FGameplayGoal*> ToRemoveGoals;
+			FGuid ProviderGuid = IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(ToRemoveProvider.GetObject());
 			for (FGameplayGoal& CurGoal : CurrentGoals)
 			{
-				if (IGameplayGoalProvider::Execute_GetGameplayGoalProviderGuid(ToRemoveProvider.GetObject()) == CurGoal.ProviderGuid)
+				if (ProviderGuid == CurGoal.ProviderGuid)
 				{
-					ToRemoveGoals.Add(&CurGoal);
+					ToRemoveGoals.Add(&CurGoal);				
 				}
 			}
-			// Remove them from the current list
+			// Abandon each of them
 			for (FGameplayGoal* CurGoal : ToRemoveGoals)
 			{
-				CurrentGoals.Remove(*CurGoal);
+				//CurrentGoals.Remove(*CurGoal);
+				AbandonCurrentGoal(CurGoal->UniqueName);
 			}
-			*/
 		}
 		return removed;
 	}
