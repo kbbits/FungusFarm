@@ -36,6 +36,9 @@ public:
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, SaveGame, Category = "FFPlayerState")
 		TArray<FName> UnlockedRecipes;
 
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, SaveGame, Category = "FFPlayerState")
+		TArray<FName> UnlockedCrops;
+
 public:
 
 	UFUNCTION(BlueprintPure, Category = "Experience and Level")

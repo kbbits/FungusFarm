@@ -66,3 +66,29 @@ void AFFPlayerControllerBase::OnGameplayGoalAbandoned_Implementation(const FName
 
 	return;
 }
+
+void AFFPlayerControllerBase::UnlockRecipe(const FString RecipeName)
+{
+	AFFPlayerState* PlayerState = GetPlayerState<AFFPlayerState>();
+	if (PlayerState)
+	{
+		PlayerState->UnlockRecipe(FName(*RecipeName));
+	}
+}
+
+void AFFPlayerControllerBase::UnlockCrop(const FString CropName)
+{
+	auto World = GetWorld();
+	if (World)
+	{
+		
+	
+	}
+}
+
+void AFFPlayerControllerBase::ReloadGoalData()
+{
+	GameplayGoalsManager->ReloadGoalData();
+}
+
+

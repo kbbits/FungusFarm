@@ -40,4 +40,20 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Gameplay Goals")
 		void OnGameplayGoalAbandoned(const FName& AbandonedGoalName);
 	virtual void OnGameplayGoalAbandoned_Implementation(const FName& AbandonedGoalName) override;
+
+public:
+	// For Console Commands
+
+	// Unlock the given recipe for current player.
+	UFUNCTION(Exec, Category = "ConsoleCommands")
+		void UnlockRecipe(const FString RecipeName);
+
+	// Unlock the given crop for current player.
+	UFUNCTION(Exec, Category = "ConsoleCommands")
+		void UnlockCrop(const FString CropName);
+
+	// Reload goal data from file.
+	UFUNCTION(Exec, Category = "ConsoleCommands")
+		void ReloadGoalData();
+
 };

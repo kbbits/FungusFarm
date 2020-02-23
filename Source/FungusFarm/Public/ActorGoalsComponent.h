@@ -112,6 +112,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		TArray<FNameCountInt> GetCompletedGoalsCountArray();
 
+	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
+		void ReloadGoalData();
+
 	UFUNCTION()
 		void OnNewGoalsEnabled_Respond();
 		

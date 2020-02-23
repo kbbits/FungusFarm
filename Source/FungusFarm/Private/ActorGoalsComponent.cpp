@@ -2,6 +2,7 @@
 
 
 #include "ActorGoalsComponent.h"
+#include "Engine/World.h"
 #include "NameCountInt.h"
 #include "FFPlayerState.h"
 #include "FFGameMode.h"
@@ -550,6 +551,26 @@ TArray<FNameCountInt> UActorGoalsComponent::GetCompletedGoalsCountArray()
 		GoalCounts.Add(FNameCountInt(CompletedGoalsIter.Key(), CompletedGoalsIter.Value()));
 	}
 	return GoalCounts;
+}
+
+void UActorGoalsComponent::ReloadGoalData()
+{
+	auto World = GetWorld();
+	if (World)
+	{
+		AFFGameMode* GameMode = Cast<AFFGameMode>(World->GetAuthGameMode());
+		for (int i = 0; i < CurrentGoals.Num(); i++)
+		{
+			FGameplayGoal& CurGoal = CurrentGoals[i];
+			TScriptInterface<IGameplayGoalProvider> Provider = GetGoalProvider(CurGoal);
+			if (Provider)
+			{
+				FGameplayGoal GoalData = GameMode->GetGoalData(IGameplayGoalProvider::Execute_GetGameplayGoalProviderUniqueName(Provider.GetObject()), CurGoal.UniqueName);
+				CurrentGoals[i] = GoalData;
+			}
+		}
+		OnProgressChanged.Broadcast(CurrentGoals);
+	}
 }
 
 
