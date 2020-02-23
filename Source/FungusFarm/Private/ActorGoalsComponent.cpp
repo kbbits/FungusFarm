@@ -559,6 +559,8 @@ void UActorGoalsComponent::ReloadGoalData()
 	if (World)
 	{
 		AFFGameMode* GameMode = Cast<AFFGameMode>(World->GetAuthGameMode());
+		TArray<FGameplayGoal> GoalsTmp;
+		GoalsTmp.Reserve(CurrentGoals.Num());
 		for (int i = 0; i < CurrentGoals.Num(); i++)
 		{
 			FGameplayGoal& CurGoal = CurrentGoals[i];
@@ -566,9 +568,17 @@ void UActorGoalsComponent::ReloadGoalData()
 			if (Provider)
 			{
 				FGameplayGoal GoalData = GameMode->GetGoalData(IGameplayGoalProvider::Execute_GetGameplayGoalProviderUniqueName(Provider.GetObject()), CurGoal.UniqueName);
-				CurrentGoals[i] = GoalData;
+				GoalData.Announced = CurGoal.Announced;
+				GoalData.HarvestedGoodsProgress = CurGoal.HarvestedGoodsProgress;
+				GoalData.CraftedRecipesProgress = CurGoal.CraftedRecipesProgress;
+				GoalData.DonatedGoodsProgress = CurGoal.DonatedGoodsProgress;
+				GoalData.SoldGoodsProgress = CurGoal.SoldGoodsProgress;
+				GoalData.ProviderGuid = CurGoal.ProviderGuid;
+				GoalsTmp.Insert(GoalData, i);
 			}
 		}
+		CurrentGoals.Reset(GoalsTmp.Num());
+		CurrentGoals.Append(GoalsTmp);
 		OnProgressChanged.Broadcast(CurrentGoals);
 	}
 }

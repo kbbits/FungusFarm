@@ -121,6 +121,16 @@ void AFFPlayerState::UnlockRecipe(FName RecipeName)
 	UnlockedRecipes.AddUnique(RecipeName);
 }
 
+bool AFFPlayerState::IsCropUnlocked(FName CropName)
+{
+	return UnlockedCrops.Contains(CropName);
+}
+
+void AFFPlayerState::UnlockCrop(FName CropName)
+{
+	UnlockedCrops.AddUnique(CropName);
+}
+
 
 bool AFFPlayerState::CheckForLevelUp()
 {

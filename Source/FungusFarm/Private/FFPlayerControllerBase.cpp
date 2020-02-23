@@ -67,28 +67,33 @@ void AFFPlayerControllerBase::OnGameplayGoalAbandoned_Implementation(const FName
 	return;
 }
 
-void AFFPlayerControllerBase::UnlockRecipe(const FString RecipeName)
+void AFFPlayerControllerBase::UnlockRecipe(const FString& RecipeName)
 {
-	AFFPlayerState* PlayerState = GetPlayerState<AFFPlayerState>();
-	if (PlayerState)
+	AFFPlayerState* MyPlayerState = GetPlayerState<AFFPlayerState>();
+	if (MyPlayerState)
 	{
-		PlayerState->UnlockRecipe(FName(*RecipeName));
+		MyPlayerState->UnlockRecipe(FName(*RecipeName));
 	}
 }
 
-void AFFPlayerControllerBase::UnlockCrop(const FString CropName)
+void AFFPlayerControllerBase::UnlockCrop(const FString& CropName)
 {
-	auto World = GetWorld();
-	if (World)
+	AFFPlayerState* MyPlayerState = GetPlayerState<AFFPlayerState>();
+	if (MyPlayerState)
 	{
-		
-	
+		MyPlayerState->UnlockCrop(FName(*CropName));
 	}
+}
+
+void AFFPlayerControllerBase::GiveGoods(const FString& GoodsName, const int32 Quantity)
+{
+	this->GiveGoodsBP(GoodsName, Quantity);
 }
 
 void AFFPlayerControllerBase::ReloadGoalData()
 {
 	GameplayGoalsManager->ReloadGoalData();
 }
+
 
 

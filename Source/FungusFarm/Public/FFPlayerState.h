@@ -33,10 +33,10 @@ public:
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "FFPlayerState")
 		FPlayerStateProperties PlayerProperties;	
 
-	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, SaveGame, Category = "FFPlayerState")
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, SaveGame, Category = "FFPlayerState")
 		TArray<FName> UnlockedRecipes;
 
-	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, SaveGame, Category = "FFPlayerState")
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, SaveGame, Category = "FFPlayerState")
 		TArray<FName> UnlockedCrops;
 
 public:
@@ -71,14 +71,20 @@ public:
 	UFUNCTION(BlueprintPure, Category = "FFPlayerState")
 		int32 GetNavIndexForLevel(FName LevelName);
 
-	UFUNCTION(BlueprintPure, Category = "FFPlayerState")
+	UFUNCTION(BlueprintPure, Category = "Recipes")
 		bool IsRecipeUnlocked(FName RecipeName);
 
-	UFUNCTION(BlueprintPure, Category = "FFPlayerState")
+	UFUNCTION(BlueprintPure, Category = "Recipes")
 		bool AreRecipesUnlocked(TArray<FName> RecipeNames);
 
-	UFUNCTION(BlueprintCallable, Category = "FFPlayerState")
+	UFUNCTION(BlueprintCallable, Category = "Recipes")
 		void UnlockRecipe(FName RecipeName);
+
+	UFUNCTION(BlueprintCallable, Category = "Crops")
+		bool IsCropUnlocked(FName CropName);
+
+	UFUNCTION(BlueprintCallable, Category = "Crops")
+		void UnlockCrop(FName CropName);
 
 protected:
 

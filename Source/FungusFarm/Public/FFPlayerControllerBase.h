@@ -46,14 +46,22 @@ public:
 
 	// Unlock the given recipe for current player.
 	UFUNCTION(Exec, Category = "ConsoleCommands")
-		void UnlockRecipe(const FString RecipeName);
+		void UnlockRecipe(const FString& RecipeName);
 
 	// Unlock the given crop for current player.
 	UFUNCTION(Exec, Category = "ConsoleCommands")
-		void UnlockCrop(const FString CropName);
+		void UnlockCrop(const FString& CropName);
+
+	// Add GoodsName Quantity to current player inventory
+	UFUNCTION(Exec, Category = "ConsoleCommands")
+		void GiveGoods(const FString& GoodsName, const int32 Quantity = 1);
 
 	// Reload goal data from file.
 	UFUNCTION(Exec, Category = "ConsoleCommands")
 		void ReloadGoalData();
+
+	// So we can pass the call up to BP. (instead of re-implementing components in c++ right now)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "ConsoleCommands")
+		void GiveGoodsBP(const FString& GoodsName, const int32 Quantity = 1);
 
 };
