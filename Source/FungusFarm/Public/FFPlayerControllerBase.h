@@ -56,6 +56,9 @@ public:
 	UFUNCTION(Exec, Category = "ConsoleCommands")
 		void GiveGoods(const FString& GoodsName, const int32 Quantity = 1);
 
+	UFUNCTION(Exec, Category = "ConsoleCommands")
+		void GiveExperience(const int32 Experience);
+
 	// Reload goal data from file.
 	UFUNCTION(Exec, Category = "ConsoleCommands")
 		void ReloadGoalData();
