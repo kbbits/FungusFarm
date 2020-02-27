@@ -73,8 +73,9 @@ public:
 		const FString GetGoalProviderFriendlyName(const FGameplayGoal& Goal);
 
 	// Determine if this goal meets it's completion requirements.
+	// If bIgnoreDonations = true, this will not check the DonatedGoodsToComplete requirements.
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
-		bool CheckGoalQualifiesComplete(const FGameplayGoal& Goal);
+		bool CheckGoalQualifiesComplete(const FGameplayGoal& Goal, const bool bIgnoreDonations = false);
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		void CheckForNewGoals();

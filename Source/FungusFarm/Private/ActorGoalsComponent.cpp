@@ -169,7 +169,7 @@ const FString UActorGoalsComponent::GetGoalProviderFriendlyName(const FGameplayG
 }
 
 
-bool UActorGoalsComponent::CheckGoalQualifiesComplete(const FGameplayGoal & Goal)
+bool UActorGoalsComponent::CheckGoalQualifiesComplete(const FGameplayGoal & Goal, const bool bIgnoreDonations)
 {
 	// Harvest totals
 	for (const FGoodsQuantity& RequiredGoods : Goal.HarvestedGoodsToComplete)
@@ -183,10 +183,13 @@ bool UActorGoalsComponent::CheckGoalQualifiesComplete(const FGameplayGoal & Goal
 		if (Goal.SoldGoodsProgress.FindRef(RequiredGoods.Name) < RequiredGoods.Quantity) { return false; }
 	}
 
-	// Donated goods
-	for (const FGoodsQuantity& RequiredGoods : Goal.DonatedGoodsToComplete)
+	if (!bIgnoreDonations)
 	{
-		if (Goal.DonatedGoodsProgress.FindRef(RequiredGoods.Name) < RequiredGoods.Quantity) { return false; }
+		// Donated goods
+		for (const FGoodsQuantity& RequiredGoods : Goal.DonatedGoodsToComplete)
+		{
+			if (Goal.DonatedGoodsProgress.FindRef(RequiredGoods.Name) < RequiredGoods.Quantity) { return false; }
+		}
 	}
 
 	// Recipes crafted
@@ -300,6 +303,9 @@ void UActorGoalsComponent::SetGoalAnnounced(const FName & GoalName)
 	if (TmpGoal)
 	{
 		TmpGoal->Announced = true;
+		TArray<FGameplayGoal> TmpGoals;
+		TmpGoals.Add(*TmpGoal);
+		OnProgressChanged.Broadcast((TmpGoals));
 	}
 	else
 	{
