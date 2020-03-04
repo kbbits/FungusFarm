@@ -4,6 +4,7 @@
 
 // Sets default values for this component's properties
 UModifiableAttribute_AC::UModifiableAttribute_AC()
+	:Super()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
@@ -11,9 +12,9 @@ UModifiableAttribute_AC::UModifiableAttribute_AC()
 
 	// Init members
 	//AttributeType = EModifiableAttributeType::GrowthRate;
-	AttributeCode = FName();
-	BaseValue = 0.0f;
-	CurrentValue = 0.0f;
+	//AttributeCode = FName();
+	//BaseValue = 0.0f;
+	//CurrentValue = 0.0f;
 }
 
 
