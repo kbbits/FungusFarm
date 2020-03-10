@@ -11,6 +11,14 @@ enum class EModifierType : uint8
 	Multiplier 	UMETA(DisplayName = "Multiplier")
 };
 
+UENUM(BlueprintType)
+enum class EModifiableAttributeDisplayType : uint8
+{
+	PlainValue	UMETA(DisplayName = "PlainValue"),
+	Percent 	UMETA(DisplayName = "Percent"),
+	Boolean		UMETA(DisplayName = "Boolean")
+};
+
 /* 
 	Different types of available attributes.  If we need more attribute types, add them here.
 */

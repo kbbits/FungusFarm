@@ -27,6 +27,9 @@ public:
 		float BaseValue;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame)
+		EModifiableAttributeDisplayType DisplayAs;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame)
 		TArray<FModifier> Modifiers;
 		
 	// Sets default values for this component's properties
