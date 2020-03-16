@@ -56,8 +56,12 @@ public:
 	UFUNCTION(Exec, Category = "ConsoleCommands")
 		void GiveGoods(const FString& GoodsName, const int32 Quantity = 1);
 
+	// Add experience to current player
 	UFUNCTION(Exec, Category = "ConsoleCommands")
 		void GiveExperience(const int32 Experience);
+
+	UFUNCTION(Exec, Category = "ConsoleCommands")
+		void Award(const FString& AwardCommand);
 
 	// Reload goal data from file.
 	UFUNCTION(Exec, Category = "ConsoleCommands")
@@ -67,4 +71,7 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "ConsoleCommands")
 		void GiveGoodsBP(const FString& GoodsName, const int32 Quantity = 1);
 
+	// So we can pass the call up to BP. (instead of re-implementing in c++ right now)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "ConsoleCommands")
+		void AwardBP(const FString& AwardCommand);
 };

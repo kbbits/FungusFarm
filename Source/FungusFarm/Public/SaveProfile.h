@@ -23,6 +23,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, Category = "Save Profile")
 		FString ProfileName;
+
+	UPROPERTY(BlueprintReadWrite, Category = "Save Profile")
+		float PlayTime;
 	
 	UPROPERTY(BlueprintReadWrite, Category = "Save Profile")
 		FPlayerStateProperties PlayerProperties;

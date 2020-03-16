@@ -99,6 +99,11 @@ void AFFPlayerControllerBase::GiveExperience(const int32 Experience)
 	}
 }
 
+void AFFPlayerControllerBase::Award(const FString & AwardsCommand)
+{
+	this->AwardBP(AwardsCommand);
+}
+
 void AFFPlayerControllerBase::ReloadGoalData()
 {
 	GameplayGoalsManager->ReloadGoalData();

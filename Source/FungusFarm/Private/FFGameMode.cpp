@@ -220,6 +220,7 @@ bool AFFGameMode::SaveGameProfile(const FString ProfileName)
 		}
 		CurrentSaveProfile->SaveSlotId = SaveSlotId;
 		CurrentSaveProfile->PlayerProperties = PState->PlayerProperties;
+		CurrentSaveProfile->PlayTime += UGameplayStatics::GetUnpausedTimeSeconds(this);
 		CurrentSaveProfile->SecondaryGoalProviders.Empty(AllSecondaries.Num());
 		for (UGoalsProviderComponent* GoalComp : AllSecondaries)
 		{
