@@ -44,6 +44,12 @@ protected:
 
 	USaveProfile* CurrentSaveProfile;
 
+private:
+
+	FString GetSaveProfileFilename(const int32 SlotId);
+
+protected:
+
 	virtual void BeginPlay() override;
 
 public:
@@ -102,14 +108,12 @@ public:
 	// SaveExtension plugin notifcations
 
 	// SaveExtension plugin Save Began
-	virtual void OnSaveBegan() override;
+	virtual void OnSaveBegan(const FSaveFilter& Filter) override;
+	// SaveExtension plugin Save Finished
+	virtual void OnSaveFinished(const FSaveFilter& Filter, bool bError) override;
 	// SaveExtension plugin Load Began
-	virtual void OnLoadBegan() override;
+	virtual void OnLoadBegan(const FSaveFilter& Filter) override;
 	// SaveExtension plugin Load Finished
-	virtual void OnLoadFinished(bool bError) override;
-
-private:
-
-	FString GetSaveProfileFilename(const int32 SlotId);
+	virtual void OnLoadFinished(const FSaveFilter& Filter, bool bError) override;
 
 };

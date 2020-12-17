@@ -22,6 +22,12 @@ AFFGameMode::AFFGameMode(const FObjectInitializer& ObjectInitializer)
 }
 
 
+FString AFFGameMode::GetSaveProfileFilename(const int32 SlotId)
+{
+	return FString::Printf(TEXT("%d_profile"), SlotId);
+}
+
+
 void AFFGameMode::BeginPlay()
 {
 	Super::BeginPlay();	
@@ -29,6 +35,7 @@ void AFFGameMode::BeginPlay()
 	USaveManager* SaveManager = USaveManager::GetSaveManager(this); //GInstance->GetSubsystem<USaveManager>();
 	SaveManager->SubscribeForEvents(this);
 }
+
 
 UDataTable * AFFGameMode::GetGoalProviderData(const FName ProviderUniqueName)
 {
@@ -44,11 +51,13 @@ UDataTable * AFFGameMode::GetGoalProviderData(const FName ProviderUniqueName)
 	return DataObj ? Cast<UDataTable>(DataObj) : nullptr;
 }
 
+
 FGameplayGoal AFFGameMode::GetGoalData(const FName ProviderUniqueName, const FName GoalName)
 {
 	UDataTable * GoalsData = GetGoalProviderData(ProviderUniqueName);
 	return *GoalsData->FindRow<FGameplayGoal>(GoalName, TEXT("GetGoalData"), false);
 }
+
 
 UGoalsProviderComponent * AFFGameMode::GetGoalProviderComponentByUniqueName(const FName ProviderUniqueName)
 {
@@ -335,6 +344,7 @@ USaveProfile * AFFGameMode::GetGameProfile(const int32 SlotId, bool& bExists)
 	return Profile;
 }
 
+
 bool AFFGameMode::DeleteGameProfile(const int32 SlotId)
 {
 	bool bSuccess = false;
@@ -353,7 +363,7 @@ bool AFFGameMode::DeleteGameProfile(const int32 SlotId)
 }
 
 
-void AFFGameMode::OnSaveBegan()
+void AFFGameMode::OnSaveBegan(const FSaveFilter& Filter)
 {	
 	/*
 	TArray<UGoalsProviderComponent*> AllSecondaries = GetAllSecondaryGoalProviders();
@@ -383,7 +393,13 @@ void AFFGameMode::OnSaveBegan()
 }
 
 
-void AFFGameMode::OnLoadBegan()
+void AFFGameMode::OnSaveFinished(const FSaveFilter& Filter, bool bError)
+{
+
+}
+
+
+void AFFGameMode::OnLoadBegan(const FSaveFilter& Filter)
 {
 	/*
 	USaveManager* SaveManager = USaveManager::GetSaveManager(this);
@@ -405,13 +421,8 @@ void AFFGameMode::OnLoadBegan()
 }
 
 
-void AFFGameMode::OnLoadFinished(bool bError)
+void AFFGameMode::OnLoadFinished(const FSaveFilter& Filter, bool bError)
 {
 	
 }
 
-
-FString AFFGameMode::GetSaveProfileFilename(const int32 SlotId)
-{
-	return FString::Printf(TEXT("%d_profile"), SlotId);
-}

@@ -90,7 +90,7 @@ bool UActorGoalsComponent::RemoveGoalProvider(const TScriptInterface<IGameplayGo
 {
 	if (ToRemoveProvider)
 	{
-		bool removed = GoalProviders.Remove(ToRemoveProvider);
+		bool removed = GoalProviders.Remove(ToRemoveProvider) > 0;
 		if (removed)
 		{
 			UGoalsProviderComponent* GoalsComponent = Cast<UGoalsProviderComponent>(ToRemoveProvider.GetObject());
