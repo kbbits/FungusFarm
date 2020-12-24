@@ -56,9 +56,13 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "ModifiableAttributes")
 	float GetCurrentValue();
 
+	// Apply an AttributeModifier to this attribute.
+	// If the AttributeModifier is a different type than this attribute, it will be ignored.
 	UFUNCTION(BlueprintCallable, Category = "ModifiableAttributes")
 	void AddModifier(const FAttributeModifier& NewModifier);
 	
+	// Apply an array of AttributeModifier to this attribute.
+	// Any AttributeModifier that is a different type than this attribute will be ignored.
 	UFUNCTION(BlueprintCallable, Category = "ModifiableAttributes")
 	void AddModifiers(const TArray<FAttributeModifier>& NewModifiers);
 
@@ -68,6 +72,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "ModifiableAttributes")
 	void ClearModifiers();
 
+	// Recalculates the current value of the attribute, including all modifiers.
+	// Should not need to call this directly.  It is called by the various add/set functions.
 	UFUNCTION(BlueprintCallable, Category = "ModifiableAttributes")
 	void RecalculateValue();
 		

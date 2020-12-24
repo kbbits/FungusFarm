@@ -70,6 +70,38 @@ TArray<FRecipeQuantity> UGoodsFunctionLibrary::RecipeQuantitiesFromRanges(const 
 }
 
 
+TArray<FGoodsDropChance> UGoodsFunctionLibrary::MultiplyGoodsDropChanceQuantities(const TArray<FGoodsDropChance>& DropChances, const float Multiplier, const bool bTruncateQuantitiesToInteger)
+{
+	TArray<FGoodsDropChance> ResultDropChances;
+
+	if (Multiplier == 1.0f) { return DropChances; }
+	for (FGoodsDropChance TmpDropChance : DropChances)
+	{
+		ResultDropChances.Add(MultiplyGoodsDropChanceQuantity(TmpDropChance, Multiplier, bTruncateQuantitiesToInteger));
+	}
+	return ResultDropChances;
+}
+
+
+FGoodsDropChance UGoodsFunctionLibrary::MultiplyGoodsDropChanceQuantity(const FGoodsDropChance& DropChance, const float Multiplier, const bool bTruncateQuantitiesToInteger)
+{
+	FGoodsDropChance ResultDropChance = DropChance;
+
+	if (Multiplier == 1.0f) { return DropChance; }
+	ResultDropChance.GoodsOdds.Empty(DropChance.GoodsOdds.Num());
+	for (FGoodsQuantityRange TmpRange : DropChance.GoodsOdds)
+	{
+		if (bTruncateQuantitiesToInteger) {
+			ResultDropChance.GoodsOdds.Add(FGoodsQuantityRange(TmpRange.Name, FMath::FloorToFloat(TmpRange.QuantityMin * Multiplier), FMath::FloorToFloat(TmpRange.QuantityMax * Multiplier)));
+		}
+		else {
+			ResultDropChance.GoodsOdds.Add(FGoodsQuantityRange(TmpRange.Name, TmpRange.QuantityMin * Multiplier, TmpRange.QuantityMax * Multiplier));
+		}
+	}
+	return ResultDropChance;
+}
+
+
 TArray<FGoodsQuantity> UGoodsFunctionLibrary::EvaluateGoodsDrop(const FGoodsDropChance& DropChance, const float QuantityScale /* 0.0 - 1.0 */)
 {
 	TArray<FGoodsQuantity> EvaluatedGoods;

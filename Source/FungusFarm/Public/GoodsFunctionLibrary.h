@@ -42,6 +42,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Goods")
 		static TArray<FRecipeQuantity> RecipeQuantitiesFromRanges(const TArray<FRecipeQuantityRange>& RecipeRanges, const float QuantityScale = -1.0f /* 0.0 - 1.0 */);
 
+	UFUNCTION(BlueprintPure, Category = "Goods")
+		static TArray<FGoodsDropChance> MultiplyGoodsDropChanceQuantities(const TArray<FGoodsDropChance>& DropChances, const float Multiplier, const bool bTruncateQuantitiesToInteger = true);
+
+	UFUNCTION(BlueprintPure, Category = "Goods")
+		static FGoodsDropChance MultiplyGoodsDropChanceQuantity(const FGoodsDropChance& DropChance, const float Multiplier, const bool bTruncateQuantitiesToInteger = true);
+
 	// Evaluates the GoodsDrop based on random chance.  Quantities evaluated are random in min-max range unless QuantityScale is > 0.0.
 	UFUNCTION(BlueprintPure, Category = "Goods")
 		static TArray<FGoodsQuantity> EvaluateGoodsDrop(const FGoodsDropChance& DropChance, const float QuantityScale = -1.0f /* 0.0 - 1.0 */);

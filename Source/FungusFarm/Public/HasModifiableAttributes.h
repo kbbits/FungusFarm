@@ -28,4 +28,7 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "ModifiableAttributes")
 		UModifiableAttribute_AC * GetModifiableAttribute(const FName AttributeCode);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "ModifiableAttributes")
+		void RefreshAttributeModifierCalculations();
 };
