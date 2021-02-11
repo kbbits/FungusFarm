@@ -2,7 +2,7 @@
 [Working title]
 
 Clicker / Crafter with crops and workshop crafting devices.
-UnrealEngine 4.22
+UnrealEngine 4.25
 
 ![FP view](./ProjectDoc/Images/ff_cap01.png)
 
@@ -14,11 +14,11 @@ UnrealEngine 4.22
 This project is part of my learning process and serves to demonstrate familiarity with various concecpts including:
 
 ## Player Inventory
-![Aerial view](./ProjectDoc/Images/ff_cap02_inventory.png)
+![Invenory](./ProjectDoc/Images/ff_cap02_inventory.png)
 ## Crafting Device
-![Aerial view](./ProjectDoc/Images/ff_cap03_mortar.png)
+![Mortar](./ProjectDoc/Images/ff_cap03_mortar.png)
 ## Skill Tree
-![Aerial view](./ProjectDoc/Images/ff_cap03_skills.png)
+![Skills](./ProjectDoc/Images/ff_cap03_skills.png)
 
 
 ## TODO 

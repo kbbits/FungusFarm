@@ -43,6 +43,20 @@ public:
 		static TArray<FRecipeQuantity> RecipeQuantitiesFromRanges(const TArray<FRecipeQuantityRange>& RecipeRanges, const float QuantityScale = -1.0f /* 0.0 - 1.0 */);
 
 	UFUNCTION(BlueprintPure, Category = "Goods")
+		static TArray<FGoodsQuantity> MultiplyGoodsQuantities(const TArray<FGoodsQuantity>& GoodsQuantities, const float Multiplier, const bool bTruncateQuantities = true);
+
+	// Add two GoodsQuantity arrays together.
+	// If bAllowNegativeSums == false, then sums that would result in a negative total (e.g. if one or more quantities being summed are negative), then the sums are not performed, 
+	// bSuccessful will be returned false and the returned results will be an empty set.
+	// If bIncludeZeros == true then all zero quantity entries will be included in results, if false they will be removed from results.
+	UFUNCTION(BlueprintPure, Category = "Goods")
+		static TArray<FGoodsQuantity> SumGoodsQuantities(const TArray<FGoodsQuantity>& GoodsOne, const TArray<FGoodsQuantity>& GoodsTwo, bool& bSuccessful, const bool bAllowNegativeTotals = false, const bool bIncludeZeros = false);
+
+	// Subtracts quantities in GoodsToSubtract from GoodsOne.
+	UFUNCTION(BlueprintPure, Category = "Goods")
+		static TArray<FGoodsQuantity> SubtractGoodsQuantities(const TArray<FGoodsQuantity>& GoodsOne, const TArray<FGoodsQuantity>& GoodsToSubtract, bool& bSuccessful, const bool bAllowNegativeTotals = false);
+
+	UFUNCTION(BlueprintPure, Category = "Goods")
 		static TArray<FGoodsDropChance> MultiplyGoodsDropChanceQuantities(const TArray<FGoodsDropChance>& DropChances, const float Multiplier, const bool bTruncateQuantitiesToInteger = true);
 
 	UFUNCTION(BlueprintPure, Category = "Goods")

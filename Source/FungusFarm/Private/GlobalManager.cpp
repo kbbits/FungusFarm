@@ -1,8 +1,8 @@
 // Copyright 2020
 
+#include "GlobalManager.h"
 #include "FungusFarm.h"
 #include "HasModifiableAttributes.h"
-#include "GlobalManager.h"
 
 // Sets default values
 AGlobalManager::AGlobalManager()

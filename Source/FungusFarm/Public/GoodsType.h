@@ -41,4 +41,13 @@ public:
 	//    ValueIgnoreProducedFrom:<InputGoodsName> -- Ignore the given input goods (do not recurse it) when calculating auto-values. Prevents infinite loops with circular recipes.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> GoodsCategories;
+
+public:
+
+	bool operator==(const FGoodsType& Other) const
+	{
+		if (Name != Other.Name) return false;
+		if (EquipmentName != Other.EquipmentName) return false;
+		return true;
+	}
 };

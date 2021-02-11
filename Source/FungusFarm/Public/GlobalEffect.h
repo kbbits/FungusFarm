@@ -20,6 +20,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName UniqueName;
 
+	// Thumbnail of effect for display to user.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TAssetPtr<UTexture2D> Thumbnail;
+
 	// Modified objects (crop plots, lab equip, etc.) must have all of these in order for the effect to apply.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> RequiredTags;

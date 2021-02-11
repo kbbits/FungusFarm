@@ -70,6 +70,92 @@ TArray<FRecipeQuantity> UGoodsFunctionLibrary::RecipeQuantitiesFromRanges(const 
 }
 
 
+TArray<FGoodsQuantity> UGoodsFunctionLibrary::MultiplyGoodsQuantities(const TArray<FGoodsQuantity>& GoodsQuantities, const float Multiplier, const bool bTruncateResultQuantities)
+{
+	TArray<FGoodsQuantity> Results;
+	if (Multiplier == 1.0f) { return GoodsQuantities; }
+	for (FGoodsQuantity TmpQuantity : GoodsQuantities)
+	{
+		if (bTruncateResultQuantities)	
+		{
+			Results.Add(FGoodsQuantity(TmpQuantity.Name, FMath::TruncToFloat(TmpQuantity.Quantity * Multiplier)));
+		}
+		else 
+		{
+			Results.Add(FGoodsQuantity(TmpQuantity.Name, TmpQuantity.Quantity * Multiplier));
+		}
+	}
+	return Results;
+}
+
+
+TArray<FGoodsQuantity> UGoodsFunctionLibrary::SumGoodsQuantities(const TArray<FGoodsQuantity>& GoodsOne, const TArray<FGoodsQuantity>& GoodsTwo, bool& bSuccessful, const bool bAllowNegativeTotals, const bool bIncludeZeros)
+{
+	TMap<FName, FGoodsQuantity> ResultQuantities;
+	TArray<FName> UncheckedQuantities;
+	float ItemNetSum;
+	for (FGoodsQuantity TmpQuantity : GoodsOne)
+	{
+		if (TmpQuantity.Quantity != 0.0f || bIncludeZeros)
+		{
+			ResultQuantities.Add(TmpQuantity.Name, TmpQuantity);
+			UncheckedQuantities.AddUnique(TmpQuantity.Name);
+		}
+	}
+	for (FGoodsQuantity TmpQuantity : GoodsTwo)
+	{
+		if (ResultQuantities.Contains(TmpQuantity.Name))
+		{
+			ItemNetSum = ResultQuantities[TmpQuantity.Name].Quantity + TmpQuantity.Quantity;
+			if (!bAllowNegativeTotals && ItemNetSum < 0.0f)
+			{
+				bSuccessful = false;
+				return TArray<FGoodsQuantity>();
+			}
+			if (ItemNetSum != 0.0f || bIncludeZeros)
+			{
+				ResultQuantities[TmpQuantity.Name].Quantity = ItemNetSum;
+			}
+			else 
+			{
+				ResultQuantities.Remove(TmpQuantity.Name);
+			}
+			UncheckedQuantities.Remove(TmpQuantity.Name);
+		}
+		else {
+			if (!bAllowNegativeTotals && TmpQuantity.Quantity < 0.0f)
+			{
+				bSuccessful = false;
+				return TArray<FGoodsQuantity>();
+			}
+			if (TmpQuantity.Quantity != 0.0f || bIncludeZeros)
+			{
+				ResultQuantities.Add(TmpQuantity.Name, TmpQuantity);
+			}			
+		}
+	}
+	if (!bAllowNegativeTotals) {
+		for (FName TmpName : UncheckedQuantities)
+		{
+			if (ResultQuantities[TmpName].Quantity < 0.0f) {
+				bSuccessful = false;
+				return TArray<FGoodsQuantity>();
+			}
+		}
+	}
+	TArray<FGoodsQuantity> FinalResults;
+	ResultQuantities.GenerateValueArray(FinalResults);
+	bSuccessful = true;
+	return FinalResults;
+}
+
+
+TArray<FGoodsQuantity> UGoodsFunctionLibrary::SubtractGoodsQuantities(const TArray<FGoodsQuantity>& GoodsOne, const TArray<FGoodsQuantity>& GoodsToSubtract, bool& bSuccessful, const bool bAllowNegativeTotals)
+{
+	return SumGoodsQuantities(GoodsOne, MultiplyGoodsQuantities(GoodsToSubtract, -1.0f, false), bSuccessful, bAllowNegativeTotals);
+}
+
+
 TArray<FGoodsDropChance> UGoodsFunctionLibrary::MultiplyGoodsDropChanceQuantities(const TArray<FGoodsDropChance>& DropChances, const float Multiplier, const bool bTruncateQuantitiesToInteger)
 {
 	TArray<FGoodsDropChance> ResultDropChances;
