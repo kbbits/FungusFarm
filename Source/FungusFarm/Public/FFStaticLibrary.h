@@ -1,8 +1,23 @@
 #pragma once
 
 //#include "CoreMinimal.h"
+#include <HAL/PlatformFile.h>
 #include "ModifiableAttributes.h"
 #include "FFStaticLibrary.generated.h"
+
+/** Used to find next available slot id */
+class FFFindSlotVisitor : public IPlatformFile::FDirectoryVisitor
+{
+public:
+	TArray<FString>& FoundProfiles;
+	TArray<int32>& FoundSlotIds;
+
+	FFFindSlotVisitor(TArray<FString>& FoundProfiles, TArray<int32>& FoundSlotIds)
+		: FoundProfiles(FoundProfiles), FoundSlotIds(FoundSlotIds)
+	{}
+
+	virtual bool Visit(const TCHAR* FilenameOrDirectory, bool bIsDirectory) override;
+};
 
 UCLASS()
 class UFFStaticLibrary : public UObject
@@ -27,4 +42,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "String")
 		static void CompareStrings(const FString first, const FString second, int32& relation, const bool CaseSensitive = false);
 
+	UFUNCTION(BlueprintCallable, Category = "Save Game Profiles")
+	static void FindSaveProfileFileNames(TArray<FString>& FoundProfileFilenames, TArray<int32>& FoundSlotIds);
 };

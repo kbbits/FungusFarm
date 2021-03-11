@@ -1,6 +1,39 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "FFStaticLibrary.h"
+#include "Misc/DefaultValueHelper.h"
+
+bool FFFindSlotVisitor::Visit(const TCHAR* FilenameOrDirectory, bool bIsDirectory)
+{
+	if (bIsDirectory)
+	{
+		return true;
+	}
+
+	const FString FullFilePath(FilenameOrDirectory);
+
+	FString Folder;
+	FString Filename;
+	FString Extension;
+	FPaths::Split(FullFilePath, Folder, Filename, Extension);
+	FString IdString;
+	FString ProfileToken;
+	int32 Id;
+	// Profile filenames have the format:  <slot_id>_profile.sav
+	if (Filename.Split(TEXT("_"), &IdString, &ProfileToken, ESearchCase::IgnoreCase, ESearchDir::FromEnd))
+	{
+		if (ProfileToken == TEXT("profile"))
+		{
+			if (FDefaultValueHelper::ParseInt(IdString, Id))
+			{
+				FoundProfiles.Add(Filename);
+				FoundSlotIds.Add(Id);
+			}			
+		}
+	}
+	return true;
+}
+
 
 UFFStaticLibrary::UFFStaticLibrary(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
@@ -40,4 +73,10 @@ void UFFStaticLibrary::CompareStrings(const FString first, const FString second,
 	{
 		relation = first.Compare(second, ESearchCase::IgnoreCase);
 	}
+}
+
+void UFFStaticLibrary::FindSaveProfileFileNames(TArray<FString>& FoundProfiles, TArray<int32>& FoundSlotIds)
+{
+	FFFindSlotVisitor Visitor{ FoundProfiles, FoundSlotIds };
+	FPlatformFileManager::Get().GetPlatformFile().IterateDirectory(*FString::Printf(TEXT("%sSaveGames/"), *FPaths::ProjectSavedDir()), Visitor);
 }

@@ -16,5 +16,5 @@ class FUNGUSFARM_API UFFDefaultSavePreset : public USavePreset
 
 public:
 		UFFDefaultSavePreset();
-					
+							
 };

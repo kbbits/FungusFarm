@@ -108,12 +108,12 @@ public:
 	// SaveExtension plugin notifcations
 
 	// SaveExtension plugin Save Began
-	virtual void OnSaveBegan(const FSaveFilter& Filter) override;
+	virtual void OnSaveBegan(const FSELevelFilter& Filter) override;
 	// SaveExtension plugin Save Finished
-	virtual void OnSaveFinished(const FSaveFilter& Filter, bool bError) override;
+	virtual void OnSaveFinished(const FSELevelFilter& Filter, bool bError) override;
 	// SaveExtension plugin Load Began
-	virtual void OnLoadBegan(const FSaveFilter& Filter) override;
+	virtual void OnLoadBegan(const FSELevelFilter& Filter) override;
 	// SaveExtension plugin Load Finished
-	virtual void OnLoadFinished(const FSaveFilter& Filter, bool bError) override;
+	virtual void OnLoadFinished(const FSELevelFilter& Filter, bool bError) override;
 
 };

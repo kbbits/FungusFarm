@@ -32,7 +32,7 @@ void AFFGameMode::BeginPlay()
 {
 	Super::BeginPlay();	
 	//UGameInstance* GInstance = GetGameInstance();
-	USaveManager* SaveManager = USaveManager::GetSaveManager(this); //GInstance->GetSubsystem<USaveManager>();
+	USaveManager* SaveManager = USaveManager::Get(this); //GInstance->GetSubsystem<USaveManager>();
 	SaveManager->SubscribeForEvents(this);
 }
 
@@ -278,6 +278,7 @@ bool AFFGameMode::LoadGameProfile()
 	// Load profile data	
 	if (!UGameplayStatics::DoesSaveGameExist(GetSaveProfileFilename(SaveSlotId), 0))
 	{
+		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode LoadGameProfile: No profile found with id %d"), SaveSlotId);
 		return false;
 	}
 	CurrentSaveProfile = Cast<USaveProfile>(UGameplayStatics::LoadGameFromSlot(GetSaveProfileFilename(SaveSlotId), 0));
@@ -356,14 +357,14 @@ bool AFFGameMode::DeleteGameProfile(const int32 SlotId)
 		USaveManager* SaveManager = GInstance->GetSubsystem<USaveManager>();
 		if (SaveManager && bSuccess)
 		{
-			bSuccess = SaveManager->DeleteSlot(SlotId);
+			bSuccess = SaveManager->DeleteSlotById(SlotId);
 		}
 	}
 	return bSuccess;
 }
 
 
-void AFFGameMode::OnSaveBegan(const FSaveFilter& Filter)
+void AFFGameMode::OnSaveBegan(const FSELevelFilter& Filter)
 {	
 	/*
 	TArray<UGoalsProviderComponent*> AllSecondaries = GetAllSecondaryGoalProviders();
@@ -393,13 +394,13 @@ void AFFGameMode::OnSaveBegan(const FSaveFilter& Filter)
 }
 
 
-void AFFGameMode::OnSaveFinished(const FSaveFilter& Filter, bool bError)
+void AFFGameMode::OnSaveFinished(const FSELevelFilter& Filter, bool bError)
 {
 
 }
 
 
-void AFFGameMode::OnLoadBegan(const FSaveFilter& Filter)
+void AFFGameMode::OnLoadBegan(const FSELevelFilter& Filter)
 {
 	/*
 	USaveManager* SaveManager = USaveManager::GetSaveManager(this);
@@ -421,7 +422,7 @@ void AFFGameMode::OnLoadBegan(const FSaveFilter& Filter)
 }
 
 
-void AFFGameMode::OnLoadFinished(const FSaveFilter& Filter, bool bError)
+void AFFGameMode::OnLoadFinished(const FSELevelFilter& Filter, bool bError)
 {
 	
 }
