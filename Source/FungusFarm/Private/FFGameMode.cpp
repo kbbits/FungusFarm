@@ -195,7 +195,7 @@ float AFFGameMode::GetExperienceRequiredForLevel(const int32 Level)
 	float CurLevel = static_cast<float>(Level) - 1;
 	if (CurLevel <= 0) { return 0; }
 	// https://www.desmos.com/calculator/luj0qz9dn6
-	return FMath::TruncToFloat(FMath::Pow((CurLevel + FMath::FloorToInt(Level / 5.0f)), 2.1f) * 100.0f) * 10.0f;
+	return (FMath::TruncToFloat((FMath::Pow(CurLevel + FMath::FloorToInt(Level / 5.0f), 2.11f) * 10.0f) + (CurLevel * 5)) * 100.0f) + 1200.0f;
 }	
 
 
