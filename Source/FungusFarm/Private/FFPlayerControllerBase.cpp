@@ -90,6 +90,11 @@ void AFFPlayerControllerBase::GiveGoods(const FString& GoodsName, const int32 Qu
 	this->GiveGoodsBP(GoodsName, Quantity);
 }
 
+void AFFPlayerControllerBase::HarvestGoods(const FString& GoodsName, const int32 Quantity)
+{
+	this->HarvestGoodsBP(GoodsName, Quantity);
+}
+
 void AFFPlayerControllerBase::GiveExperience(const int32 Experience)
 {
 	AFFPlayerState* MyPlayerState = GetPlayerState<AFFPlayerState>();

@@ -56,6 +56,10 @@ public:
 	UFUNCTION(Exec, Category = "ConsoleCommands")
 		void GiveGoods(const FString& GoodsName, const int32 Quantity = 1);
 
+	// Harvest and add GoodsName Quantity to current player inventory
+	UFUNCTION(Exec, Category = "ConsoleCommands")
+		void HarvestGoods(const FString& GoodsName, const int32 Quantity = 1);
+
 	// Add experience to current player
 	UFUNCTION(Exec, Category = "ConsoleCommands")
 		void GiveExperience(const int32 Experience);
@@ -70,6 +74,10 @@ public:
 	// So we can pass the call up to BP. (instead of re-implementing components in c++ right now)
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "ConsoleCommands")
 		void GiveGoodsBP(const FString& GoodsName, const int32 Quantity = 1);
+
+	// So we can pass the call up to BP. (instead of re-implementing components in c++ right now)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "ConsoleCommands")
+		void HarvestGoodsBP(const FString& GoodsName, const int32 Quantity = 1);
 
 	// So we can pass the call up to BP. (instead of re-implementing in c++ right now)
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "ConsoleCommands")
