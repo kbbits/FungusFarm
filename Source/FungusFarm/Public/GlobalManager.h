@@ -19,7 +19,7 @@ public:
 protected:
 
 	// Internal map of active effects, mapped with effect.UniqueName as key.
-	UPROPERTY(EditInstanceOnly, SaveGame)
+	UPROPERTY(EditInstanceOnly)
 		TMap<FName, FGlobalEffect> CurrentGlobalEffects;
 
 protected:

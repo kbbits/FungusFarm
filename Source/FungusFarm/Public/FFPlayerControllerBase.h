@@ -52,6 +52,10 @@ public:
 	UFUNCTION(Exec, Category = "ConsoleCommands")
 		void UnlockCrop(const FString& CropName);
 
+	// Unlock the given tool for current player.
+	UFUNCTION(Exec, Category = "ConsoleCommands")
+		void UnlockTool(const FString& ToolName);
+
 	// Add GoodsName Quantity to current player inventory
 	UFUNCTION(Exec, Category = "ConsoleCommands")
 		void GiveGoods(const FString& GoodsName, const int32 Quantity = 1);

@@ -131,6 +131,15 @@ void AFFPlayerState::UnlockCrop(FName CropName)
 	UnlockedCrops.AddUnique(CropName);
 }
 
+void AFFPlayerState::UnlockTool_Implementation(const FName ToolName)
+{
+	UnlockedTools.AddUnique(ToolName);
+}
+
+bool AFFPlayerState::IsToolUnlocked(const FName ToolName)
+{
+	return UnlockedTools.Contains(ToolName);
+}
 
 bool AFFPlayerState::CheckForLevelUp()
 {

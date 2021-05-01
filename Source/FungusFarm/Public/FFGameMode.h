@@ -44,6 +44,8 @@ protected:
 
 	USaveProfile* CurrentSaveProfile;
 
+	float UnpausedTimeAtLastSave;
+
 private:
 
 	FString GetSaveProfileFilename(const int32 SlotId);
@@ -80,6 +82,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Experience and Level")
 		float GetExperienceRequiredForLevel(const int32 Level);
+
+	UFUNCTION(BlueprintCallable, Category = "Save Profile")
+		float GetUnpausedTimeSinceLastSave();
 
 	// Save the whole game to a profile in the current SaveSlotId.  
 	// This saves profile data and also calls the SaveExtension plugin to save actor data.

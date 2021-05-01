@@ -39,6 +39,9 @@ public:
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, SaveGame, Category = "FFPlayerState")
 		TArray<FName> UnlockedCrops;
 
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, SaveGame, Category = "FFPlayerState")
+		TArray<FName> UnlockedTools;
+
 public:
 
 	UFUNCTION(BlueprintPure, Category = "Experience and Level")
@@ -85,6 +88,12 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Crops")
 		void UnlockCrop(FName CropName);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Tools")
+		void UnlockTool(const FName ToolName);
+
+	UFUNCTION(BlueprintCallable, Category = "Tools")
+		bool IsToolUnlocked(const FName ToolName);
 
 protected:
 

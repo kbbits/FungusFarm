@@ -14,6 +14,7 @@ AFFGameMode::AFFGameMode(const FObjectInitializer& ObjectInitializer)
 	PlayerStateClass = AFFPlayerState::StaticClass();
 	ProviderPropertiesTableName = FString("GoalProviderProperties");
 	ProviderGoalsTablePrefix = FString("SecondaryGoals");
+	UnpausedTimeAtLastSave = 0.0f;
 
 	GameplayGoalsProvider = ObjectInitializer.CreateDefaultSubobject<UGoalsProviderComponent>(this, TEXT("GoalsProvider"));
 	AddOwnedComponent(GameplayGoalsProvider);
@@ -199,6 +200,12 @@ float AFFGameMode::GetExperienceRequiredForLevel(const int32 Level)
 }	
 
 
+float AFFGameMode::GetUnpausedTimeSinceLastSave()
+{
+	return UGameplayStatics::GetUnpausedTimeSeconds(this) - UnpausedTimeAtLastSave;
+}
+
+
 bool AFFGameMode::SaveGameProfile(const FString ProfileName)
 {
 	UE_LOG(LogFFGame, Log, TEXT("FFGameMode SaveGameProfile: slot id %d"), SaveSlotId);
@@ -210,17 +217,25 @@ bool AFFGameMode::SaveGameProfile(const FString ProfileName)
 	FString ValidatedProfileName = FString(ProfileName);
 	AFFPlayerState * PState = GetWorld()->GetFirstPlayerController()->GetPlayerState<AFFPlayerState>();
 	TArray<UGoalsProviderComponent*> AllSecondaries = GetAllSecondaryGoalProviders();
+	bool bExists;
 	
 	// First save the profile data
+	// Find existing
 	if (!CurrentSaveProfile || !CurrentSaveProfile->IsValidLowLevel())
 	{
-		UE_LOG(LogFFGame, Log, TEXT("    Creating new save profile"));
-		CurrentSaveProfile = NewObject<USaveProfile>(this, USaveProfile::StaticClass());
-		if (ValidatedProfileName.Len() == 0)
+		CurrentSaveProfile = GetGameProfile(SaveSlotId, bExists);
+		if (!bExists || !CurrentSaveProfile || !CurrentSaveProfile->IsValidLowLevel())
 		{
-			ValidatedProfileName = FString::Printf(TEXT("Profile %d"), SaveSlotId);
+			// Create a new profile
+			UE_LOG(LogFFGame, Log, TEXT("    Creating new save profile"));
+			CurrentSaveProfile = NewObject<USaveProfile>(this, USaveProfile::StaticClass());
+			if (ValidatedProfileName.Len() == 0)
+			{
+				ValidatedProfileName = FString::Printf(TEXT("Profile %d"), SaveSlotId);
+			}
 		}
 	}
+	// Save the proflie data
 	if (CurrentSaveProfile)
 	{
 		if (ValidatedProfileName.Len() > 0) 
@@ -229,7 +244,7 @@ bool AFFGameMode::SaveGameProfile(const FString ProfileName)
 		}
 		CurrentSaveProfile->SaveSlotId = SaveSlotId;
 		CurrentSaveProfile->PlayerProperties = PState->PlayerProperties;
-		CurrentSaveProfile->PlayTime += UGameplayStatics::GetUnpausedTimeSeconds(this);
+		CurrentSaveProfile->PlayTime += GetUnpausedTimeSinceLastSave();
 		CurrentSaveProfile->SecondaryGoalProviders.Empty(AllSecondaries.Num());
 		for (UGoalsProviderComponent* GoalComp : AllSecondaries)
 		{
@@ -240,6 +255,7 @@ bool AFFGameMode::SaveGameProfile(const FString ProfileName)
 			UE_LOG(LogFFGame, Warning, TEXT("FFGameMode SaveGameProfile: Error saving profile data."));
 			return false;
 		}
+		UnpausedTimeAtLastSave = UGameplayStatics::GetUnpausedTimeSeconds(this);
 	}
 	else
 	{
@@ -307,6 +323,7 @@ bool AFFGameMode::LoadGameProfile()
 		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode LoadGameProfile: Error loading actor data."));
 		return false;
 	}
+	UnpausedTimeAtLastSave = UGameplayStatics::GetUnpausedTimeSeconds(this);
 
 	UE_LOG(LogFFGame, Log, TEXT("Profile %s loaded."), *CurrentSaveProfile->ProfileName);
 

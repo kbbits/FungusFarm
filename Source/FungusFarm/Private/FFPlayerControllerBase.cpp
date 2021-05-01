@@ -85,6 +85,15 @@ void AFFPlayerControllerBase::UnlockCrop(const FString& CropName)
 	}
 }
 
+void AFFPlayerControllerBase::UnlockTool(const FString& ToolName)
+{
+	AFFPlayerState* MyPlayerState = GetPlayerState<AFFPlayerState>();
+	if (MyPlayerState)
+	{
+		MyPlayerState->UnlockTool(FName(*ToolName));
+	}
+}
+
 void AFFPlayerControllerBase::GiveGoods(const FString& GoodsName, const int32 Quantity)
 {
 	this->GiveGoodsBP(GoodsName, Quantity);
