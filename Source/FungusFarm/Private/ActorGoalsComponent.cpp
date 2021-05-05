@@ -574,13 +574,16 @@ void UActorGoalsComponent::ReloadGoalData()
 			if (Provider)
 			{
 				FGameplayGoal GoalData = GameMode->GetGoalData(IGameplayGoalProvider::Execute_GetGameplayGoalProviderUniqueName(Provider.GetObject()), CurGoal.UniqueName);
-				GoalData.Announced = CurGoal.Announced;
-				GoalData.HarvestedGoodsProgress = CurGoal.HarvestedGoodsProgress;
-				GoalData.CraftedRecipesProgress = CurGoal.CraftedRecipesProgress;
-				GoalData.DonatedGoodsProgress = CurGoal.DonatedGoodsProgress;
-				GoalData.SoldGoodsProgress = CurGoal.SoldGoodsProgress;
-				GoalData.ProviderGuid = CurGoal.ProviderGuid;
-				GoalsTmp.Insert(GoalData, i);
+				if (!GoalData.UniqueName.IsNone())
+				{
+					GoalData.Announced = CurGoal.Announced;
+					GoalData.HarvestedGoodsProgress = CurGoal.HarvestedGoodsProgress;
+					GoalData.CraftedRecipesProgress = CurGoal.CraftedRecipesProgress;
+					GoalData.DonatedGoodsProgress = CurGoal.DonatedGoodsProgress;
+					GoalData.SoldGoodsProgress = CurGoal.SoldGoodsProgress;
+					GoalData.ProviderGuid = CurGoal.ProviderGuid;
+					GoalsTmp.Insert(GoalData, i);
+				}
 			}
 		}
 		CurrentGoals.Reset(GoalsTmp.Num());

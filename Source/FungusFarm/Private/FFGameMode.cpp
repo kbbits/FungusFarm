@@ -47,7 +47,7 @@ UDataTable * AFFGameMode::GetGoalProviderData(const FName ProviderUniqueName)
 	UObject* DataObj = StaticLoadObject(UDataTable::StaticClass(), this, *GoalsDataPath);
 	if (!DataObj)
 	{
-		UE_LOG(LogFFGame, Warning, TEXT("%s GetGoalProviderData unknown goal data table: %s"), *GetNameSafe(this), *GoalsDataPath);
+		UE_LOG(LogFFGame, Error, TEXT("%s GetGoalProviderData unknown goal data table: %s"), *GetNameSafe(this), *GoalsDataPath);
 	}
 	return DataObj ? Cast<UDataTable>(DataObj) : nullptr;
 }
@@ -55,8 +55,16 @@ UDataTable * AFFGameMode::GetGoalProviderData(const FName ProviderUniqueName)
 
 FGameplayGoal AFFGameMode::GetGoalData(const FName ProviderUniqueName, const FName GoalName)
 {
-	UDataTable * GoalsData = GetGoalProviderData(ProviderUniqueName);
-	return *GoalsData->FindRow<FGameplayGoal>(GoalName, TEXT("GetGoalData"), false);
+	UDataTable* GoalsData = GetGoalProviderData(ProviderUniqueName);
+	if (GoalsData)
+	{
+		return *GoalsData->FindRow<FGameplayGoal>(GoalName, TEXT("GetGoalData"), false);
+	}
+	else
+	{
+		UE_LOG(LogFFGame, Error, TEXT("%s GetGoalData goal data table not found for provider: %s"), *GetNameSafe(this), *ProviderUniqueName.ToString());
+		return FGameplayGoal();
+	}	
 }
 
 
@@ -196,7 +204,7 @@ float AFFGameMode::GetExperienceRequiredForLevel(const int32 Level)
 	float CurLevel = static_cast<float>(Level) - 1;
 	if (CurLevel <= 0) { return 0; }
 	// https://www.desmos.com/calculator/luj0qz9dn6
-	return (FMath::TruncToFloat((FMath::Pow(CurLevel + FMath::FloorToInt(Level / 5.0f), 2.11f) * 10.0f) + (CurLevel * 5)) * 100.0f) + 1200.0f;
+	return (FMath::TruncToFloat((FMath::Pow(CurLevel + FMath::FloorToInt(Level / 5.0f), 2.15f) * 10.0f) + (CurLevel * 5)) * 100.0f) + 1200.0f;
 }	
 
 

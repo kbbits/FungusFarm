@@ -118,10 +118,10 @@ void AFFPlayerControllerBase::Award(const FString & AwardsCommand)
 	this->AwardBP(AwardsCommand);
 }
 
-void AFFPlayerControllerBase::ReloadGoalData()
-{
-	GameplayGoalsManager->ReloadGoalData();
-}
+//void AFFPlayerControllerBase::ReloadGoalData()
+//{
+//	GameplayGoalsManager->ReloadGoalData();
+//}
 
 
 

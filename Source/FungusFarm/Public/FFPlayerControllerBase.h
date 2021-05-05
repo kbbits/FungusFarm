@@ -72,8 +72,8 @@ public:
 		void Award(const FString& AwardCommand);
 
 	// Reload goal data from file.
-	UFUNCTION(Exec, Category = "ConsoleCommands")
-		void ReloadGoalData();
+	//UFUNCTION(Exec, Category = "ConsoleCommands")
+	//	void ReloadGoalData();
 
 	// So we can pass the call up to BP. (instead of re-implementing components in c++ right now)
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "ConsoleCommands")
