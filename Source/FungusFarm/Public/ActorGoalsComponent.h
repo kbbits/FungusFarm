@@ -29,9 +29,6 @@ public:
 		TArray<FGameplayGoal> CurrentGoals;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Gameplay Goals")
-		TArray<FName> CompletedGoalsOld;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Gameplay Goals")
 		TMap<FName, int32> CompletedGoals;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Gameplay Goals")

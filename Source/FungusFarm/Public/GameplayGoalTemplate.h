@@ -80,6 +80,14 @@ public:
 	// Recipes that must be crafted
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FRecipeQuantityRange> CraftedRecipesToComplete;
+
+	// If valid this image will be used in place of the goal provider's on incomplete goal screens
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TSoftObjectPtr<UTexture2D> OverrideImage;
+
+	// If valid this image will be used in place of the goal provider's on the completed goal screen
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TSoftObjectPtr<UTexture2D> OverrideCompletedImage;
 		
 	
 	// Awards for completing the goal

@@ -133,6 +133,8 @@ FGameplayGoal UGoalsProviderComponent::GoalFromTemplate(const FGameplayGoalTempl
 		NewGoal.SoldGoodsToComplete = UGoodsFunctionLibrary::GoodsQuantitiesFromRanges(GoalTemplate.SoldGoodsToComplete, Scale);
 		NewGoal.DonatedGoodsToComplete = UGoodsFunctionLibrary::GoodsQuantitiesFromRanges(GoalTemplate.DonatedGoodsToComplete, Scale);
 		NewGoal.CraftedRecipesToComplete = UGoodsFunctionLibrary::NamedQuantitiesToCountMap<FRecipeQuantity>(UGoodsFunctionLibrary::RecipeQuantitiesFromRanges(GoalTemplate.CraftedRecipesToComplete, Scale));
+		NewGoal.OverrideImage = GoalTemplate.OverrideImage;
+		NewGoal.OverrideCompletedImage = GoalTemplate.OverrideCompletedImage;
 		NewGoal.UnlockedCraftingRecipes = GoalTemplate.UnlockedCraftingRecipes;
 		NewGoal.UnlockedCrops = GoalTemplate.UnlockedCrops;
 		NewGoal.UnlockedTools = GoalTemplate.UnlockedTools;

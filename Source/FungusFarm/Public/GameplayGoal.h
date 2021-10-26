@@ -86,6 +86,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TMap<FName, int32> CraftedRecipesToComplete;
 
+	// If valid this image will be used in place of the goal provider's on incomplete goal screens
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TSoftObjectPtr<UTexture2D> OverrideImage;
+
+	// If valid this image will be used in place of the goal provider's on the completed goal screen
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		TSoftObjectPtr<UTexture2D> OverrideCompletedImage;
+
 	// Goal requirements progress
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
