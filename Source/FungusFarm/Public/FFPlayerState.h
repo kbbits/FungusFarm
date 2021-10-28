@@ -12,6 +12,12 @@
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnExperienceChanged, const float, NewExperience);
 // Event dispatcher notifying experience level has changed
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnExperienceLevelChanged, const int32, NewExperienceLevel);
+// Event dispatcher notifying recipe has been unlocked
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnRecipeUnlocked, const FName, RecipeName);
+// Event dispatcher notifying crop has been unlocked
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCropUnlocked, const FName, CropName);
+// Event dispatcher notifying tool has been unlocked
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnToolUnlocked, const FName, ToolName);
 
 /**
  * 
@@ -29,6 +35,15 @@ public:
 
 	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
 		FOnExperienceLevelChanged OnExperienceLevelChanged;
+
+	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
+		FOnRecipeUnlocked OnRecipeUnlocked;
+
+	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
+		FOnCropUnlocked OnCropUnlocked;
+
+	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
+		FOnToolUnlocked OnToolUnlocked;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "FFPlayerState")
 		FPlayerStateProperties PlayerProperties;	

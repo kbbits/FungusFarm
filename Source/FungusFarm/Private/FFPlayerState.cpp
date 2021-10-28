@@ -119,6 +119,7 @@ bool AFFPlayerState::AreRecipesUnlocked(TArray<FName> RecipeNames)
 void AFFPlayerState::UnlockRecipe(FName RecipeName)
 {
 	UnlockedRecipes.AddUnique(RecipeName);
+	OnRecipeUnlocked.Broadcast(RecipeName);
 }
 
 bool AFFPlayerState::IsCropUnlocked(FName CropName)
@@ -129,11 +130,13 @@ bool AFFPlayerState::IsCropUnlocked(FName CropName)
 void AFFPlayerState::UnlockCrop(FName CropName)
 {
 	UnlockedCrops.AddUnique(CropName);
+	OnCropUnlocked.Broadcast(CropName);
 }
 
 void AFFPlayerState::UnlockTool_Implementation(const FName ToolName)
 {
 	UnlockedTools.AddUnique(ToolName);
+	OnToolUnlocked.Broadcast(ToolName);
 }
 
 bool AFFPlayerState::IsToolUnlocked(const FName ToolName)
