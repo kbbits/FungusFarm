@@ -89,6 +89,27 @@ TArray<FGoodsQuantity> UGoodsFunctionLibrary::MultiplyGoodsQuantities(const TArr
 }
 
 
+TArray<FGoodsQuantity> UGoodsFunctionLibrary::ApplyGoodsQuantityFactor(const TArray<FGoodsQuantity>& GoodsQuantities, const float Multiplier)
+{
+	TArray<FGoodsQuantity> Results;
+	if (Multiplier == 1.0f) { return GoodsQuantities; }
+	for (FGoodsQuantity TmpQuantity : GoodsQuantities)
+	{
+		float NewQuantity = FMath::CeilToFloat(TmpQuantity.Quantity * Multiplier);
+		if (NewQuantity < 1.0f) {
+			if (TmpQuantity.Quantity > 0.f) {
+				NewQuantity = 1.0f;
+			}
+			else {
+				NewQuantity = 0.0f;
+			}
+		}
+		Results.Add(FGoodsQuantity(TmpQuantity.Name, NewQuantity));		
+	}
+	return Results;
+}
+
+
 TArray<FGoodsQuantity> UGoodsFunctionLibrary::SumGoodsQuantities(const TArray<FGoodsQuantity>& GoodsOne, const TArray<FGoodsQuantity>& GoodsTwo, bool& bSuccessful, const bool bAllowNegativeTotals, const bool bIncludeZeros)
 {
 	TMap<FName, FGoodsQuantity> ResultQuantities;
@@ -177,11 +198,13 @@ FGoodsDropChance UGoodsFunctionLibrary::MultiplyGoodsDropChanceQuantity(const FG
 	ResultDropChance.GoodsOdds.Empty(DropChance.GoodsOdds.Num());
 	for (FGoodsQuantityRange TmpRange : DropChance.GoodsOdds)
 	{
+		float SafeMin = TmpRange.QuantityMin > 0.f ? 1.0f : 0.0f;
+		float SafeMax = TmpRange.QuantityMax > 0.f ? 1.0f : 0.0f;
 		if (bTruncateQuantitiesToInteger) {
-			ResultDropChance.GoodsOdds.Add(FGoodsQuantityRange(TmpRange.Name, FMath::FloorToFloat(TmpRange.QuantityMin * Multiplier), FMath::FloorToFloat(TmpRange.QuantityMax * Multiplier)));
+			ResultDropChance.GoodsOdds.Add(FGoodsQuantityRange(TmpRange.Name, FMath::Max(FMath::FloorToFloat(TmpRange.QuantityMin * Multiplier), SafeMin), FMath::Max(FMath::RoundToFloat(TmpRange.QuantityMax * Multiplier), SafeMax)));
 		}
 		else {
-			ResultDropChance.GoodsOdds.Add(FGoodsQuantityRange(TmpRange.Name, TmpRange.QuantityMin * Multiplier, TmpRange.QuantityMax * Multiplier));
+			ResultDropChance.GoodsOdds.Add(FGoodsQuantityRange(TmpRange.Name, FMath::Max(TmpRange.QuantityMin * Multiplier, SafeMin), FMath::Max(TmpRange.QuantityMax * Multiplier, SafeMax)));
 		}
 	}
 	return ResultDropChance;

@@ -45,6 +45,10 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Goods")
 		static TArray<FGoodsQuantity> MultiplyGoodsQuantities(const TArray<FGoodsQuantity>& GoodsQuantities, const float Multiplier, const bool bTruncateQuantities = true);
 
+	// Will not reduce quantities below 1. Rounds all quantities up to nearest integer.
+	UFUNCTION(BlueprintPure, Category = "Goods")
+		static TArray<FGoodsQuantity> ApplyGoodsQuantityFactor(const TArray<FGoodsQuantity>& GoodsQuantities, const float Multiplier);
+
 	// Add two GoodsQuantity arrays together.
 	// If bAllowNegativeSums == false, then sums that would result in a negative total (e.g. if one or more quantities being summed are negative), then the sums are not performed, 
 	// bSuccessful will be returned false and the returned results will be an empty set.

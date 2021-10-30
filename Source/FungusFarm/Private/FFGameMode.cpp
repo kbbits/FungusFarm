@@ -38,6 +38,75 @@ void AFFGameMode::BeginPlay()
 }
 
 
+float AFFGameMode::GetGlobalCropGrowthFactor()
+{
+	if (GameType.DifficultySettings.CropGrowthFactor > 0.0f) {
+		return GameType.DifficultySettings.CropGrowthFactor;
+	}
+	return 1.0f;
+}
+
+
+float AFFGameMode::GetGlobalCropHarvestFactor()
+{
+	if (GameType.DifficultySettings.CropHarvestFactor > 0.0f) {
+		return GameType.DifficultySettings.CropHarvestFactor;
+	}
+	return 1.0f;
+}
+
+
+float AFFGameMode::GetGlobalCraftingTimeFactor()
+{
+	if (GameType.DifficultySettings.CraftingTimeFactor > 0.0f) {
+		return GameType.DifficultySettings.CraftingTimeFactor;
+	}
+	return 1.0f;
+}
+
+
+float AFFGameMode::GetGlobalCraftingIngredientsFactor()
+{
+	if (GameType.DifficultySettings.CraftingIngredientsFactor > 0.0f) {
+		return GameType.DifficultySettings.CraftingIngredientsFactor;
+	}
+	return 1.0f;
+}
+
+
+float AFFGameMode::GetGlobalCraftingResultsFactor()
+{
+	if (GameType.DifficultySettings.CraftingResultsFactor > 0.0f) {
+		return GameType.DifficultySettings.CraftingResultsFactor;
+	}
+	return 1.0f;
+}
+
+
+float AFFGameMode::GetGlobalExperienceRequiredFactor()
+{
+	if (GameType.DifficultySettings.ExperienceRequiredFactor > 0.0f) {
+		return GameType.DifficultySettings.ExperienceRequiredFactor;
+	}
+	return 1.0f;
+}
+
+
+float AFFGameMode::GetGlobalExperienceRequiredExponent()
+{
+	if (GameType.DifficultySettings.ExperienceRequiredExponent > 0) {
+		return GameType.DifficultySettings.ExperienceRequiredExponent;
+	}
+	return 2.2f;
+}
+
+
+bool AFFGameMode::CropClicksCountAsHarvest()
+{
+	return GameType.DifficultySettings.bCropClicksCountAsHarvest;
+}
+
+
 UDataTable * AFFGameMode::GetGoalProviderData(const FName ProviderUniqueName)
 {
 	FString GoalsDataPath = ("/Game/FungusFarm/Data/" + ProviderGoalsTablePrefix + "_" + ProviderUniqueName.ToString() + "." + ProviderGoalsTablePrefix + "_" + ProviderUniqueName.ToString());
@@ -201,10 +270,11 @@ TArray<UGoalsProviderComponent*> AFFGameMode::GetAllSecondaryGoalProviders()
 float AFFGameMode::GetExperienceRequiredForLevel(const int32 Level)
 {
 	// TODO: implement a data-based approach for this.  For now just using a set scale.
-	float CurLevel = static_cast<float>(Level) - 1;
+	const float CurLevel = static_cast<float>(Level) - 1;
 	if (CurLevel <= 0) { return 0; }
 	// https://www.desmos.com/calculator/luj0qz9dn6
-	return (FMath::TruncToFloat((FMath::Pow(CurLevel + FMath::FloorToInt(Level / 5.0f), 2.15f) * 10.0f) + (CurLevel * 5)) * 100.0f) + 1200.0f;
+	float BaseRequired = (FMath::TruncToFloat((FMath::Pow(CurLevel + FMath::FloorToInt(Level / 5.0f), GetGlobalExperienceRequiredExponent()) * 10.0f) + (CurLevel * 5)) * 100.0f) + 1200.0f;
+	return BaseRequired * GetGlobalExperienceRequiredFactor();
 }	
 
 
@@ -251,6 +321,8 @@ bool AFFGameMode::SaveGameProfile(const FString ProfileName)
 			CurrentSaveProfile->ProfileName = ProfileName; 
 		}
 		CurrentSaveProfile->SaveSlotId = SaveSlotId;
+		CurrentSaveProfile->GameTypeName = GameType.Name;
+		CurrentSaveProfile->GameTypeDisplayName = GameType.DisplayName;
 		CurrentSaveProfile->PlayerProperties = PState->PlayerProperties;
 		CurrentSaveProfile->PlayTime += GetUnpausedTimeSinceLastSave();
 		CurrentSaveProfile->SecondaryGoalProviders.Empty(AllSecondaries.Num());
@@ -311,6 +383,7 @@ bool AFFGameMode::LoadGameProfile()
 		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode LoadGameProfile: Error loading profile data."));
 		return false;
 	}
+	// Game type info does not need to be loaded. They are saved on the GameMode itself.
 	PState->PlayerProperties = CurrentSaveProfile->PlayerProperties;
 	for (FName UniqueName : CurrentSaveProfile->SecondaryGoalProviders)
 	{	
@@ -318,7 +391,7 @@ bool AFFGameMode::LoadGameProfile()
 		AddSecondaryGoalProvider(UniqueName);
 	}
 
-	// Load actors, etc. with plugin
+	// Load game mode, actors, etc. with plugin
 	UGameInstance* GInstance = GetGameInstance();
 	USaveManager* SaveManager = GInstance->GetSubsystem<USaveManager>();
 	if (!SaveManager)

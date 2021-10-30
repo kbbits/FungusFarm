@@ -6,10 +6,12 @@
 #include "SaveExtensionInterface.h"
 #include "GameFramework/GameMode.h"
 #include "SaveProfile.h"
+#include "GameType.h"
 #include "GameplayGoal.h"
 #include "GameplayGoalProvider.h"
 #include "GoalsProviderComponent.h"
 #include "FFGameMode.generated.h"
+
 
 /**
  * 
@@ -40,6 +42,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Save Profile")
 		int32 SaveSlotId;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+		FGameType GameType;
+
 protected:
 
 	USaveProfile* CurrentSaveProfile;
@@ -55,6 +60,33 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+
+	/** Global settings helpers */
+
+	/** Global crop growth factor */
+	UFUNCTION(BlueprintPure, Category = "DifficultySettings")
+		float GetGlobalCropGrowthFactor();
+
+	UFUNCTION(BlueprintPure, Category = "DifficultySettings")
+		float GetGlobalCropHarvestFactor();
+
+	UFUNCTION(BlueprintPure, Category = "DifficultySettings")
+		float GetGlobalCraftingTimeFactor();
+
+	UFUNCTION(BlueprintPure, Category = "DifficultySettings")
+		float GetGlobalCraftingIngredientsFactor();
+
+	UFUNCTION(BlueprintPure, Category = "DifficultySettings")
+		float GetGlobalCraftingResultsFactor();
+
+	UFUNCTION(BlueprintPure, Category = "DifficultySettings")
+		float GetGlobalExperienceRequiredFactor();
+
+	UFUNCTION(BlueprintPure, Category = "DifficultySettings")
+		float GetGlobalExperienceRequiredExponent();
+
+	UFUNCTION(BlueprintPure, Category = "DifficultySettings")
+		bool CropClicksCountAsHarvest();
 
 	UFUNCTION(BlueprintCallable, Category = "Gameplay Goals")
 		UDataTable* GetGoalProviderData(const FName ProviderUniqueName);
