@@ -284,6 +284,12 @@ float AFFGameMode::GetUnpausedTimeSinceLastSave()
 }
 
 
+float AFFGameMode::GetTotalUnpausedTime()
+{
+	return PreviousTotalUnpausedTime + GetUnpausedTimeSinceLastSave();
+}
+
+
 bool AFFGameMode::SaveGameProfile(const FString ProfileName)
 {
 	UE_LOG(LogFFGame, Log, TEXT("FFGameMode SaveGameProfile: slot id %d"), SaveSlotId);
@@ -336,6 +342,7 @@ bool AFFGameMode::SaveGameProfile(const FString ProfileName)
 			return false;
 		}
 		UnpausedTimeAtLastSave = UGameplayStatics::GetUnpausedTimeSeconds(this);
+		PreviousTotalUnpausedTime = CurrentSaveProfile->PlayTime;
 	}
 	else
 	{
@@ -390,6 +397,7 @@ bool AFFGameMode::LoadGameProfile()
 		// Add the goal providers so they exist when plugin loads their data.
 		AddSecondaryGoalProvider(UniqueName);
 	}
+	PreviousTotalUnpausedTime = CurrentSaveProfile->PlayTime;
 
 	// Load game mode, actors, etc. with plugin
 	UGameInstance* GInstance = GetGameInstance();
@@ -404,7 +412,7 @@ bool AFFGameMode::LoadGameProfile()
 		UE_LOG(LogFFGame, Warning, TEXT("FFGameMode LoadGameProfile: Error loading actor data."));
 		return false;
 	}
-	UnpausedTimeAtLastSave = UGameplayStatics::GetUnpausedTimeSeconds(this);
+	UnpausedTimeAtLastSave = UGameplayStatics::GetUnpausedTimeSeconds(this);	
 
 	UE_LOG(LogFFGame, Log, TEXT("Profile %s loaded."), *CurrentSaveProfile->ProfileName);
 

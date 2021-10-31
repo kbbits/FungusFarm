@@ -51,6 +51,8 @@ protected:
 
 	float UnpausedTimeAtLastSave;
 
+	float PreviousTotalUnpausedTime = 0.0f;
+
 private:
 
 	FString GetSaveProfileFilename(const int32 SlotId);
@@ -117,6 +119,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Save Profile")
 		float GetUnpausedTimeSinceLastSave();
+
+	UFUNCTION(BlueprintCallable, Category = "Save Profile")
+		float GetTotalUnpausedTime();
 
 	// Save the whole game to a profile in the current SaveSlotId.  
 	// This saves profile data and also calls the SaveExtension plugin to save actor data.
