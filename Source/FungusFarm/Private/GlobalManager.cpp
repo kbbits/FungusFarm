@@ -1,4 +1,4 @@
-// Copyright 2020
+// Copyright 2022
 
 #include "GlobalManager.h"
 #include "FungusFarm.h"
@@ -9,7 +9,6 @@ AGlobalManager::AGlobalManager()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
 
