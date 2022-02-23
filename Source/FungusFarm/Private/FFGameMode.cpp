@@ -274,6 +274,11 @@ float AFFGameMode::GetExperienceRequiredForLevel(const int32 Level)
 	if (CurLevel <= 0) { return 0; }
 	// https://www.desmos.com/calculator/luj0qz9dn6
 	float BaseRequired = (FMath::TruncToFloat((FMath::Pow(CurLevel + FMath::FloorToInt(Level / 5.0f), GetGlobalExperienceRequiredExponent()) * 10.0f) + (CurLevel * 5)) * 100.0f) + 1200.0f;
+	// Levels above 10 are require more xp
+	if (Level > 10) 
+	{
+		BaseRequired += FMath::TruncToFloat(FMath::Pow(Level - 10, 1 + (0.02 * (Level - 11)))) * 10000.0f;
+	}
 	return BaseRequired * GetGlobalExperienceRequiredFactor();
 }	
 

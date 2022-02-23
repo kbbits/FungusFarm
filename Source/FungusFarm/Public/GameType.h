@@ -43,10 +43,12 @@ public:
 		float ExperienceRequiredFactor = 1.0f;
 
 	/** The exponent used in the required experience calculation for each level up.
-	 *  Default = 2.2
-	 *  formula: ExperienceRequiredFactor * ((FMath::TruncToFloat((FMath::Pow(CurLevel + FMath::FloorToInt(Level / 5.0f), ExperienceRequiredExponent) * 10.0f) + (CurLevel * 5)) * 100.0f) + 1200.0f) */
+	 *  Default = 2.25
+	 *  formula: ExperienceRequiredFactor * ((FMath::TruncToFloat((FMath::Pow(CurLevel + FMath::FloorToInt(Level / 5.0f), ExperienceRequiredExponent) * 10.0f) + (CurLevel * 5)) * 100.0f) + 1200.0f) \
+	 *  For levels 11+ Additional xp required = normal formula for lower level + ((level - 10)^(1 + (0.1 *(level - 11))))
+	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
-		float ExperienceRequiredExponent = 2.2f;
+		float ExperienceRequiredExponent = 2.25f;
 
 	/** Whether goods gathered from clicking crops count towards harvest counts. 
 	 *  Default = false.  */
