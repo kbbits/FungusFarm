@@ -5,10 +5,20 @@
 #include "Engine/World.h"
 #include "FFGameMode.h"
 
-AFFPlayerControllerBase::AFFPlayerControllerBase(const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer)
+//AFFPlayerControllerBase::AFFPlayerControllerBase(const FObjectInitializer& ObjectInitializer)
+//	: Super(ObjectInitializer)
+//{
+//	GameplayGoalsManager = ObjectInitializer.CreateDefaultSubobject<UActorGoalsComponent>(this, TEXT("GameplayGoalsManager"));
+//}
+
+
+AFFPlayerControllerBase::AFFPlayerControllerBase()
+	: Super()
 {
-	GameplayGoalsManager = ObjectInitializer.CreateDefaultSubobject<UActorGoalsComponent>(this, TEXT("GameplayGoalsManager"));
+	GameplayGoalsManager = CreateDefaultSubobject<UActorGoalsComponent>(TEXT("GameplayGoalsManager"));
+	if (GameplayGoalsManager) {
+		AddOwnedComponent(GameplayGoalsManager);
+	}
 }
 
 

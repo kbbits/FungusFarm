@@ -19,23 +19,6 @@ enum class EModifiableAttributeDisplayType : uint8
 	Boolean		UMETA(DisplayName = "Boolean")
 };
 
-/* 
-	Different types of available attributes.  If we need more attribute types, add them here.
-*/
-/*
-UENUM(BlueprintType)
-enum class EModifiableAttributeType : uint8
-{
-	GrowthRate			UMETA(DisplayName = "Growth Rate"),
-	HarvestAmount 		UMETA(DisplayName = "Harvest Amount"),
-	HarvestBonusChance	UMETA(DisplayName = "Harvest Bonus Chance"),
-	HarvestBonusAmount	UMETA(DisplayName = "Harvest Bonus Amount"),
-	AllowAutoHarvest	UMETA(DisplayName = "Allow Auto-Harvest"),
-	AllowAutoReplant	UMETA(DisplayName = "Allow Auto-Replant"),
-	Temperature			UMETA(DisplayName = "Temperature"),
-	Moisture			UMETA(DisplayName = "Moisture")
-};
-*/
 
 USTRUCT(BlueprintType)
 struct FModifier 
@@ -142,7 +125,7 @@ public:
 
 /*
 	Named sets of modifiers that are stored and added to in-game objects that will apply modifiers to others.
-	Lists of these are intented to be kept in a DataTable and will describe the modifier affects available for use in-game.
+	Lists of these are intented to be kept in a DataTable and will describe the modifier effects available for use in-game.
 	Ex: a CropPlotMod would have one of these which describes the modifers applied when the CropPlotMod is added to a CropPlot.
 */
 USTRUCT(BlueprintType)

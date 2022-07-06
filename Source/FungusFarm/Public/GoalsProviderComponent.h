@@ -43,7 +43,7 @@ public:
 	// Rows in table must be either:
 	//   FGameplayGoal - to use specific goals with this provider.
 	// or
-	//   FGameplayGoalTemplate - to geneate templated goals.
+	//   FGameplayGoalTemplate - to generate templated goals.
 	UPROPERTY(EditAnywhere, Category = "Gameplay Goals")
 		UDataTable* GoalsData;
 

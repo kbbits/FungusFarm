@@ -4,8 +4,8 @@
 #include "FFPlayerState.h"
 #include "FFGameMode.h"
 
-AFFPlayerState::AFFPlayerState(const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer)
+AFFPlayerState::AFFPlayerState()
+	: Super()
 {
 	PlayerProperties.ExperienceLevel = 1;
 	PlayerProperties.ExperiencePoints = 0.0f;

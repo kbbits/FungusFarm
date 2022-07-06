@@ -19,7 +19,8 @@ class FUNGUSFARM_API AFFPlayerControllerBase : public APlayerController, public 
 	GENERATED_BODY()
 
 public:
-	AFFPlayerControllerBase(const FObjectInitializer& ObjectInitializer);
+	//AFFPlayerControllerBase(const FObjectInitializer& ObjectInitializer);
+	AFFPlayerControllerBase();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Gameplay Goals")
 		UActorGoalsComponent* GameplayGoalsManager = nullptr;

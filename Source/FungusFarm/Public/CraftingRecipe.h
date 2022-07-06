@@ -35,7 +35,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FName> RecipeRequirements;
 
-	// Goods required to craft one of instance of this recipe
+	// Goods required to craft one instance of this recipe
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		TArray<FGoodsQuantity> CraftingInputs;
 

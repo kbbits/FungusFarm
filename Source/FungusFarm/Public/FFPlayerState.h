@@ -28,7 +28,7 @@ class FUNGUSFARM_API AFFPlayerState : public APlayerState
 	GENERATED_BODY()
 
 public:
-	AFFPlayerState(const FObjectInitializer& ObjectInitializer);
+	AFFPlayerState();
 
 	UPROPERTY(BlueprintAssignable, Category = "EventDispatchers")
 		FOnExperienceChanged OnExperienceChanged;

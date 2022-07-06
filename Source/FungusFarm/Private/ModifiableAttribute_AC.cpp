@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "ModifiableAttribute_AC.h"
+#include "FFStaticLibrary.h"
 
 // Sets default values for this component's properties
 UModifiableAttribute_AC::UModifiableAttribute_AC()

@@ -8,17 +8,20 @@
 #include "GameplayGoalProviderTemplate.h"
 
 
-AFFGameMode::AFFGameMode(const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer)
+AFFGameMode::AFFGameMode()
+	: Super()
 {
 	PlayerStateClass = AFFPlayerState::StaticClass();
 	ProviderPropertiesTableName = FString("GoalProviderProperties");
 	ProviderGoalsTablePrefix = FString("SecondaryGoals");
 	UnpausedTimeAtLastSave = 0.0f;
 
-	GameplayGoalsProvider = ObjectInitializer.CreateDefaultSubobject<UGoalsProviderComponent>(this, TEXT("GoalsProvider"));
-	AddOwnedComponent(GameplayGoalsProvider);
-	//GameplayGoalsProvider->RegisterComponent();
+	GameplayGoalsProvider = CreateDefaultSubobject<UGoalsProviderComponent>(TEXT("GoalsProvider"));
+	if (GameplayGoalsProvider) {
+		AddOwnedComponent(GameplayGoalsProvider);
+	} else {
+		UE_LOG(LogFFGame, Error, TEXT("FFGameMode errror constructing Goals Provider"));
+	}
 	UE_LOG(LogFFGame, Verbose, TEXT("FFGameMode constructed Goals Provider %s"), (GameplayGoalsProvider == nullptr ? TEXT("INVALID") : TEXT("VALID")));
 }
 
@@ -114,8 +117,7 @@ UDataTable * AFFGameMode::GetGoalProviderData(const FName ProviderUniqueName)
 
 	// Lookup provider goal data in data table and apply them to component
 	UObject* DataObj = StaticLoadObject(UDataTable::StaticClass(), this, *GoalsDataPath);
-	if (!DataObj)
-	{
+	if (!DataObj) {
 		UE_LOG(LogFFGame, Error, TEXT("%s GetGoalProviderData unknown goal data table: %s"), *GetNameSafe(this), *GoalsDataPath);
 	}
 	return DataObj ? Cast<UDataTable>(DataObj) : nullptr;
@@ -125,8 +127,7 @@ UDataTable * AFFGameMode::GetGoalProviderData(const FName ProviderUniqueName)
 FGameplayGoal AFFGameMode::GetGoalData(const FName ProviderUniqueName, const FName GoalName)
 {
 	UDataTable* GoalsData = GetGoalProviderData(ProviderUniqueName);
-	if (GoalsData)
-	{
+	if (GoalsData) {
 		return *GoalsData->FindRow<FGameplayGoal>(GoalName, TEXT("GetGoalData"), false);
 	}
 	else
@@ -142,8 +143,7 @@ UGoalsProviderComponent * AFFGameMode::GetGoalProviderComponentByUniqueName(cons
 	TArray<UGoalsProviderComponent*> AllProviders = GetAllGoalProviders();
 	for (UGoalsProviderComponent* Provider : AllProviders)
 	{
-		if (Provider->GetGameplayGoalProviderUniqueName() == ProviderUniqueName)
-		{
+		if (Provider->GetGameplayGoalProviderUniqueName() == ProviderUniqueName) {
 			return Provider;
 		}
 	}
@@ -161,8 +161,7 @@ UGoalsProviderComponent * AFFGameMode::GetGoalProviderForActiveGoal(const FGamep
 	TArray<UGoalsProviderComponent*> AllProviders =  GetAllGoalProviders();
 	for (UGoalsProviderComponent* Provider : AllProviders)
 	{
-		if (Provider->GetGoalProviderGuid() == Goal.ProviderGuid)
-		{
+		if (Provider->GetGoalProviderGuid() == Goal.ProviderGuid) {
 			return Provider;
 		}
 	}
@@ -174,16 +173,14 @@ UGoalsProviderComponent* AFFGameMode::AddSecondaryGoalProvider(const FName Provi
 {
 	// If we already have this provider, just return the existing one.
 	UGoalsProviderComponent* ExistingProvider = GetGoalProviderComponentByUniqueName(ProviderUniqueName);
-	if (ExistingProvider)
-	{
+	if (ExistingProvider) {
 		return ExistingProvider;
 	}
 
 	// Lookup provider properties in data table
 	FString ProviderPropertiesPath("/Game/FungusFarm/Data/" + ProviderPropertiesTableName + "." + ProviderPropertiesTableName);
 	UObject* PropertiesObj = StaticLoadObject(UDataTable::StaticClass(), this, *ProviderPropertiesPath);
-	if (!PropertiesObj)
-	{
+	if (!PropertiesObj) {
 		UE_LOG(LogFFGame, Warning, TEXT("%s AddSecondaryGoalProvider unknown goal provider properties data table: %s"), *GetNameSafe(this), *ProviderPropertiesPath);
 	}
 	UDataTable* ProviderPropertiesTable = PropertiesObj ? Cast<UDataTable>(PropertiesObj) : nullptr;
@@ -258,8 +255,7 @@ TArray<UGoalsProviderComponent*> AFFGameMode::GetAllSecondaryGoalProviders()
 	TArray<UGoalsProviderComponent*> SecondaryComps;
 	for (UGoalsProviderComponent* CurComp : AllProviderComps)
 	{
-		if (CurComp != GameplayGoalsProvider)
-		{
+		if (CurComp != GameplayGoalsProvider) {
 			SecondaryComps.Add(CurComp);
 		}
 	}
@@ -269,14 +265,13 @@ TArray<UGoalsProviderComponent*> AFFGameMode::GetAllSecondaryGoalProviders()
 
 float AFFGameMode::GetExperienceRequiredForLevel(const int32 Level)
 {
-	// TODO: implement a data-based approach for this.  For now just using a set scale.
+	// TODO: implement a data-based approach for this?  For now just using a formula.
 	const float CurLevel = static_cast<float>(Level) - 1;
 	if (CurLevel <= 0) { return 0; }
 	// https://www.desmos.com/calculator/luj0qz9dn6
 	float BaseRequired = (FMath::TruncToFloat((FMath::Pow(CurLevel + FMath::FloorToInt(Level / 5.0f), GetGlobalExperienceRequiredExponent()) * 10.0f) + (CurLevel * 5)) * 100.0f) + 1200.0f;
-	// Levels above 10 are require more xp
-	if (Level > 10) 
-	{
+	// Levels above 10 require more xp
+	if (Level > 10) {
 		BaseRequired += FMath::TruncToFloat(FMath::Pow(Level - 10, 1 + (0.02 * (Level - 11)))) * 10000.0f;
 	}
 	return BaseRequired * GetGlobalExperienceRequiredFactor();
@@ -318,8 +313,7 @@ bool AFFGameMode::SaveGameProfile(const FString ProfileName)
 			// Create a new profile
 			UE_LOG(LogFFGame, Log, TEXT("    Creating new save profile"));
 			CurrentSaveProfile = NewObject<USaveProfile>(this, USaveProfile::StaticClass());
-			if (ValidatedProfileName.Len() == 0)
-			{
+			if (ValidatedProfileName.Len() == 0) {
 				ValidatedProfileName = FString::Printf(TEXT("Profile %d"), SaveSlotId);
 			}
 		}
@@ -327,8 +321,7 @@ bool AFFGameMode::SaveGameProfile(const FString ProfileName)
 	// Save the proflie data
 	if (CurrentSaveProfile)
 	{
-		if (ValidatedProfileName.Len() > 0) 
-		{ 
+		if (ValidatedProfileName.Len() > 0) { 
 			CurrentSaveProfile->ProfileName = ProfileName; 
 		}
 		CurrentSaveProfile->SaveSlotId = SaveSlotId;
@@ -337,8 +330,7 @@ bool AFFGameMode::SaveGameProfile(const FString ProfileName)
 		CurrentSaveProfile->PlayerProperties = PState->PlayerProperties;
 		CurrentSaveProfile->PlayTime += GetUnpausedTimeSinceLastSave();
 		CurrentSaveProfile->SecondaryGoalProviders.Empty(AllSecondaries.Num());
-		for (UGoalsProviderComponent* GoalComp : AllSecondaries)
-		{
+		for (UGoalsProviderComponent* GoalComp : AllSecondaries) {
 			CurrentSaveProfile->SecondaryGoalProviders.Add(GoalComp->UniqueName);
 		}
 		if (!UGameplayStatics::SaveGameToSlot(CurrentSaveProfile, GetSaveProfileFilename(SaveSlotId), 0))
@@ -466,8 +458,7 @@ bool AFFGameMode::DeleteGameProfile(const int32 SlotId)
 		bSuccess = UGameplayStatics::DeleteGameInSlot(GetSaveProfileFilename(SlotId), 0);
 		UGameInstance* GInstance = GetGameInstance();
 		USaveManager* SaveManager = GInstance->GetSubsystem<USaveManager>();
-		if (SaveManager && bSuccess)
-		{
+		if (SaveManager && bSuccess) {
 			bSuccess = SaveManager->DeleteSlotById(SlotId);
 		}
 	}

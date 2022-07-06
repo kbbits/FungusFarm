@@ -35,12 +35,6 @@ bool FFFindSlotVisitor::Visit(const TCHAR* FilenameOrDirectory, bool bIsDirector
 }
 
 
-UFFStaticLibrary::UFFStaticLibrary(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
-{
-
-}
-
-
 void UFFStaticLibrary::SumModifiers(const TArray<FModifier>& ModsToSum, float& ScalarTotal, float& MultiplierTotal)
 {
 	ScalarTotal = 0;

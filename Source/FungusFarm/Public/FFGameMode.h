@@ -22,7 +22,7 @@ class FUNGUSFARM_API AFFGameMode : public AGameMode, public ISaveExtensionInterf
 	GENERATED_BODY()
 
 public:
-	AFFGameMode(const FObjectInitializer& ObjectInitializer);
+	AFFGameMode();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "Components")
 		UGoalsProviderComponent* GameplayGoalsProvider = nullptr;
