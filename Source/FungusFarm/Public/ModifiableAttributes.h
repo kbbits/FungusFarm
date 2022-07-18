@@ -21,7 +21,7 @@ enum class EModifiableAttributeDisplayType : uint8
 
 
 USTRUCT(BlueprintType)
-struct FModifier 
+struct FModifier
 {
 	GENERATED_BODY()
 
@@ -32,7 +32,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		float Value;
 
-	FModifier() 
+	FModifier()
 	{
 		Type = EModifierType::Multiplier;
 		Value = 0.0f;

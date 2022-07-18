@@ -68,7 +68,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FName Name;
 
-	/** Name displayed to use for this game type. */
+	/** Name displayed to user for this game type. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 		FText DisplayName;
 
