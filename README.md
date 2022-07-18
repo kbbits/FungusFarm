@@ -1,7 +1,9 @@
 # Fungus Farm
 UnrealEngine 4.25
 
-Crafting / Clicker - grow crops, produce products in workshop crafting devices.<br>
+## For more complete documentation see: [Overview](https://deepthoughtgaming.com/fungus-farm/) and [Tech Notes](https://deepthoughtgaming.com/fungus-farm/fungus-farm-tech-notes)
+
+Crafting / Clickeresque - grow crops, produce products in workshop crafting devices.<br>
 7 types of fungal crops, 8 types of workshop equipment<br>
 70+ craftable recipes, 80+ goods to produce and collect, 16 craftable equipment mods<br>
 120+ scripted narrative goals over 10+ hours of gameplay.<br>
